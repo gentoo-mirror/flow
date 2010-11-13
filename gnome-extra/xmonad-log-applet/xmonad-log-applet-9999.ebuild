@@ -45,7 +45,6 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}"  install || die "Install failed"
 	dodoc "${FILESDIR}"/xmonad.hs
-	
 }
 
 pkg_postinst() {
