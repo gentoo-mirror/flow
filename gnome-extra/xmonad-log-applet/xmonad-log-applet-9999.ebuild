@@ -18,9 +18,9 @@ IUSE=""
 RDEPEND="sys-apps/dbus
 	gnome-base/gnome-panel
 	dev-libs/glib:2
+	>=dev-haskell/hdbus-0.4
 	x11-libs/gtk+:2"
-DEPEND="${RDEPEND}
-	dev-haskell/cabal-install"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}/Makefile.in.patch"
