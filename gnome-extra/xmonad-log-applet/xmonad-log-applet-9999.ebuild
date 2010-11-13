@@ -16,11 +16,11 @@ SLOT="0"
 IUSE=""
 
 RDEPEND="sys-apps/dbus
-	dev-haskell/cabal-install
 	gnome-base/gnome-panel
 	dev-libs/glib:2
 	x11-libs/gtk+:2"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-haskell/cabal-install"
 
 src_prepare() {
 	epatch "${FILESDIR}/Makefile.in.patch"
@@ -36,5 +36,5 @@ pkg_postinst() {
 	elog "a sample xmonad.hs is provided in /usr/share/doc/${PF}"
 	elog "You need to install the haskell-dbus package via cabal:"
 	elog "cabal update"
-	elog "cabal install dbus"
+	elog "cabal --global install dbus"
 }
