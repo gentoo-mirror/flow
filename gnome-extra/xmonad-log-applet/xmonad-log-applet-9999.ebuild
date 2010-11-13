@@ -3,12 +3,13 @@
 # $Header: $
 
 EAPI=3
-inherit git gnome2 flag-o-matic
+inherit gnome2 git flag-o-matic
 
 DESCRIPTION="Gnome applet for displaying XMonad log"
 HOMEPAGE="http://uhsure.com/xmonad-log-applet.html"
 SRC_URI=""
 EGIT_REPO_URI="http://git.uhsure.com/xmonad-log-applet.git"
+EGIT_BOOTSTRAP="gnome2_src_prepare"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -23,22 +24,6 @@ DEPEND="${RDEPEND}"
 
 pkg_setup() {
     append-ldflags $(no-as-needed)
-}
-
-src_unpack() {
-	git_src_unpack
-}
-
-src_prepare() {
-	gnome2_src_prepare
-}
-
-src_configure() {
-		econf || die "Configure failed"
-}
-
-src_compile() {
-	      emake || die "Compile failed"
 }
 
 src_install() {
