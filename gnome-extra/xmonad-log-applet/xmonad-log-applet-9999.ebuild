@@ -8,6 +8,7 @@ inherit gnome2 git flag-o-matic eutils
 DESCRIPTION="Gnome applet for displaying XMonad log"
 HOMEPAGE="http://uhsure.com/xmonad-log-applet.html"
 SRC_URI=""
+LICENSE="BSD"
 EGIT_REPO_URI="http://git.uhsure.com/xmonad-log-applet.git"
 EGIT_BOOTSTRAP="gnome2_src_prepare"
 
