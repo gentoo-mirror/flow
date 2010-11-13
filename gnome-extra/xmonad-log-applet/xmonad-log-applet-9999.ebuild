@@ -44,4 +44,11 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}"  install || die "Install failed"
+	dodoc "${FILESDIR}"/xmonad.hs
+	
+}
+
+pkg_postinst() {
+	       elog "Remember to update your xmonad.hs accordingly"
+	       elog "a sample xmonad.hs is provided in the doc dir"
 }
