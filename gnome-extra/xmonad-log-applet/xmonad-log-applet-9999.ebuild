@@ -3,12 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit eutils git gnome2 flag-o-matic
+inherit git gnome2 flag-o-matic
 
 DESCRIPTION="Gnome applet for displaying XMonad log"
 HOMEPAGE="http://uhsure.com/xmonad-log-applet.html"
 SRC_URI=""
-EGIT_BRANCH="master"
 EGIT_REPO_URI="http://git.uhsure.com/xmonad-log-applet.git"
 
 SLOT="0"
@@ -44,7 +43,7 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}"  install || die "Install failed"
-	dodoc "${FILESDIR}"/xmonad.hs
+	dodoc "${FILESDIR}"/xmonad.hs || die
 }
 
 pkg_postinst() {
