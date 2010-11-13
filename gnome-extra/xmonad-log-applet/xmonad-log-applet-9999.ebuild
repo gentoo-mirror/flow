@@ -12,22 +12,17 @@ EGIT_REPO_URI="http://git.uhsure.com/xmonad-log-applet.git"
 EGIT_BOOTSTRAP="gnome2_src_prepare"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=sys-apps/dbus-1.2
+RDEPEND="sys-apps/dbus
 	dev-haskell/cabal-install
-	>=gnome-base/gnome-panel-2
-	>=dev-libs/glib-2.16
-	>=x11-libs/gtk+-2.10"
+	gnome-base/gnome-panel
+	dev-libs/glib:2
+	x11-libs/gtk+:2"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	      epatch "${FILESDIR}/Makefile.in.patch"
-}
-
-pkg_setup() {
-    append-ldflags $(no-as-needed)
+	epatch "${FILESDIR}/Makefile.in.patch"
 }
 
 src_install() {
@@ -36,9 +31,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	       elog "Remember to update your xmonad.hs accordingly"
-	       elog "a sample xmonad.hs is provided in the doc dir"
-	       elog "You need to install the haskell-dbus package via cabal"
-	       elog "cabal update"
-	       elog "cabal install dbus"
+	elog "Remember to update your xmonad.hs accordingly"
+	elog "a sample xmonad.hs is provided in /usr/share/doc/${PF}"
+	elog "You need to install the haskell-dbus package via cabal:"
+	elog "cabal update"
+	elog "cabal install dbus"
 }
