@@ -3,18 +3,19 @@
 
 inherit eutils
 
-DESCRIPTION="Pdfgrep is a tool to search text in PDF files. It works similar to grep."
+DESCRIPTION="Pdfgrep is a tool to search text in PDF files. It works similar to grep"
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~alpha amd64 ~arm ~ia64 ppc ~ppc64 ~s390 ~sh ~sparc x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="app-text/poppler"
+	RDEPEND="${DEPEND}"
 
 src_install() {
-	dodoc README AUTHORS NEWS
+	dodoc README AUTHORS NEWS || die 
 	emake DESTDIR="${D}" install || die "emake install failed."
 }
