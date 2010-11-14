@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gqview/gqview-2.1.5.ebuild,v 1.2 2008/09/02 04:22:03 mr_bones_ Exp $
+# $Header: $
 
 DESCRIPTION="Grep for PDF files"
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
