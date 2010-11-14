@@ -3,7 +3,7 @@
 
 inherit eutils
 
-DESCRIPTION="Pdfgrep is a tool to search text in PDF files. It works similar to grep"
+DESCRIPTION="A tool similar to grep which searches text in PDFs"
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
