@@ -4,7 +4,7 @@
 
 inherit eutils
 
-DESCRIPTION="grep in pdf files"
+DESCRIPTION="Grep for PDF files"
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
 SRC_URI="mirror://sourceforge/project/${PN}/${PV}/${P}.tar.gz"
 
@@ -16,5 +16,5 @@ RDEPEND="app-text/poppler"
 DEPEND="${RDEPEND}"
 
 src_install() {
-	      emake DESTDIR="${D}" install || die "emake install failed"
+	emake DESTDIR="${D}" install || die "Install failed"
 }
