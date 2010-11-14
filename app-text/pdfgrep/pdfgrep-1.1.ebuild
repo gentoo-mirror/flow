@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="app-text/poppler"
-	RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}"
 
 src_install() {
 	dodoc README AUTHORS NEWS || die 
