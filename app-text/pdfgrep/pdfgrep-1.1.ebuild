@@ -1,18 +1,21 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-DESCRIPTION="Grep for PDF files"
+inherit eutils
+
+DESCRIPTION="Pdfgrep is a tool to search text in PDF files. It works similar to grep."
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
-SRC_URI="mirror://sourceforge/project/${PN}/${PV}/${P}.tar.gz"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
-LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86"
+LICENSE="GPL-2"
+KEYWORDS="amd64 arm ppc s390 sh ~sparc x86 ~x86-fbsd"
+IUSE=""
 
-RDEPEND="app-text/poppler"
-DEPEND="${RDEPEND}"
+DEPEND="app-text/poppler"
 
 src_install() {
-	emake DESTDIR="${D}" install || die "Install failed"
+	      dodoc README AUTHORS NEWS
+	      emake DESTDIR="${D}" install || die "emake install failed."
 }
+
