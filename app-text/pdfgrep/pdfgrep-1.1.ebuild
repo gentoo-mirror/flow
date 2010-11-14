@@ -16,6 +16,6 @@ DEPEND="app-text/poppler"
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dodoc README AUTHORS NEWS || die 
-	emake DESTDIR="${D}" install || die "emake install failed."
+	use doc && dodoc README AUTHORS NEWS || die 
+	emake DESTDIR="${D}" install || die 
 }
