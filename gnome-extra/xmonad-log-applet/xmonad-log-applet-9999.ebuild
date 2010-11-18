@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=3
-inherit gnome2 git flag-o-matic eutils
+inherit gnome2 git eutils
 
 DESCRIPTION="Gnome applet for displaying XMonad log"
 HOMEPAGE="http://uhsure.com/xmonad-log-applet.html"
@@ -18,7 +18,7 @@ IUSE=""
 RDEPEND="sys-apps/dbus
 	gnome-base/gnome-panel
 	dev-libs/glib:2
-	>=dev-haskell/hdbus-0.4
+	dev-haskell/hdbus
 	x11-libs/gtk+:2"
 DEPEND="${RDEPEND}"
 
@@ -34,7 +34,4 @@ src_install() {
 pkg_postinst() {
 	elog "Remember to update your xmonad.hs accordingly"
 	elog "a sample xmonad.hs is provided in /usr/share/doc/${PF}"
-	elog "You need to install the haskell-dbus package via cabal:"
-	elog "cabal update"
-	elog "cabal --global install dbus"
 }
