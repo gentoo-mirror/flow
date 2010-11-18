@@ -13,11 +13,11 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="debug"
 
-RDEPEND=">=gnome-base/nautilus-2.16
-	>=dev-libs/glib-2.14
+RDEPEND="gnome-base/nautilus
+	dev-libs/glib:2
 	dev-python/pygtk
-	>=x11-libs/gtk+-2.12
-	>=x11-libs/libnotify-0.4.4"
+	x11-libs/gtk+:2
+	x11-libs/libnotify"
 
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
@@ -27,25 +27,25 @@ DOCS="AUTHORS ChangeLog NEWS README"
 G2CONF="${G2CONF} $(use_enable debug)"
 
 pkg_setup () {
-	  enewgroup dropbox
+	enewgroup dropbox
 }
 
 src_install () {
-	    gnome2_src_install
+	gnome2_src_install
 
-	    local extensiondir="$(pkg-config --variable=extensiondir libnautilus-extension)"
-	    fowners root:dropbox "${extensiondir}"/libnautilus-dropbox.{a,la,so}
-	    fperms o-rwx "${extensiondir}"/libnautilus-dropbox.{a,la,so}
+	local extensiondir="$(pkg-config --variable=extensiondir libnautilus-extension)"
+	fowners root:dropbox "${extensiondir}"/libnautilus-dropbox.{a,la,so}
+	fperms o-rwx "${extensiondir}"/libnautilus-dropbox.{a,la,so}
 }
 
 pkg_postinst () {
-	     gnome2_pkg_postinst
+	gnome2_pkg_postinst
 
-	     elog "Add any users who wish to have access to the dropbox nautilus"
-	     elog "plugin to the group 'dropbox'."
-	     elog
-	     elog "If you've installed old version, Remove \${HOME}/.dropbox-dist first."
-	     elog
-	     elog " $ rm -rf \${HOME}/.dropbox-dist"
-	     elog " $ dropbox start -i"
+	elog "Add any users who wish to have access to the dropbox nautilus"
+	elog "plugin to the group 'dropbox'."
+	elog
+	elog "If you've installed old version, Remove \${HOME}/.dropbox-dist first."
+	elog
+	elog " $ rm -rf \${HOME}/.dropbox-dist"
+	elog " $ dropbox start -i"
 }
