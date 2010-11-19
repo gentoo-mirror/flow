@@ -7,7 +7,7 @@ EAPI=2
 inherit gnome2 eutils linux-info
 
 DESCRIPTION="Store, Sync and Share Files Online"
-HOMEPAGE="http://www.getdropbox.com/"
+HOMEPAGE="http://dropbox.com/"
 SRC_URI="http://www.dropbox.com/download?dl=packages/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
@@ -33,15 +33,19 @@ G2CONF="${G2CONF} $(use_enable debug)"
 CONFIG_CHECK="INOTIFY_USER"
 
 pkg_setup () {
-        linux-info_pkg_setup
+	linux-info_pkg_setup
 	enewgroup dropbox
+}
+
+src_configure () {
+	econf --disable-static
 }
 
 src_install () {
 	gnome2_src_install
 
 	local extensiondir="$(pkg-config --variable=extensiondir libnautilus-extension)"
-        [ -z ${extensiondir} ] && die "pkg-config was unable to get nautilus extensions dir"
+	[ -z ${extensiondir} ] && die "pkg-config was unable to get nautilus extensions dir"
 
 	find "${D}" -name '*.la' -exec rm -f {} + || die
 
