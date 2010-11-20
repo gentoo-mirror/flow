@@ -49,8 +49,8 @@ src_install () {
 
 	find "${D}" -name '*.la' -exec rm -f {} + || die
 
-	fowners root:dropbox "${extensiondir}"/libnautilus-dropbox.{a,so} || die
-	fperms o-rwx "${extensiondir}"/libnautilus-dropbox.{a,so} || die
+	fowners root:dropbox "${extensiondir}"/libnautilus-dropbox.so || die
+	fperms o-rwx "${extensiondir}"/libnautilus-dropbox.so || die
 }
 
 pkg_postinst () {
