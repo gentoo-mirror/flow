@@ -28,17 +28,13 @@ DEPEND="${RDEPEND}
 
 DOCS="AUTHORS ChangeLog NEWS README"
 
-G2CONF="${G2CONF} $(use_enable debug)"
+G2CONF="${G2CONF} $(use_enable debug) --disable-static"
 
 CONFIG_CHECK="INOTIFY_USER"
 
 pkg_setup () {
 	linux-info_pkg_setup
 	enewgroup dropbox
-}
-
-src_configure () {
-	econf --disable-static
 }
 
 src_install () {
