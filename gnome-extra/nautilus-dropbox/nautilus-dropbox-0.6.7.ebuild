@@ -33,7 +33,7 @@ G2CONF="${G2CONF} $(use_enable debug) --disable-static"
 CONFIG_CHECK="INOTIFY_USER"
 
 pkg_setup () {
-	linux-info_pkg_setup
+	check_extra_config
 	enewgroup dropbox
 }
 
