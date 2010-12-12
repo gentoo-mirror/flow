@@ -1,0 +1,2 @@
+# Brother DCP-185C
+ATTRS{idVendor}=="04f9", ATTRS{idProduct}=="0205", MODE="0664", GROUP="scanner", ENV{libsane_matched}="yes"

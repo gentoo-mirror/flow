@@ -20,20 +20,23 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	     unpack ${A}
-	     unpack ./data.tar.gz 
-	     rm -f data.tar.gz
+	unpack ${A}
+	unpack ./data.tar.gz 
+	rm -f data.tar.gz
 } 
 
 
 src_install() {
-      cp -pPR * "${D}"/ || die "installing data failed" 
+	cp -pPR * "${D}"/ || die "Installing files failed" 
+	insinto /etc/udev/rules.d || die "Insinto failed"
+	doins ${FILESDIR}/71-brother-brscan3-libsane.rules || die "Inserting udev rule failed"
 }
 
 pkg_postinst() {
-	       ${ROOT}/usr/local/Brother/sane/setupSaneScan3 -i
+	${ROOT}/usr/local/Brother/sane/setupSaneScan3 -i
+	elog "You need to be in the scanner group in order to use the scanner"
 }
 
 pkg_prerm() {
-	    ${ROOT}/usr/local/Brother/sane/setupSaneScan3 -e
+	${ROOT}/usr/local/Brother/sane/setupSaneScan3 -e
 }
