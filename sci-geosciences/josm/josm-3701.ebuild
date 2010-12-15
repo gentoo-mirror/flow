@@ -31,5 +31,5 @@ src_install() {
 	java-pkg_dolauncher "${PN}" --jar "${PN}.jar" || die "java-pkg_dolauncher failed"
 
 	newicon images/logo.png josm.png || die "newicon failed"
-	make_desktop_entry "${PN}" "Java OpenStreetMap Editor" josm "Application"
+	make_desktop_entry "${PN}" "Java OpenStreetMap Editor" josm "Science;Geoscience"
 }
