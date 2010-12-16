@@ -28,8 +28,6 @@ src_unpack() {
 
 src_install() {
 	cp -pPR * "${D}"/ || die "Installing files failed" 
-	insinto /etc/udev/rules.d || die "Insinto failed"
-	doins ${FILESDIR}/71-brother-brscan3-libsane.rules || die "Inserting udev rule failed"
 }
 
 pkg_postinst() {
