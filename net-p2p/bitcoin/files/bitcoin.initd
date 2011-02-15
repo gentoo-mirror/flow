@@ -52,7 +52,7 @@ stop() {
 	ebegin "Stopping Bitcoin daemon"
 	start-stop-daemon --stop --user "${BITCOIN_USER}" \
 	--name bitcoind --pidfile /var/run/bitcoind.pid \
-	--wait 2000 \
+	--wait 10000 \
 	--progress
 	eend $?
 }
