@@ -30,7 +30,6 @@ checkconfig() {
 }
 
 start() {
-	#checkconfig || return $?
 	checkconfig || return 1
 	ebegin "Starting Bitcoin daemon"
 	if test -z "${BITCOIN_OPTS}"; then
