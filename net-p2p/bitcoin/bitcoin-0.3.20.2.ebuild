@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/bitcoin/${P}-linux.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="+daemon gui nls sse2"
 
 DEPEND="gui? ( x11-libs/wxGTK:2.9[X] 
@@ -25,7 +25,7 @@ DEPEND="gui? ( x11-libs/wxGTK:2.9[X]
 	dev-libs/boost
 	sys-libs/db:4.8"
 RDEPEND="${DEPEND}
-	sys-apps/openrc"
+	dev-util/pkgconfig"
 
 # Version 0.3.20.01 provides a tarball with 0.3.20
 S="${WORKDIR}/${PN}-$(get_version_component_range 1-3)"

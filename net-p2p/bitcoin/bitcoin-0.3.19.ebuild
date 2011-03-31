@@ -25,7 +25,7 @@ DEPEND="gui? ( x11-libs/wxGTK:2.9[X]
 	dev-libs/boost
 	sys-libs/db:4.8"
 RDEPEND="${DEPEND}
-	sys-apps/openrc"
+	dev-utils/pkgconfig"
 
 pkg_setup() {
 	# Used by daemon, not needed by gui.
