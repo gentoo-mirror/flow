@@ -27,7 +27,7 @@ src_compile() {
 }
 
 src_install() {
-	java-pkg_newjar "dist/${PN}-custom.jar" || die "java-pkg_newjar failed"
+	java-pkg_newjar "dist/${PN}.jar" || die "java-pkg_newjar failed"
 	java-pkg_dolauncher "${PN}" --jar "${PN}.jar" || die "java-pkg_dolauncher failed"
 
 	newicon images/logo.png josm.png || die "newicon failed"

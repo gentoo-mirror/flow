@@ -4,22 +4,31 @@
 
 EAPI="3"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit eutils java-pkg-2 java-ant-2 subversion
 
 DESCRIPTION="Java-based editor for the OpenStreetMap project"
 HOMEPAGE="http://josm.openstreetmap.de/"
-SRC_URI="http://josm.fabian-fingerle.de/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
+
+ESVN_REPO_URI="http://josm.openstreetmap.de/svn/trunk"
 
 KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=virtual/jdk-1.6"
 RDEPEND=">=virtual/jre-1.6"
 
-S="${WORKDIR}/${PN}"
-
 IUSE=""
+
+src_unpack() {
+	subversion_src_unpack
+}
+
+src_prepare() {
+	# create-revision needs the compile directory to be a svn directory
+	# see also http://lists.openstreetmap.org/pipermail/dev/2009-March/014182.html
+	sed -i "s:arg[ ]value=\".\":arg value=\"${ESVN_STORE_DIR}\/${PN}\/trunk\":" build.xml || die "Sed failed"
+}
 
 src_compile() {
 	JAVA_ANT_ENCODING=UTF-8
