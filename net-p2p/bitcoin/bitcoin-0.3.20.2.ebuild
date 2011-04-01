@@ -27,8 +27,8 @@ DEPEND="gui? ( x11-libs/wxGTK:2.9[X]
 RDEPEND="${DEPEND}
 	dev-util/pkgconfig"
 
-# Version 0.3.20.01 provides a tarball with 0.3.20
-S="${WORKDIR}/${PN}-$(get_version_component_range 1-3)"
+# Version 0.3.20.02 provides a tarball with 0.3.20.2
+S="${WORKDIR}/${PN}-${PV}"
 
 pkg_setup() {
 	# Used by daemon, not needed by gui.
@@ -41,8 +41,11 @@ pkg_setup() {
 
 
 src_prepare() {
+     	# Create missing directories
+	mkdir -p ${S}/src/obj/nogui || die "mkdir failed"
+
 	# Copy our Makefile
-	cp "${FILESDIR}/Makefile.gentoo" "${S}/src/Makefile"
+	cp "${FILESDIR}/Makefile.gentoo" "${S}/src/Makefile" || die "Makefile copy failed"
 	# Replace the berkdb cflags with the ones on our system.
 	einfo "Berkeley DB: "
 	sed -i -e "s:@@GENTOO_DB_INCLUDEDIR@@:$(db_includedir):g" \
