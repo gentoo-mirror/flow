@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 DEPEND="net-print/cups"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-text/a2ps"
 
 src_unpack () {
 	   rpm_src_unpack ${A}
