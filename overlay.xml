@@ -2,7 +2,7 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name>Flow Ebuilds</name>
+    <name>flow</name>
     <description>Some ebuilds from me</description>
     <homepage>https://gitorious.org/flow-s-ebuilds</homepage>
     <owner>
