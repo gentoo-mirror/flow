@@ -55,7 +55,7 @@ src_compile() {
 
 src_install() {
 	cd "${S}"/${PN} || die
-	sed -e '/sudo service udev reload/d' -i Makefile \
+	sed -e '/sudo service udev restart/d' -i Makefile \
 		|| die "Couldn't patch Makefile"
 	emake DESTDIR="${D}" install || die "install failed"
 	if use qt4 ; then
