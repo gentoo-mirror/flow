@@ -49,8 +49,7 @@ src_compile() {
 
 src_install() {
     cd heimdall
-    sed '/sudo service udev reload/d' Makefile > Makefile.new || die "Couldn't patch Makefile"
-    mv Makefile.new Makefile
+	sed -i '/sudo service udev restart/d' Makefile
     emake DESTDIR="${D}" install || die "install failed"
     cd ..
     if use frontend; then
