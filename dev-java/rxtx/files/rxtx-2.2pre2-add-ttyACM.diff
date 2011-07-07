@@ -1,0 +1,10 @@
+--- a/src/gnu/io/RXTXCommDriver.java	2011-07-06 18:03:42.790076135 +0200
++++ b/src/gnu/io/RXTXCommDriver.java	2011-07-06 18:04:41.770050623 +0200
+@@ -574,6 +574,7 @@
+ 					if(osName.equals("Linux"))
+ 					{
+ 						String[] Temp = {
++						"ttyACM" // linux USB Modems
+ 						"ttyS", // linux Serial Ports
+ 						"ttySA", // for the IPAQs
+ 						"ttyUSB", // for USB frobs
