@@ -7,14 +7,14 @@ EAPI=4
 inherit eutils
 
 #MY_P
-DESCRIPTION="This is a sample skeleton ebuild file"
-HOMEPAGE="http://foo.bar.com/"
-SRC_URI="ftp://foo.bar.com/${P}.tar.gz"
+DESCRIPTION=""
+HOMEPAGE=""
+SRC_URI=""
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~x86"
-IUSE="gnome X"
+KEYWORDS="~x86 ~amd64"
+IUSE=""
 
 # A space delimited list of portage features to restrict. man 5 ebuild
 # for details.  Usually not needed.
