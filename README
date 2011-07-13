@@ -1,2 +1,2 @@
 USE=git emerge layman
-layman -o https://gitorious.org/flow-s-ebuilds/flow-s-ebuilds/blobs/raw/master/overlay.xml -f -a flow
+layman -a flow

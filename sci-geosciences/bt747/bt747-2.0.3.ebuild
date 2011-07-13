@@ -19,7 +19,7 @@ SLOT="1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-COMMON_DEP=">=dev-java/rxtx-2.2:2
+COMMON_DEP=">=dev-java/rxtx-2.2_pre2:2
 	dev-java/swing-layout:1
 	dev-java/jcalendar:1.2
 	dev-java/jcharts"
