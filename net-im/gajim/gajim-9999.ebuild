@@ -94,7 +94,6 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 
-	rm "${D}/usr/share/doc/${PF}/"{README.html,COPYING} || die
 	dohtml README.html || die
 }
 
