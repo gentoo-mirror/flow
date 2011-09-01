@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-im/gajim/gajim-0.14.1-r2.ebuild,v 1.8 2011/03/29 12:43:44 jer Exp $
 
-EAPI="2"
+EAPI="3"
 
 PYTHON_DEPEND="2"
 PYTHON_USE_WITH="sqlite xml"
@@ -75,10 +75,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}"/0.14-python-version.patch \
-		"${FILESDIR}"/0.14.1-testing.patch
-	#echo '#!/bin/sh' > config/py-compile
 	./autogen.sh
 }
 
@@ -98,9 +94,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	python_mod_optimize $(python_get_sitedir)/${PN}
+	python_mod_optimize ${PN}
 }
 
 pkg_postrm() {
-	python_mod_cleanup $(python_get_sitedir)/${PN}
+	python_mod_cleanup ${PN}
 }
