@@ -18,7 +18,8 @@ IUSE=""
 
 # A space delimited list of portage features to restrict. man 5 ebuild
 # for details.  Usually not needed.
-#RESTRICT="strip"
+# Add strip here if it's an binary ebuild
+RESTRICT="mirror"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
