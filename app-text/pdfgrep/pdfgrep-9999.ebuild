@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=4
-inherit autotools git
+inherit autotools git-2
 
 DESCRIPTION="A tool similar to grep which searches text in PDFs"
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
