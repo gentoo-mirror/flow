@@ -49,7 +49,7 @@ RDEPEND="${COMMON_DEPEND}
 	jingle? ( net-libs/farsight2[python] )
 	networkmanager? (
 			dev-python/dbus-python
-			|| ( >=net-misc/networkmanager-0.7.1 net-misc/networkmanager[gnome] )
+			net-misc/networkmanager
 		)
 	srv? (
 		|| (
@@ -70,8 +70,8 @@ pkg_setup() {
 			die "USE=\"dbus\" needed for avahi support"
 		fi
 	fi
-	python_pkg_setup
 	python_set_active_version 2
+	python_pkg_setup
 }
 
 src_prepare() {

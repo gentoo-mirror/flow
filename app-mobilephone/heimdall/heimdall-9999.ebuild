@@ -1,6 +1,6 @@
-inherit autotools eutils qt4-r2 git-2
-
 EAPI="2"
+
+inherit autotools eutils qt4-r2 git-2
 
 DESCRIPTION="Heimdall is a cross-platform open-source tool suite used to flash firmware (aka ROMs) onto Samsung Galaxy S devices."
 HOMEPAGE="http://www.glassechidna.com.au/products/heimdall/"
