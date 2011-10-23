@@ -18,7 +18,9 @@ IUSE=""
 RESTRICT="mirror"
 
 DEPEND=""
-RDEPEND="virtual/jre"
+RDEPEND="virtual/jre
+		media-sound/lame
+		virtual/ffmpeg"
 
 INSTALL_BASE="/opt/${PN}"
 
