@@ -47,6 +47,7 @@ src_install() {
 	fowners ${USER_GROUP}:${USER_GROUP} ${SUBSONIC_HOME}
 	
 	newinitd "${FILESDIR}/subsonic.initd" subsonic
+	newconfd "${FILESDIR}/subsonic.confd" subsonic
 
 	dosym ${INSTALL_BASE}/subsonic.sh /opt/bin/subsonic	
 }
