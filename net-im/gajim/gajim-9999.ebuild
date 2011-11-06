@@ -27,6 +27,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40.1
 	dev-util/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
+	dev-python/pygoocanvas
 	dev-python/pyopenssl
 	dev-python/sexy-python
 	crypt? (
@@ -84,7 +85,8 @@ src_configure() {
 		$(use_with X x) \
 		--docdir="/usr/share/doc/${PF}" \
 		--libdir="$(python_get_sitedir)" \
-		--enable-site-packages
+# Enable site packages installs the shiped plugins into the wrong directory
+#		--enable-site-packages
 }
 
 src_install() {
