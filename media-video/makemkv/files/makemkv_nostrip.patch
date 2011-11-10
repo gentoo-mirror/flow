@@ -1,0 +1,11 @@
+--- makefile.linux.orig	2011-11-06 03:41:48.071830223 +0100
++++ makefile.linux	2011-11-06 03:42:49.065829417 +0100
+@@ -33,7 +33,7 @@
+ 	install -t $(DESTDIR)/usr/bin out/makemkv
+ 
+ out/%: out/%.full
+-	objcopy --strip-all --strip-debug --strip-unneeded --discard-all $< $@ 
++	cp $< $@
+ 
+ out/libdriveio.so.0.full:
+ 	mkdir -p out

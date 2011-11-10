@@ -27,6 +27,7 @@ DEPEND="x11-libs/qt-gui
 	x11-libs/qt-dbus"
 src_prepare() {
 	cd "${MY_P}"
+	epatch "${FILESDIR}/${PN}_nostrip.patch"
 }
 
 src_compile() {
