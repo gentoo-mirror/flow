@@ -19,12 +19,13 @@ HOMEPAGE="http://www.golang.org"
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="emacs hardened kate vim-syntax zsh-completion"
+IUSE="doc emacs hardened kate vim-syntax zsh-completion"
 
 DEPEND="sys-apps/ed"
 RDEPEND="emacs? ( virtual/emacs )
 	vim-syntax? ( app-editors/vim )
-	zsh-completion? ( app-shells/zsh-completion )"
+	zsh-completion? ( app-shells/zsh-completion )
+	doc? ( dev-lang/go-docs )"
 
 src_compile()
 {
