@@ -18,14 +18,6 @@ RDEPEND="app-text/poppler[cxx]
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-src_compile() {
-	local myconf
-
-	if use unac ; then
-		myconf="${myconf} --with-unac"
-	fi
-
-	econf ${myconf}
-
-	emake
+src_configure() {
+	econf $(use_with unac)
 }
