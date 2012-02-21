@@ -13,7 +13,6 @@ DESCRIPTION="Jabber client written in PyGTK"
 HOMEPAGE="http://www.gajim.org/"
 EHG_REPO_URI="http://hg.gajim.org/gajim"
 
-
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
@@ -30,9 +29,11 @@ RDEPEND="${COMMON_DEPEND}
 	dev-python/pygoocanvas
 	dev-python/pyopenssl
 	dev-python/sexy-python
+	dev-python/gnome-keyring-python
 	crypt? (
 		app-crypt/gnupg
 		dev-python/pycrypto
+		net-im/python-otr
 		)
 	dbus? (
 		dev-python/dbus-python
