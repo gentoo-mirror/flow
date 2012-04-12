@@ -14,7 +14,7 @@ SRC_URI="http://download.deluge-torrent.org/source/${P}.tar.lzma"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~ppc ~sparc x86"
-IUSE="gtk libnotify webinterface"
+IUSE="gtk libnotify sound webinterface"
 RESTRICT="mirror"
 
 DEPEND=">=net-libs/rb_libtorrent-0.14.9[python]
@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 	>=dev-python/twisted-8.1
 	>=dev-python/twisted-web-8.1
 	gtk? (
-		dev-python/pygame
+		sound? ( dev-python/pygame )
 		dev-python/pygobject:2
 		>=dev-python/pygtk-2.12
 		gnome-base/librsvg
