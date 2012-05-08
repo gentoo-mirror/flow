@@ -18,8 +18,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-#S=${WORKDIR}/vain-${MY_PN}-e01efb1
-
 src_install() {
 	dodoc README
 
