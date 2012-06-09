@@ -48,7 +48,7 @@ RDEPEND="${COMMON_DEPEND}
 		dev-python/egg-python
 		)
 	idle? ( x11-libs/libXScrnSaver )
-	jingle? ( net-libs/farsight2[python] )
+	jingle? ( net-libs/farstream[python] )
 	networkmanager? (
 			dev-python/dbus-python
 			net-misc/networkmanager
