@@ -28,7 +28,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-python/pygoocanvas
 	dev-python/pyopenssl
-	dev-python/sexy-python
 	dev-python/gnome-keyring-python
 	crypt? (
 		app-crypt/gnupg
