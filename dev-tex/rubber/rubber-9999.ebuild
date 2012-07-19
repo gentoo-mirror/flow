@@ -6,7 +6,7 @@ EAPI=4
 
 PYTHON_DEPEND="2:2.5"
 
-inherit distutils
+inherit bzr distutils
 
 IUSE=""
 
@@ -14,7 +14,9 @@ MY_P=${PN}-${PV/*_p/}
 
 DESCRIPTION="A LaTeX wrapper for automatically building documents"
 HOMEPAGE="https://launchpad.net/rubber/"
-SRC_URI="https://launchpad.net/rubber/trunk/1.1/+download/${MY_P}.tar.gz"
+SRC_URI=""
+
+EBZR_REPO_URI="lp:${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
