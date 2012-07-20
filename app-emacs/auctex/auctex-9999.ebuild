@@ -20,7 +20,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3 FDL-1.2"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris"
 IUSE="preview-latex"
 
 DEPEND="virtual/latex-base
