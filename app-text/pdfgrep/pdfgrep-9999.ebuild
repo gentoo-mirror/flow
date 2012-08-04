@@ -17,6 +17,7 @@ IUSE=""
 
 RDEPEND="app-text/poppler"
 DEPEND="${RDEPEND}
+	app-text/asciidoc
 	dev-util/pkgconfig"
 
 src_prepare() {
