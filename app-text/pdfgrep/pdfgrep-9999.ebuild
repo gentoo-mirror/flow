@@ -13,13 +13,25 @@ EGIT_REPO_URI="git://gitorious.org/pdfgrep/pdfgrep.git"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="zsh-completion"
 
-RDEPEND="app-text/poppler"
+RDEPEND="app-text/poppler
+	zsh-completion? ( app-shells/zsh )"
 DEPEND="${RDEPEND}
 	app-text/asciidoc
 	dev-util/pkgconfig"
 
 src_prepare() {
 	eautoreconf
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+
+	dodoc AUTHORS COPYING HACKING INSTALL NEWS README TODO
+
+	if use zsh-completion ; then
+		insinto /usr/share/zsh/site-functions
+		doins completion/_pdfgrep
+	fi
 }
