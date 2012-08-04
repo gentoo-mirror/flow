@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,9 +13,10 @@ EGIT_REPO_URI="git://gitorious.org/pdfgrep/pdfgrep.git"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="zsh-completion"
+IUSE="unac zsh-completion"
 
 RDEPEND="app-text/poppler
+	unac? ( app-text/unac )
 	zsh-completion? ( app-shells/zsh )"
 DEPEND="${RDEPEND}
 	app-text/asciidoc
@@ -23,6 +24,10 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	eautoreconf
+}
+
+src_configure() {
+	econf $(use_with unac)
 }
 
 src_install() {
