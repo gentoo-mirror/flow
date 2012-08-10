@@ -26,3 +26,5 @@ RESTRICT="mirror"
 DEPEND=""
 RDEPEND="${DEPEND}
 	>=virtual/emacs-24"
+
+SITEFILE="50${PN}-gentoo.el"
