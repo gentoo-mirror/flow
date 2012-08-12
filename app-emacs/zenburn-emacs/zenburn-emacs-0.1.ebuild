@@ -8,7 +8,7 @@ inherit elisp
 
 DESCRIPTION="Zenburn color theme for Emacs 24 (or higher)"
 HOMEPAGE="https://github.com/Flowdalic/zenburn-emacs"
-SRC_URI="mirror://github/Flowdalic/zenburn-emacs/zenburn-emacs-${PV}.tar.xz"
+SRC_URI="mirror://github/Flowdalic/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
