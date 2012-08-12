@@ -22,3 +22,19 @@ RDEPEND="${DEPEND}
 	>=virtual/emacs-24"
 
 SITEFILE="50${PN}-gentoo-${PV}.el"
+
+DOCS="README AUTHORS"
+
+src_prepare() {
+	cp ${FILESDIR}/${SITEFILE} .
+	local zb_sha256sum
+	sb_sha256sum=$(sha256sum zenburn-theme.el | cut -f1 -d " ")
+	echo "(add-to-list 'custom-safe-themes \"${sb_sha256sum}\")" >> ${SITEFILE}
+}
+
+src_install() {
+	elisp-install ${PN} *.el *.elc || die
+	elisp-site-file-install ${SITEFILE} || die
+	dodoc ${DOCS} || die
+}
+
