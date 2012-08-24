@@ -9,7 +9,7 @@ inherit eutils multilib bzr
 DESCRIPTION="a C client library to the memcached server"
 HOMEPAGE="http://libmemcached.org"
 SRC_URI=""
-EBZR_REPO_URI="bzr://bazaar.launchpad.net/%2Bbranch/libmemcached/"
+EBZR_REPO_URI="http://bazaar.launchpad.net/~branch/libmemcached/"
 
 LICENSE="BSD"
 SLOT="0"
