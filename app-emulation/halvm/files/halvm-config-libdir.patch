@@ -1,0 +1,13 @@
+diff --git a/mk/halvm.mk b/mk/halvm.mk
+index 1e3078a..d352f5a 100644
+--- a/mk/halvm.mk
++++ b/mk/halvm.mk
+@@ -196,7 +196,7 @@ $(HALVM_LIBDIR)/cabal.conf: $(DIST_DIR_TREE)
+ 
+ $(HALVM_CONFIG): $(DIST_DIR_TREE)
+ 	$(call version_copy_exec,$(TOPDIR)/static-bits/bin/halvm-config,$@)
+-	$(SED) -i 's|@HALVM_LIBRARY_DIRECTORY@|$(HALVM_LIBDIR)|' $@
++	$(SED) -i 's|@HALVM_LIBRARY_DIRECTORY@|$(INSTALL_LIBDIR)|' $@
+ 
+ $(HALVM_MKDIR): $(DIST_DIR_TREE)
+ 	$(MKDIR) -p dist

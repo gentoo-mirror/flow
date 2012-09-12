@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit autotools eutils git-2
+inherit autotools eutils multilib git-2
 
 #MY_P
 DESCRIPTION="The Haskell Lightweight Virtual Machine (HaLVM)"
@@ -32,6 +32,13 @@ RDEPEND="app-emulation/xen
 
 src_prepare() {
 	eautoreconf
+	epatch "${FILESDIR}/${PN}-config-libdir.patch"
+}
+
+src_configure() {
+	econf \
+		--libdir="${EPREFIX}/usr/$(get_libdir)" \
+		--prefix="${EPREFIX}/usr/"
 }
 
 src_compile() {
