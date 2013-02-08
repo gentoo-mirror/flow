@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,12 +9,11 @@ inherit versionator
 MY_PV=$(replace_version_separator 3 -)
 DESCRIPTION="Brother scanner driver for brscan3 models"
 HOMEPAGE="http://brother.com"
-SRC_URI="x86? ( http://www.brother.com/pub/bsc/linux/dlf/${PN}-${MY_PV}.i386.deb )
-	amd64? ( http://www.brother.com/pub/bsc/linux/dlf/${PN}-${MY_PV}.amd64.deb )"
+SRC_URI="http://www.brother.com/pub/bsc/linux/dlf/${PN}-${MY_PV}.amd64.deb"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* ~amd64"
 IUSE=""
 
 RESTRICT="mirror"
