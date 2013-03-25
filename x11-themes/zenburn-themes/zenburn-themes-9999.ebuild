@@ -18,5 +18,5 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	>=x11-themes/gtk-engines-murrine-0.98.2"
-
+	>=x11-themes/gtk-engines-murrine-0.98.2
+	x11-themes/gtk-engines-xfce:3"
