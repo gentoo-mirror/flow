@@ -23,7 +23,7 @@ IUSE=""
 
 RDEPEND=">=virtual/jdk-1.6"
 
-S="${WORKDIR}/${MY_PN}-IC-${MY_PV}"
+S="${WORKDIR}/${MY_PN_SHORT}-IC-${MY_PV}"
 
 src_install() {
 	local dir="/opt/${P}"
@@ -31,9 +31,9 @@ src_install() {
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}/bin/${MY_PN}.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
+	fperms 755 "${dir}/bin/${MY_PN_SHORT}.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
 
-	newicon "bin/${MY_PN}.png" "${bin}.png"
+	newicon "bin/${MY_PN_SHORT}.png" "${bin}.png"
 	make_wrapper "${bin}" "/opt/${P}/bin/${MY_PN}.sh"
 	make_desktop_entry ${bin} "IntelliJ IDEA $(get_version_component_range 1-3)	(Community Edition)" "${bin}" "Development;IDE"
 }
