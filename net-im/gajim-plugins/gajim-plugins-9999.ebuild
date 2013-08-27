@@ -13,7 +13,7 @@ EHG_REPO_URI="http://hg.gajim.org/gajim-plugins"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ~ia64 ppc ppc64 ~sparc x86 ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE=""
 
 
