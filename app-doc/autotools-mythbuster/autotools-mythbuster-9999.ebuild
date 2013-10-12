@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit git
+inherit git-2
 
 DESCRIPTION="Autotools Mythbuster (the guide) is a work in progress “book” about autoconf, automake, libtool."
 HOMEPAGE="http://www.flameeyes.eu/autotools-mythbuster"
