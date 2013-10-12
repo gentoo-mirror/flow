@@ -7,10 +7,10 @@ EAPI=4
 inherit elisp git-2
 
 DESCRIPTION="Zenburn color theme for Emacs 24 (or higher)"
-HOMEPAGE="https://github.com/Flowdalic/zenburn-emacs"
+HOMEPAGE="https://github.com/bbatsov/zenburn-emacs"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/Flowdalic/zenburn-emacs.git
-	https://github.com/Flowdalic/zenburn-emacs.git"
+EGIT_REPO_URI="git://github.com/bbatsov/zenburn-emacs.git
+	https://github.com/bbatsov/zenburn-emacs.git"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -23,7 +23,7 @@ RDEPEND="${DEPEND}
 
 SITEFILE="50${PN}-gentoo-${PV}.el"
 
-DOCS="README AUTHORS"
+DOCS="README.md"
 
 src_prepare() {
 	cp ${FILESDIR}/${SITEFILE} .
