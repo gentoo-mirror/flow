@@ -30,11 +30,11 @@ src_unpack() {
 
 
 src_install() {
-	local gradle_home="${EROOT}usr/share/${P}"
+	local gradle_dir="${EROOT}usr/share/${P}/"
 
 	dodoc changelog.txt getting-started.html
 
-	insinto "${gradle_home}"
+	insinto "${gradle_dir}"
 
 	# source
 	if use source ; then
@@ -51,17 +51,20 @@ src_install() {
 		java-pkg_doexamples samples
 	fi
 
-	# jars
-	cd lib
+	# jars in lib/
+	cd lib || die "lib/ not found"
 	for jar in *.jar; do
 		java-pkg_newjar ${jar} ${jar}
 	done
 
-	# plugin jars
-	insinto "${gradle_home}/lib/plugins"
-	doins plugins/*
+	# plugins in lib/plugins
+	cd plugins
+	java-pkg_jarinto ${JAVA_PKG_JARDEST}/plugins
+	for jar in *.jar; do
+		java-pkg_newjar ${jar} ${jar}
+	done
 
-	java-pkg_dolauncher "${P}" --main org.gradle.launcher.GradleMain --java_args "-Dgradle.home=${gradle_home} \${GRADLE_OPTS}"
+	java-pkg_dolauncher "${P}" --main org.gradle.launcher.GradleMain --java_args "-Dgradle.home=${gradle_dir}/lib \${GRADLE_OPTS}"
 }
 
 pkg_postinst() {
