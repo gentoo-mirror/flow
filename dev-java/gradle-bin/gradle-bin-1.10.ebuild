@@ -1,7 +1,7 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="4"
+EAPI="5"
 
 inherit java-pkg-2
 
@@ -12,7 +12,7 @@ DESCRIPTION="A project automation and build tool similar to Apache Ant and Apach
 SRC_URI="http://services.gradle.org/distributions/${MY_P}-all.zip"
 HOMEPAGE="http://www.gradle.org/"
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="${PV/./}"
 KEYWORDS="~x86 ~amd64"
 
 DEPEND="app-arch/zip
@@ -30,7 +30,7 @@ src_unpack() {
 
 
 src_install() {
-	local gradle_dir="${EROOT}usr/share/${P}/"
+	local gradle_dir="${EROOT}usr/share/${PN}-${SLOT}"
 
 	dodoc changelog.txt getting-started.html
 
@@ -52,6 +52,8 @@ src_install() {
 	fi
 
 	# jars in lib/
+	# Note that we can't strip the version from the gradle jars,
+	# because then gradle won't find them.
 	cd lib || die "lib/ not found"
 	for jar in *.jar; do
 		java-pkg_newjar ${jar} ${jar}
