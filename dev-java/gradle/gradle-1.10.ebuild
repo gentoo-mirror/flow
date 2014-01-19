@@ -9,7 +9,7 @@ DESCRIPTION="A project automation and build tool similar to Apache Ant and Apach
 SRC_URI="http://services.gradle.org/distributions/${P}-src.zip"
 HOMEPAGE="http://www.gradle.org/"
 LICENSE="Apache-2.0"
-SLOT="${PV/./}"
+SLOT="${PV}"
 KEYWORDS=""
 
 DEPEND="app-arch/zip
