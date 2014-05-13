@@ -1,3 +1,0 @@
-In order to enable ropemacs support in Emacs, install
-app-emacs/pymacs and add the following line to your ~/.emacs file:
-  (pymacs-load \"ropemacs\" \"rope-\")
