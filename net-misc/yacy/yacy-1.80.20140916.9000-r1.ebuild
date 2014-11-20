@@ -50,16 +50,17 @@ src_install() {
 		rm $doc
 	done
 
-	rm lib/*License
+	rm lib/*License || die
+	rmdir DATA || die
 
 	local yacy_home="${EROOT}usr/share/${PN}"
 	dodir ${yacy_home}
 	cp -r "${S}"/* "${D}${yacy_home}" || die
 
-	dodir /var/log/yacy
-	fowners yacy:yacy /var/log/yacy
+	dodir /var/lib/yacy
+	fowners yacy:yacy /var/lib/yacy
 
-	dosym /var/lib/yacy /${yacy_home}/DATA/
+	dosym /var/lib/yacy /${yacy_home}/DATA
 
 	if use systemd; then
 		systemd_dounit "${FILESDIR}"/${PN}.service

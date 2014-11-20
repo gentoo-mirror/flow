@@ -1,12 +1,11 @@
 #!/sbin/runscript
 
-JAVA_ARGS="
+JAVA_ARGS="\
 -server \
 -Djava.net.preferIPv4Stack=true \
 -Djava.awt.headless=true \
 -Dfile.encoding=UTF-8 \
 -Dsolr.directoryFactsolr.MMapDirectoryFactory"
-CLASSPATH=".:htroot:lib/*"
 
 depend() {
 	need net
@@ -20,8 +19,10 @@ start() {
 		--group "$YACY_GROUP" \
 		--pidfile "$YACY_PIDFILE" \
 		--make-pidfile \
+		--chdir "/usr/share/yacy" \
+		--env CLASSPATH=".:htroot:lib/*" \
 		--background \
-		--exec java -- "$JAVA_ARGS" "$YACY_OPTIONS"
+		--exec java -- "$JAVA_ARGS" "$YACY_OPTIONS" net.yacy.yacy
 	eend $?
 }
 
