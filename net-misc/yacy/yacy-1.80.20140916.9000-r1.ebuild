@@ -64,8 +64,8 @@ src_install() {
 	if use systemd; then
 		systemd_dounit "${FILESDIR}"/${PN}.service
 	fi
-	doinitd "${FILESDIR}"/${PN}.initd
-	doconfd "${FILESDIR}"/${PN}.confd
+	newinitd "${FILESDIR}"/${PN}.initd $PN
+	newconfd "${FILESDIR}"/${PN}.confd $PN
 }
 
 pkg_postinst() {
