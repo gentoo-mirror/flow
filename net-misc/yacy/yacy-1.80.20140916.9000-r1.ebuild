@@ -31,6 +31,10 @@ pkg_setup() {
 	enewuser yacy -1 -1 /var/lib/yacy yacy
 }
 
+src_prepare() {
+	epatch "${FILESDIR}/remove_timeout.patch"
+}
+
 src_install() {
 	# remove win-only stuff
 	find "$S" -name "*.bat" -exec rm '{}' \; || die
