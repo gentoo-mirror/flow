@@ -1,0 +1,45 @@
+#!/sbin/runscript
+
+JAVA_ARGS="
+-server \
+-Djava.net.preferIPv4Stack=true \
+-Djava.awt.headless=true \
+-Dfile.encoding=UTF-8 \
+-Dsolr.directoryFactsolr.MMapDirectoryFactory"
+CLASSPATH=".:htroot:lib/*"
+
+depend() {
+	need net
+}
+
+start() {
+	ebegin "Starting yacy"
+	start-stop-daemon \
+		--start \
+		--user "$YACY_USER" \
+		--group "$YACY_GROUP" \
+		--pidfile "$YACY_PIDFILE" \
+		--make-pidfile \
+		--background \
+		--exec java -- "$JAVA_ARGS" "$YACY_OPTIONS"
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping yacy"
+	start-stop-daemon \
+		--stop \
+		--pidfile "$YACY_PIDFILE" \
+		--retry "$YACY_STOP_RETRY"
+	eend $?
+}
+
+status() {
+	[ ! -f "$YACY_PIDFILE" ] && return 1
+
+	if ps -p $(cat "$YACY_PIDFILE") > /dev/null; then
+		eend 0
+	else
+		eend 1
+	fi
+}
