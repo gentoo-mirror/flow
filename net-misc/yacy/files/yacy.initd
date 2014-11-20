@@ -20,9 +20,9 @@ start() {
 		--pidfile "$YACY_PIDFILE" \
 		--make-pidfile \
 		--chdir "/usr/share/yacy" \
-		--env CLASSPATH=".:htroot:lib/*" \
+		--env CLASSPATH="classes:htroot:lib/*" \
 		--background \
-		--exec java -- "$JAVA_ARGS" "$YACY_OPTIONS" net.yacy.yacy
+		--exec java -- $JAVA_ARGS $YACY_OPTIONS net.yacy.yacy
 	eend $?
 }
 
