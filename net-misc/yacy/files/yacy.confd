@@ -16,6 +16,3 @@ YACY_PIDFILE="/var/run/yacy.pid"
 # Retry stopping yacy by sending a SIGTERM after 15 seconds and a
 # SIGKILL after 30 seconds
 YACY_STOP_RETRY="SIGTERM/15 SIGKILL/30"
-
-
-f
