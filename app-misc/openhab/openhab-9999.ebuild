@@ -186,7 +186,7 @@ install_openhab_component() {
 		if ! use $use_flag; then
 			continue
 		fi
-		local component_dir=org${use_flag//_/.}
+		local component_dir=org.${use_flag//_/.}
 		local component_path=$(ls bundles/${component_type}/${component_dir}/target/*.jar)
 		doins $component_path
 	done
