@@ -32,17 +32,14 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-IUSE="avahi debug doc examples +expat qt4 ssl static-libs zeroconf"
+IUSE="debug doc examples +expat qt4 ssl static-libs zeroconf"
 
 RDEPEND="
 	dev-libs/boost
 	expat? ( dev-libs/expat )
 	!expat? ( dev-libs/libxml2 )
 	ssl? ( dev-libs/openssl )
-	zeroconf? (
-		avahi? ( net-dns/avahi )
-		!avahi? ( net-misc/mDNSResponder )
-	)
+	zeroconf? ( net-dns/avahi )
 	net-dns/libidn
 	sys-libs/zlib
 	qt4? (
@@ -62,7 +59,7 @@ scons_targets=()
 set_scons_targets() {
 	scons_targets=( Swiften )
 	use qt4 && scons_targets+=( Swift )
-	use avahi && scons_targets+=( Slimber )
+	use zeroconf && scons_targets+=( Slimber )
 	use examples && scons_targets+=(
 		Documentation/SwiftenDevelopersGuide/Examples
 		Limber
@@ -90,7 +87,7 @@ set_scons_vars() {
 		$(use_scons debug)
 		$(use !static-libs && use_scons !static-libs swiften_dll)
 		$(use_scons ssl openssl)
-		$(use zeroconf && use_scons !avahi bonjour)
+		$(use zeroconf)
 	)
 }
 
@@ -112,7 +109,7 @@ src_prepare() {
 
 	# Richard H. <chain@rpgfiction.net> (2012-03-29): SCons ignores us,
 	# just delete unneeded stuff!
-	if use !avahi; then
+	if use !zeroconf; then
 		rm -rf Slumber || die
 	fi
 
@@ -155,7 +152,7 @@ src_install() {
 
 	escons "${scons_vars[@]}" SWIFT_INSTALLDIR="${D}/usr" SWIFTEN_INSTALLDIR="${D}/usr" "${D}" "${scons_targets[@]}"
 
-	if use avahi ; then
+	if use zeroconf ; then
 		newbin Slimber/Qt/slimber slimber-qt
 		newbin Slimber/CLI/slimber slimber-cli
 	fi
@@ -173,7 +170,7 @@ src_install() {
 			newbin "Swiften/Examples/${i}/${i}" "${PN}-${i}"
 		done
 		newbin Swiften/Examples/SendFile/ReceiveFile "${PN}-ReceiveFile"
-		use avahi && dobin Swiften/Examples/LinkLocalTool/LinkLocalTool
+		use zeroconf && dobin Swiften/Examples/LinkLocalTool/LinkLocalTool
 
 		for i in ClientTest NetworkTest StorageTest TLSTest ; do
 			newbin "Swiften/QA/${i}/${i}" "${PN}-${i}"
