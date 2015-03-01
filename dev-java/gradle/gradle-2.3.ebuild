@@ -1,5 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI="5"
 
@@ -16,24 +17,8 @@ DEPEND="app-arch/zip
 	app-admin/eselect-gradle"
 RDEPEND=">=virtual/jdk-1.5"
 
-#IUSE="doc"
-
-S="${WORKDIR}/${P}"
-
-
-src_unpack() {
-	unpack ${A}
-}
-
-src_prepare() {
-	sed -i 's/org.gradle.api.internal.Contextual/org.gradle.internal.exceptions.Contextual/' ${S}/buildSrc/src/main/groovy/org/gradle/build/docs/DocGenerationException.java || die
-}
-
 src_compile() {
-	# if use docs; then
-	# 	gradle docs
-	# fi
-	gradle --gradle-user-home ${WORKDIR} install -Pgradle_installPath=dist || die
+	gradle --gradle-user-home "$WORKDIR" install -Pgradle_installPath=dist || die
 }
 
 src_install() {
