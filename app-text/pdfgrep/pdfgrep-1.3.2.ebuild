@@ -3,30 +3,22 @@
 # $Header: $
 
 EAPI=5
-inherit autotools git-2
 
 DESCRIPTION="A tool similar to grep which searches text in PDFs"
 HOMEPAGE="http://pdfgrep.sourceforge.net/"
-SRC_URI=""
-EGIT_REPO_URI="https://gitlab.com/pdfgrep/pdfgrep.git"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="unac zsh-completion"
 
-RDEPEND="app-text/poppler
-	unac? ( app-text/unac )
-	zsh-completion? ( app-shells/zsh )"
+RDEPEND="app-text/poppler:=[cxx]
+	unac? ( app-text/unac )"
 DEPEND="${RDEPEND}
-	app-text/asciidoc
 	virtual/pkgconfig"
 
 DOCS="AUTHORS NEWS README TODO"
-
-src_prepare() {
-	eautoreconf
-}
 
 src_configure() {
 	econf $(use_with unac)
