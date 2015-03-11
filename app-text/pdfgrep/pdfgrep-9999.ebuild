@@ -13,11 +13,10 @@ EGIT_REPO_URI="https://gitlab.com/pdfgrep/pdfgrep.git"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="unac zsh-completion"
+IUSE="unac"
 
 RDEPEND="app-text/poppler
-	unac? ( app-text/unac )
-	zsh-completion? ( app-shells/zsh )"
+	unac? ( app-text/unac )"
 DEPEND="${RDEPEND}
 	app-text/asciidoc
 	virtual/pkgconfig"
@@ -30,5 +29,4 @@ src_prepare() {
 
 src_configure() {
 	econf $(use_with unac)
-	econf $(use_with zsh-completion)
 }

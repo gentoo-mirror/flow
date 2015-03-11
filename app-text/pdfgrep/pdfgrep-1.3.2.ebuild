@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="unac zsh-completion"
+IUSE="unac"
 
 RDEPEND="app-text/poppler:=[cxx]
 	unac? ( app-text/unac )"
@@ -22,5 +22,4 @@ DOCS="AUTHORS NEWS README TODO"
 
 src_configure() {
 	econf $(use_with unac)
-	econf $(use_with zsh-completion)
 }
