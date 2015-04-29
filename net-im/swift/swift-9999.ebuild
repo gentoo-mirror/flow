@@ -113,8 +113,6 @@ src_prepare() {
 
 	if use !examples; then
 		rm -rf Documentation/SwiftenDevelopersGuide/Examples \
-                Limber \
-                Slimber \
                 Sluift \
                 Swiften/Examples \
                 Swiften/QA \
