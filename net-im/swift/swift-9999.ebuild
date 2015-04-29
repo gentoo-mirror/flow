@@ -8,9 +8,8 @@ LANGS="ca de es fr hu nl pl ru se sk"
 
 [[ ${PV} = *9999* ]] && VCS_ECLASS="git-r3" || VCS_ECLASS=""
 
-inherit multilib toolchain-funcs linux-info scons-utils ${VCS_ECLASS}
+inherit multilib toolchain-funcs linux-info scons-utils ${VCS_ECLASS} versionator
 
-inherit versionator
 MY_PN="swift"
 MY_PV=$(replace_version_separator 2 '')
 MY_P="${MY_PN}-${MY_PV}"
@@ -34,6 +33,10 @@ fi
 
 # TODO qt4?
 IUSE="debug doc examples +expat +qt5 ssl static-libs zeroconf"
+
+for x in ${LANGS}; do
+	IUSE="${IUSE} linguas_${x}"
+done
 
 RDEPEND="
 	dev-libs/boost
@@ -79,7 +82,6 @@ set_scons_vars() {
 		cxx="$(tc-getCXX)"
 		ccflags="${CXXFLAGS}"
 		linkflags="${LDFLAGS}"
-		qt="${S}/local-qt"
 		openssl="${EPREFIX}/usr"
 		docbook_xsl="${EPREFIX}/usr/share/sgml/docbook/xsl-stylesheets"
 		docbook_xml="${EPREFIX}/usr/share/sgml/docbook/xml-dtd-4.5"
