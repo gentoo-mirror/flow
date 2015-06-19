@@ -1,0 +1,18 @@
+# Run yacy as this user.
+# NOTE: For security reasons do not run yacy as root.
+YACY_USER="yacy"
+
+# Run yacy as this group.
+# NOTE: For security reasons do not run yacy as root.
+YACY_GROUP="yacy"
+
+# Other options you want to pass to yacy
+YACY_OPTIONS=""
+
+# Path to yacy pid file.
+YACY_PIDFILE="/var/run/yacy.pid"
+
+# '--retry' arguments to start-stop-daemon when stopping yacy
+# Retry stopping yacy by sending a SIGTERM after 15 seconds and a
+# SIGKILL after 30 seconds
+YACY_STOP_RETRY="SIGTERM/15 SIGKILL/30"

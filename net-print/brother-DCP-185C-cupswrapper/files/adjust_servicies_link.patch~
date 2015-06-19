@@ -1,0 +1,66 @@
+--- usr/local/Brother/Printer/dcp145c/cupswrapper/cupswrapperdcp145c	2008-10-24 15:31:40.000000000 +0200
++++ usr/local/Brother/Printer/dcp145c/cupswrapper/cupswrapperdcp145c.new	2010-04-24 08:51:54.617244380 +0200
+@@ -27,23 +27,22 @@ if [ "$1" = '-e' ]; then
+   lpadmin -x ${printer_name}
+   rm -f /usr/share/cups/model/br${printer_model}.ppd
+   rm -f /usr/share/ppd/br${printer_model}.ppd
+-  rm -f /usr/lib/cups/filter/brlpdwrapper${printer_model}
+-  rm -f /usr/lib64/cups/filter/brlpdwrapper${printer_model}
++  rm -f /usr/libexec/cups/filter/brlpdwrapper${printer_model}
+   rm -f /usr/local/Brother/${device_model}/${printer_model}/cupswrapper/brcupsconfpt1
+-if [  -e /etc/init.d/cups ]; then
+-   /etc/init.d/cups restart
+-elif [  -e /etc/init.d/cupsys ]; then
+-   /etc/init.d/cupsys restart
++if [  -e /etc/init.d/cupsd ]; then
++   /etc/init.d/cupsd restart
++#elif [  -e /etc/init.d/cupsys ]; then
++#   /etc/init.d/cupsys restart
+ fi
+ #  /etc/init.d/cups restart
+   exit 0
+ fi
+ if [ "$1" = "-r" ]; then
+   lpadmin -x ${printer_name}
+-if [  -e /etc/init.d/cups ]; then
+-   /etc/init.d/cups restart
+-elif [  -e /etc/init.d/cupsys ]; then
+-   /etc/init.d/cupsys restart
++if [  -e /etc/init.d/cupsd ]; then
++   /etc/init.d/cupsd restart
++#elif [  -e /etc/init.d/cupsys ]; then
++#   /etc/init.d/cupsys restart
+ fi
+ #  /etc/init.d/cups restart
+   exit 0
+@@ -710,11 +709,11 @@ fi
+ 
+ #################################################
+ 
+-if [ -d /usr/lib/cups/filter ]
++if [ -d /usr/libexec/cups/filter ]
+ then
+-	brotherlpdwrapper=/usr/lib/cups/filter/brlpdwrapper${printer_model}
+-else
+-	brotherlpdwrapper=/usr/lib64/cups/filter/brlpdwrapper${printer_model}
++	brotherlpdwrapper=/usr/libexec/cups/filter/brlpdwrapper${printer_model}
++#else
++#	brotherlpdwrapper=/usr/lib64/cups/filter/brlpdwrapper${printer_model}
+ fi
+ 
+ 
+@@ -878,10 +877,10 @@ if [  -e /etc/init.d/lprng ]; then
+ fi
+ 
+ 
+-if [  -e /etc/init.d/cups ]; then
+-   /etc/init.d/cups restart
+-elif [  -e /etc/init.d/cupsys ]; then
+-   /etc/init.d/cupsys restart
++if [  -e /etc/init.d/cupsd ]; then
++   /etc/init.d/cupsd restart
++#elif [  -e /etc/init.d/cupsys ]; then
++#   /etc/init.d/cupsys restart
+ fi
+ 
+ sleep 2s

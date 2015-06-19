@@ -1,0 +1,87 @@
+diff --git a/mk/halvm.mk b/mk/halvm.mk
+index 1e3078a..cf8b335 100644
+--- a/mk/halvm.mk
++++ b/mk/halvm.mk
+@@ -158,15 +158,18 @@ $(DIST_DIR_TREE):
+ 
+ $(HALVM_GHC): $(DIST_DIR_TREE)
+ 	$(call version_copy_exec,$(TOPDIR)/static-bits/bin/halvm-ghc,$@)
++	$(SED) -i 's|@HALVM_LIBRARY_DIRECTORY@|$(HALVM_LIBDIR)|' $@
+ 
+ $(HALVM_GHC_PKG): $(HALVM_GHC_PKG_BIN) $(DIST_DIR_TREE) \
+                   $(TOPDIR)/static-bits/lib/Cabal.conf
+ 	$(call version_copy_exec,$(TOPDIR)/static-bits/bin/halvm-ghc-pkg,$@)
++	$(SED) -i 's|@HALVM_LIBRARY_DIRECTORY@|$(HALVM_LIBDIR)|' $@
+ 	$(HALVM_GHC_PKG) register $(TOPDIR)/static-bits/lib/Cabal.conf
+ 	$(HALVM_GHC_PKG) recache
+ 
+ $(HALVM_CABAL): $(DIST_DIR_TREE) $(HALVM_CABAL_EXE)
+ 	$(call version_copy_exec,$(TOPDIR)/static-bits/bin/halvm-cabal,$@)
++	$(SED) -i 's|@HALVM_LIBRARY_DIRECTORY@|$(HALVM_LIBDIR)|' $@
+ 
+ $(HALVM_CABAL_EXE): $(STANDARD_TARGETS) $(HALVM_LIBDIR)/cabal.conf
+ 	$(CP) $(PLATFORM_CABAL_EXE) $(HALVM_CABAL_EXE)
+@@ -849,4 +852,7 @@ install:
+ 	  $(SED) -i "s!$(HALVM_DOCDIR)!$(INSTALL_DOCDIR2)!g" $$f;               \
+ 	  $(SED) -i "s!$(shell pwd)/dist!$(INSTALL_PREFIX2)!g" $$f;             \
+ 	done
++	for f in `ls $(INSTALL_BINDIR)/halvm-*`; do               \
++	  $(SED) -i "s!$(HALVM_LIBDIR)!$(INSTALL_LIBDIR2)!g" $$f; \
++	done
+ 
+diff --git a/static-bits/bin/halvm-cabal b/static-bits/bin/halvm-cabal
+index f06d710..2f1237e 100755
+--- a/static-bits/bin/halvm-cabal
++++ b/static-bits/bin/halvm-cabal
+@@ -1,9 +1,4 @@
+-BINDIR=`echo $0 | sed 's/[^/]*$//g'`
+-LIBDIR_REL=${BINDIR}../lib/HaLVM-HALVM_VER
+-CURDIR=`pwd`
+-cd ${LIBDIR_REL}
+-LIBDIR=`pwd`
+-cd ${CURDIR}
++LIBDIR=@HALVM_LIBRARY_DIRECTORY@
+ CABALBIN=${LIBDIR}/cabal
+ CABALCONF=${LIBDIR}/cabal.conf
+ 
+diff --git a/static-bits/bin/halvm-ghc b/static-bits/bin/halvm-ghc
+index ab6a41f..248adc4 100755
+--- a/static-bits/bin/halvm-ghc
++++ b/static-bits/bin/halvm-ghc
+@@ -6,14 +6,10 @@
+ # - terms and conditions.
+ # Author: Adam Wick <awick@galois.com>
+ # BANNEREND
+-BINDIR=`echo $0 | sed 's/[^/]*$//g'`
+-LIBDIR_REL="${BINDIR}../lib/HaLVM-HALVM_VER"
+-CURDIR=`pwd`
+-cd ${LIBDIR_REL}
+-LIBDIR=`pwd`
+-cd ${CURDIR}
++LIBDIR=@HALVM_LIBRARY_DIRECTORY@
+ GHCBIN="${LIBDIR}/ghc-GHC_VER"
+ LIBDIROPT="-B${LIBDIR}"
+ LINKSCRIPTOPT="-pgml ${LIBDIR}/ldkernel"
+ LIBDIROPT2="-L${LIBDIR}"
++
+ exec $GHCBIN $LIBDIROPT $LIBDIROPT2 ${LINKSCRIPTOPT} ${1+"$@"}
+diff --git a/static-bits/bin/halvm-ghc-pkg b/static-bits/bin/halvm-ghc-pkg
+index c2c045b..becadbd 100755
+--- a/static-bits/bin/halvm-ghc-pkg
++++ b/static-bits/bin/halvm-ghc-pkg
+@@ -6,14 +6,7 @@
+ # - terms and conditions.
+ # Author: Adam Wick <awick@galois.com>
+ # BANNEREND
+-BINDIR=`echo $0 | sed 's/[^/]*$//g'`
+-LIBDIR_REL="${BINDIR}../lib/HaLVM-HALVM_VER"
+-
+-CURDIR=`pwd`
+-cd ${LIBDIR_REL}
+-LIBDIR=`pwd`
+-cd ${CURDIR}
+-
++LIBDIR=@HALVM_LIBRARY_DIRECTORY@
+ GHCPKGBIN="${LIBDIR}/ghc-pkg.bin"
+ GLOBFILEOPT="--global-conf ${LIBDIR}/package.conf.d"
+ 

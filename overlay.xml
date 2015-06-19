@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>flow</name>
+    <description>Some ebuilds from me</description>
+    <homepage>https://gitorious.org/flow-s-ebuilds</homepage>
+    <owner>
+      <email>flow@freakempire.de</email>
+      <name>Florian Schmaus</name>
+    </owner>
+    <source type="git">git://gitorious.org/flow-s-ebuilds/flow-s-ebuilds.git</source>
+    <source type="git">http://git.gitorious.org/flow-s-ebuilds/flow-s-ebuilds.git</source>
+    <feed>https://gitorious.org/flow-s-ebuilds.atom</feed>
+  </repo>
+</repositories>

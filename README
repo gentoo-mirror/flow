@@ -1,0 +1,2 @@
+USE=git emerge layman
+layman -a flow
