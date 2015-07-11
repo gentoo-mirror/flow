@@ -59,13 +59,12 @@ DEPEND="${RDEPEND}
 "
 scons_targets=()
 set_scons_targets() {
-	scons_targets=( Swiften )
+	scons_targets=( Swiften Sluift )
 	use qt5 && scons_targets+=( Swift )
 	use zeroconf && scons_targets+=( Slimber )
 	use examples && scons_targets+=(
 		Documentation/SwiftenDevelopersGuide/Examples
 		Limber
-		Sluift
 		Swiften/Config
 		Swiften/Examples
 		Swiften/QA
@@ -113,7 +112,6 @@ src_prepare() {
 
 	if use !examples; then
 		rm -rf Documentation/SwiftenDevelopersGuide/Examples \
-                Sluift \
                 Swiften/Examples \
                 Swiften/QA \
                 Swiftob || die
@@ -147,6 +145,7 @@ src_install() {
 	set_scons_vars
 
 	escons "${scons_vars[@]}" SWIFT_INSTALLDIR="${D}/usr" SWIFTEN_INSTALLDIR="${D}/usr" "${D}" "${scons_targets[@]}"
+	dobin Sluift/sluift
 
 	if use zeroconf ; then
 		newbin Slimber/Qt/slimber slimber-qt
@@ -159,7 +158,6 @@ src_install() {
 		done
 
 		dobin Limber/limber
-		dobin Sluift/sluift
 		dobin Swiften/Config/swiften-config
 
 		for i in BenchTool ConnectivityTest LinkLocalTool ParserTester SendFile SendMessage ; do
