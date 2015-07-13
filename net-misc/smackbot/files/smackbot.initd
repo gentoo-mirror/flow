@@ -1,0 +1,20 @@
+#!/sbin/runscript
+
+JAVA_ARGS="\
+-server"
+
+depend() {
+	need localmount net
+}
+
+name="SmackBot"
+description="An XMPP and IRC bot written in Scala"
+
+command="/usr/bin/SmackBot"
+command_args=""
+
+required_files="${BITCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${BITCOIND_USER} \
+			-N ${BITCOIND_NICE:-0} -w 2000"
+pidfile="${BITCOIND_PIDFILE}"
+retry="${SMACKBOT_SIGTERM_TIMEOUT}"
