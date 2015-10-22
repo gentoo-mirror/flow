@@ -11,10 +11,11 @@ SRC_URI="https://pdfgrep.org/download/${P}.tar.gz"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="test unac"
+IUSE="+pcre test unac"
 
 RDEPEND="
 	app-text/poppler:=[cxx]
+	pcre? ( dev-libs/libpcre[cxx] )
 	unac? ( app-text/unac )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -24,5 +25,7 @@ DEPEND="${RDEPEND}
 		)"
 
 src_configure() {
-	econf $(use_with unac)
+	econf \
+		$(use_with pcre) \
+		$(use_with unac)
 }
