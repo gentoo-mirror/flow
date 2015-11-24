@@ -1,0 +1,12 @@
+DEFINED_PHASES=install unpack
+DEPEND=dev-vcs/git
+DESCRIPTION=findcruft2 is a tool to find orphaned files for unmerged packages
+EAPI=0
+HOMEPAGE=https://github.com/hollow/findcruft2
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-shells/bash sys-apps/coreutils sys-apps/findutils sys-apps/grep sys-apps/sed
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-2 src_install:-
+_eclasses_=git-2	df00117322129fb906bb0a53c3d6a020
+_md5_=f6dc9f9f683210dbaa08f74e2bf9b6d4

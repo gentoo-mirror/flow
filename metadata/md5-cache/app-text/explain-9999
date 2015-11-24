@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DEPEND=dev-vcs/git
+DESCRIPTION=Explain commands using ASCII art
+EAPI=4
+HOMEPAGE=http://www.uninformativ.de/projects/?q=explain
+KEYWORDS=~x86 ~amd64
+RDEPEND=dev-lang/python
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-2 src_install:-
+_eclasses_=git-2	df00117322129fb906bb0a53c3d6a020
+_md5_=5c328228607f03e645530aff1e0b10b6

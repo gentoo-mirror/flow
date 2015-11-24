@@ -6,24 +6,24 @@ app-emacs/auctex 9999: Extended support for writing, formatting and using (La)Te
 app-emacs/zenburn-emacs 9999: Zenburn color theme for Emacs 24 (or higher)
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-forensics/vinetto 0.07: Vinetto is a forensics tool to examine Thumbs.db files.
-app-misc/asynk 0.4.1: A flexible Contacts synchronization program that works with a variety of contacts software
+app-misc/asynk 0.4.1: 
 app-misc/cbrpager 0.9.22: a simple comic book pager.
 app-misc/geteltorito 0.5: A small Perl script which will extract (and display information about) an El Torito boot image
-app-misc/openhab 9999: The open Home Automation Bus (openHAB)
+app-misc/openhab 9999: 
 app-mobilephone/gmote-server 2.0.0: On the computer you wish to control.
 app-mobilephone/hfp 9999: A Bluetooth Hands-Free Profile server, which allows your Linux system to act as a speakerphone for your mobile phone.
 app-text/explain 9999: Explain commands using ASCII art
-app-text/pdfgrep 9999: A tool similar to grep which searches text in PDFs
+app-text/pdfgrep 9999: 
 dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
-dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
-dev-java/sbt-bin 0.13.7: sbt is a build tool for Scala and Java projects that aims to do the basics well
+dev-haskell/haskell-xmpp 1.0.2: 
+dev-java/sbt-bin 0.13.7: 
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
 dev-libs/libmemcached 1.0.10 9999: a C client library to the memcached server
 dev-python/intelhex 1.4: Python library for Intel HEX files manipulations
 dev-python/python-nbxmpp 9999: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-x2go 9999: Python X2Go Client API
 dev-tex/rubber 1.1_p20100306 9999: A LaTeX wrapper for automatically building documents
-dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
+dev-util/dex2jar 0.0.9.15: 
 dev-util/idea-community-bin 12.1.3.129.451: IntelliJ IDEA is an intelligent Java IDE (Community Edition)
 games-puzzle/osmos 1.6.0: Simple, ambient, nice-looking growing game
 games-rpg/amnesia-tdd 1.2.1: Amnesia: The Dark Descent is a first person survival horror. A game about immersion, discovery and living through a nightmare.
@@ -32,17 +32,17 @@ media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 media-plugins/gst-plugins-vdpau 0.10.23: GStreamer plugin for VDPAU support
 net-im/gajim 9999: Jabber client written in PyGTK
 net-im/gajim-plugins 9999: Plugins for Gajim
-net-im/swift 9999: Your friendly chat client
+net-im/swift 9999: 
 net-misc/pyhoca-cli 9999: Python X2Go Client (command line client)
-net-misc/smackbot 9999: An XMPP and IRC bot written in Scala
+net-misc/smackbot 9999: 
 net-misc/subsonic 4.6: A free, open source, web-based media server in Java.
-net-misc/yacy 1.80.20140916.9000-r1: YaCy - p2p based distributed web-search engine
+net-misc/yacy 1.80.20140916.9000-r1: 
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sci-geosciences/bt747 2.1.3 2.1.6: MTK GPS Datalogger Device Control
 sci-geosciences/osmtools 9999: The osmtools scripts allows an Open Street Map (OSM) user a rollback of changesets
-sci-misc/boinc 7.2.41: The Berkeley Open Infrastructure for Network Computing
-sys-devel/aspectc++ 1.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++
+sci-misc/boinc 7.2.41: 
+sys-devel/aspectc++ 1.1: 
 sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
 x11-misc/pdfpc 3.1.1-r1: Presenter console with multi-monitor support for PDF files
 x11-misc/pdfpres 9999: Dual head PDF presenter
