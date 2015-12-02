@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 			dev-util/dejagnu
 		)"
 
-DOCS="AUTHORS NEWS README TODO"
+DOCS="AUTHORS README.asciidoc NEWS TODO"
 
 src_prepare() {
 	eautoreconf
@@ -34,6 +34,6 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_with pcre) \
+		$(use_with pcre libpcre) \
 		$(use_with unac)
 }
