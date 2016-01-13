@@ -40,6 +40,7 @@ net-misc/pyhoca-cli 9999: Python X2Go Client (command line client)
 net-misc/smackbot 9999: An XMPP and IRC bot written in Scala
 net-misc/subsonic 4.6: A free, open source, web-based media server in Java.
 net-misc/yacy 1.80.20140916.9000-r1: YaCy - p2p based distributed web-search engine
+net-p2p/syncthing 0.12.12: Open Source Continuous File Synchronization
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sci-geosciences/bt747 2.1.3 2.1.6: MTK GPS Datalogger Device Control
