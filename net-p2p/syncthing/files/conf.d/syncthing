@@ -1,7 +1,0 @@
-# /etc/conf.d/syncthing: config file for /etc/init.d/syncthing
-
-#SYNCTHING_USER="syncthing"
-#SYNCTHING_GROUP="nogroup"
-
-# Any options you want you can set them here
-SYNCTHING_OPTS=""
