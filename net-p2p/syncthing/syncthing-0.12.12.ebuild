@@ -25,8 +25,11 @@ DEPEND=">=dev-lang/go-1.4.2"
 
 S="${WORKDIR}"
 
-configDir="~/.config/syncthing"
-config="${configDir}/config.xml"
+SYNCTHING_HOME="/var/lib/${PN}"
+
+pkg_setup() {
+	enewuser ${PN} -1 -1 "${SYNCTHING_HOME}"
+}
 
 src_install() {
 	# Create directory structure recommended by SyncThing Documentation
@@ -50,15 +53,17 @@ src_install() {
 	doconfd "${FILESDIR}/conf.d/${NAME}"
 
 	# Install the systemd service files
-	local systemdServiceFile="etc/linux-systemd/system/${PN}@.service"
-	systemd_dounit "${systemdServiceFile}"
+	systemd_dounit "etc/linux-systemd/system/${PN}@.service"
+	systemd_douserunit "etc/linux-systemd/user/${PN}.service"
 
-	local systemdUserFile="etc/linux-systemd/user/${PN}.service"
-	systemd_dounit "${systemdUserFile}"
+	dodir "${SYNCTHING_HOME}"
+	fowners $PN "${SYNCTHING_HOME}"
+	fperms 700 "${SYNCTHING_HOME}"
 }
 
 pkg_postinst() {
 	elog "In order to be able to view the Web UI remotely (from another machine),"
-	elog "edit your ${config} and change the 127.0.0.1:8080 to 0.0.0.0:8080 in"
-	elog "the 'address' section. This file will only be generated once you start syncthing."
+	elog "edit syncthing's config.xml (usually in ~/.config/syncthing) and change"
+	elog "the 127.0.0.1:8080 to 0.0.0.0:8080 in the 'address' section."
+	elog "This file will only be generated once you start syncthing."
 }

@@ -1,36 +1,20 @@
 #!/sbin/runscript
 
-# Copyright 2014-2015 Jonathan Vasquez <jvasquez1011@gmail.com>
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-DISPLAY_NAME="SyncThing"
+SYNCTHING_USER=${SYNCTHING_USER:-syncthing}
+SYNCTHING_GROUP=${SYNCTHING_GROUP:-nogroup}
 
-SYNC_PATH="/usr/bin"
-SYNC_BINARY="${SYNC_PATH}/${SYNC_NAME}"
-SYNC_USER="${SYNC_USER:-root}"
-SYNC_GROUP="${SYNC_GROUP:-root}"
-SYNC_HOME="${SYNC_HOME:-/etc/${SYNC_NAME}}"
+name="Syncthing"
+description="Open Source Continuous File Synchronization"
 
-start() {
-	ebegin "Starting ${DISPLAY_NAME}"
+command="/usr/bin/syncthing"
+command_args="-no-browser -logflags=0 $SYNCTHING_OPTS"
 
-	if [[ ${SYNC_USER} == "root" ]]; then
-		SYNC_NAME="root"
-		SYNC_GROUP="root"
+start_stop_daemon_args="--user ${SYNCTING_USER} --group ${SYNCTHING_GROUP}"
+pidfile="/var/run/syncthing/syncthing.pid"
 
-		einfo "Running ${DISPLAY_NAME} as root:root. Home directory: ${SYNC_HOME}"
-	fi
-
-	start-stop-daemon -m --pidfile "${SYNC_PIDFILE}" -b \
-	--start --user ${SYNC_USER} --group ${SYNC_GROUP} --exec "${SYNC_BINARY}" -- ${SYNC_OPTS}
-
-	eend $?
-}
-
-stop() {
-	ebegin "Stopping ${DISPLAY_NAME}"
-
-	start-stop-daemon --stop --exec "${SYNC_BINARY}" --pidfile "${SYNC_PIDFILE}"
-
-	eend $?
+depend() {
+		 need localmount net
 }
