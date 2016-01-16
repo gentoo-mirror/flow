@@ -36,6 +36,7 @@ media-plugins/gst-plugins-vdpau 0.10.23: GStreamer plugin for VDPAU support
 net-im/gajim 9999: Jabber client written in PyGTK
 net-im/gajim-plugins 9999: Plugins for Gajim
 net-im/swift 9999: Your friendly chat client
+net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
 net-misc/pyhoca-cli 9999: Python X2Go Client (command line client)
 net-misc/smackbot 9999: An XMPP and IRC bot written in Scala
 net-misc/subsonic 4.6: A free, open source, web-based media server in Java.
