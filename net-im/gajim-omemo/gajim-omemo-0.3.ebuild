@@ -4,7 +4,7 @@
 
 EAPI=5
 
-DESCRIPTION="xmpp component implementing XEP-0363 to upload and share files via http"
+DESCRIPTION="Gajim plugin for XEP proposal: OMEMO Encryption"
 HOMEPAGE="https://github.com/siacs/HttpUploadComponent"
 SRC_URI="https://github.com/kalkin/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
