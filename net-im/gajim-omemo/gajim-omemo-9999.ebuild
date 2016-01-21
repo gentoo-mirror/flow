@@ -6,7 +6,7 @@ EAPI=5
 
 inherit  git-r3
 
-DESCRIPTION="xmpp component implementing XEP-0363 to upload and share files via http"
+DESCRIPTION="Gajim plugin for XEP proposal: OMEMO Encryption"
 HOMEPAGE="https://github.com/siacs/HttpUploadComponent"
 EGIT_REPO_URI="https://github.com/kalkin/gajim-omemo.git"
 
