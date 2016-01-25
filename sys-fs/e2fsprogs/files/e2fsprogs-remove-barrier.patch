@@ -1,0 +1,20 @@
+commit 9460435c28a49d30990c3935ada67146370613ac
+Author: Florian Schmaus <flo@geekplace.eu>
+Date:   Mon Jan 11 17:24:46 2016 +0100
+
+    Remove barrier from e4crypt
+
+diff --git a/misc/e4crypt.c b/misc/e4crypt.c
+index ad95bd2..8a5654a 100644
+--- a/misc/e4crypt.c
++++ b/misc/e4crypt.c
+@@ -726,9 +726,6 @@ static void do_set_policy(int argc, char **argv, const struct cmd_desc *cmd)
+ 		exit(1);
+ 	}
+ 
+-	printf("arg %s\n", argv[optind]);
+-	exit(0);
+-
+ 	strcpy(saltbuf.key_ref_str, argv[optind]);
+ 	if ((strlen(argv[optind]) != (EXT4_KEY_DESCRIPTOR_SIZE * 2)) ||
+ 	    hex2byte(argv[optind], (EXT4_KEY_DESCRIPTOR_SIZE * 2),
