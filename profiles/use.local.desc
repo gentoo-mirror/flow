@@ -141,3 +141,4 @@ app-misc/openhab:openhab_persistence_mysql -
 app-misc/openhab:openhab_persistence_rrd4j - 
 app-misc/openhab:openhab_persistence_sense - 
 app-text/pdfgrep:unac - Removing accents and ligatures before search
+sys-fs/e2fsprogs:e4crypt - Enable e4crypt
