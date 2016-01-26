@@ -4,23 +4,26 @@
 
 EAPI=5
 
-inherit  git-r3
-
 DESCRIPTION="Gajim plugin for XEP proposal: OMEMO Encryption"
 HOMEPAGE="https://github.com/siacs/HttpUploadComponent"
-EGIT_REPO_URI="https://github.com/kalkin/gajim-omemo.git"
+
+if [[ "${PV}" = "9999" ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/omemo/gajim-omemo.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/omemo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
 IUSE=""
 
 DEPEND="dev-python/python-axolotl"
 RDEPEND="${DEPEND}"
 
 src_install() {
-
-#	distutils-r1_python_install
 	local PLUGIN_DIR="/usr/share/gajim/plugins"
 	local OMEMO_PLUGIN_DIR="${PLUGIN_DIR}/omemo"
 	dodir "${PLUGIN_DIR}"
