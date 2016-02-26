@@ -53,6 +53,7 @@ sci-misc/boinc 7.2.41: The Berkeley Open Infrastructure for Network Computing
 sys-devel/aspectc++ 1.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
+virtual/octopos-build-deps 0.1: Virtual for the dependencies required by OctoPOS
 x11-misc/pdfpc 3.1.1-r1: Presenter console with multi-monitor support for PDF files
 x11-misc/pdfpres 9999: Dual head PDF presenter
 x11-themes/zenburn-themes 0.1 9999: A GTK theme based on Zenburn
