@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit cmake-utils git-r3
+inherit cmake-utils git-r3 systemd
 
 DESCRIPTION="This is a sample skeleton ebuild file"
 HOMEPAGE="http://www.rtags.net/"
@@ -22,3 +22,10 @@ IUSE=""
 DEPEND="sys-devel/clang
 	sys-libs/ncurses:0"
 RDEPEND="${DEPEND}"
+
+src_install() {
+	cmake-utils_src_install
+	systemd_douserunit \
+		"${FILESDIR}/rdm.socket" \
+		"${FILESDIR}/rdm.service"
+}
