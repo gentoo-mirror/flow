@@ -8,13 +8,12 @@ depend() {
 }
 
 name="SmackBot"
-description="An XMPP and IRC bot written in Scala"
+description="An XMPP bot written in Scala using Smack"
 
-command="/usr/bin/SmackBot"
+command="/usr/bin/smackbot"
 command_args=""
 
-required_files="${BITCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${BITCOIND_USER} \
-			-N ${BITCOIND_NICE:-0} -w 2000"
-pidfile="${BITCOIND_PIDFILE}"
+start_stop_daemon_args="-u ${SMACKBOT_USER} \
+			-N ${SMACKBOT_NICE:-0} -w 2000"
+pidfile="${SMACKBOT_PIDFILE}"
 retry="${SMACKBOT_SIGTERM_TIMEOUT}"
