@@ -23,7 +23,10 @@ DEPEND="|| (
 		>=virtual/jdk-1.8"
 RDEPEND="${DEPEND}
 	app-eselect/eselect-smackbot
-	>=virtual/jre-1.8"
+	|| (
+		>=virtual/jdk-1.8
+		>=virtual/jre-1.8
+	)"
 
 pkg_setup() {
 	enewgroup ${PN}
@@ -39,6 +42,7 @@ src_install() {
 	newconfd "${FILESDIR}/${PN}.confd" $PN
 
 	local smackbotJar=target/scala-2.11/SmackBot-assembly-0.1.jar
-	java-pkg_newjar "${smackbotJar}"
-	java-pkg_dolauncher
+	local slottedName="${PN}-${SLOT}"
+	java-pkg_newjar "${smackbotJar}" "${slottedName}.jar"
+	java-pkg_dolauncher "${slottedName}"
 }
