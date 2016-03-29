@@ -1,27 +1,29 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 inherit git-r3 java-utils-2 user
 
-DESCRIPTION="An XMPP and IRC bot written in Scala"
+DESCRIPTION="An XMPP bot written in Scala using Smack"
 HOMEPAGE="https://gitlab.com/Flow/SmackBot"
 
 EGIT_REPO_URI="https://gitlab.com/Flow/SmackBot.git"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="$PV"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="|| (
 			dev-java/sbt
 			dev-java/sbt-bin
-		)"
+		)
+		>=virtual/jdk-1.8"
 RDEPEND="${DEPEND}
-	>=virtual/jre-1.7"
+	app-eselect/eselect-smackbot
+	>=virtual/jre-1.8"
 
 pkg_setup() {
 	enewgroup ${PN}
