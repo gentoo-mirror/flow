@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-r3 java-utils-2 user
+inherit git-r3 java-pkg-2 user
 
 DESCRIPTION="An XMPP bot written in Scala using Smack"
 HOMEPAGE="https://gitlab.com/Flow/SmackBot"
