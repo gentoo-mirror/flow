@@ -26,7 +26,6 @@ dev-python/python-axolotl 0.1.6 9999: python implementation of axolotl encryptio
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-nbxmpp 9999: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-x2go 9999: Python X2Go Client API
-dev-tex/minted 2.1: LaTeX package that facilitates expressive syntax highlighting in using the powerful Pygments library
 dev-tex/rubber 1.1_p20100306 9999: A LaTeX wrapper for automatically building documents
 dev-util/android-sdk-update-manager 24.4.1: Open Handset Alliance's Android SDK
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
