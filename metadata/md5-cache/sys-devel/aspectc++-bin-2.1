@@ -1,0 +1,11 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=A set of C++ language extensions for aspect-oriented programming with C/C++
+EAPI=6
+HOMEPAGE=http://www.aspectc.org
+KEYWORDS=~x86 ~amd64
+LICENSE=GPL-2
+RESTRICT=mirror
+SLOT=0
+SRC_URI=x86? ( http://aspectc.org/releases/2.1/ac-bin-linux-x86-2.1.tar.gz ) amd64? ( http://aspectc.org/releases/2.1/ac-bin-linux-x86-64bit-2.1.tar.gz )
+_eclass_exported_funcs=src_prepare:- src_install:-
+_md5_=c8d67b63574a1654ea04a19e6d7e83bc
