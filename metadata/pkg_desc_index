@@ -22,7 +22,7 @@ dev-java/sbt-bin 0.13.7: sbt is a build tool for Scala and Java projects that ai
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
 dev-libs/libmemcached 1.0.10 9999: a C client library to the memcached server
 dev-python/intelhex 1.4: Python library for Intel HEX files manipulations
-dev-python/python-axolotl 0.1.6 9999: python implementation of axolotl encryption
+dev-python/python-axolotl 0.1.6 0.1.35 9999: python implementation of axolotl encryption
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-nbxmpp 9999: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-x2go 9999: Python X2Go Client API
@@ -40,7 +40,7 @@ media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 media-plugins/gst-plugins-vdpau 0.10.23: GStreamer plugin for VDPAU support
 media-sound/google-musicmanager 1.0.243.1116_beta: Google Music Manager is a application for adding music to your Google Music library
 net-im/gajim 9999: Jabber client written in PyGTK
-net-im/gajim-omemo 0.3 0.4 9999: Gajim plugin for XEP proposal: OMEMO Encryption
+net-im/gajim-omemo 0.3 0.4 0.9 9999: Gajim plugin for XEP proposal: OMEMO Encryption
 net-im/gajim-plugins 9999: Plugins for Gajim
 net-im/swift 9999: Your friendly chat client
 net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
