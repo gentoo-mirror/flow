@@ -24,6 +24,7 @@ dev-libs/libmemcached 1.0.10 9999: a C client library to the memcached server
 dev-python/intelhex 1.4: Python library for Intel HEX files manipulations
 dev-python/python-axolotl 0.1.6 0.1.35 9999: python implementation of axolotl encryption
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
+dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
 dev-python/python-nbxmpp 9999: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-x2go 9999: Python X2Go Client API
 dev-tex/rubber 1.1_p20100306 9999: A LaTeX wrapper for automatically building documents
