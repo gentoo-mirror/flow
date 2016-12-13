@@ -60,6 +60,7 @@ sys-devel/aspectc++-bin 2.1: A set of C++ language extensions for aspect-oriente
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
 virtual/octopos-build-deps 0.1: Virtual for the dependencies required by OctoPOS
+x11-misc/autorandr 1.0 9999: Automatically select a display configuration based on connected devices
 x11-misc/pdfpc 3.1.1-r1: Presenter console with multi-monitor support for PDF files
 x11-misc/pdfpres 9999: Dual head PDF presenter
 x11-themes/zenburn-themes 0.1 9999: A GTK theme based on Zenburn
