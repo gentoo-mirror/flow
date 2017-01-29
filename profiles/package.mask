@@ -1,0 +1,2 @@
+# Java 1.7 and older is End of Life
+<dev-java/oracle-jdk-1.8
