@@ -141,6 +141,10 @@ app-misc/openhab:openhab_persistence_mysql -
 app-misc/openhab:openhab_persistence_rrd4j - 
 app-misc/openhab:openhab_persistence_sense - 
 app-text/pdfgrep:unac - Removing accents and ligatures before search
+dev-java/oracle-jdk-bin:derby - Install bundled Derby (Java database)
+dev-java/oracle-jdk-bin:jce - Install Java Cryptographic Extension Unlimited Strength Jurisdiction Policy Files
+dev-java/oracle-jdk-bin:pax_kernel - PAX Kernel
+dev-java/oracle-jdk-bin:source - Install JVM (and optionally JavaFX) sources
 sys-fs/e2fsprogs:e4crypt - Enable e4crypt
 x11-misc/autorandr:pm-utils - 
 x11-misc/autorandr:systemd - 

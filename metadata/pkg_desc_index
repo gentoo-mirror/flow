@@ -18,6 +18,7 @@ app-text/explain 9999: Explain commands using ASCII art
 app-text/pdfgrep 9999: A tool similar to grep which searches text in PDFs
 dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
+dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
 dev-java/sbt-bin 0.13.7: sbt is a build tool for Scala and Java projects that aims to do the basics well
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
 dev-libs/libmemcached 1.0.10 9999: a C client library to the memcached server
