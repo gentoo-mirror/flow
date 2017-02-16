@@ -42,7 +42,7 @@ media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 media-plugins/gst-plugins-vdpau 0.10.23: GStreamer plugin for VDPAU support
 media-sound/google-musicmanager 1.0.243.1116_beta: Google Music Manager is a application for adding music to your Google Music library
 net-im/gajim 9999: Jabber client written in PyGTK
-net-im/gajim-omemo 0.9 1.0 9999: Gajim plugin for XEP proposal: OMEMO Encryption
+net-im/gajim-omemo 1.0.3 9999: Gajim plugin for XEP proposal: OMEMO Encryption
 net-im/gajim-plugins 9999: Plugins for Gajim
 net-im/swift 9999: Your friendly chat client
 net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
