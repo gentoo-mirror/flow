@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
 if [[ "${PV}" = "9999" ]] ; then
 	KEYWORDS=""
 else
-	EGIT_COMMIT="c87041b524cbbd8512fa7eb720033d856548603f"
+	EGIT_COMMIT="1503d1f126f6c18ea1ea552f31398b19b87ab6ec"
 	KEYWORDS="~amd64"
 fi
 
@@ -22,7 +22,8 @@ SLOT="0"
 IUSE=""
 
 DEPEND="dev-python/python-axolotl
-        dev-python/qrcode"
+		dev-python/qrcode
+		dev-python/cryptography"
 RDEPEND="${DEPEND}"
 
 src_install() {
