@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit distutils git-2
+inherit distutils-r1 git-2
 
 DESCRIPTION="Python X2Go Client API"
 HOMEPAGE="http://www.x2go.org"
