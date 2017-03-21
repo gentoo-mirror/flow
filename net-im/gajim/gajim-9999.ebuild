@@ -1,105 +1,115 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/gajim/gajim-0.14.1-r2.ebuild,v 1.8 2011/03/29 12:43:44 jer Exp $
 
-EAPI="3"
+EAPI=5
 
-PYTHON_DEPEND="2"
-PYTHON_USE_WITH="sqlite xml"
+PYTHON_COMPAT=( python3_5 )
+PYTHON_REQ_USE="sqlite,xml"
 
-inherit eutils python versionator mercurial
+AUTOTOOLS_AUTORECONF=true
+
+inherit autotools-utils git-r3 python-r1 versionator
 
 DESCRIPTION="Jabber client written in PyGTK"
 HOMEPAGE="http://www.gajim.org/"
-EHG_REPO_URI="http://hg.gajim.org/gajim"
+EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
-IUSE="avahi crypt dbus gmail gnome idle jingle libnotify networkmanager nls spell srv X xhtml"
+KEYWORDS=""
+IUSE="crypt dbus gnome gnome-keyring kde idle jingle libnotify networkmanager nls spell +srv test X xhtml zeroconf"
+
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	libnotify? ( dbus )
+	gnome? ( gnome-keyring )
+	zeroconf? ( dbus )"
 
 COMMON_DEPEND="
-	x11-libs/gtk+:2
-	dev-python/pygtk:2"
+	${PYTHON_DEPS}
+	dev-python/pygtk:2[${PYTHON_USEDEP}]
+	x11-libs/gtk+:2"
 DEPEND="${COMMON_DEPEND}
-	>=sys-devel/gettext-0.17-r1
 	>=dev-util/intltool-0.40.1
-	dev-util/pkgconfig"
+	virtual/pkgconfig
+	>=sys-devel/gettext-0.17-r1"
 RDEPEND="${COMMON_DEPEND}
-	dev-python/python-nbxmpp
-	dev-python/pygoocanvas
-	dev-python/pyopenssl
-	dev-python/gnome-keyring-python
+	dev-python/pyasn1[${PYTHON_USEDEP}]
+	>=dev-python/pyopenssl-0.14[${PYTHON_USEDEP}]
+	>=dev-python/python-nbxmpp-0.5.3[${PYTHON_USEDEP}]
 	crypt? (
 		app-crypt/gnupg
-		dev-python/pycrypto
-		net-im/python-otr
+		dev-python/pycrypto[${PYTHON_USEDEP}]
 		)
 	dbus? (
-		dev-python/dbus-python
+		dev-python/dbus-python[${PYTHON_USEDEP}]
 		dev-libs/dbus-glib
-		libnotify? ( dev-python/notify-python )
-		avahi? ( net-dns/avahi[dbus,gtk,python] )
+		libnotify? ( dev-python/notify-python[${PYTHON_USEDEP}] )
+		zeroconf? ( net-dns/avahi[dbus,gtk,python,${PYTHON_USEDEP}] )
 		)
-	gmail? ( net-dns/bind-tools )
 	gnome? (
-		dev-python/libgnome-python
-		dev-python/gnome-keyring-python
-		dev-python/egg-python
+		dev-python/libgnome-python[${PYTHON_USEDEP}]
+		dev-python/egg-python[${PYTHON_USEDEP}]
 		)
+	gnome-keyring? ( dev-python/gnome-keyring-python[${PYTHON_USEDEP}] )
 	idle? ( x11-libs/libXScrnSaver )
-	jingle? ( net-libs/farstream[python] )
+	jingle? ( net-libs/farstream:0.1[python,${PYTHON_USEDEP}] )
+	kde? ( kde-apps/kwalletmanager )
 	networkmanager? (
-			dev-python/dbus-python
+			dev-python/dbus-python[${PYTHON_USEDEP}]
 			net-misc/networkmanager
 		)
+	spell? ( app-text/gtkspell:2 )
 	srv? (
 		|| (
-			dev-python/libasyncns-python
-			net-dns/bind-tools )
+			dev-python/libasyncns-python[${PYTHON_USEDEP}]
+			net-dns/bind-tools
+			)
 		)
-	spell? ( app-text/gtkspell )
-	xhtml? ( dev-python/docutils )"
+	xhtml? ( dev-python/docutils[${PYTHON_USEDEP}] )"
 
-pkg_setup() {
-	if ! use dbus; then
-		if use libnotify; then
-			eerror "The dbus USE flag is required for libnotify support"
-			die "USE=\"dbus\" needed for libnotify support"
-		fi
-		if use avahi; then
-			eerror "The dbus USE flag is required for avahi support"
-			die "USE=\"dbus\" needed for avahi support"
-		fi
-	fi
-	python_set_active_version 2
-	python_pkg_setup
-}
+RESTRICT="test"
 
 src_prepare() {
-	./autogen.sh
+	autotools-utils_src_prepare
+	python_copy_sources
 }
 
 src_configure() {
-	econf \
-		$(use_enable nls) \
-		$(use_with X x) \
-		--docdir="/usr/share/doc/${PF}" \
-		--libdir="$(python_get_sitedir)" \
-# Enable site packages installs the shiped plugins into the wrong directory
-#		--enable-site-packages
+	configuration() {
+		local myeconfargs=(
+			$(use_enable nls)
+			$(use_with X x)
+			--docdir="/usr/share/doc/${PF}"
+			--libdir="$(python_get_sitedir)"
+			--enable-site-packages
+		)
+		run_in_build_dir autotools-utils_src_configure
+	}
+	python_foreach_impl configuration
+}
+
+src_compile() {
+	compilation() {
+		run_in_build_dir autotools-utils_src_compile
+	}
+	python_foreach_impl compilation
+}
+
+src_test() {
+	testing() {
+		run_in_build_dir ${PYTHON} test/runtests.py --verbose 3 || die
+	}
+	python_foreach_impl testing
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
+	installation() {
+		run_in_build_dir autotools-utils_src_install
+		python_optimize
+	}
+	python_foreach_impl installation
 
-	dohtml README.html || die
-}
-
-pkg_postinst() {
-	python_mod_optimize ${PN}
-}
-
-pkg_postrm() {
-	python_mod_cleanup ${PN}
+	rm "${ED}/usr/share/doc/${PF}/README.html" || die
+	dohtml README.html
 }
