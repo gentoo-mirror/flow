@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
 if [[ "${PV}" = "9999" ]] ; then
 	KEYWORDS=""
 else
-	EGIT_COMMIT="e8b6b329c5545d92546ebdc9cf2a6e008be83feb"
+	EGIT_COMMIT="5a6d4d2679da188cae0323579c6ac9fa9b5a8dc9"
 	KEYWORDS="~amd64"
 fi
 
@@ -23,6 +23,7 @@ IUSE=""
 DEPEND="dev-python/python-axolotl
 		dev-python/qrcode
 		dev-python/cryptography"
+
 RDEPEND="${DEPEND}"
 
 src_install() {
