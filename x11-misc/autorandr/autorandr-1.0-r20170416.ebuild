@@ -8,10 +8,11 @@ inherit bash-completion-r1 git-r3 udev
 DESCRIPTION="Automatically select a display configuration based on connected devices"
 HOMEPAGE="https://github.com/phillipberndt/autorandr"
 EGIT_REPO_URI="https://github.com/phillipberndt/${PN}.git"
+EGIT_COMMIT_ID="ee77c355294c596c29a78b10a625d3db1a8ab1d5"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="bash-completion pm-utils systemd udev"
 
 DEPEND="
