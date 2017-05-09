@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit bash-completion-r1 git-r3 udev
+inherit bash-completion-r1 git-r3 systemd udev
 
 DESCRIPTION="Automatically select a display configuration based on connected devices"
 HOMEPAGE="https://github.com/phillipberndt/autorandr"
@@ -28,6 +28,9 @@ RDEPEND="
 
 src_install() {
 	targets="autorandr autostart_config"
+	if use bash-completion; then
+		targets="$targets bash_completion"
+	fi
 	if use pm-utils; then
 		targets="$targets pmutils"
 	fi
@@ -38,15 +41,12 @@ src_install() {
 		targets="$targets udev"
 	fi
 
-	emake DESTDIR="${D}" install TARGETS="$targets"
-
-	# We do not use autorandr's bash_completion target, since it would
-	# install the bash completion file in the wrong directory:
-	# /etc/bash_completion.d instead of /usr/share/bash-completion/
-	# So instead use bash-completion.eclass's newbashcomp.
-	if use bash-completion; then
-		newbashcomp contrib/bash_completion/${PN} ${PN}
-	fi
+	emake DESTDIR="${D}" \
+		  install \
+		  BASH_COMPLETION_DIR="$(get_bashcompdir)" \
+		  SYSTEMD_UNIT_DIR="$(systemd_get_systemunitdir)" \
+		  UDEV_RULES_DIR="$(get_udevdir)"/rules.d \
+		  TARGETS="$targets"
 }
 
 pkg_postinst() {
