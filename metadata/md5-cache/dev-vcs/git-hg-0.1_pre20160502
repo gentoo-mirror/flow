@@ -1,0 +1,10 @@
+DEFINED_PHASES=unpack
+DEPEND=>=dev-vcs/git-1.8.2.1
+DESCRIPTION=A git utility for checking out and tracking a mercurial repo.
+EAPI=6
+HOMEPAGE=https://github.com/cosmin/git-hg
+LICENSE=MIT
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-r3
+_eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390
+_md5_=86891e5e92e2e5f993c02e271b745b91

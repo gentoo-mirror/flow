@@ -1,0 +1,10 @@
+DEFINED_PHASES=install unpack
+DEPEND=>=dev-vcs/git-1.8.2.1
+DESCRIPTION=Gajim plugins
+EAPI=5
+HOMEPAGE=https://dev.gajim.org/gajim/gajim-plugins/wikis/
+LICENSE=GPL-3
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-r3 src_install:-
+_eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390
+_md5_=58528be2d5f0aa1c05c16ec66371c801
