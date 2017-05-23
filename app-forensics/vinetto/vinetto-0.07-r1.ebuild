@@ -1,10 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=6
 
-inherit distutils
+PYTHON_COMPAT=( python2_7 )
+
+inherit distutils-r1
 
 MY_P="${PN}-beta-${PV}"
 DESCRIPTION="Vinetto is a forensics tool to examine Thumbs.db files."
