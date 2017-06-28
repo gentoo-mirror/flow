@@ -47,8 +47,6 @@ src_prepare() {
 	sed -i '/go install -race std/d' Makefile || die
 	sed -i '/NebulousLabs\/glyphcheck/d' Makefile || di
 
-	#sed -i 's/go install/go build/' Makefile || die
-
 	export GOPATH="${S}:$(get_golibdir_gopath)"
 	make dependencies
 }
