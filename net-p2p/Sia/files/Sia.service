@@ -10,11 +10,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/siad -d /var/lib/sia
-# Creates /run/bitcoind owned by bitcoin
-RuntimeDirectory=bitcoind
 User=sia
-Type=forking
-PIDFile=/run/bitcoind/bitcoind.pid
 Restart=on-failure
 
 [Install]
