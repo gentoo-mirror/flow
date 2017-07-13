@@ -45,7 +45,6 @@ net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
 net-misc/smackbot 9999: An XMPP bot written in Scala using Smack
 net-misc/subsonic 4.6: A free, open source, web-based media server in Java.
 net-misc/yacy 1.80.20140916.9000-r1: YaCy - p2p based distributed web-search engine
-net-p2p/Sia 1.2.2 9999: A decentralized cloud storage platform based on blockchain technology
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sys-apps/ucg 0.2.2 9999: A extremely fast grep-like tool specialized for searching source code
