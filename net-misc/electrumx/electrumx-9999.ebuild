@@ -33,6 +33,8 @@ pkg_setup() {
 }
 
 src_install() {
+	default
+
 	local electrumx_home="/var/lib/${PN}"
 	dodir "${electrumx_home}"
 	fperms 700 "${electrumx_home}"
