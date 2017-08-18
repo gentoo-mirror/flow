@@ -27,6 +27,7 @@ IUSE=""
 
 RDEPEND="dev-python/plyvel
 	>=dev-python/aiohttp-1.0
+	>=dev-python/pylru-1.0
 	${DEPEND}"
 
 pkg_setup() {
@@ -34,6 +35,7 @@ pkg_setup() {
 }
 
 MY_SYSTEMD_SERVICE_FILE="contrib/systemd/${PN}.service"
+
 src_prepare() {
 	default
 
