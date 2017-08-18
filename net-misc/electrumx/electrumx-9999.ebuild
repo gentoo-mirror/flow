@@ -32,8 +32,13 @@ pkg_setup() {
 	enewuser "${PN}" -1 -1 "/var/lib/${PN}"
 }
 
-src_install() {
+src_prepare() {
 	default
+	sed -i "s/find_packages()/find_packages(exclude=('tests',))/" setup.py || die
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
 
 	local electrumx_home="/var/lib/${PN}"
 	dodir "${electrumx_home}"
