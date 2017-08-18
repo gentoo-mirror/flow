@@ -23,6 +23,7 @@ dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
 dev-java/sbt-bin 0.13.7: sbt is a build tool for Scala and Java projects that aims to do the basics well
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
+dev-python/pylru 1.0.9: A least recently used (LRU) cache for Python
 dev-python/python-axolotl 0.1.6 0.1.35 9999: python implementation of axolotl encryption
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
