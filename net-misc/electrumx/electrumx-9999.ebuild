@@ -32,9 +32,14 @@ pkg_setup() {
 	enewuser "${PN}" -1 -1 "/var/lib/${PN}"
 }
 
+MY_SYSTEMD_SERVICE_FILE="contrib/systemd/${PN}.service"
 src_prepare() {
 	default
+
 	sed -i "s/find_packages()/find_packages(exclude=('tests',))/" setup.py || die
+
+	sed -i "s;/usr/local/bin;/usr/bin;" "${MY_SYSTEMD_SERVICE_FILE}" || die
+	sed -i "s;/etc/${PN}.conf;/etc/${PN}/${PN}.conf;" "${MY_SYSTEMD_SERVICE_FILE}" || die
 }
 
 python_install_all() {
@@ -44,5 +49,5 @@ python_install_all() {
 	dodir "${electrumx_home}"
 	fperms 700 "${electrumx_home}"
 
-	systemd_dounit "contrib/systemd/electrumx.service"
+	systemd_dounit "${MY_SYSTEMD_SERVICE_FILE}"
 }
