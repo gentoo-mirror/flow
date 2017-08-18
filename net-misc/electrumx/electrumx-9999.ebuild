@@ -26,6 +26,7 @@ SLOT="0"
 IUSE=""
 
 RDEPEND="dev-python/plyvel
+	>=dev-python/aiohttp-1.0
 	${DEPEND}"
 
 pkg_setup() {
