@@ -9,5 +9,5 @@ LICENSE=LPPL-1.3c
 RDEPEND=dev-tex/xcolor virtual/latex-base
 SLOT=0
 _eclass_exported_funcs=pkg_postrm:latex-package pkg_postinst:latex-package src_unpack:git-r3 src_compile:- src_install:-
-_eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390	latex-package	79acad19b9efeec616d0ad70cd117b03
+_eclasses_=git-r3	78651c07ca1c1373bf81545d39eb9769	latex-package	79acad19b9efeec616d0ad70cd117b03
 _md5_=dc37496b1499db2950b4fd79d5d46523
