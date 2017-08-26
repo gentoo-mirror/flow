@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="This is a sample skeleton ebuild file"
+DESCRIPTION="A server for the Electrum wallet"
 HOMEPAGE="https://github.com/kyuupichan/electrumx"
 
 LICENSE="MIT"

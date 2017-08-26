@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="This is a sample skeleton ebuild file"
+DESCRIPTION="A server for the Electrum wallet"
 HOMEPAGE="https://github.com/kyuupichan/electrumx"
 
 LICENSE="MIT"
@@ -38,6 +38,8 @@ MY_SYSTEMD_SERVICE_FILE="contrib/systemd/${PN}.service"
 
 src_prepare() {
 	default
+
+	sed -i "s/find_packages()/find_packages(exclude=('tests',))/" setup.py || die
 
 	sed -i "s;/usr/local/bin;/usr/bin;" "${MY_SYSTEMD_SERVICE_FILE}" || die
 	sed -i "s;/etc/${PN}.conf;/etc/${PN}/${PN}.conf;" "${MY_SYSTEMD_SERVICE_FILE}" || die
