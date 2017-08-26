@@ -46,7 +46,7 @@ net-im/gajim 9999: Jabber client written in PyGTK
 net-im/gajim-omemo 1.2.5 1.2.6 9999: Gajim plugin for XEP proposal: OMEMO Encryption
 net-im/swift 9999: Your friendly chat client
 net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
-net-misc/electrumx 1.0.15 1.0.17 9999: This is a sample skeleton ebuild file
+net-misc/electrumx 1.0.17 9999: A server for the Electrum wallet
 net-misc/smackbot 9999: An XMPP bot written in Scala using Smack
 net-misc/subsonic 4.6: A free, open source, web-based media server in Java.
 net-misc/yacy 1.80.20140916.9000-r1: YaCy - p2p based distributed web-search engine
