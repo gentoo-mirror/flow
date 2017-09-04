@@ -8,6 +8,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=EPL-1.0
 RDEPEND=>=virtual/jre-1.7
 SLOT=0
-_eclass_exported_funcs=pkg_setup:- src_unpack:git-r3 src_compile:- src_install:-
 _eclasses_=git-r3	4f7ddb4119309845d6687213171ab445	user	e4b567c44272a719fabf53f0f885d3f7
 _md5_=ea994db87f7587c7ec7d6d384c8f4c35

@@ -7,5 +7,4 @@ LICENSE=Apache-2.0
 RDEPEND=|| ( virtual/jre virtual/jdk )
 SLOT=0
 SRC_URI=http://dex2jar.googlecode.com/files/dex2jar-0.0.9.15.zip
-_eclass_exported_funcs=src_prepare:- src_install:-
 _md5_=4246bbf53501038f31901a45cef9b2fa

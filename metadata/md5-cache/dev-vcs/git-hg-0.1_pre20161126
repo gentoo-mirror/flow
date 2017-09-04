@@ -6,6 +6,5 @@ HOMEPAGE=https://github.com/cosmin/git-hg
 KEYWORDS=~amd64
 LICENSE=MIT
 SLOT=0
-_eclass_exported_funcs=src_unpack:git-r3
 _eclasses_=git-r3	4f7ddb4119309845d6687213171ab445
 _md5_=e6df66d984a08e4f3d72b9d2f85706cc
