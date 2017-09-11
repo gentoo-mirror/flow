@@ -1,0 +1,19 @@
+#!/sbin/runscript
+
+JAVA_ARGS="\
+-server"
+
+depend() {
+	need localmount net
+}
+
+name="SmackBot"
+description="An XMPP bot written in Scala using Smack"
+
+command="/usr/bin/smackbot"
+command_args=""
+
+start_stop_daemon_args="-u ${SMACKBOT_USER} \
+			-N ${SMACKBOT_NICE:-0} -w 2000"
+pidfile="${SMACKBOT_PIDFILE}"
+retry="${SMACKBOT_SIGTERM_TIMEOUT}"
