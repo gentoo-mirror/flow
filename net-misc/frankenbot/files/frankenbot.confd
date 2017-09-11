@@ -1,0 +1,17 @@
+# Run SmackBot as this user.
+# NOTE: For security reasons do not run SmackBot as root.
+SMACKBOT_USER="smackbot"
+
+# Run SmackBot as this group.
+# NOTE: For security reasons do not run SmackBot as root.
+SMACKBOT_GROUP="smackbot"
+
+# Other options you want to pass to SmackBot
+SMACKBOT_OPTIONS=""
+
+# Path to SmackBot pid file.
+SMACKBOT_PIDFILE="/var/run/smackbot.pid"
+
+# The timeout after SIGTERM has been issued when stopping SmackBot
+# '--retry' arguments to start-stop-daemon when stopping SmackBot
+SMACKBOT_SIGTERM_TIMEOUT=60
