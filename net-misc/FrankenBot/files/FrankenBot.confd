@@ -1,17 +1,17 @@
-# Run SmackBot as this user.
-# NOTE: For security reasons do not run SmackBot as root.
-SMACKBOT_USER="smackbot"
+# Run FrankenBot as this user.
+# NOTE: For security reasons do not run FrankenBot as root.
+FRANKENBOT_USER="frankenbot"
 
-# Run SmackBot as this group.
-# NOTE: For security reasons do not run SmackBot as root.
-SMACKBOT_GROUP="smackbot"
+# Run FrankenBot as this group.
+# NOTE: For security reasons do not run FrankenBot as root.
+FRANKENBOT_GROUP="frankenbot"
 
-# Other options you want to pass to SmackBot
-SMACKBOT_OPTIONS=""
+# Other options you want to pass to FrankenBot
+FRANKENBOT_OPTIONS=""
 
-# Path to SmackBot pid file.
-SMACKBOT_PIDFILE="/var/run/smackbot.pid"
+# Path to FrankenBot pid file.
+FRANKENBOT_PIDFILE="/var/run/frankenbot.pid"
 
-# The timeout after SIGTERM has been issued when stopping SmackBot
-# '--retry' arguments to start-stop-daemon when stopping SmackBot
-SMACKBOT_SIGTERM_TIMEOUT=60
+# The timeout after SIGTERM has been issued when stopping FrankenBot
+# '--retry' arguments to start-stop-daemon when stopping FrankenBot
+FRANKENBOT_SIGTERM_TIMEOUT=60

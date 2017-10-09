@@ -28,8 +28,10 @@ RDEPEND="${DEPEND}
 	)"
 
 pkg_setup() {
-	enewgroup ${PN}
-	enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
+	declare -rl user="${PN}"
+	declare -rl group="${user}"
+	enewgroup "${group}"
+	enewuser "${user}" -1 -1 "/var/lib/${PN}" "${group}"
 }
 
 src_compile() {
@@ -40,7 +42,7 @@ src_install() {
 	newinitd "${FILESDIR}/${PN}.initd" $PN
 	newconfd "${FILESDIR}/${PN}.confd" $PN
 
-	local frankenbotJar=target/scala-2.11/FrankenBot-assembly-0.1.jar
+	local frankenbotJar=target/scala-2.12/FrankenBot-assembly-0.1.jar
 	local slottedName="${PN}-${SLOT}"
 	java-pkg_newjar "${frankenbotJar}" "${slottedName}.jar"
 	java-pkg_dolauncher "${slottedName}"
