@@ -1,4 +1,4 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
 JAVA_ARGS="\
 -server"
@@ -7,13 +7,13 @@ depend() {
 	need localmount net
 }
 
-name="SmackBot"
+name="FrankenBot"
 description="An XMPP bot written in Scala using Smack"
 
-command="/usr/bin/smackbot"
+command="/usr/bin/FrankenBot"
 command_args=""
 
-start_stop_daemon_args="-u ${SMACKBOT_USER} \
-			-N ${SMACKBOT_NICE:-0} -w 2000"
-pidfile="${SMACKBOT_PIDFILE}"
-retry="${SMACKBOT_SIGTERM_TIMEOUT}"
+start_stop_daemon_args="-u ${FRANKENBOT_USER} \
+			-N ${FRANKENBOT_NICE:-0} -w 2000"
+pidfile="${FRANKENBOT_PIDFILE}"
+retry="${FRANKENBOT_SIGTERM_TIMEOUT}"
