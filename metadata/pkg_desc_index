@@ -9,7 +9,6 @@ app-emacs/auctex 9999: Extended support for writing, formatting and using (La)Te
 app-emacs/zenburn-emacs 9999: Zenburn color theme for Emacs 24 (or higher)
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
-app-eselect/eselect-frankenbot 0.1: Manage multiple FrankenBot versions on one system
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
 app-forensics/vinetto 0.07-r1: Vinetto is a forensics tool to examine Thumbs.db files.
 app-misc/asynk 0.4.1: A flexible Contacts synchronization program that works with a variety of contacts software
@@ -52,7 +51,6 @@ net-im/swift 9999: Your friendly chat client
 net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-misc/electrumx 1.0.15 1.0.17 9999: A server for the Electrum wallet
-net-misc/frankenbot 9999: An bot written in Scala using Smack
 net-misc/smackbot 9999: An XMPP bot written in Scala using Smack
 net-misc/subsonic 4.6: A free, open source, web-based media server in Java.
 net-misc/yacy 1.80.20140916.9000-r1: YaCy - p2p based distributed web-search engine
@@ -64,5 +62,5 @@ sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-ori
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
 virtual/octopos-build-deps 0.1: Virtual for the dependencies required by OctoPOS
-x11-misc/autorandr 1.0-r20170416 9999: Automatically select a display configuration based on connected devices
+x11-misc/autorandr 1.0-r20170416 1.1-r20171010 9999: Automatically select a display configuration based on connected devices
 x11-themes/zenburn-themes 0.1 9999: A GTK theme based on Zenburn
