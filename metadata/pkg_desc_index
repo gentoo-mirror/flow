@@ -49,7 +49,7 @@ media-sound/google-musicmanager 1.0.243.1116_beta: Google Music Manager is a app
 net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Management Platform
 net-im/gajim 9999: Jabber client written in PyGTK
 net-im/gajim-omemo 1.2.5 1.2.6 1.2.7 9999: Gajim plugin for XEP proposal: OMEMO Encryption
-net-im/poezio 0.12_pre20171013: A free console based XMPP client
+net-im/poezio 0.12_pre20171013 0.12_pre20171018: A free console based XMPP client
 net-im/swift 9999: Your friendly chat client
 net-irc/qweechat 1.0_pre20160116: Qt remote GUI for WeeChat
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
