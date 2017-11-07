@@ -15,12 +15,14 @@ SLOT="$PV"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="|| (
+COMMON_DEPEND="dev-lang/scala:2.12
+			   >=virtual/jdk-1.8"
+DEPEND="$COMMON_DEPEND
+		|| (
 			dev-java/sbt
 			dev-java/sbt-bin
-		)
-		>=virtual/jdk-1.8"
-RDEPEND="${DEPEND}
+		)"
+RDEPEND="${COMMON_DEPEND}
 	app-eselect/eselect-FrankenBot
 	|| (
 		>=virtual/jdk-1.8
