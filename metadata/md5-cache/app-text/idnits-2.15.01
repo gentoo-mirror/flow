@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=A tool to check internet-drafts for submission nits
+EAPI=6
+HOMEPAGE=https://tools.ietf.org/tools/idnits/
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=app-shells/bash
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://tools.ietf.org/tools/idnits/idnits-2.15.01.tgz
+_md5_=8bd173486bc679808613732638f38852
