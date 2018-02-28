@@ -1,18 +1,19 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-DESCRIPTION="Gajim plugin for XEP proposal: OMEMO Encryption"
+DESCRIPTION="Gajim plugin for OMEMO XMPP end-to-end encryption"
 HOMEPAGE="https://dev.gajim.org/gajim/gajim-plugins/wikis/OmemoGajimPlugin"
 
 inherit git-r3
+
 EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
 
 if [[ "${PV}" = "9999" ]] ; then
 	KEYWORDS=""
 else
-	EGIT_COMMIT="4dac406cdf87ec6a1796bc5ab3c2410dbe51ce7b"
+	EGIT_COMMIT="omemo_${PV}"
 	KEYWORDS="~amd64"
 fi
 
