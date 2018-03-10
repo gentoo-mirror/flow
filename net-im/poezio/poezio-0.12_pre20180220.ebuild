@@ -13,7 +13,7 @@ HOMEPAGE="https://poez.io"
 
 SRC_URI=""
 EGIT_REPO_URI="https://git.poez.io/poezio.git"
-EGIT_COMMIT_ID="87ed4aff12e6251ced6a34e50fe643b84e60790f"
+EGIT_COMMIT_ID="ac6adbf21b71985579b81e14712ded85bf3743f2"
 
 LICENSE="ZLIB"
 
@@ -26,5 +26,5 @@ IUSE=""
 CDEPEND=""
 DEPEND="${CDEPEND}"
 RDEPEND="${CDEPEND}
-	dev-python/slixmpp
+	>=dev-python/slixmpp-1.3.0
 	dev-python/aiodns"
