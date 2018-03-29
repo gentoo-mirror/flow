@@ -6,5 +6,5 @@ HOMEPAGE=http://www.flameeyes.eu/autotools-mythbuster
 KEYWORDS=~x86 ~amd64
 LICENSE=CCPL-Attribution-ShareAlike-NonCommercial-3.0
 SLOT=0
-_eclasses_=git-2	195a672bfaf52d868442171c9469bbb6
+_eclasses_=git-2	45ff482316b52b3f96ff6b7309b77f03
 _md5_=2bfb9ccd67d6bedd78060c311d5e6e09

@@ -8,5 +8,5 @@ KEYWORDS=~amd64
 LICENSE=LPPL-1.3c
 RDEPEND=dev-tex/xcolor virtual/latex-base
 SLOT=0
-_eclasses_=git-r3	fec09a83ae965b041b47f5ff7c8ba29a	latex-package	79acad19b9efeec616d0ad70cd117b03
+_eclasses_=git-r3	25b08efef07cea6bcd45b8c6dcce2782	latex-package	79acad19b9efeec616d0ad70cd117b03
 _md5_=dc37496b1499db2950b4fd79d5d46523
