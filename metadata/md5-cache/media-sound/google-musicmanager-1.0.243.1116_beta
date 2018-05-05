@@ -1,4 +1,4 @@
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install nofetch unpack
 DEPEND=app-arch/xz-utils app-admin/chrpath
 DESCRIPTION=Google Music Manager is a application for adding music to your Google Music library
 EAPI=5
