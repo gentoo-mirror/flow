@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,7 +10,7 @@ inherit eutils distutils-r1
 if [[ $PV = 9999 ]]; then
 	inherit git-r3
 	SRC_URI=""
-	EGIT_SRC_URI="https://github.com/mathieui/slixmpp.git"
+	EGIT_REPO_URI="https://github.com/mathieui/slixmpp.git"
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/poezio/slixmpp/archive/slix-${PV}.tar.gz"
@@ -40,7 +40,7 @@ RDEPEND="
 	)
 "
 
-S="${WORKDIR}/${PN}-slix-${PV}"
+S="${WORKDIR}/${P}"
 
 python_test() {
 	esetup.py test
