@@ -7,6 +7,7 @@ inherit toolchain-funcs bash-completion-r1 git-r3
 EGIT_REPO_URI="https://github.com/herbstluftwm/herbstluftwm.git"
 EGIT_COMMIT="e4cdf52024d3412eabba81b45e4c64af7afae5f1"
 EXTRA_DEPEND="app-text/asciidoc"
+KEYWORDS="~amd64 ~x86"
 
 DESCRIPTION="A manual tiling window manager for X"
 HOMEPAGE="http://herbstluftwm.org"
