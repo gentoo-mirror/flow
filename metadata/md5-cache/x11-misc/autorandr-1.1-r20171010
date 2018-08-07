@@ -8,5 +8,5 @@ KEYWORDS=~amd64
 LICENSE=GPL-3+
 RDEPEND=bash-completion? ( app-shells/bash ) pm-utils? ( sys-power/pm-utils ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
 SLOT=0
-_eclasses_=bash-completion-r1	6af26c1ffe65d92d3f525cb715f6250c	git-r3	8f6de46b0aa318aea0e8cac62ece098b	multilib	97f470f374f2e94ccab04a2fb21d811e	systemd	04e50685fbf3d89e5c67ac6a385dd595	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	udev	79c22815770535c8ae27f6f356559a88
+_eclasses_=bash-completion-r1	6af26c1ffe65d92d3f525cb715f6250c	git-r3	8f6de46b0aa318aea0e8cac62ece098b	multilib	97f470f374f2e94ccab04a2fb21d811e	systemd	04e50685fbf3d89e5c67ac6a385dd595	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	udev	ddeaa82191950841a645e0929b0a8c13
 _md5_=9f4090579348723ca7882fccebbf9505
