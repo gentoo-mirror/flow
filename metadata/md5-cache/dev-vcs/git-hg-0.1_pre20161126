@@ -6,5 +6,5 @@ HOMEPAGE=https://github.com/cosmin/git-hg
 KEYWORDS=~amd64
 LICENSE=MIT
 SLOT=0
-_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_eclasses_=git-r3	918d6a744039c29af2cadc7317459765
 _md5_=e6df66d984a08e4f3d72b9d2f85706cc
