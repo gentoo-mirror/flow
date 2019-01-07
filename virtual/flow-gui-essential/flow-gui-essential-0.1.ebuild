@@ -13,6 +13,7 @@ RDEPEND="
 	app-text/pdfgrep
 	media-sound/pavucontrol
 	www-client/firefox
+	x11-apps/xsetroot
 	x11-misc/nitrogen
 	x11-wm/herbstluftwm
 	virtual/flow-essential
