@@ -34,5 +34,6 @@ RDEPEND="
 	sys-apps/the_silver_searcher
 	sys-fs/lvm2
 	sys-fs/ncdu
+	sys-process/lsof
 	sys-process/htop
 "
