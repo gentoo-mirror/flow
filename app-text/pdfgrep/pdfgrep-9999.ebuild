@@ -33,9 +33,10 @@ DEPEND="${RDEPEND}
 		)"
 
 if [[ ${PV} == 9999 ]]; then
-	DOCS="AUTHORS README.asciidoc NEWS TODO"
+	DOCS="AUTHORS README.md NEWS.md"
 
 	src_prepare() {
+		default_src_prepare
 		eautoreconf
 	}
 fi
