@@ -23,8 +23,8 @@ RDEPEND="
 	dev-libs/libgcrypt:0=
 	pcre? ( dev-libs/libpcre[cxx] )
 	unac? ( app-text/unac )"
+DEPEND="${RDEPEND}"
 BDEPEND="
-	${RDEPEND}
 	app-text/asciidoc
 	virtual/pkgconfig
 	test? (
