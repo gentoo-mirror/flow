@@ -13,6 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr/bin" install
+	emake DESTDIR="${D}" PREFIX="/usr" install
 	einstalldocs
 }
