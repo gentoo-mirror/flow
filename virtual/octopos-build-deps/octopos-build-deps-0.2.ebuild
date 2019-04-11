@@ -13,5 +13,5 @@ IUSE=""
 RDEPEND="dev-perl/Tie-IxHash
 	dev-lang/nasm
 	app-doc/doxygen
-	cross-sparc-elf/gcc[cxx]
+	sys-devel/crossdev
     >=sys-devel/aspectc++-bin-2.1"
