@@ -2,4 +2,4 @@ app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and pract
 games-rpg/amnesia-tdd 1.2.1: Amnesia: The Dark Descent is a first person survival horror. A game about immersion, discovery and living through a nightmare.
 virtual/flow-essential 0.1: Virtual for all the essential packages
 virtual/flow-gui-essential 0.1: Virtual for all the essential GUI packages
-virtual/octopos-build-deps 0.1: Virtual for the dependencies required by OctoPOS
+virtual/octopos-build-deps 0.1 0.2: Virtual for the dependencies required by OctoPOS
