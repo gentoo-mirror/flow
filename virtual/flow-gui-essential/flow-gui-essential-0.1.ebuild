@@ -14,6 +14,9 @@ RDEPEND="
 	media-sound/pavucontrol
 	www-client/firefox
 	x11-apps/xsetroot
+	x11-apps/xinput
+	x11-apps/xkbprint
+	x11-apps/setxkbmap
 	x11-misc/nitrogen
 	x11-wm/herbstluftwm
 	virtual/flow-essential
