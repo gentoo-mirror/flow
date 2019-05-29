@@ -18,13 +18,14 @@ IUSE="guile emacs zsh-completion"
 # really wants both installed at the same time.
 DEPEND="
 	!net-mail/mailutils
-	dev-libs/xapian
 	dev-libs/glib:2
 	dev-libs/gmime:3.0
+	>=dev-libs/xapian-1.4
 	emacs? ( >=virtual/emacs-24 )
 	guile? ( >=dev-scheme/guile-2.2 )
 	zsh-completion? ( app-shells/gentoo-zsh-completions )"
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 SITEFILE="70mu-gentoo.el"
 
@@ -44,6 +45,8 @@ src_configure() {
 src_install () {
 	dobin mu/mu
 	dodoc AUTHORS HACKING NEWS NEWS.org TODO README README.org ChangeLog
+	doman man/mu*
+
 	if use emacs; then
 		elisp-install ${PN} mu4e/*.el mu4e/*.elc
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
@@ -54,8 +57,6 @@ src_install () {
 		insinto /usr/share/zsh/site-functions
 		newins contrib/mu-completion.zsh _${PN}
 	fi
-
-	doman man/mu*
 }
 
 src_test () {
@@ -68,6 +69,7 @@ pkg_postinst() {
 		einfo "To use mu4e you need to configure it in your .emacs file"
 		einfo "See the manual for more information:"
 		einfo "http://www.djcbsoftware.nl/code/mu/mu4e/"
+
 		elisp-site-regen
 	fi
 
