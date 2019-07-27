@@ -4,7 +4,8 @@ DESCRIPTION=Explain commands using ASCII art
 EAPI=4
 HOMEPAGE=http://www.uninformativ.de/projects/?q=explain
 KEYWORDS=~x86 ~amd64
+PROPERTIES=live
 RDEPEND=dev-lang/python
 SLOT=0
-_eclasses_=git-2	249c1a0962573f4ce2c28f0d5b6b35d4
+_eclasses_=git-2	3aabf18eba60687bbe6855eba271f688
 _md5_=5c328228607f03e645530aff1e0b10b6
