@@ -149,7 +149,6 @@ dev-python/slixmpp:cython - Use cython
 net-im/gajim:idle - Enable idle module
 net-im/gajim:srv - SRV capabilities
 net-im/gajim:xhtml - Enable XHTML support
-net-mail/mu:emacs - Install the mu4e mail client.
 net-p2p/bitcoind:asm - Enable assembly for optimization
 net-p2p/bitcoind:bitcoin_policy_rbf - Replace By Fee policy: Your node will preferentially mine and relay transactions paying the highest fee, regardless of receive order
 net-p2p/bitcoind:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
