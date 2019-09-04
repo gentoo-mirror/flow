@@ -64,7 +64,7 @@ sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
 virtual/flow-essential 0.1: Virtual for all the essential packages
 virtual/flow-gui-essential 0.1: Virtual for all the essential GUI packages
 virtual/flows-font-selection 0.1: A virtual package for selected fonts (by flow)
-virtual/octopos-build-deps 0.1 0.2: Virtual for the dependencies required by OctoPOS
+virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-misc/autorandr 1.0-r20170416 1.1-r20171010 1.8.1-r20190823 9999: Automatically select a display configuration based on connected devices
 x11-themes/zenburn-themes 0.1 9999: A GTK theme based on Zenburn
 x11-wm/herbstluftwm 0.8.0_pre20180603: A manual tiling window manager for X
