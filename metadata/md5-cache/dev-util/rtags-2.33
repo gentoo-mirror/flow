@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-devel/clang:* sys-libs/ncurses:0 sys-libs/zlib ssl? ( dev-libs/openssl:0= )
+DESCRIPTION=A client/server indexer for C/C++/ObjC[++] with integration for Emacs
+EAPI=7
+HOMEPAGE=http://www.rtags.net/
+IUSE=+ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=sys-devel/clang:* sys-libs/ncurses:0 sys-libs/zlib ssl? ( dev-libs/openssl:0= )
+SLOT=0
+SRC_URI=https://github.com/Andersbakken/rtags/releases/download/v2.33/rtags-2.33.tar.bz2
+_eclasses_=cmake-utils	91d6ef31dc426240577497cacbf2508c	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	7ba73aee7fe4462b3a745e3645ab92ca	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	a3a237ef6c0c58546bf23b2c382f9e56	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=61f48fa2b21c0f283af1c67b11946e97
