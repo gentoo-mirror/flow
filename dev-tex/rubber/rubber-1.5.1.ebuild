@@ -7,22 +7,13 @@ PYTHON_COMPAT=( python3_{5,6,7} )
 
 inherit distutils-r1
 
-if [[ ${PV} == "9999" ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://git.launchpad.net/rubber"
-	PATCHES=(
-		"${FILESDIR}/0001-setup.py-package_data-must-be-a-mapping-from-name-to.patch"
-	)
-else
-	SRC_URI="https://launchpad.net/rubber/trunk/${PV}/+download/${P}.tar.gz"
-	KEYWORDS="~amd64 ~ppc ~x86"
-fi
-
 DESCRIPTION="A LaTeX wrapper for automatically building documents"
 HOMEPAGE="https://launchpad.net/rubber/"
+SRC_URI="https://launchpad.net/rubber/trunk/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2 GPL-2+"
 SLOT="0"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="virtual/latex-base"
 DEPEND="${RDEPEND}
