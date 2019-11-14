@@ -1,49 +1,39 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_DEPEND="2:2.5"
+PYTHON_COMPAT=( python3_{5,6,7} )
 
-PYTHON_COMPAT=( python2_7 )
+inherit distutils-r1
 
-inherit bzr distutils-r1
-
-IUSE=""
-
-MY_P=${PN}-${PV/*_p/}
+if [[ ${PV} == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.launchpad.net/rubber"
+	PATCHES=(
+		"${FILESDIR}/0001-setup.py-package_data-must-be-a-mapping-from-name-to.patch"
+	)
+else
+	SRC_URI="https://launchpad.net/rubber/trunk/${PV}/+download/${P}.tar.gz"
+	KEYWORDS="~amd64 ~ppc ~x86"
+fi
 
 DESCRIPTION="A LaTeX wrapper for automatically building documents"
 HOMEPAGE="https://launchpad.net/rubber/"
-SRC_URI=""
 
-EBZR_REPO_URI="lp:${PN}"
-
-LICENSE="GPL-2"
+LICENSE="GPL-2 GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
 
-DEPEND="virtual/latex-base"
+RDEPEND="virtual/latex-base"
+DEPEND="${RDEPEND}
+	virtual/texi2dvi"
 
-S=${WORKDIR}/${P/_p*/}
+python_install() {
+	local my_install_args=(
+		--mandir="${EPREFIX}/usr/share/man"
+		--infodir="${EPREFIX}/usr/share/info"
+		--docdir="${EPREFIX}/usr/share/doc/${PF}"
+	)
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
-
-src_configure() {
-	# configure script is not created by GNU autoconf
-	./configure --prefix=/usr \
-		--bindir=/usr/bin \
-		--datadir=/usr/share \
-		--mandir=/usr/share/man \
-		--infodir=/usr/share/info || die
-}
-
-src_compile() {
-	distutils_src_compile
-
-	cd doc
-	emake all
+	distutils-r1_python_install "${my_install_args[@]}"
 }
