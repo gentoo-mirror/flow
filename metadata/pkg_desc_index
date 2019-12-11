@@ -32,6 +32,7 @@ dev-python/python-axolotl 0.1.35 0.1.39 9999: python implementation of axolotl e
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
 dev-python/slixmpp 1.2.4 1.3.0 1.3.1_pre20180516: Python library for XMPP - asyncio fork
+dev-python/yapf 0.29.0: A formatter for Python files
 dev-tex/latex-acmart 1.33 1.40: ACM consolidated LaTeX styles
 dev-tex/rubber 1.5.1 1.5.2_pre20190116 9999: A LaTeX wrapper for automatically building documents
 dev-util/android-sdk-support 0: Support files for the Android SDK
