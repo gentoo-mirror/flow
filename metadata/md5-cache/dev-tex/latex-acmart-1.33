@@ -9,5 +9,5 @@ LICENSE=LPPL-1.3c
 PROPERTIES=live
 RDEPEND=dev-tex/xcolor virtual/latex-base
 SLOT=0
-_eclasses_=git-r3	6d22636df236df4cc8475f7b7668bdcd	latex-package	17f13abe0de88340745e52e6b627aee7
+_eclasses_=git-r3	7d6c351ee8b1feb12ed8c8b0adae088b	latex-package	17f13abe0de88340745e52e6b627aee7
 _md5_=b599c21615fb99a34e9011e686545e79
