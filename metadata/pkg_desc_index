@@ -4,6 +4,7 @@ app-crypt/acme 0.17.0: An implementation of the ACME protocol
 app-crypt/certbot 0.17.0: Let's encrypt client to automate deployment of X.509 certificates
 app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and practice of monadic programming in Haskell
 app-doc/autotools-mythbuster 9999: Autotools Mythbuster (the guide) is a work in progress “book” about autoconf, automake, libtool.
+app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
 app-emacs/auctex 9999: Extended support for writing, formatting and using (La)TeX, Texinfo and BibTeX files
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
