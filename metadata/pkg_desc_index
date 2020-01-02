@@ -6,6 +6,7 @@ app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and pract
 app-doc/autotools-mythbuster 9999: Autotools Mythbuster (the guide) is a work in progress “book” about autoconf, automake, libtool.
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
 app-emacs/auctex 9999: Extended support for writing, formatting and using (La)TeX, Texinfo and BibTeX files
+app-emacs/emacs-systemd-user-service 0.1: Support for Emacs daemon using a systemd user service
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
