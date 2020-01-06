@@ -22,6 +22,10 @@ Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
+# Source /etc/profile.env prior starting emacs
+# See
+# - https://bugs.gentoo.org/704416
+# - https://bugs.gentoo.org/704412
 ExecStart=/bin/sh -c "source /etc/profile.env; exec /usr/bin/emacs --fg-daemon"
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
 Restart=on-failure
