@@ -5,6 +5,7 @@ app-crypt/certbot 0.17.0: Let's encrypt client to automate deployment of X.509 c
 app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and practice of monadic programming in Haskell
 app-doc/autotools-mythbuster 9999: Autotools Mythbuster (the guide) is a work in progress “book” about autoconf, automake, libtool.
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
+app-emacs/auctex 9999: Extended support for writing, formatting and using (La)TeX, Texinfo and BibTeX files
 app-emacs/emacs-systemd-user-service 0.1: Support for Emacs daemon using a systemd user service
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
@@ -33,6 +34,7 @@ dev-python/python-axolotl 0.1.35 0.1.39 9999: python implementation of axolotl e
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
 dev-python/yapf 0.29.0: A formatter for Python files
+dev-tex/latex-acmart 1.33 1.40: ACM consolidated LaTeX styles
 dev-tex/rubber 1.5.1 1.5.2_pre20190116 9999: A LaTeX wrapper for automatically building documents
 dev-util/android-sdk-support 0: Support files for the Android SDK
 dev-util/android-sdk-tools 25.2.5: Open Handset Alliance's Android SDK Tools

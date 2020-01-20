@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm unpack
+DEPEND=dev-texlive/texlive-latex >=dev-vcs/git-1.8.2.1[curl] virtual/latex-base >=sys-apps/texinfo-4.2-r5
+DESCRIPTION=ACM consolidated LaTeX styles
+EAPI=6
+HOMEPAGE=https://www.acm.org/publications/proceedings-template https://github.com/borisveytsman/acmart
+IUSE=doc examples
+KEYWORDS=~amd64
+LICENSE=LPPL-1.3c
+PROPERTIES=live
+RDEPEND=dev-tex/xcolor virtual/latex-base
+SLOT=0
+_eclasses_=git-r3	809e27702c573cbba31c08ed00bbad33	latex-package	17f13abe0de88340745e52e6b627aee7
+_md5_=b599c21615fb99a34e9011e686545e79

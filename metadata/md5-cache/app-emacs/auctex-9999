@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEPEND=virtual/latex-base preview-latex? ( app-text/dvipng app-text/ghostscript-gpl ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=app-editors/emacs-23.1 virtual/latex-base >=sys-apps/texinfo-4.2-r5 dev-vcs/cvs
+DESCRIPTION=Extended support for writing, formatting and using (La)TeX, Texinfo and BibTeX files
+EAPI=4
+HOMEPAGE=http://www.gnu.org/software/auctex/
+IUSE=preview-latex
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris
+LICENSE=GPL-3 FDL-1.2
+PROPERTIES=live
+RDEPEND=virtual/latex-base preview-latex? ( app-text/dvipng app-text/ghostscript-gpl ) >=app-editors/emacs-23.1 virtual/latex-base
+SLOT=0
+_eclasses_=autotools	ea7865c8fba1ea8d3639f355fffe1a3c	base	2ec5c64f5de125f0c65a927c4c128fef	cvs	6625b4ea3655a11531b433946cebd6b3	desktop	b1d22ac8bdd4679ab79c71aca235009d	eapi7-ver	756b3f27d8e46131d5cf3c51bd876446	elisp	17bb0076b1e93d2dba84995228871c99	elisp-common	a1054cff648e1c6a806e17001d052176	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	686eaab303305a908fd57b2fd7617800	eutils	fcb2aa98e1948b835b5ae66ca52868c5	latex-package	17f13abe0de88340745e52e6b627aee7	libtool	f143db5a74ccd9ca28c1234deffede96	ltprune	2729691420b6deeda2a90b1f1183fb55	multilib	1d91b03d42ab6308b5f4f6b598ed110e	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf
+_md5_=8539fe7c8ace92ac88484eca6e50cb7a
