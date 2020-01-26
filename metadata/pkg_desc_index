@@ -22,7 +22,7 @@ app-text/htmldiff 1.0.6_pre20170812: A command-line script to create a diff of t
 app-text/idnits 2.15.01 2.16.0: A tool to check internet-drafts for submission nits
 app-text/mmark 1.3.5: A markdown processor geared towards writing IETF documents
 app-text/pdfgrep 2.1.2 9999: A tool similar to grep which searches text in PDFs
-app-text/xml2rfc 2.5.2: generates RFCs and IETF drafts from document source in XML
+app-text/xml2rfc 2.5.2 2.38.1: generates RFCs and IETF drafts from document source in XML
 dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
@@ -34,6 +34,8 @@ dev-python/python-axolotl 0.1.35 0.1.39 9999: python implementation of axolotl e
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
 dev-python/yapf 0.29.0: A formatter for Python files
+dev-ruby/kramdown 2.1.0: Yet-another-markdown-parser but fast, pure Ruby, using strict syntax definition
+dev-ruby/kramdown-rfc2629 1.2.13_p20191215: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 dev-tex/latex-acmart 1.33 1.40: ACM consolidated LaTeX styles
 dev-tex/rubber 1.5.1 1.5.2_pre20190116 9999: A LaTeX wrapper for automatically building documents
 dev-util/android-sdk-support 0: Support files for the Android SDK
