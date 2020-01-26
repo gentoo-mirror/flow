@@ -18,4 +18,5 @@ IUSE=""
 
 CDEPEND=""
 DEPEND="${CDEPEND}"
-RDEPEND="${CDEPEND}"
+RDEPEND="${CDEPEND}
+	dev-python/pycountry"
