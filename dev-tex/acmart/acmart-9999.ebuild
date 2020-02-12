@@ -1,23 +1,28 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit git-r3 latex-package
+inherit latex-package
+
+if [[ ${PV} == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/borisveytsman/acmart.git"
+else
+	SRC_URI="https://github.com/borisveytsman/acmart/archive/${PV}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 DESCRIPTION="ACM consolidated LaTeX styles"
 HOMEPAGE="https://www.acm.org/publications/proceedings-template https://github.com/borisveytsman/acmart"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/borisveytsman/acmart.git"
-EGIT_COMMIT="b07743d87333ea4a9052a2a37303cf4df8e685a7"
 
 LICENSE="LPPL-1.3c"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="doc examples"
 
-DEPEND="dev-texlive/texlive-latex"
-RDEPEND="dev-tex/xcolor"
+BDEPEND="dev-texlive/texlive-latex"
+RDEPEND=""
 
 src_compile() {
 	emake acmart.cls

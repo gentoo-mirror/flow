@@ -1,21 +1,19 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=7
 
-inherit autotools eutils multilib git-2
+inherit autotools eutils git-r3 multilib
 
-#MY_P
 DESCRIPTION="The Haskell Lightweight Virtual Machine (HaLVM)"
-HOMEPAGE="http://halvm.org/"
+HOMEPAGE="https://galois.com/project/halvm/"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/GaloisInc/HaLVM.git
 	https://github.com/GaloisInc/HaLVM.git"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 IUSE=""
 
 # A space delimited list of portage features to restrict. man 5 ebuild
@@ -27,8 +25,6 @@ DEPEND=""
 RDEPEND="app-emulation/xen
 	app-emulation/qemu
 	${DEPEND}"
-
-#S="${WORKDIR}/${P}"
 
 src_prepare() {
 	eautoreconf
