@@ -1,20 +1,18 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=7
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Explain commands using ASCII art "
 HOMEPAGE="http://www.uninformativ.de/projects/?q=explain"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/vain/explain.git
-	https://github.com/vain/explain.git"
+EGIT_REPO_URI="https://www.uninformativ.de/git/explain.git"
 
-LICENSE=""
+LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=""
@@ -27,7 +25,7 @@ src_install() {
 	rm man1/explain.1
 	mv man1/explain.py.1 man1/explain.1
 	doman man1/explain.1
-   
+
 	mv explain.py explain
 	dobin explain
 }
