@@ -1,24 +1,32 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=7
 
-inherit git-2
+inherit git-r3
 
-DESCRIPTION="Autotools Mythbuster (the guide) is a work in progress “book” about autoconf, automake, libtool."
+DESCRIPTION="A no-nonsense guide to Autotools"
 HOMEPAGE="http://www.flameeyes.eu/autotools-mythbuster"
-SRC_URI=""
-EGIT_REPO_URI="git://gitorious.org/autotools-mythbuster/to-be-published.git"
+EGIT_REPO_URI="https://github.com/Flameeyes/autotools-mythbuster.git"
 
-LICENSE="CCPL-Attribution-ShareAlike-NonCommercial-3.0"
+LICENSE="CC-BY-NC-SA-3.0"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE=""
 
-DEPEND="dev-libs/libxslt"
-RDEPEND=""
+# Disable network sandbox
+# scss -t compressed --sourcemap=none stylesheets/mythbuster.scss public/stylesheets/mythbuster.css
+# error : Invalid argument
+# warning: failed to load external entity "http://docbook.sourceforge.net/release/xsl-ns/current/xhtml/chunk.xsl"
+# compilation error: file stylesheets/flameeyes.eu.xsl line 9 element import
+# xsl:import : unable to load http://docbook.sourceforge.net/release/xsl-ns/current/xhtml/chunk.xsl
+# make: *** [Makefile:10: public/index.html] Error 5
+RESTRICT="network-sandbox"
+
+BDEPEND="
+	dev-ruby/sass
+	dev-libs/libxslt
+"
 
 src_install() {
-	dohtml -r public/
+	docinto html
+	dodoc -r public/
 }
