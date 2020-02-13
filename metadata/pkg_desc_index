@@ -2,6 +2,7 @@ app-cdr/isobar 1.03: This is a Linux port of isobar utility from shsucd. It's ab
 app-crypt/acme 0.17.0: An implementation of the ACME protocol
 app-crypt/certbot 0.17.0: Let's encrypt client to automate deployment of X.509 certificates
 app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and practice of monadic programming in Haskell
+app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
 app-emacs/emacs-systemd-user-service 0.1: Support for Emacs daemon using a systemd user service
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
