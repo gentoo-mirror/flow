@@ -9,5 +9,5 @@ LICENSE=GPL-3+
 PROPERTIES=live
 RDEPEND=bash-completion? ( app-shells/bash ) pm-utils? ( sys-power/pm-utils ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
 SLOT=0
-_eclasses_=bash-completion-r1	47a7402d95930413ce25ba8d857339bb	git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	multilib	c9e26066f2b7b5a91ad08d042f7f7306	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	udev	452708c3f55cf6e918b045adb949a9e6
+_eclasses_=bash-completion-r1	47a7402d95930413ce25ba8d857339bb	git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	udev	452708c3f55cf6e918b045adb949a9e6
 _md5_=6f02bc8aec3a087411cbdc33d353a141
