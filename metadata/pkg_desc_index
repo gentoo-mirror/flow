@@ -61,6 +61,7 @@ net-p2p/bitcoind 0.16.0-r1: Original Bitcoin crypto-currency wallet for automate
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sys-apps/ucg 0.2.2 9999: A extremely fast grep-like tool specialized for searching source code
+sys-auth/pam_e4crypt 0.2_pre20190503 9999: PAM module for unlocking transparently encrypted ext4 directories
 sys-devel/aspectc++ 1.1 2.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-firmware/broadcom-bt-firmware 12.0.1.1012 9999: Broadcom Bluetooth firmware
