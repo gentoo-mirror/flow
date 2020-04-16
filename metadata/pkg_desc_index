@@ -67,6 +67,7 @@ sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-ori
 sys-firmware/broadcom-bt-firmware 12.0.1.1012 9999: Broadcom Bluetooth firmware
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
+sys-libs/librseq 0.0_pre20190919 9999: Library for Restartable Sequences
 virtual/flow-essential 0.1: Virtual for all the essential packages
 virtual/flow-gui-essential 0.1: Virtual for all the essential GUI packages
 virtual/flows-font-selection 0.1: A virtual package for selected fonts (by flow)
