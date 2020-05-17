@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 DESCRIPTION="Virtual for all the essential GUI packages"
 SRC_URI=""
 LICENSE=""
@@ -19,5 +19,5 @@ RDEPEND="
 	x11-apps/setxkbmap
 	x11-misc/nitrogen
 	x11-wm/herbstluftwm
-	virtual/flow-essential
+	virtual/flows-font-selection
 "
