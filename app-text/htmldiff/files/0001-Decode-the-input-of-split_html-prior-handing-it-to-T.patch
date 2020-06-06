@@ -1,0 +1,41 @@
+From dc8a832170d2eed251427dfdfc0d877166f9dfae Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Sat, 6 Jun 2020 13:37:23 +0200
+Subject: [PATCH 1/2] Decode the input of split_html prior handing it to
+ TagIter
+
+Otherwise the results splitted by TagIter will be unreliable. For
+example it returned
+
+ent">\xc2
+
+for me. Which is the end of a tag, e.g. "<foo bar="document"> and this
+tag is followed by \xc2\xb6, i.e. the sole textual content of the
+element, which is the UTF-8 representation of U+OOB6, but TagIter only
+returned the first byte of this codepoint.
+---
+ src/htmldiff/lib.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/src/htmldiff/lib.py b/src/htmldiff/lib.py
+index 648b9ab..a3e3218 100644
+--- a/src/htmldiff/lib.py
++++ b/src/htmldiff/lib.py
+@@ -177,11 +177,12 @@ class HTMLMatcher(SequenceMatcher):
+     def split_html(self, t):
+         LOG.debug('Splitting html into tag pieces and words')
+         result = []
++        t = utf8_decode(t)
+         for item in TagIter(t):
+-            if utf8_decode(item).startswith('<'):
++            if item.startswith('<'):
+                 result.append(item)
+             else:
+-                result.extend(constants.WORD_RE.findall(utf8_decode(item)))
++                result.extend(constants.WORD_RE.findall(item))
+         return result
+ 
+     def diff_html(self, insert_stylesheet=True):
+-- 
+2.26.2
+

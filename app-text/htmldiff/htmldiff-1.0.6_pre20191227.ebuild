@@ -22,6 +22,11 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
+PATCHES=(
+	"${FILESDIR}/0001-Decode-the-input-of-split_html-prior-handing-it-to-T.patch"
+	"${FILESDIR}/0002-Add-convert_charrefs-field-to-TagStrip.patch"
+)
+
 RDEPEND="
 	dev-python/six
 	>=dev-python/boltons-17.1.0
