@@ -30,5 +30,8 @@ DOCS="README.md"
 src_configure() {
 	pammod_hide_symbols
 
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/$(get_libdir)"
+	)
 	cmake_src_configure
 }
