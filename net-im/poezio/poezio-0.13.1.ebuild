@@ -23,7 +23,7 @@ RDEPEND="
 	dev-python/aiodns[${PYTHON_USEDEP}]
 	dev-python/pyasn1-modules[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
-	dev-python/slixmpp[${PYTHON_USEDEP}]
+	>=dev-python/slixmpp-1.5.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
