@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_7 )
 
 inherit distutils-r1 readme.gentoo-r1
 
@@ -10,8 +10,6 @@ DESCRIPTION="Console XMPP client that looks like most famous IRC clients"
 HOMEPAGE="https://poez.io/"
 LICENSE="ZLIB"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://git.poez.io/${PN}.git"
@@ -27,15 +25,11 @@ RDEPEND="
 	dev-python/pyasn1[${PYTHON_USEDEP}]
 	dev-python/slixmpp[${PYTHON_USEDEP}]
 "
-DEPEND="
-	test? (
-		${RDEPEND}
-		dev-python/pyinotify
-	)"
+
+distutils_enable_tests pytest
 
 DOC_CONTENTS="
 Install these optional runtime dependencies for additional features.
-* dev-python/potr for OTR encryption support.
 * dev-python/pyinotify for screen autoaway plugin support.
 "
 DISABLE_AUTOFORMATTING=true
@@ -53,8 +47,4 @@ src_install() {
 
 pkg_postinst() {
 	readme.gentoo_print_elog
-}
-
-python_test() {
-	esetup.py test
 }
