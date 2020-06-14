@@ -36,6 +36,7 @@ dev-python/pylru 1.0.9: A least recently used (LRU) cache for Python
 dev-python/python-axolotl 0.1.35 0.1.39 9999: python implementation of axolotl encryption
 dev-python/python-axolotl-curve25519 0.1 9999: python implementation of axolotl-curve25519 encryption
 dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
+dev-python/slixmpp 1.5.2: Python 3 library for XMPP
 dev-python/yapf 0.29.0: A formatter for Python files
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/kramdown 2.1.0: Yet-another-markdown-parser but fast, pure Ruby, using strict syntax definition
