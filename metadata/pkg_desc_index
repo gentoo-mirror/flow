@@ -39,7 +39,6 @@ dev-python/python-gnupg 9999: Python wrapper for GNU Privacy Guard
 dev-python/slixmpp 1.5.2: Python 3 library for XMPP
 dev-python/yapf 0.29.0: A formatter for Python files
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
-dev-ruby/kramdown 2.1.0: Yet-another-markdown-parser but fast, pure Ruby, using strict syntax definition
 dev-ruby/kramdown-rfc2629 1.2.13: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-tex/rubber 1.5.1 1.5.2_pre20190116 9999: A LaTeX wrapper for automatically building documents
