@@ -16,8 +16,21 @@ RESTRICT="mirror"
 
 S="${WORKDIR}"
 
+RDEPEND="
+	app-arch/rpm
+	dev-libs/libnl:3
+"
+
 src_unpack() {
 	rpm_unpack
+}
+
+src_prepare() {
+	default
+	# We use dosbin in src_install to install the amsHelper, which
+	# will install the helper binary in /usr/sbin, not /sbin.
+	sed -i 's;ExecStart=/sbin/amsHelper;ExecStart=/usr/sbin/amsHelper;' \
+		usr/lib/systemd/system/hp-ams.service
 }
 
 src_install() {
