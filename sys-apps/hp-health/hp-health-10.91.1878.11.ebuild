@@ -34,7 +34,7 @@ src_install() {
 	insinto /"${systemd_scripts_dir}"
 	doins "${systemd_scripts_dir}"/hp-asrd.sh
 	doins "${systemd_scripts_dir}"/hp-health.sh
-	fperms -R 755 "${systemd_scripts_dir}/"
+	fperms -R 755 "/${systemd_scripts_dir}/"
 
 	systemd_dounit usr/lib/systemd/system/hp-asrd.service
 	systemd_dounit usr/lib/systemd/system/hp-health.service
@@ -64,7 +64,7 @@ src_install() {
 
 	insinto "opt/hp"
 	doins -r "${opt_path}"
-	fperms -R 755 "${opt_path}/bin/"
+	fperms -R 755 "/${opt_path}/bin/"
 
 	insinto usr/lib64
 	doins usr/lib64/*
