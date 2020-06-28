@@ -16,6 +16,8 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 RESTRICT="mirror"
 
+RDEPEND="sys-apps/dmidecode"
+
 S="${WORKDIR}"
 
 src_unpack() {
@@ -28,9 +30,11 @@ src_install() {
 		dosbin sbin/${sb}
 	done
 
-	insinto /usr/lib/systemd/scripts
-	doins usr/lib/systemd/scripts/hp-asrd.sh
-	doins usr/lib/systemd/scripts/hp-health.sh
+	readonly systemd_scripts_dir="usr/lib/systemd/scripts"
+	insinto /"${systemd_scripts_dir}"
+	doins "${systemd_scripts_dir}"/hp-asrd.sh
+	doins "${systemd_scripts_dir}"/hp-health.sh
+	fperms -R 755 "${systemd_scripts_dir}/"
 
 	systemd_dounit usr/lib/systemd/system/hp-asrd.service
 	systemd_dounit usr/lib/systemd/system/hp-health.service
@@ -51,15 +55,16 @@ src_install() {
 		doman "${rel_path}"
 	done
 
-	local opt_rel_path="opt/hp/hp-health"
-	local hp_health_license="${opt_rel_path}/hp-health.license"
+	local opt_path="opt/hp/hp-health"
+	local hp_health_license="${opt_path}/hp-health.license"
 	dodoc "${hp_health_license}"
 	# Remove the license file which we just installed via dodoc, since
 	# we are going to install everything else in opt/hp/hp-health
 	rm "${hp_health_license}"
 
-	insinto "${opt_rel_path}"
-	doins -r "${opt_rel_path}"
+	insinto "opt/hp"
+	doins -r "${opt_path}"
+	fperms -R 755 "${opt_path}/bin/"
 
 	insinto usr/lib64
 	doins usr/lib64/*
