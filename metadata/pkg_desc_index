@@ -70,7 +70,7 @@ sys-auth/pam_e4crypt 0.2_pre20190503 9999: PAM module for unlocking transparentl
 sys-block/hpssacli 4.17.6.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++ 1.1 2.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
-sys-firmware/broadcom-bt-firmware 12.0.1.1012 9999: Broadcom Bluetooth firmware
+sys-firmware/broadcom-bt-firmware 12.0.1.1105_p2 9999: Broadcom Bluetooth firmware
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-kernel/r8168 8.025.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
 sys-libs/librseq 0.0_pre20190919 9999: Library for Restartable Sequences
