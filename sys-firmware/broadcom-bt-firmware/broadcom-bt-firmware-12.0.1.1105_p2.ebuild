@@ -3,18 +3,14 @@
 
 EAPI=7
 
-inherit git-r3
-
 DESCRIPTION="Broadcom Bluetooth firmware"
 HOMEPAGE="https://github.com/winterheart/broadcom-bt-firmware"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/winterheart/broadcom-bt-firmware.git"
-EGIT_COMMIT="c0bd928b8ae5754b6077c99afe6ef5c949a58f32"
+SRC_URI="https://github.com/winterheart/${PN}/archive/v${PV}.tar.gz"
 LICENSE=""
 
 SLOT="0"
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
