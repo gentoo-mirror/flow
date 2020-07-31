@@ -21,7 +21,7 @@ app-text/htmldiff 1.0.6_pre20170812 1.0.6_pre20191227: A command-line script to 
 app-text/idnits 2.15.01 2.16.0: A tool to check internet-drafts for submission nits
 app-text/mmark 1.3.5: A markdown processor geared towards writing IETF documents
 app-text/pdfgrep 2.1.2 9999: A tool similar to grep which searches text in PDFs
-app-text/xml2rfc 2.5.2 2.38.1 2.40.1: generates RFCs and IETF drafts from document source in XML
+app-text/xml2rfc 2.47.0: generates RFCs and IETF drafts from document source in XML
 dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
