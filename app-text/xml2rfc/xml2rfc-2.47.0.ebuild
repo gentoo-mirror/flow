@@ -14,16 +14,18 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
-CDEPEND=""
-DEPEND="${CDEPEND}"
-RDEPEND="${CDEPEND}
+RDEPEND="
+	dev-python/appdirs
+	dev-python/configargparse
+	dev-python/intervaltree
 	dev-python/google-i18n-address
+	>=dev-python/html5lib-1.0.1
+	dev-python/jinja
+	~dev-python/kitchen-1.2.6
 	dev-python/lxml
 	dev-python/pycountry
+	>=dev-python/pyyaml-5.3.1
 	dev-python/requests
 	dev-python/six
-	~dev-python/html5lib-1.0.1
-	~dev-python/intervaltree-2.1.0
-	~dev-python/kitchen-1.2.6"
+"
