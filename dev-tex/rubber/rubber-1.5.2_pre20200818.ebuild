@@ -7,7 +7,10 @@ PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
-if [[ ${PV} == "9999" ]] || [[ -n "${EGIT_COMMIT_ID}" ]]; then
+EGIT_COMMIT="544ab447e39f98b6305d5071e1f64fcfa823299d"
+KEYWORDS="~amd64 ~x86"
+
+if [[ ${PV} == "9999" ]] || [[ -n "${EGIT_COMMIT}" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/latex-rubber/${PN}.git"
 else
@@ -40,6 +43,7 @@ DEPEND="
 		dev-tex/pythontex
 	)
 "
+
 python_install() {
 	local my_install_args=(
 		--mandir="${EPREFIX}/usr/share/man"
