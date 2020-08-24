@@ -40,7 +40,11 @@ DEPEND="
 		dev-tex/pythontex
 	)
 "
+
 python_install() {
+	insinto /usr/share/zsh/site-functions
+	newins misc/zsh-completion _rubber
+
 	local my_install_args=(
 		--mandir="${EPREFIX}/usr/share/man"
 		--infodir="${EPREFIX}/usr/share/info"
