@@ -1,0 +1,37 @@
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI="7"
+
+PYTHON_COMPAT=( python3_{6,7,8} )
+
+DISTUTILS_USE_SETUPTOOLS=pyproject.toml
+
+inherit distutils-r1
+
+DESCRIPTION="Python dependency management and packaging made easy."
+HOMEPAGE="https://python-poetry.org"
+SRC_URI="https://github.com/python-poetry/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE=""
+
+RDEPEND="
+	>=dev-python/attrs-18.1.0[${PYTHON_USEDEP}]
+	>=dev-python/click-6.5[${PYTHON_USEDEP}]
+	dev-python/regex[${PYTHON_USEDEP}]
+"
+
+DEPEND="
+	${REDEPEND}
+	test? (
+		dev-python/nose[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
+	)
+"
+
+BDEPEND="dev-python/intreehooks"
+
+distutils_enable_tests pytest
