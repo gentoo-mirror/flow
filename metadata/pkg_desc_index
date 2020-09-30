@@ -41,7 +41,7 @@ dev-python/yapf 0.29.0: A formatter for Python files
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/kramdown-rfc2629 1.2.13: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
-dev-tex/rubber 1.5.2_pre20190116 1.5.2_pre20200818 9999: A LaTeX wrapper for automatically building documents
+dev-tex/rubber 1.6.0_alpha1 9999: A LaTeX wrapper for automatically building documents
 dev-util/android-sdk-support 0: Support files for the Android SDK
 dev-util/android-sdk-tools 25.2.5: Open Handset Alliance's Android SDK Tools
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
