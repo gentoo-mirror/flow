@@ -4,24 +4,24 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
+DISTUTILS_USE_SETUPTOOLS="no"
 
 inherit distutils-r1
 
-EGIT_COMMIT="544ab447e39f98b6305d5071e1f64fcfa823299d"
-KEYWORDS="~amd64 ~x86"
-
-if [[ ${PV} == "9999" ]] || [[ -n "${EGIT_COMMIT}" ]]; then
+if [[ ${PV} == "9999" ]] || [[ -n "${EGIT_COMMIT_ID}" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/latex-rubber/${PN}.git"
 else
-	SRC_URI="https://launchpad.net/rubber/trunk/${PV}/+download/${P}.tar.gz"
+	UPSTREAM_PV=$(ver_rs 3 -)
+	S="${WORKDIR}/${PN}-${UPSTREAM_PV}"
+	SRC_URI="https://gitlab.com/latex-rubber/${PN}/-/archive/${UPSTREAM_PV}/${PN}-${UPSTREAM_PV}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="A LaTeX wrapper for automatically building documents"
 HOMEPAGE="https://gitlab.com/latex-rubber/rubber"
 
-LICENSE="GPL-2 GPL-2+"
+LICENSE="GPL-3+"
 SLOT="0"
 
 IUSE="test"
@@ -45,6 +45,9 @@ DEPEND="
 "
 
 python_install() {
+	insinto /usr/share/zsh/site-functions
+	newins misc/zsh-completion _rubber
+
 	local my_install_args=(
 		--mandir="${EPREFIX}/usr/share/man"
 		--infodir="${EPREFIX}/usr/share/info"

@@ -4,6 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
+DISTUTILS_USE_SETUPTOOLS="no"
 
 inherit distutils-r1
 
@@ -11,7 +12,9 @@ if [[ ${PV} == "9999" ]] || [[ -n "${EGIT_COMMIT_ID}" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/latex-rubber/${PN}.git"
 else
-	SRC_URI="https://launchpad.net/rubber/trunk/${PV}/+download/${P}.tar.gz"
+	UPSTREAM_PV=$(ver_rs 3 -)
+	S="${WORKDIR}/${PV}-${UPSTREAM_PV}"
+	SRC_URI="https://gitlab.com/latex-rubber/${PN}/-/archive/${UPSTREAM_PV}/${PN}-${UPSTREAM_PV}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 fi
 
