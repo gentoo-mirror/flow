@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 DISTUTILS_USE_SETUPTOOLS="no"
 
 inherit distutils-r1
@@ -15,7 +15,7 @@ else
 	UPSTREAM_PV=$(ver_rs 3 -)
 	S="${WORKDIR}/${PN}-${UPSTREAM_PV}"
 	SRC_URI="https://gitlab.com/latex-rubber/${PN}/-/archive/${UPSTREAM_PV}/${PN}-${UPSTREAM_PV}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
 DESCRIPTION="A LaTeX wrapper for automatically building documents"
