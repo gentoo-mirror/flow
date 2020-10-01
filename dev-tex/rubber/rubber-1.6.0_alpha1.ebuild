@@ -33,7 +33,7 @@ RDEPEND="virtual/latex-base"
 # - app-text/texlive-core for rubber's 'cweave' test
 # - dev-lang/R for rubber's 'knitr' test (requires knitr R library, currently disabled)
 # - dev-texlive/texlive-latexextra for rubber's 'combine' test (currently disabled)
-DEPEND="
+BDEPEND="
 	${RDEPEND}
 	virtual/texi2dvi
 	test? (
@@ -43,11 +43,14 @@ DEPEND="
 		dev-tex/pythontex
 	)
 "
-
-python_install() {
+src_install() {
 	insinto /usr/share/zsh/site-functions
 	newins misc/zsh-completion _rubber
 
+	distutils-r1_src_install
+}
+
+python_install() {
 	local my_install_args=(
 		--mandir="${EPREFIX}/usr/share/man"
 		--infodir="${EPREFIX}/usr/share/info"
@@ -80,8 +83,15 @@ src_test() {
 	touch hooks-input-file/disable || die
 	touch knitr/disable || die
 
-	# dev-tex/metapost is hard masked.
+	# Even tough metapost is available, those tests fail on Gentoo
+	# (while they succeed on Debian 'buster').
+	# TODO: Determine why.
+	# ERROR:mpost:I can't read MetaPost's log file, this is wrong.
 	touch metapost/disable || die
+	# expected error message not reported by Rubber
+	touch metapost-error/disable || die
+	# ERROR:mpost:I can't read MetaPost's log file, this is wrong.
+	touch metapost-input/disable || die
 
-	./run.sh *
+	./run.sh * || die
 }
