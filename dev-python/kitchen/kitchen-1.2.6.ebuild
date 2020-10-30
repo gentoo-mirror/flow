@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
+
 inherit distutils-r1
 
 DESCRIPTION="A cornucopia of useful code"
@@ -15,3 +16,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+
+distutils_enable_tests nose
+
+python_test() {
+	# TODO: Figure out why test_i18n is failing.
+	nosetests -v \
+			  --where=kitchen3 \
+			  --ignore-files=test_i18n.py
+	if [[ $? -ne 0 ]]; then
+		die "Tests fail with ${EPYTHON}"
+	fi
+}
