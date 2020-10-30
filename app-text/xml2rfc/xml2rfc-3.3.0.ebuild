@@ -21,6 +21,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 # by NewConnectionError('<urllib3.connection.HTTPSConnection object at
 # 0x7f1911443150>: Failed to establish a new connection: [Errno -3]
 # Temporary failure in name resolution')))
+# See also https://trac.tools.ietf.org/tools/xml2rfc/trac/ticket/561
 #IUSE="test"
 RESTRICT="!test? ( test )"
 LICENSE="BSD"
