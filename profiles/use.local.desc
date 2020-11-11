@@ -163,6 +163,7 @@ dev-java/oracle-jdk-bin:derby - Install bundled Derby (Java database)
 dev-java/oracle-jdk-bin:jce - Install Java Cryptographic Extension Unlimited Strength Jurisdiction Policy Files
 dev-java/oracle-jdk-bin:pax_kernel - PAX Kernel
 dev-java/oracle-jdk-bin:source - Install JVM (and optionally JavaFX) sources
+dev-util/gitlab-runner:docker - Add support for docker executors
 net-p2p/bitcoind:asm - Enable assembly for optimization
 net-p2p/bitcoind:bitcoin_policy_rbf - Replace By Fee policy: Your node will preferentially mine and relay transactions paying the highest fee, regardless of receive order
 net-p2p/bitcoind:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
