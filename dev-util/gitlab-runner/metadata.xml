@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>flo@geekplace.eu</email>
+		<name>Florian Schmaus</name>
+	</maintainer>
+	<longdescription lang="en">
+	GitLab Runner is the open source project that is used to run your
+	CI/CD jobs and send the results back to GitLab
+	</longdescription>
+	<use>
+		<flag name="docker">Add support for docker executors</flag>
+	</use>
+	<upstream>
+		<remote-id type="gitlab">gitlab-org/gitlab-runner</remote-id>
+	</upstream>
+</pkgmetadata>
