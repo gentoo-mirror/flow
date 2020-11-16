@@ -1,0 +1,9 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Scala language-based scripting and REPL
+EAPI=7
+HOMEPAGE=https://ammonite.io/
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/lihaoyi/Ammonite/releases/download/2.2.0/2.13-2.2.0 -> ammonite-2.2.0
+_md5_=f303e2d32d96f5a946b905b9faca29b2

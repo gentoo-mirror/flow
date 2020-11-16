@@ -28,6 +28,7 @@ dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
+dev-lang/ammonite-repl-bin 2.2.0: Scala language-based scripting and REPL
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
 dev-libs/rnp 9999: A high performance C++ OpenPGP library
 dev-python/boltons 20.1.0: Pure-Python utilities missing from the standard library.
