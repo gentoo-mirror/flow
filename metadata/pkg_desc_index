@@ -86,4 +86,5 @@ virtual/flows-font-selection 0.2: A virtual package for selected fonts (by flow)
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-misc/autorandr 1.0-r20170416 1.1-r20171010 1.8.1-r20190823 9999: Automatically select a display configuration based on connected devices
-x11-wm/herbstluftwm 0.8.0_pre20180603: A manual tiling window manager for X
+x11-misc/xsnow 3.1.6: let it snow on your desktop and windows
+x11-wm/herbstluftwm 0.9.0: A manual tiling window manager for X
