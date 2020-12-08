@@ -1,0 +1,22 @@
+From d28a8378d753725133950dcf18e754e1d9c8ef32 Mon Sep 17 00:00:00 2001
+From: Gareth Stockwell <gareth.stockwell.dev@gmail.com>
+Date: Fri, 13 Nov 2020 16:54:00 +0000
+Subject: [PATCH] Decode string before handing to is_junk
+
+---
+ src/htmldiff/lib.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/htmldiff/lib.py b/src/htmldiff/lib.py
+index b22be95..d2159b0 100644
+--- a/src/htmldiff/lib.py
++++ b/src/htmldiff/lib.py
+@@ -95,7 +95,7 @@ def is_junk(x):
+     :param x: string to match against
+     :returns: regex matched or lowercased x
+     """
+-    return constants.WS_RE.match(x) or x.lower() in constants.STOPWORDS
++    return constants.WS_RE.match(utf8_decode(x)) or x.lower() in constants.STOPWORDS
+ 
+ 
+ class TagIter(object):
