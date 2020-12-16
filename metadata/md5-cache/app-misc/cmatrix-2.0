@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 ) sys-libs/ncurses:0=
 SLOT=0
 SRC_URI=https://github.com/abishekvashok/cmatrix/archive/v2.0.tar.gz
-_eclasses_=autotools	f491ec40ca051c35e20da7b670e8c14f	font	dd073b36fe3fd8b868c23bc23209db45	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_eclasses_=autotools	b8cf7d8850baf5b731738e6d4f00937a	font	dd073b36fe3fd8b868c23bc23209db45	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
 _md5_=105521823ea609abd1814e8014ef2d60
