@@ -1,13 +1,15 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit cmake toolchain-funcs
+
+PYTHON_COMPAT=( python3_{7,8,9} )
+
+inherit cmake git-r3 python-any-r1 toolchain-funcs
 
 DESCRIPTION="A manual tiling window manager for X"
 HOMEPAGE="https://herbstluftwm.org/"
-SRC_URI="https://herbstluftwm.org/tarballs/${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
+EGIT_REPO_URI="https://github.com/herbstluftwm/herbstluftwm"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -37,10 +39,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# Ensure that 'python3' is in PATH. #765118
+	python_setup
+
 	mycmakeargs=(
 		-DWITH_DOCUMENTATION=$(usex doc)
 	)
-
 	cmake_src_configure
 }
 
