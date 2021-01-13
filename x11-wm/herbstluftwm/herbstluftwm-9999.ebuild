@@ -26,6 +26,7 @@ RDEPEND="
 	app-shells/bash
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	virtual/pkgconfig
 	doc? ( app-text/asciidoc )
 "
