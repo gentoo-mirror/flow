@@ -174,3 +174,4 @@ sys-fs/e2fsprogs:e4crypt - Enable e4crypt
 x11-misc/autorandr:pm-utils - 
 x11-misc/autorandr:systemd - 
 x11-misc/autorandr:udev - 
+x11-wm/herbstluftwm:python - Install herbstluftwm Python API bindings
