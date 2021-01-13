@@ -3,17 +3,26 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..9} )
+DISTUTILS_OPTIONAL=1
 
-inherit cmake git-r3 python-any-r1 toolchain-funcs
+inherit cmake distutils-r1 toolchain-funcs
 
 DESCRIPTION="A manual tiling window manager for X"
 HOMEPAGE="https://herbstluftwm.org/"
-EGIT_REPO_URI="https://github.com/herbstluftwm/herbstluftwm"
+
+if [[ "${PV}" == "9999" ]] || [[ -n "${EGIT_COMMIT_ID}" ]]; then
+	EGIT_REPO_URI="https://github.com/herbstluftwm/herbstluftwm"
+	inherit git-r3
+else
+	SRC_URI="https://herbstluftwm.org/tarballs/${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="doc examples"
+IUSE="doc examples python"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
 	x11-libs/libX11
@@ -24,8 +33,10 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	app-shells/bash
+	python? ( ${PYTHON_DEPS} )
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	virtual/pkgconfig
 	doc? ( app-text/asciidoc )
 "
@@ -36,6 +47,12 @@ src_prepare() {
 		-e '/set(DOCDIR / s#.*#set(DOCDIR ${CMAKE_INSTALL_DOCDIR})#' \
 		CMakeLists.txt || die
 	cmake_src_prepare
+
+	if use python; then
+		pushd "${S}"/python > /dev/null || die
+		distutils-r1_src_prepare
+		popd > /dev/null || die
+	fi
 }
 
 src_configure() {
@@ -48,10 +65,27 @@ src_configure() {
 	cmake_src_configure
 }
 
+src_compile() {
+	cmake_src_compile
+
+	if use python; then
+		pushd python > /dev/null || die
+		distutils-r1_src_compile
+		popd >/dev/null || die
+	fi
+}
+
 src_install() {
 	cmake_src_install
 
 	if ! use examples; then
 		rm -r "${ED}"/usr/share/doc/${PF}/examples || die
 	fi
+
+	if use python; then
+		pushd python > /dev/null || die
+		distutils-r1_src_install
+		popd > /dev/null || die
+	fi
+
 }
