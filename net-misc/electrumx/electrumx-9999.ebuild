@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_8 )
 
 inherit eutils distutils-r1 systemd user
 
@@ -38,6 +38,10 @@ MY_SYSTEMD_SERVICE_FILE="contrib/systemd/${PN}.service"
 
 src_prepare() {
 	default
+
+	if [[ -n $EGIT_REPO_URI ]]; then
+		sed -i "s/find_packages()/find_packages(exclude=('tests',))/" setup.py || die
+	fi
 
 	sed -i "s;/usr/local/bin;/usr/bin;" "${MY_SYSTEMD_SERVICE_FILE}" || die
 	sed -i "s;/etc/${PN}.conf;/etc/${PN}/${PN}.conf;" "${MY_SYSTEMD_SERVICE_FILE}" || die
