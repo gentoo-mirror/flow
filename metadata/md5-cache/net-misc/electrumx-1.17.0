@@ -1,0 +1,14 @@
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DESCRIPTION=A server for the Electrum wallet
+EAPI=7
+HOMEPAGE=https://github.com/kyuupichan/electrumx
+IUSE=python_targets_python3_8
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-python/plyvel >=dev-python/aiohttp-1.0 >=dev-python/pylru-1.0 python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+REQUIRED_USE=|| ( python_targets_python3_8 )
+SLOT=0
+SRC_URI=https://github.com/kyuupichan/electrumx/archive/1.17.0.tar.gz -> electrumx-1.17.0.tar.gz
+_eclasses_=distutils-r1	e8980b05bfb91c37dea52d0da131ef6c	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	l10n	8cdd85e169b835d518bc2fd59f780d8e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	f1d4277b3ad100890cbd62e137f0a769	python-utils-r1	69861348186337fa4b269de5826004b3	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	user	b0a0d4ca9e3f79c38f8f4143b8d5a2d8	user-info	a2abd4e2f4c3b9b06d64bf1329359a02	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=f0ffaa43c2f76af5f9531b3f28ff7a6d
