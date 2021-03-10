@@ -8,17 +8,16 @@ PYTHON_COMPAT=( python3_{7,8,9} )
 DESCRIPTION="Gajim plugin for OMEMO XMPP end-to-end encryption"
 HOMEPAGE="https://dev.gajim.org/gajim/gajim-plugins/wikis/OmemoGajimPlugin"
 
-EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
+MY_PN="omemo"
 
 if [[ "${PV}" = "9999" ]] ; then
 	inherit git-r3
+	EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://ftp.gajim.org/plugins_releases/omemo_${PV}.zip"
+	SRC_URI="https://ftp.gajim.org/plugins_releases/${MY_PN}_${PV}.zip"
 	KEYWORDS="~amd64"
 fi
-
-MY_PN="omemo"
 
 inherit python-r1
 
