@@ -33,7 +33,7 @@ dev-python/boltons 20.1.0: Pure-Python utilities missing from the standard libra
 dev-python/dict2xml 1.7.0: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.4.0: Google's i18n address metadata repository
 dev-python/kitchen 1.2.6: A cornucopia of useful code
-dev-python/pdoc3 0.8.1 0.9.2: Auto-generate API documentation for Python projects
+dev-python/pdoc3 0.9.2: Auto-generate API documentation for Python projects
 dev-python/slixmpp 1.5.2: Python 3 library for XMPP
 dev-python/yapf 0.29.0: A formatter for Python files
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
