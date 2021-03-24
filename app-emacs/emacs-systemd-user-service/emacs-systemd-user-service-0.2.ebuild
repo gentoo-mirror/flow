@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,27 +12,26 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
+RDEPEND="virtual/emacs"
+
 S="${WORKDIR}"
 
 src_install() {
-	{
-	cat <<EOF
+	systemd_newuserunit - emacs.service <<EOF
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
-# Source /etc/profile.env prior starting emacs
-# See
-# - https://bugs.gentoo.org/704416
-# - https://bugs.gentoo.org/704412
-ExecStart=/bin/sh -c "source /etc/profile.env; exec /usr/bin/emacs --fg-daemon"
+Type=notify
+ExecStart=/usr/bin/emacs --fg-daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
+# The location of the SSH auth socket varies by distribution, and some
+# set it from PAM, so don't override by default.
+# Environment=SSH_AUTH_SOCK=%t/keyring/ssh
 Restart=on-failure
-SuccessExitStatus=15
 
 [Install]
 WantedBy=default.target
 EOF
-	} |	systemd_newuserunit - emacs.service
 }
