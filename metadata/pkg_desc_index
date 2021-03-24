@@ -5,7 +5,7 @@ app-cdr/isobar 1.03: This is a Linux port of isobar utility from shsucd. It's ab
 app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and practice of monadic programming in Haskell
 app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
-app-emacs/emacs-systemd-user-service 0.1: Support for Emacs daemon using a systemd user service
+app-emacs/emacs-systemd-user-service 0.2: Support for Emacs daemon using a systemd user service
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
