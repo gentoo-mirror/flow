@@ -166,6 +166,9 @@ dev-java/openjdk:javafx - Import OpenJFX modules at build time, via dev-java/ope
 dev-java/openjdk:jbootstrap - Build OpenJDK twice, the second time using the result of the first
 dev-java/openjdk:source - Install JVM sources
 dev-java/openjdk:systemtap - Enable SystemTAP/DTrace tracing
+dev-java/openjdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
+dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
+dev-java/openjdk-bin:source - Install JVM sources
 dev-java/oracle-jdk-bin:derby - Install bundled Derby (Java database)
 dev-java/oracle-jdk-bin:jce - Install Java Cryptographic Extension Unlimited Strength Jurisdiction Policy Files
 dev-java/oracle-jdk-bin:pax_kernel - PAX Kernel

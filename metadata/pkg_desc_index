@@ -24,7 +24,8 @@ app-text/xml2rfc 3.5.0: generates RFCs and IETF drafts from document source in X
 dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
-dev-java/openjdk 11.0.9_p11-r1: Open source implementation of the Java programming language
+dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
+dev-java/openjdk-bin 11.0.10_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
 dev-lang/ammonite-repl-bin 2.2.0: Scala language-based scripting and REPL
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
@@ -74,4 +75,4 @@ virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Mana
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-misc/autorandr 1.0-r20170416 1.1-r20171010 1.8.1-r20190823 9999: Automatically select a display configuration based on connected devices
 x11-misc/xsnow 3.1.7: let it snow on your desktop and windows
-x11-wm/herbstluftwm 0.9.1 9999: A manual tiling window manager for X
+x11-wm/herbstluftwm 0.9.2 9999: A manual tiling window manager for X
