@@ -25,8 +25,10 @@ IUSE="doc examples python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
+	media-libs/freetype
 	x11-libs/libX11
 	x11-libs/libXext
+	x11-libs/libXft
 	x11-libs/libXinerama
 	x11-libs/libXrandr
 "
