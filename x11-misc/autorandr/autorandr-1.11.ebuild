@@ -1,14 +1,21 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit bash-completion-r1 git-r3 systemd udev
+inherit bash-completion-r1 systemd udev
+
+if [[ "${PV}" = "9999" ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/phillipberndt/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/phillipberndt/${PN}/archive/${PV}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Automatically select a display configuration based on connected devices"
-HOMEPAGE="https://github.com/phillipberndt/${PN}"
-EGIT_REPO_URI="https://github.com/phillipberndt/${PN}.git"
-EGIT_COMMIT_ID="72b02614c5af9a62ebd689b83ad898a18daa1998"
+HOMEPAGE="https://github.com/phillipberndt/autorandr"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -43,7 +50,7 @@ src_install() {
 
 	emake DESTDIR="${D}" \
 		  install \
-		  BASH_COMPLETIONS_DIR="$(get_bashcompdir)" \
+		  BASH_COMPLETION_DIR="$(get_bashcompdir)" \
 		  SYSTEMD_UNIT_DIR="$(systemd_get_systemunitdir)" \
 		  UDEV_RULES_DIR="$(get_udevdir)"/rules.d \
 		  TARGETS="$targets"
