@@ -1,19 +1,24 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit bash-completion-r1 git-r3 systemd udev
+inherit bash-completion-r1 systemd udev
+
+if [[ "${PV}" = "9999" ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/phillipberndt/${PN}.git"
+else
+	SRC_URI="https://github.com/phillipberndt/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Automatically select a display configuration based on connected devices"
 HOMEPAGE="https://github.com/phillipberndt/autorandr"
-EGIT_REPO_URI="https://github.com/phillipberndt/${PN}.git"
-EGIT_COMMIT_ID="ee77c355294c596c29a78b10a625d3db1a8ab1d5"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="bash-completion pm-utils systemd udev"
+IUSE="bash-completion systemd udev"
 
 DEPEND="
 	virtual/pkgconfig
@@ -21,7 +26,6 @@ DEPEND="
 "
 RDEPEND="
 	bash-completion? ( app-shells/bash )
-	pm-utils? ( sys-power/pm-utils )
 	systemd? ( sys-apps/systemd )
 	udev? ( virtual/udev )
 "
@@ -30,9 +34,6 @@ src_install() {
 	targets="autorandr autostart_config"
 	if use bash-completion; then
 		targets="$targets bash_completion"
-	fi
-	if use pm-utils; then
-		targets="$targets pmutils"
 	fi
 	if use systemd; then
 		targets="$targets systemd"
@@ -43,7 +44,7 @@ src_install() {
 
 	emake DESTDIR="${D}" \
 		  install \
-		  BASH_COMPLETION_DIR="$(get_bashcompdir)" \
+		  BASH_COMPLETIONS_DIR="$(get_bashcompdir)" \
 		  SYSTEMD_UNIT_DIR="$(systemd_get_systemunitdir)" \
 		  UDEV_RULES_DIR="$(get_udevdir)"/rules.d \
 		  TARGETS="$targets"
