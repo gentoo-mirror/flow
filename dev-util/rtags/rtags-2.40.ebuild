@@ -26,13 +26,17 @@ HOMEPAGE="http://www.rtags.net/"
 # as rtags) is BSD-4 licensed.
 LICENSE="GPL-3 BSD-4"
 SLOT="0"
-IUSE="+ssl"
+IUSE=""
 
+# TODO:
+# - dev-libs/openssl is an automagic dep of rct
+# - sys-libs/zlib is an automagic dep of rct
+# - is sys-libs/ncurses still required by rtags/rct?
 DEPEND="
 	sys-devel/clang:*
 	sys-libs/ncurses:0
 	sys-libs/zlib
-	ssl? ( dev-libs/openssl:0= )
+	dev-libs/openssl:0=
 "
 RDEPEND="${DEPEND}"
 
