@@ -8,9 +8,8 @@ inherit bash-completion-r1 systemd udev
 if [[ "${PV}" = "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/phillipberndt/${PN}.git"
-	KEYWORDS=""
 else
-	SRC_URI="https://github.com/phillipberndt/${PN}/archive/${PV}.tar.gz"
+	SRC_URI="https://github.com/phillipberndt/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -19,8 +18,7 @@ HOMEPAGE="https://github.com/phillipberndt/autorandr"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="bash-completion pm-utils systemd udev"
+IUSE="bash-completion systemd udev"
 
 DEPEND="
 	virtual/pkgconfig
@@ -28,7 +26,6 @@ DEPEND="
 "
 RDEPEND="
 	bash-completion? ( app-shells/bash )
-	pm-utils? ( sys-power/pm-utils )
 	systemd? ( sys-apps/systemd )
 	udev? ( virtual/udev )
 "
@@ -37,9 +34,6 @@ src_install() {
 	targets="autorandr autostart_config"
 	if use bash-completion; then
 		targets="$targets bash_completion"
-	fi
-	if use pm-utils; then
-		targets="$targets pmutils"
 	fi
 	if use systemd; then
 		targets="$targets systemd"

@@ -16,11 +16,10 @@ not relevant for general metadata.xml files.
 <pkgmetadata>
 <maintainer type="person">
 	<email>flo@geekplace.eu</email>
-	<description>Primary maintainer</description>
+	<name>Florian Schmaus</name>
 </maintainer>
 <use>
-	<flag name="pm-utils"></flag>
-	<flag name="systemd"></flag>
-	<flag name="udev"></flag>
+	<flag name="systemd">Install autorand systemd files</flag>
+	<flag name="udev">Use udev for monitor detection</flag>
 </use>
 </pkgmetadata>
