@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils systemd
+inherit cmake systemd
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -52,7 +52,7 @@ src_unpack() {
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 
 	systemd_douserunit \
 		"${FILESDIR}/rdm.socket" \
