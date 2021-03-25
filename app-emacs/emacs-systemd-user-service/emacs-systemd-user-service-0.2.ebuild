@@ -12,7 +12,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-RDEPEND="virtual/emacs"
+RDEPEND="app-editors/emacs"
 
 S="${WORKDIR}"
 

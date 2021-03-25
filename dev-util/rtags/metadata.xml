@@ -3,13 +3,6 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>flo@geekplace.eu</email>
-		<description>Primary maintainer</description>
+		<name>Florian Schmaus</name>
 	</maintainer>
-	<maintainer type="project">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Proxy Maintainers</name>
-	</maintainer>
-	<longdescription lang="en">
-		A client/server indexer for c/c++/objc[++] with integration for Emacs based on clang.
-	</longdescription>
 </pkgmetadata>
