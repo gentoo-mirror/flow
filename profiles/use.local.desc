@@ -181,7 +181,6 @@ net-p2p/bitcoind:upnp - Enable Universal Plug and Play
 net-p2p/bitcoind:wallet - Enable wallet support
 net-p2p/bitcoind:zeromq - Report blocks and transactions via zeromq
 sys-fs/e2fsprogs:e4crypt - Enable e4crypt
-x11-misc/autorandr:pm-utils - 
-x11-misc/autorandr:systemd - 
-x11-misc/autorandr:udev - 
+x11-misc/autorandr:systemd - Install autorand systemd files
+x11-misc/autorandr:udev - Use udev for monitor detection
 x11-wm/herbstluftwm:python - Install herbstluftwm Python API bindings

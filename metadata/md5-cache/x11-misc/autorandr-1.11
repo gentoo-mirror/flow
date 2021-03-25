@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=install postinst
+DEPEND=virtual/pkgconfig
+DESCRIPTION=Automatically select a display configuration based on connected devices
+EAPI=7
+HOMEPAGE=https://github.com/phillipberndt/autorandr
+INHERIT=bash-completion-r1 systemd udev
+IUSE=bash-completion systemd udev
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=bash-completion? ( app-shells/bash ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
+SLOT=0
+SRC_URI=https://github.com/phillipberndt/autorandr/archive/1.11.tar.gz -> autorandr-1.11.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	be99724bde4274de21e581204e9d164a	systemd	74b223e42834adf09a2d21fe5fe13741	udev	452708c3f55cf6e918b045adb949a9e6
+_md5_=00ff6a027531f44813114a39cd7e88cd
