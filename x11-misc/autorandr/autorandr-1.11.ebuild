@@ -44,7 +44,7 @@ src_install() {
 
 	emake DESTDIR="${D}" \
 		  install \
-		  BASH_COMPLETION_DIR="$(get_bashcompdir)" \
+		  BASH_COMPLETIONS_DIR="$(get_bashcompdir)" \
 		  SYSTEMD_UNIT_DIR="$(systemd_get_systemunitdir)" \
 		  UDEV_RULES_DIR="$(get_udevdir)"/rules.d \
 		  TARGETS="$targets"
