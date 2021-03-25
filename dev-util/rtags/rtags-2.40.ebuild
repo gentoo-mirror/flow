@@ -10,14 +10,21 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/Andersbakken/rtags.git"
 	SRC_URI=""
 else
-	SRC_URI="https://github.com/Andersbakken/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	RCT_COMMIT_ID="7067897ddc074480e0fce324f22a6f404ba8665b"
+	RCT_TAR_GZ="rct-${RCT_COMMIT_ID}.tar.gz"
+	SRC_URI="
+	https://github.com/Andersbakken/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/Andersbakken/rct/archive/${RCT_COMMIT_ID}.tar.gz -> ${RCT_TAR_GZ}
+"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="A client/server indexer for C/C++/ObjC[++] with integration for Emacs"
 HOMEPAGE="http://www.rtags.net/"
 
-LICENSE="GPL-3"
+# rtags is GPL-3 licensed, but the rct library (from the same author
+# as rtags) is BSD-4 licensed.
+LICENSE="GPL-3 BSD-4"
 SLOT="0"
 IUSE="+ssl"
 
@@ -29,8 +36,20 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	default
+
+	if [[ "${PV}" == "9999" ]]; then
+		return
+	fi
+
+	rmdir "${S}/src/rct" || die
+	ln -rs "${WORKDIR}"/rct-* "${S}/src/rct" || die
+}
+
 src_install() {
 	cmake-utils_src_install
+
 	systemd_douserunit \
 		"${FILESDIR}/rdm.socket" \
 		"${FILESDIR}/rdm.service"
