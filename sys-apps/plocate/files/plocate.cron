@@ -2,7 +2,7 @@
 set -e
 
 # Do not run the cron job if plocate's systemd timer is enabled.
-if which systemctl >/dev/null 2>&1
+if which systemctl >/dev/null 2>&1 \
 	&& systemctl is-enabled --quiet plocate-updatedb.timer; then
 		exit
 fi
