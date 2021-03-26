@@ -30,7 +30,7 @@ dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
 dev-lang/ammonite-repl-bin 2.2.0: Scala language-based scripting and REPL
 dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
 dev-libs/rnp 9999: A high performance C++ OpenPGP library
-dev-python/boltons 20.1.0: Pure-Python utilities missing from the standard library.
+dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.
 dev-python/dict2xml 1.7.0: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.4.0: Google's i18n address metadata repository
 dev-python/kitchen 1.2.6: A cornucopia of useful code
