@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -27,6 +27,6 @@ PATCHES=(
 S="${WORKDIR}/${PN}-${HTMLDIFF_COMMIT_ID}"
 
 RDEPEND="
-	dev-python/six
-	>=dev-python/boltons-17.1.0
+	dev-python/six[${PYTHON_USEDEP}]
+	>=dev-python/boltons-17.1.0[${PYTHON_USEDEP}]
 "
