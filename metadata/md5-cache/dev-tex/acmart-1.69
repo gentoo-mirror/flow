@@ -4,6 +4,7 @@ DEPEND=virtual/latex-base >=sys-apps/texinfo-4.2-r5
 DESCRIPTION=ACM consolidated LaTeX styles
 EAPI=7
 HOMEPAGE=https://www.acm.org/publications/proceedings-template https://github.com/borisveytsman/acmart
+INHERIT=latex-package
 IUSE=doc examples
 LICENSE=LPPL-1.3c
 RDEPEND=virtual/latex-base
