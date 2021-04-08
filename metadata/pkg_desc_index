@@ -1,3 +1,4 @@
+acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
 acct-user/gitlab-runner 0: System user: gitlab-runner
 app-admin/mkosi 9 9999: A tool for generating OS images
@@ -22,6 +23,27 @@ app-text/mmark 1.3.5: A markdown processor geared towards writing IETF documents
 app-text/pdfgrep 2.1.2 9999: A tool similar to grep which searches text in PDFs
 app-text/xml2rfc 3.5.0: generates RFCs and IETF drafts from document source in XML
 dev-embedded/sdcc 3.2.0: Small device C compiler (for various microprocessors)
+dev-erlang/cache_tab 1.0.28: In-memory cache Erlang and Elixir library
+dev-erlang/eimp 1.0.20: Erlang Image Manipulation Process
+dev-erlang/epam 1.0.10: epam for ejabberd to help with PAM authentication support
+dev-erlang/esip 1.0.42: ProcessOne SIP server component
+dev-erlang/ezlib 1.0.9: Native zlib driver for Erlang and Elixir
+dev-erlang/fast_tls 1.1.12: TLS/SSL native driver for Erlang and Elixir
+dev-erlang/fast_xml 1.1.46: Fast Expat based Erlang XML parsing library
+dev-erlang/fast_yaml 1.0.31: Fast Yaml native library for Erlang and Elixir
+dev-erlang/idna 6.0.0-r1: Erlang IDNA implementation
+dev-erlang/mqtree 1.0.13: Index tree for MQTT topic filters
+dev-erlang/p1_acme 1.0.12: ACME client library for Erlang
+dev-erlang/p1_mysql 1.0.18: Pure Erlang MySQL driver
+dev-erlang/p1_oauth2 0.6.9: Erlang OAuth 2.0 implementation
+dev-erlang/p1_pgsql 1.1.11: Pure Erlang PostgreSQL driver
+dev-erlang/p1_utils 1.0.22: Erlang utility modules from ProcessOne
+dev-erlang/pkix 1.0.7: PKIX certificates management library for Erlang
+dev-erlang/sqlite3 1.1.12: SQLite gen_server port for Erlang
+dev-erlang/stringprep 1.0.25: Fast Stringprep implementation for Erlang and Elixir
+dev-erlang/stun 1.0.43: STUN and TURN library for Erlang and Elixir
+dev-erlang/xmpp 1.5.3: XMPP parsing and serialization library on top of Fast XML
+dev-erlang/yconf 1.0.11: YAML configuration processor
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
@@ -49,6 +71,7 @@ dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integr
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Management Platform
+net-im/ejabberd 21.04: Robust, scalable and extensible XMPP server
 net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
 net-im/poezio 9999: Console XMPP client that looks like most famous IRC clients
 net-im/swift 9999: Your friendly chat client

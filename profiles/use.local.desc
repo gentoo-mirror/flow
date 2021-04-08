@@ -174,6 +174,19 @@ dev-java/oracle-jdk-bin:jce - Install Java Cryptographic Extension Unlimited Str
 dev-java/oracle-jdk-bin:pax_kernel - PAX Kernel
 dev-java/oracle-jdk-bin:source - Install JVM (and optionally JavaFX) sources
 dev-util/gitlab-runner:docker - Add support for docker executors
+net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158) on registration
+net-im/ejabberd:full-xml - Use XML features in XMPP stream (ex: CDATA), requires XML compliant clients
+net-im/ejabberd:hipe - Compile natively with HiPE, not recommended
+net-im/ejabberd:mssql - Enable Microsoft SQL Server support (via ODBC) for data storage
+net-im/ejabberd:mysql - Enable MySQL support for data storage
+net-im/ejabberd:odbc - Enable ODBC support to access data storage
+net-im/ejabberd:postgres - Enable PostgreSQL support for data storage
+net-im/ejabberd:redis - Enable Redis support for transient data
+net-im/ejabberd:roster-gw - Turn on workaround for processing gateway subscriptions
+net-im/ejabberd:sip - Enable SIP support
+net-im/ejabberd:sqlite - Enable SQLite database support
+net-im/ejabberd:stun - Enable STUN/TURN support
+net-im/ejabberd:zlib - Enable Stream Compression (XEP-0138) using zlib
 net-p2p/bitcoind:asm - Enable assembly for optimization
 net-p2p/bitcoind:bitcoin_policy_rbf - Replace By Fee policy: Your node will preferentially mine and relay transactions paying the highest fee, regardless of receive order
 net-p2p/bitcoind:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
