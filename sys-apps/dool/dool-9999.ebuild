@@ -5,36 +5,26 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit git-r3 python-r1
+inherit python-r1
 
 DESCRIPTION="Versatile replacement for vmstat, iostat and ifstat (clone of dstat)"
 HOMEPAGE="https://github.com/scottchiefbaker/dool"
-EGIT_REPO_URI="https://github.com/scottchiefbaker/dool.git"
+
+if [[ "${PV}" == "9999" ]]; then
+	EGIT_REPO_URI="https://github.com/scottchiefbaker/dool.git"
+	inherit git-r3
+else
+	# TODO: SRC_URI
+	KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-linux"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-linux"
 IUSE="doc examples"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
-	dev-python/six[${PYTHON_USEDEP}]"
+RDEPEND="${PYTHON_DEPS}"
 DEPEND="${RDEPEND}"
-
-# PATCHES=(
-# 	"${FILESDIR}/dstat-${PV}-skip-non-sandbox-tests.patch"
-# 	"${FILESDIR}/fix-collections-deprecation-warning.patch"
-# 	"${FILESDIR}/dstat-0.7.4-fix-csv-output.patch"
-# )
-
-# src_prepare() {
-
-# 	# bug fix: allow delay to be specified
-# 	# backport from: https://github.com/dagwieers/dstat/pull/167/files
-# 	sed -i -e 's; / op\.delay; // op.delay;' "dstat" || die
-
-# 	default
-# }
 
 src_compile() {
 	:
