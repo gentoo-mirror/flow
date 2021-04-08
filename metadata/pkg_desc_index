@@ -57,6 +57,7 @@ net-misc/electrumx 1.17.0 9999: A server for the Electrum wallet
 net-p2p/bitcoind 0.16.0-r1: Original Bitcoin crypto-currency wallet for automated services
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
+sys-apps/dool 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/hp-ams 2.10.0: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.91.1878.11: HPE System Health Application and Command line Utilities (Gen9 and earlier)
 sys-apps/plocate 1.1.6-r1: Posting locate is a much faster locate
