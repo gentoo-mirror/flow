@@ -5,7 +5,7 @@ EAPI=6
 
 SSL_CERT_MANDATORY=1
 
-inherit eutils pam rebar ssl-cert systemd tmpfiles
+inherit pam rebar ssl-cert systemd tmpfiles
 
 DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~ia64 ~sparc ~x86"
 REQUIRED_USE="mssql? ( odbc )"
 # TODO: Add 'tools' flag.
-IUSE="captcha debug full-xml hipe ldap mssql mysql odbc pam postgres redis
+IUSE="captcha debug full-xml ldap mssql mysql odbc pam postgres redis
 	roster-gw sip sqlite +stun zlib"
 
 RESTRICT="test"
@@ -26,7 +26,7 @@ RESTRICT="test"
 # TODO: tools? (
 # TODO:		>=dev-erlang/luerl-0.3
 # TODO: )
-DEPEND=">=dev-lang/erlang-19.3[hipe?,odbc?,ssl]
+DEPEND=">=dev-lang/erlang-19.3[odbc?,ssl]
 	>=dev-erlang/cache_tab-1.0.28
 	>=dev-erlang/eimp-1.0.20
 	>=dev-erlang/fast_tls-1.1.12
@@ -95,7 +95,7 @@ correct_ejabberd_paths() {
 # it. epam-wrapper is placed into work directory. It is assumed no epam-wrapper
 # file exists there already.
 customize_epam_wrapper() {
-	local epam_wrapper_src="$1"
+	local epam_wrapper_src="${1}"
 	local epam_wrapper_dst="${S}/epam-wrapper"
 
 	[[ -e ${epam_wrapper_dst} ]] && die 'epam-wrapper already exists'
@@ -163,20 +163,6 @@ set_jabberbase_paths() {
 		|| die 'failed to set paths ejabberdctl.template'
 }
 
-# Skip installing docs because it's only COPYING that's installed by Makefile.
-skip_docs() {
-	gawk -i inplace '
-/# Documentation/, /^[[:space:]]*#?[[:space:]]*$/ {
-	if ($0 ~ /^[[:space:]]*#?[[:space:]]*$/) {
-		print $0;
-	} else {
-		next;
-	}
-}
-1
-' "${S}/Makefile.in" || die 'failed to remove docs section from Makefile.in'
-}
-
 src_prepare() {
 	default
 
@@ -184,7 +170,6 @@ src_prepare() {
 	correct_ejabberd_paths
 	set_jabberbase_paths
 	make_ejabberd_service
-	skip_docs
 	adjust_config
 	customize_epam_wrapper "${FILESDIR}/epam-wrapper"
 
@@ -199,20 +184,14 @@ src_prepare() {
 	sed -e "s|\(ERL_LIBS=\){{libdir}}.*|\1${ejabberd_erl_libs}|" \
 		-i "${S}/ejabberdctl.template" \
 		|| die 'failed to set ERL_LIBS in ejabberdctl.template'
-
-	sed -e "s|\(AC_INIT(ejabberd, \)m4_esyscmd([^)]*)|\1[$PV]|" \
-		-i configure.ac || die "Failed to write correct version to configure"
-	# eautoreconf # required in case of download from github
 }
 
 src_configure() {
 	econf \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}/html" \
 		--enable-user=jabber \
-		--disable-system-deps \
 		$(use_enable debug) \
 		$(use_enable full-xml) \
-		$(use_enable hipe) \
 		$(use_enable mssql) \
 		$(use_enable mysql) \
 		$(use_enable odbc) \

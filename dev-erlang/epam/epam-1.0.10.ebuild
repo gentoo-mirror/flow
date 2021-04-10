@@ -27,6 +27,6 @@ src_install() {
 	rebar_src_install
 
 	local epam_path="$(get_erl_libs)/${P}/priv/bin/epam"
-	fowners root:"${PN}" "${epam_path}"
+	fowners root:${PN} "${epam_path}"
 	fperms 4750 "${epam_path}"
 }
