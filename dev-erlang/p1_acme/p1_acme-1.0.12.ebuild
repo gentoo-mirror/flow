@@ -27,5 +27,5 @@ DOCS=( CHANGELOG.md README.md )
 src_prepare() {
 	rebar_src_prepare
 	# otherwise it wants to fetch base64url from git
-	sed -ri 's/\+\+ \[\{base64url.*//' rebar.config.script
+	sed -ri 's/\+\+ \[\{base64url.*//' rebar.config.script || die
 }
