@@ -1,0 +1,50 @@
+From 3630848378108c1bdcfd921069d0bd62c7f0fa49 Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Sun, 11 Apr 2021 11:10:23 +0200
+Subject: [PATCH] Save HTML documentation in extra html/ directory
+
+Some distributions, like Gentoo, have the policy that HTML
+documentation should go under /usr/share/doc/<packet>/html.
+---
+ doc/CMakeLists.txt | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/doc/CMakeLists.txt b/doc/CMakeLists.txt
+index 7c52ffc8a345..7e03cd12db8d 100644
+--- a/doc/CMakeLists.txt
++++ b/doc/CMakeLists.txt
+@@ -93,7 +93,8 @@ endfunction()
+ function(gen_html sourcefile)
+     # additional arguments (${ARGN}) are passed as DEPENDS to the asciidoc command
+     set(src "${CMAKE_CURRENT_SOURCE_DIR}/${sourcefile}.txt")
+-    set(dst "${CMAKE_CURRENT_BINARY_DIR}/${sourcefile}.html")
++    set(dst_html_dir "${CMAKE_CURRENT_BINARY_DIR}/html")
++    set(dst "${dst_html_dir}/${sourcefile}.html")
+ 
+     # as a hack, every html doc depends on gen_object_asciidoc, even though only
+     # 'herbstluftwm' needs it. We do this to avoid that hlwm-doc.json is built
+@@ -102,7 +103,11 @@ function(gen_html sourcefile)
+     add_custom_target("doc_html_${sourcefile}" ALL DEPENDS ${dst} gen_object_asciidoc)
+     add_dependencies(all_doc "doc_html_${sourcefile}")
+     if (COPY_DOCUMENTATION)
+-        set(dst_prebuilt "${CMAKE_CURRENT_SOURCE_DIR}/${sourcefile}.html")
++        if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/html/${sourcefile}.html")
++          set(dst_prebuilt "${CMAKE_CURRENT_SOURCE_DIR}/html/${sourcefile}.html")
++        else()
++          set(dst_prebuilt "${CMAKE_CURRENT_SOURCE_DIR}/${sourcefile}.html")
++        endif()
+         add_custom_command(
+             OUTPUT ${dst}
+             COMMAND ${CMAKE_COMMAND} -E copy ${dst_prebuilt} ${dst}
+@@ -112,7 +117,7 @@ function(gen_html sourcefile)
+     else()
+         add_custom_command(
+             OUTPUT ${dst}
+-            COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}"
++            COMMAND ${CMAKE_COMMAND} -E make_directory "${dst_html_dir}"
+             COMMAND ${ASCIIDOC}
+                         -o ${dst}
+                         -a \"builddir=${CMAKE_CURRENT_BINARY_DIR}\"
+-- 
+2.26.3
+

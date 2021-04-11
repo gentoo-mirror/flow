@@ -21,7 +21,7 @@ fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="doc examples python"
+IUSE="doc python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
@@ -40,8 +40,17 @@ RDEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	virtual/pkgconfig
-	doc? ( app-text/asciidoc )
 "
+
+if [[ -n "${EGIT_REPO_URI}" ]]; then
+	# Herbstluftwm tarballs ship with pre-compiled documentation, only
+	# if we build from git asciidoc is needed.
+	BDEPEND+=" doc? ( app-text/asciidoc )"
+fi
+
+PATCHES=(
+	"${FILESDIR}/0001-Save-HTML-documentation-in-extra-html-directory.patch"
+)
 
 src_prepare() {
 	sed -i \
@@ -79,10 +88,6 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-
-	if ! use examples; then
-		rm -r "${ED}"/usr/share/doc/${PF}/examples || die
-	fi
 
 	if use python; then
 		pushd python > /dev/null || die
