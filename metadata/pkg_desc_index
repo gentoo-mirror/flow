@@ -13,7 +13,6 @@ app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one syste
 app-misc/cmatrix 2.0: An ncurses based app to show a scrolling screen from the Matrix
 app-misc/openhab 9999: The open Home Automation Bus (openHAB)
 app-mobilephone/gmote-server 2.0.0: On the computer you wish to control.
-app-mobilephone/hfp 9999: A Bluetooth Hands-Free Profile server, which allows your Linux system to act as a speakerphone for your mobile phone.
 app-portage/gentools 9999: Tools to aid administering Gentoo systems, like silent automatic updates
 app-text/aha 0.5: Converts ANSI escape sequences of a unix terminal to HTML
 app-text/explain 9999: Explain commands using ASCII art
@@ -50,7 +49,6 @@ dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Jav
 dev-java/openjdk-bin 11.0.10_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
 dev-lang/ammonite-repl-bin 2.2.0: Scala language-based scripting and REPL
-dev-lang/isis 1.6.1.43: ISIS programming language is designed to facilitate the interpretation and analysis of high resolution X-ray spectra.
 dev-libs/rnp 9999: A high performance C++ OpenPGP library
 dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.
 dev-python/dict2xml 1.7.0: Small utility to convert a python dictionary into an XML string
