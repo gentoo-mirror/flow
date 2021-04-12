@@ -176,7 +176,6 @@ dev-java/oracle-jdk-bin:source - Install JVM (and optionally JavaFX) sources
 dev-util/gitlab-runner:docker - Add support for docker executors
 net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158) on registration
 net-im/ejabberd:full-xml - Use XML features in XMPP stream (ex: CDATA), requires XML compliant clients
-net-im/ejabberd:hipe - Compile natively with HiPE, not recommended
 net-im/ejabberd:mssql - Enable Microsoft SQL Server support (via ODBC) for data storage
 net-im/ejabberd:mysql - Enable MySQL support for data storage
 net-im/ejabberd:odbc - Enable ODBC support to access data storage
