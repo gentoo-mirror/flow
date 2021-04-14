@@ -21,7 +21,7 @@ fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="doc python"
+IUSE="+doc python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
