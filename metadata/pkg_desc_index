@@ -99,4 +99,4 @@ virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Mana
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-misc/autorandr 1.11 9999: Automatically select a display configuration based on connected devices
 x11-misc/xsnow 3.1.7: let it snow on your desktop and windows
-x11-wm/herbstluftwm 0.9.2 9999: A manual tiling window manager for X
+x11-wm/herbstluftwm 0.9.2-r1 9999: A manual tiling window manager for X
