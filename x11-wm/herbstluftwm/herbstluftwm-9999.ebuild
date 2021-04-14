@@ -48,10 +48,6 @@ if [[ -n "${EGIT_REPO_URI}" ]]; then
 	BDEPEND+=" doc? ( app-text/asciidoc )"
 fi
 
-PATCHES=(
-	"${FILESDIR}/0001-Save-HTML-documentation-in-extra-html-directory.patch"
-)
-
 src_prepare() {
 	# Do not install LICENSE and respect CMAKE_INSTALL_DOCDIR.
 	sed -i \
