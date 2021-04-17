@@ -81,5 +81,6 @@ src_install() {
 
 	newpamd "${FILESDIR}/fscrypt.pam-config" fscrypt
 
+	# Zap the Ubuntu-specific PAM config.
 	rm "${ED}/usr/share/pam-configs/fscrypt" || die
 }
