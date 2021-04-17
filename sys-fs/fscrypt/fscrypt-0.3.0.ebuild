@@ -61,7 +61,11 @@ SRC_URI="
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="Apache-2.0"
+# Apaache-2.0: fscrypt, google/renameio
+# BSD: golang/protobuf, rogpeppe/go-internal, golang/x/*
+# BSD-2: pkg/errors
+# MIT: BurntSushi/toml, kisielk/gotool, kr/*, urfave/cli, honnef.co/go/tools
+LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
