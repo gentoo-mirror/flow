@@ -81,5 +81,5 @@ src_install() {
 
 	newpamd "${FILESDIR}/fscrypt.pam-config" fscrypt
 
-	rm -r "${D}/usr/share/pam-configs"
+	rm "${ED}/usr/share/pam-configs/fscrypt" || die
 }
