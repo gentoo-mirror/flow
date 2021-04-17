@@ -71,16 +71,19 @@ RESTRICT="!test? ( test )"
 DEPEND="sys-libs/pam"
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/0001-Remove-TestLoadSourceDevice.patch"
+	"${FILESDIR}/0001-Makefile-Optionally-avoid-installation-of-Ubuntu-spe.patch"
+)
+
 src_install() {
 	emake \
 		DESTDIR="${ED}" \
 		PREFIX="/usr" \
 		PAM_MODULE_DIR="$(getpam_mod_dir)" \
+		INSTALL_UBUNTU_PAM_CONFIG="false" \
 		install
 	einstalldocs
 
 	newpamd "${FILESDIR}/fscrypt.pam-config" fscrypt
-
-	# Zap the Ubuntu-specific PAM config.
-	rm "${ED}/usr/share/pam-configs/fscrypt" || die
 }
