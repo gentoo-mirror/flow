@@ -18,7 +18,7 @@ index 6e79421356de..447ccf193745 100644
  PAM_INSTALL_PATH := $(PAM_MODULE_DIR)/$(PAM_NAME).so
  PAM_CONFIG := $(BIN)/config
  PAM_CONFIG_DIR := $(PREFIX)/share/pam-configs
-+INSTALL_UBUNTU_PAM_CONFIG ?= true
++INSTALL_UBUNTU_PAM_CONFIG := true
  
  install-pam: $(PAM_MODULE)
  	install -d $(DESTDIR)$(PAM_MODULE_DIR)
