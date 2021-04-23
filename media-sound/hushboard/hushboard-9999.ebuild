@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 
-DESCRIPTION="Mute your mic while you’re typing"
+DESCRIPTION="Mutes your microphone while you’re typing"
 HOMEPAGE="https://kryogenix.org/code/hushboard/"
 LICENSE="MIT"
 SLOT="0"
