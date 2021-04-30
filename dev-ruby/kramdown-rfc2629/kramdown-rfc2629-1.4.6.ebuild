@@ -27,5 +27,5 @@ ruby_add_rdepend "
 "
 
 all_ruby_prepare() {
-	sed -i -e 's/json_pure/json/' ../metadata || die
+	sed -i 's/json_pure/json/' ../metadata || die
 }
