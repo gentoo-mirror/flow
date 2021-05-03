@@ -50,6 +50,7 @@ fi
 
 PATCHES=(
 	"${FILESDIR}/0001-Save-HTML-documentation-in-extra-html-directory.patch"
+	"${FILESDIR}/0001-Include-limits-for-std-numeric_limits-1305.patch"
 )
 
 src_prepare() {
