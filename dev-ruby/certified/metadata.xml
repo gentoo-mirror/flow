@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type='person'>
+		<name>Florian Schmaus</name>
 		<email>flo@geekplace.eu</email>
-		<description>Maintainer, CC him on bugs</description>
 	</maintainer>
 </pkgmetadata>
