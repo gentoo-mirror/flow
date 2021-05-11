@@ -57,7 +57,7 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-BDEPEND="app-arch/unzip"
+BDEPEND="$(unpacker_src_uri_depends)"
 
 #QA_TEXTRELS="usr/share/games/etlegacy/legacy/omni-bot/omnibot_et.so"
 
