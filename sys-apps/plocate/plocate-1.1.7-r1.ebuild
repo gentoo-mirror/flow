@@ -62,8 +62,8 @@ src_install() {
 	fperms 0644 /etc/{updatedb,plocate-cron}.conf
 
 	insinto /etc/cron.daily
-	newins "${FILESDIR}"/plocate.cron plocate
-	fperms 0755 /etc/cron.daily/plocate
+	newins "${FILESDIR}"/plocate.cron plocate-updatedb
+	fperms 0755 /etc/cron.daily/plocate-updatedb
 
 	systemd_dounit "${BUILD_DIR}"/${PN}-updatedb.service "${S}"/${PN}-updatedb.timer
 }
