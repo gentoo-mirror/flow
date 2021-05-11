@@ -140,7 +140,7 @@ src_install() {
 	cmake_src_install
 
 	insinto /usr/share/etlegacy/legacy
-	doins ${BUILD_DIR}/legacy/ui.mp.$(uname -m).so
+	doins "${BUILD_DIR}"/legacy/ui.mp.$(uname -m).so
 
 	# Install the game files
 	insinto /usr/share/etlegacy/etmain
