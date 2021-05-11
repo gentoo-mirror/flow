@@ -69,6 +69,8 @@ dev-util/gitlab-runner 13.6.0_rc1 13.11.0: GitLab Runner
 dev-util/idea-community-bin 12.1.3.129.451: IntelliJ IDEA is an intelligent Java IDE (Community Edition)
 dev-util/include-what-you-use 0.15_pre20201026 0.15: Find unused include directives in C/C++ programs
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
+games-fps/etlegacy 2.77.1: Wolfenstein: Enemy Territory 2.60b compatible client/server
+games-util/springlobby 0.271: The official lobby client for SpringRTS community games
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 media-sound/hushboard 0.0_pre20210317 9999: Mutes your microphone while you’re typing
@@ -83,7 +85,7 @@ net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sys-apps/hp-ams 2.10.0: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.91.1878.11: HPE System Health Application and Command line Utilities (Gen9 and earlier)
-sys-apps/plocate 1.1.6-r1: Posting locate is a much faster locate
+sys-apps/plocate 1.1.7-r1: Posting locate is a much faster locate
 sys-apps/ucg 0.2.2 9999: A extremely fast grep-like tool specialized for searching source code
 sys-block/hpssacli 4.17.6.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++ 1.1 2.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++
