@@ -122,7 +122,7 @@ src_configure() {
 		-DFEATURE_IPV6="$(usex ipv6)"
 		-DFEATURE_GETTEXT="$(usex gettext)"
 		-DFEATURE_ANTICHEAT="1"
-		-DFEATURE_AUTOUPDATE="$(usex autoupdate ON OFF)"
+		-DFEATURE_AUTOUPDATE="$(usex autoupdate)"
 		# renderers
 		-DFEATURE_RENDERER2="$(usex renderer2)"
 		-DFEATURE_RENDERER_GLES="$(usex renderer-gles)"
