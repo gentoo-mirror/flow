@@ -46,6 +46,7 @@ dev-erlang/yconf 1.0.11: YAML configuration processor
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
+dev-java/mill-bin 0.9.7: A Java/Scala build tool
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
 dev-java/openjdk-bin 11.0.10_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
