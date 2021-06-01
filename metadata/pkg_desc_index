@@ -84,7 +84,6 @@ net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sys-apps/hp-ams 2.10.0: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.91.1878.11: HPE System Health Application and Command line Utilities (Gen9 and earlier)
-sys-apps/plocate 1.1.7-r1: Posting locate is a much faster locate
 sys-apps/ucg 0.2.2 9999: A extremely fast grep-like tool specialized for searching source code
 sys-block/hpssacli 4.17.6.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++ 1.1 2.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++

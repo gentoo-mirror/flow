@@ -192,7 +192,6 @@ net-p2p/bitcoind:knots - Build enhanced Bitcoin Knots version, rather than Bitco
 net-p2p/bitcoind:upnp - Enable Universal Plug and Play
 net-p2p/bitcoind:wallet - Enable wallet support
 net-p2p/bitcoind:zeromq - Report blocks and transactions via zeromq
-sys-apps/plocate:io-uring - Enable efficient I/O via sys-libs/liburing.
 sys-fs/e2fsprogs:e4crypt - Enable e4crypt
 x11-misc/autorandr:systemd - Install autorand systemd files
 x11-misc/autorandr:udev - Use udev for monitor detection
