@@ -46,7 +46,6 @@ dev-erlang/yconf 1.0.11: YAML configuration processor
 dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
-dev-java/mill-bin 0.9.7: A Java/Scala build tool
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
 dev-java/openjdk-bin 11.0.10_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
@@ -102,5 +101,6 @@ virtual/flows-font-selection 0.2: A virtual package for selected fonts (by flow)
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-misc/autorandr 1.11 9999: Automatically select a display configuration based on connected devices
+x11-misc/rofi-file-browser-extended 1.2.0: A file browser for rofi
 x11-misc/xsnow 3.1.7: let it snow on your desktop and windows
 x11-wm/herbstluftwm 0.9.2-r1 9999: A manual tiling window manager for X
