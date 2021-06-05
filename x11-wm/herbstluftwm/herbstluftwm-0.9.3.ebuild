@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 DISTUTILS_OPTIONAL=1
 
 inherit cmake distutils-r1 toolchain-funcs
@@ -47,11 +47,6 @@ if [[ -n "${EGIT_REPO_URI}" ]]; then
 	# if we build from git asciidoc is needed.
 	BDEPEND+=" doc? ( app-text/asciidoc )"
 fi
-
-PATCHES=(
-	"${FILESDIR}/0001-Save-HTML-documentation-in-extra-html-directory.patch"
-	"${FILESDIR}/0001-Include-limits-for-std-numeric_limits-1305.patch"
-)
 
 src_prepare() {
 	# Do not install LICENSE and respect CMAKE_INSTALL_DOCDIR.
