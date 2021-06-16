@@ -62,7 +62,7 @@ dev-python/slixmpp 1.5.2: Python 3 library for XMPP
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/kramdown-rfc2629 1.4.6: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
-dev-tex/rubber 1.6.0_alpha1 9999: A LaTeX wrapper for automatically building documents
+dev-tex/rubber 1.6.0 9999: A LaTeX wrapper for automatically building documents
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
 dev-util/gitlab-runner 13.6.0_rc1 13.11.0: GitLab Runner
 dev-util/idea-community-bin 12.1.3.129.451: IntelliJ IDEA is an intelligent Java IDE (Community Edition)
