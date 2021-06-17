@@ -7,10 +7,15 @@ JAVA_PKG_IUSE="test"
 
 inherit java-pkg-2 java-ant-2
 
+SPEC_ALPHA_VER="0.2.194"
+CORE_SPECS_ALPHA_VER="0.2.56"
+
 DESCRIPTION="General-purpose programming language with an emphasis on functional programming"
 HOMEPAGE="https://clojure.org/"
 SRC_URI="
 	https://github.com/${PN}/${PN}/archive/${P}.tar.gz
+	https://github.com/clojure/spec.alpha/archive/spec.alpha-${SPEC_ALPHA_VER}.tar.gz
+	https://github.com/clojure/core.specs.alpha/archive/core.specs.alpha-${CORE_SPECS_ALPHA_VER}.tar.gz
 "
 
 LICENSE="EPL-1.0 Apache-2.0 BSD"
@@ -18,18 +23,18 @@ SLOT="$(ver_cut 1-2)"
 
 KEYWORDS="~amd64 ~x86 ~x86-linux"
 
+PATCHES=(
+	"${FILESDIR}/add-compile-spec-ant-build-target.patch"
+)
+
 # Restrict test as broken due to file not found issue and more.
-#RESTRICT="!test? ( test )"
+RESTRICT="!test? ( test )"
 
 CLOJURE_SPEC_ALPHA_SLOT="0.2"
 
 COMMON_DEPEND="
 	dev-java/ant-core:0
-	dev-java/core-specs-alpha-bin:${CLOJURE_SPEC_ALPHA_SLOT}
-	dev-java/spec-alpha-bin:${CLOJURE_SPEC_ALPHA_SLOT}
 "
-
-CLOJURE_SPEC_ALPHA_SLOT="0.2"
 
 RDEPEND="
 	${COMMON_DEPEND}
@@ -45,19 +50,24 @@ S="${WORKDIR}/${PN}-${P}"
 
 DOCS=( changes.md CONTRIBUTING.md readme.txt )
 
-src_compile() {
-	local extra_ant_args="-Dmaven.compile.classpath=$(java-pkg_getjars  core-specs-alpha-bin-${CLOJURE_SPEC_ALPHA_SLOT},spec-alpha-bin-${CLOJURE_SPEC_ALPHA_SLOT})"
+src_prepare() {
+	default
+	java-utils-2_src_prepare
 
-	eant ${extra_ant_args} \
-		 -f build.xml \
-		 jar
+	ln -rs \
+	   "../spec.alpha-spec.alpha-${SPEC_ALPHA_VER}/src/main/clojure/clojure/spec" \
+	   "src/clj/clojure/spec" || die "Could not create symbolic link for spec-alpha"
+	ln -rs \
+	   "../core.specs.alpha-core.specs.alpha-${CORE_SPECS_ALPHA_VER}/src/main/clojure/clojure/core/specs" \
+	   "src/clj/clojure/core/specs" || die "Could not create symbolic link for core-specs-alpha"
+}
+
+src_compile() {
+	eant -f build.xml jar
 }
 
 src_test() {
-	# TODO Tests need more jars, see clojure POM.
-	local extra_ant_args="-Dmaven.test.classpath=$(java-pkg_getjars  core-specs-alpha-bin-${CLOJURE_SPEC_ALPHA_SLOT},spec-alpha-bin-${CLOJURE_SPEC_ALPHA_SLOT})"
-
-	eant ${extra_ant_args} -f build.xml test
+	eant -f build.xml test
 }
 
 src_install() {
