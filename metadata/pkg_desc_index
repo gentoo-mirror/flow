@@ -51,7 +51,7 @@ dev-java/openjdk-bin 11.0.10_p9: Prebuilt Java JDK binaries provided by AdoptOpe
 dev-java/oracle-jdk-bin 1.7.0.80: Oracle's Java SE Development Kit
 dev-java/spec-alpha-bin 0.2.194: A Clojure library to describe the structure of data and functions
 dev-lang/ammonite-repl-bin 2.3.8: Scala language-based scripting and REPL
-dev-lang/clojure 1.10.3 1.10.3-r1: General-purpose programming language with an emphasis on functional programming
+dev-lang/clojure 1.10.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/isis 1.6.2.47: ISIS language for interpretation and analysis of high resolution X-ray spectra.
 dev-libs/rnp 9999: A high performance C++ OpenPGP library
 dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.

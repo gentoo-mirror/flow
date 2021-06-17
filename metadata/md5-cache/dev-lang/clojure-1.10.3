@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install preinst prepare setup test
-DEPEND=dev-java/ant-core:0 dev-java/core-specs-alpha-bin:0.2 dev-java/spec-alpha-bin:0.2 >=virtual/jdk-1.8 >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-core-1.8.2:0 >=dev-java/javatoolkit-0.3.0-r2
+DEPEND=dev-java/ant-core:0 >=virtual/jdk-1.8 >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-core-1.8.2:0 >=dev-java/javatoolkit-0.3.0-r2
 DESCRIPTION=General-purpose programming language with an emphasis on functional programming
 EAPI=7
 HOMEPAGE=https://clojure.org/
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-ant-2
 IUSE=elibc_FreeBSD test elibc_FreeBSD
 KEYWORDS=~amd64 ~x86 ~x86-linux
 LICENSE=EPL-1.0 Apache-2.0 BSD
-RDEPEND=dev-java/ant-core:0 dev-java/core-specs-alpha-bin:0.2 dev-java/spec-alpha-bin:0.2 >=virtual/jre-1.8 >=dev-java/java-config-2.2.0-r3
-RESTRICT=!test? ( test ) !test? ( test )
+RDEPEND=dev-java/ant-core:0 >=virtual/jre-1.8 >=dev-java/java-config-2.2.0-r3
+RESTRICT=!test? ( test )
 SLOT=1.10
-SRC_URI=https://github.com/clojure/clojure/archive/clojure-1.10.3.tar.gz
+SRC_URI=https://github.com/clojure/clojure/archive/clojure-1.10.3.tar.gz https://github.com/clojure/spec.alpha/archive/spec.alpha-0.2.194.tar.gz https://github.com/clojure/core.specs.alpha/archive/core.specs.alpha-0.2.56.tar.gz
 _eclasses_=java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	multilib	ebdbaed22e873a5abe6205f41349b479	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	java-ant-2	51fb0a4707d58382310390ad47ab0ab0
-_md5_=a3179795c7ebc8665aa6a5a547181c83
+_md5_=947b3ce3004f71d3e135068926c4f1b9
