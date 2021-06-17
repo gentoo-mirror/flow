@@ -89,16 +89,16 @@ src_test() {
 		"src/clj/clojure/java" || die "Could not move java-classpath"
 	mv \
 		"../tools.reader-tools.reader-${TOOLS_READER_VER}/src/main/clojure/clojure/tools/"* \
-		"src/clj/clojure/tools" || die
+		"src/clj/clojure/tools" || die "Could not move tools-reader"
 	mv \
 		"../test.generative-test.generative-${TEST_GENERATIVE_VER}/src/main/clojure/clojure/test/"* \
-		"src/clj/clojure/test" || die
+		"src/clj/clojure/test" || die "Could not move test-generative"
 	ln -rs \
 		"../data.generators-data.generators-${DATA_GENERATORS_VER}/src/main/clojure/clojure/data/" \
-		"src/clj/clojure/data" || die
+		"src/clj/clojure/data" || die "Could not create symbolic link for data-generators"
 	mv \
 		"../test.check-test.check-${TEST_CHECK_VER}/src/main/clojure/clojure/test/"* \
-		"src/clj/clojure/test" || die
+		"src/clj/clojure/test" || die "Could not move test-check"
 
 	eant -f build.xml test
 }
