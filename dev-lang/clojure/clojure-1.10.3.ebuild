@@ -10,12 +10,27 @@ inherit java-pkg-2 java-ant-2
 SPEC_ALPHA_VER="0.2.194"
 CORE_SPECS_ALPHA_VER="0.2.56"
 
+TOOLS_NAMESPACE_VER="1.1.0"
+JAVA_CLASSPATH_VER="1.0.0"
+TOOLS_READER_VER="1.3.4"
+TEST_GENERATIVE_VER="1.0.0"
+DATA_GENERATORS_VER="1.0.0"
+TEST_CHECK_VER="1.1.0"
+
 DESCRIPTION="General-purpose programming language with an emphasis on functional programming"
 HOMEPAGE="https://clojure.org/"
 SRC_URI="
 	https://github.com/${PN}/${PN}/archive/${P}.tar.gz
 	https://github.com/clojure/spec.alpha/archive/spec.alpha-${SPEC_ALPHA_VER}.tar.gz
 	https://github.com/clojure/core.specs.alpha/archive/core.specs.alpha-${CORE_SPECS_ALPHA_VER}.tar.gz
+	test? (
+		https://github.com/clojure/tools.namespace/archive/refs/tags/tools.namespace-${TOOLS_NAMESPACE_VER}.tar.gz
+		https://github.com/clojure/java.classpath/archive/refs/tags/java.classpath-${JAVA_CLASSPATH_VER}.tar.gz
+		https://github.com/clojure/tools.reader/archive/refs/tags/tools.reader-${TOOLS_READER_VER}.tar.gz
+		https://github.com/clojure/test.generative/archive/refs/tags/test.generative-${TEST_GENERATIVE_VER}.tar.gz
+		https://github.com/clojure/data.generators/archive/refs/tags/data.generators-${DATA_GENERATORS_VER}.tar.gz
+		https://github.com/clojure/test.check/archive/refs/tags/test.check-${TEST_CHECK_VER}.tar.gz
+	)
 "
 
 LICENSE="EPL-1.0 Apache-2.0 BSD"
@@ -27,7 +42,6 @@ PATCHES=(
 	"${FILESDIR}/add-compile-spec-ant-build-target.patch"
 )
 
-# Restrict test as broken due to file not found issue and more.
 RESTRICT="!test? ( test )"
 
 CLOJURE_SPEC_ALPHA_SLOT="0.2"
@@ -67,6 +81,25 @@ src_compile() {
 }
 
 src_test() {
+	ln -rs \
+	   "../tools.namespace-tools.namespace-${TOOLS_NAMESPACE_VER}/src/main/clojure/clojure/tools" \
+	   "src/clj/clojure/tools" || die "Could not create symbolic link for tools-namespace"
+	mv \
+		"../java.classpath-java.classpath-${JAVA_CLASSPATH_VER}/src/main/clojure/clojure/java/"* \
+		"src/clj/clojure/java" || die "Could not move java-classpath"
+	mv \
+		"../tools.reader-tools.reader-${TOOLS_READER_VER}/src/main/clojure/clojure/tools/"* \
+		"src/clj/clojure/tools" || die
+	mv \
+		"../test.generative-test.generative-${TEST_GENERATIVE_VER}/src/main/clojure/clojure/test/"* \
+		"src/clj/clojure/test" || die
+	ln -rs \
+		"../data.generators-data.generators-${DATA_GENERATORS_VER}/src/main/clojure/clojure/data/" \
+		"src/clj/clojure/data" || die
+	mv \
+		"../test.check-test.check-${TEST_CHECK_VER}/src/main/clojure/clojure/test/"* \
+		"src/clj/clojure/test" || die
+
 	eant -f build.xml test
 }
 
