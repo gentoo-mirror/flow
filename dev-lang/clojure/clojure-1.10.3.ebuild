@@ -44,8 +44,6 @@ PATCHES=(
 
 RESTRICT="!test? ( test )"
 
-CLOJURE_SPEC_ALPHA_SLOT="0.2"
-
 COMMON_DEPEND="
 	dev-java/ant-core:0
 "
