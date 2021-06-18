@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,8 +9,8 @@ MY_PV=$(ver_rs 3 -)
 BASE_URI="https://gitlab-runner-downloads.s3.amazonaws.com/v${MY_PV}/helper-images/prebuilt-_arch_.tar.xz"
 DOCKER_PREBUILD_FILENAME="docker-prebuild-x86_64-${MY_PV}.tar.xz"
 MY_P="${PN}-v${MY_PV}"
-REVISION="d83ac56c"
-BRANCH="13-6-stable"
+REVISION="0e00ec5a"
+BRANCH="13-12-stable"
 NS="gitlab.com/gitlab-org/gitlab-runner/common"
 
 DESCRIPTION="GitLab Runner"
