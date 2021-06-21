@@ -1,8 +1,7 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI="2"
+EAPI=7
 
 inherit rpm
 
@@ -12,16 +11,20 @@ SRC_URI="http://www.brother.com/pub/bsc/linux/dlf/dcp185ccupswrapper-1.1.2-2.i38
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=net-print/brother-DCP-185C-lpr-1.1.2.2"
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}"
 
-src_unpack () {
-	rpm_src_unpack ${A} || die "Cannot unpack"
-	epatch "${FILESDIR}/adjust_servicies_link.patch" || die "Cannot patch"
-}
+PATCHES=(
+	"${FILESDIR}/adjust-services-links.patch"
+)
+
+# src_prepare() {
+# 	eapply "${FILESDIR}/adjust-services-links.patch"
+# }
 
 src_install(){
 	cp * -vr ${D}
