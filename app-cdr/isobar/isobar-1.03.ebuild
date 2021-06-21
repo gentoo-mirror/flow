@@ -1,31 +1,23 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=7
 
-inherit eutils
+inherit toolchain-funcs
 
-DESCRIPTION="This is a Linux port of isobar utility from shsucd. It's able to extract the boot-image from a bootable iso-image."
+DESCRIPTION="Utility to extract the boot-image from a bootable iso-image (ported from shsucd)"
 HOMEPAGE="https://sites.google.com/site/colimit/"
 SRC_URI="https://sites.google.com/site/colimit/isobar.c"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
-
-DEPEND="sys-devel/gcc"
-RDEPEND=""
 
 S="${WORKDIR}"
 
-src_prepare() {
-	cp ${DISTDIR}/isobar.c ${S}
-}
-
 src_compile() {
-	gcc ${CFLAGS} isobar.c -o isobar
+	$(tc-getCC) ${CFLAGS} "${DISTDIR}/isobar.c" -o isobar
 }
 
 src_install() {

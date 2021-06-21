@@ -1,5 +1,5 @@
---- usr/local/Brother/Printer/dcp185c/cupswrapper/cupswrapperdcp185c	2008-10-24 15:31:40.000000000 +0200
-+++ usr/local/Brother/Printer/dcp185c/cupswrapper/cupswrapperdcp185c.new	2010-04-24 08:51:54.617244380 +0200
+--- foo/usr/local/Brother/Printer/dcp185c/cupswrapper/cupswrapperdcp185c	2008-10-24 15:31:40.000000000 +0200
++++ foo/usr/local/Brother/Printer/dcp185c/cupswrapper/cupswrapperdcp185c.new	2010-04-24 08:51:54.617244380 +0200
 @@ -27,23 +27,22 @@ if [ "$1" = '-e' ]; then
    lpadmin -x ${printer_name}
    rm -f /usr/share/cups/model/br${printer_model}.ppd
