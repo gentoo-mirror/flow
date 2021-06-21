@@ -1,0 +1,10 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
+EAPI=7
+HOMEPAGE=https://sites.google.com/site/colimit/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+SLOT=0
+SRC_URI=https://sites.google.com/site/colimit/isobar.c
+_eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43
+_md5_=e90bd325ba6fd1cdd1641a617c24af2b

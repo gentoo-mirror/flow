@@ -2,6 +2,7 @@ acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
 acct-user/gitlab-runner 0: System user: gitlab-runner
 app-admin/mkosi 9 9999: A tool for generating OS images
+app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
 app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and practice of monadic programming in Haskell
 app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
@@ -76,6 +77,8 @@ net-im/swift 9999: Your friendly chat client
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-misc/electrumx 1.17.0 9999: A server for the Electrum wallet
 net-p2p/bitcoind 0.16.0-r1: Original Bitcoin crypto-currency wallet for automated services
+net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
+net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sys-apps/hp-ams 2.10.0: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.91.1878.11: HPE System Health Application and Command line Utilities (Gen9 and earlier)
 sys-apps/ripgrep-all 0.9.6 9999: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
