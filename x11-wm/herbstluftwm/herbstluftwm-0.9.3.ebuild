@@ -127,7 +127,14 @@ src_install() {
 distutils_enable_tests pytest
 
 src_test() {
+	pushd python > /dev/null || die
+	distutils_install_for_testing
+	popd > /dev/null || die
+
 	ln -s "${BUILD_DIR}/herbstclient" || die "Could not symlink herbstclient"
 	ln -s "${BUILD_DIR}/herbstluftwm" || die "Could not symlink herbstluftwm"
+
+	echo "PYTHONPATH ${PYTHONPATH}"
+
 	python_test
 }
