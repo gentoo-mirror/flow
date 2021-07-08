@@ -6,7 +6,7 @@
     <description>Some ebuilds from me</description>
     <homepage>https://gitorious.org/flow-s-ebuilds</homepage>
     <owner>
-      <email>flow@freakempire.de</email>
+      <email>flow@gentoo.org</email>
       <name>Florian Schmaus</name>
     </owner>
     <source type="git">git://gitorious.org/flow-s-ebuilds/flow-s-ebuilds.git</source>
