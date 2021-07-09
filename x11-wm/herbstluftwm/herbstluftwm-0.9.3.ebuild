@@ -131,10 +131,10 @@ src_test() {
 	distutils_install_for_testing
 	popd > /dev/null || die
 
+	export PYTHONPATH
+
 	ln -s "${BUILD_DIR}/herbstclient" || die "Could not symlink herbstclient"
 	ln -s "${BUILD_DIR}/herbstluftwm" || die "Could not symlink herbstluftwm"
-
-	echo "PYTHONPATH ${PYTHONPATH}"
 
 	python_test
 }
