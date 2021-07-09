@@ -17,7 +17,10 @@ KEYWORDS=""
 
 IUSE=""
 
-RDEPEND="app-portage/eix"
+RDEPEND="
+	app-portage/eix
+	app-portage/gentoolkit
+"
 
 src_install() {
 	dosbin update-system
