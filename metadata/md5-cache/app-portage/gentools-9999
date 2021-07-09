@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=install unpack
 DESCRIPTION=Tools to aid administering Gentoo systems, like silent automatic updates
 EAPI=7
 HOMEPAGE=https://github.com/Flowdalic/gentools
-INHERIT=git-r3
+INHERIT=git-r3 systemd
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=app-portage/eix
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=e1d0e9e4d3bbed19039b7a71ef63f3dc
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_md5_=0110f58882e82bc3712c4c475ad4f597
