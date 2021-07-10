@@ -41,7 +41,6 @@ dev-erlang/stringprep 1.0.25: Fast Stringprep implementation for Erlang and Elix
 dev-erlang/stun 1.0.43: STUN and TURN library for Erlang and Elixir
 dev-erlang/xmpp 1.5.3: XMPP parsing and serialization library on top of Fast XML
 dev-erlang/yconf 1.0.11: YAML configuration processor
-dev-haskell/haskell-xmpp 1.0.2: Haskell XMPP (eXtensible Message Passing Protocol, a.k.a. Jabber) library
 dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
