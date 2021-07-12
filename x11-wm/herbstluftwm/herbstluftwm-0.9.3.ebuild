@@ -134,6 +134,7 @@ src_test() {
 	distutils_install_for_testing
 	popd > /dev/null || die
 
+	# Ensure PYTHONPATH is exported, see https://bugs.gentoo.org/801658.
 	export PYTHONPATH
 	python_test
 }
