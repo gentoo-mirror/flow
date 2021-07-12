@@ -16,7 +16,7 @@ if [[ "${PV}" == "9999" ]] || [[ -n "${EGIT_COMMIT_ID}" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://herbstluftwm.org/tarballs/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 fi
 
 LICENSE="BSD-2"
@@ -126,15 +126,17 @@ src_install() {
 
 distutils_enable_tests pytest
 
-src_test() {
-	ln -s "${BUILD_DIR}/herbstclient" || die "Could not symlink herbstclient"
-	ln -s "${BUILD_DIR}/herbstluftwm" || die "Could not symlink herbstluftwm"
-
+python_test() {
 	pushd python > /dev/null || die
 	distutils_install_for_testing
 	popd > /dev/null || die
 
-	# Ensure PYTHONPATH is exported, see https://bugs.gentoo.org/801658.
-	export PYTHONPATH
-	python_test
+	distutils-r1_python_test
+}
+
+src_test() {
+	ln -s "${BUILD_DIR}/herbstclient" || die "Could not symlink herbstclient"
+	ln -s "${BUILD_DIR}/herbstluftwm" || die "Could not symlink herbstluftwm"
+
+	distutils-r1_src_test
 }
