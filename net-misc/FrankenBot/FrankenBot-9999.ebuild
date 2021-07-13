@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-inherit git-r3 java-pkg-2 user
+inherit git-r3 java-pkg-2
 
 DESCRIPTION="An bot written in Scala using Smack"
 HOMEPAGE="https://gitlab.com/Flow/FrankenBot"
@@ -15,26 +15,19 @@ SLOT="$PV"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="dev-lang/scala:2.12
-			   >=virtual/jdk-1.8"
-DEPEND="$COMMON_DEPEND
-		|| (
-			dev-java/sbt
-			dev-java/sbt-bin
-		)"
-RDEPEND="${COMMON_DEPEND}
-	app-eselect/eselect-FrankenBot
+BDEPEND="
+	acct-user/frankenbot
+	>=virtual/jdk-1.8:*
 	|| (
-		>=virtual/jdk-1.8
-		>=virtual/jre-1.8
-	)"
-
-pkg_setup() {
-	declare -rl user="${PN}"
-	declare -rl group="${user}"
-	enewgroup "${group}"
-	enewuser "${user}" -1 -1 "/var/lib/${PN}" "${group}"
-}
+		dev-java/sbt
+		dev-java/sbt-bin
+	)
+"
+RDEPEND="
+	acct-user/frankenbot
+	app-eselect/eselect-FrankenBot
+	>=virtual/jre-1.8:*
+"
 
 src_compile() {
 	sbt assembly || die "Could not compile and assemble ${PN}"
