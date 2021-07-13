@@ -1,5 +1,6 @@
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
+acct-user/frankenbot 0: System user: frankenbot
 acct-user/gitlab-runner 0: System user: gitlab-runner
 app-admin/mkosi 9 9999: A tool for generating OS images
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
@@ -85,7 +86,6 @@ sys-devel/aspectc++ 1.1 2.1: A set of C++ language extensions to facilitate aspe
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-firmware/broadcom-bt-firmware 12.0.1.1105_p2 9999: Broadcom Bluetooth firmware
 sys-firmware/systemd-microcode-reload 0: Reload microcode on system boot via systemd tmpfiles
-sys-fs/bcache-tools 1.1 9999: Tools for bcache
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-fs/fscrypt 0.3.0: Tool for managing Linux filesystem encryption
 sys-libs/librseq 0.0_pre20190919 9999: Library for Restartable Sequences
