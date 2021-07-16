@@ -1,11 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-SSL_CERT_MANDATORY=1
-
-inherit pam rebar ssl-cert systemd tmpfiles
+inherit pam rebar systemd tmpfiles
 
 DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
@@ -14,7 +12,7 @@ SRC_URI="https://static.process-one.net/${PN}/downloads/${PV}/${P}.tgz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ia64 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~ia64 ~sparc x86"
 REQUIRED_USE="mssql? ( odbc )"
 # TODO: Add 'tools' flag.
 IUSE="captcha debug full-xml ldap mssql mysql odbc pam postgres redis
@@ -57,30 +55,14 @@ DEPEND=">=dev-lang/erlang-19.3[odbc?,ssl]
 	stun? ( >=dev-erlang/stun-1.0.43 )
 	zlib? ( >=dev-erlang/ezlib-1.0.9 )"
 RDEPEND="${DEPEND}
+	acct-user/ejabberd
 	captcha? ( media-gfx/imagemagick[truetype,png] )
-	selinux? ( sec-policy/selinux-jabber )
+	selinux? ( sec-policy/selinux-jabber )	
 "
 
 DOCS=( CHANGELOG.md README.md )
 PATCHES=( "${FILESDIR}/${PN}-19.08-ejabberdctl.patch"
 	"${FILESDIR}/${PN}-17.04-0002-Dont-overwrite-service-file.patch")
-
-EJABBERD_CERT="${EPREFIX}/etc/ssl/ejabberd/server.pem"
-# Paths in net-im/jabber-base
-JABBER_ETC="${EPREFIX}/etc/jabber"
-JABBER_LOG="${EPREFIX}/var/log/jabber"
-JABBER_SPOOL="${EPREFIX}/var/spool/jabber"
-
-# Adjust example configuration file to Gentoo.
-# - Use our sample certificate.
-adjust_config() {
-	sed -rne "/^#?\s+certfiles:/{p;a\  - ${EJABBERD_CERT}" -e ":a;n;/^#?\s+-/ba};p" \
-		-i "${S}/ejabberd.yml.example" \
-		|| die 'failed to adjust example config'
-	sed -re 's/^#\s+(certfiles)/\1/' \
-		-i "${S}/ejabberd.yml.example" \
-		|| die 'failed to adjust example config'
-}
 
 # Set paths to ejabberd lib directory consistently to point always to directory
 # suffixed with version.
@@ -106,31 +88,6 @@ customize_epam_wrapper() {
 		|| die 'failed to install epam-wrapper'
 }
 
-# Check if we are missing a default certificate.
-ejabberd_cert_missing() {
-	if grep -qs "^\s\+- ${EJABBERD_CERT}" "${EROOT%/}${JABBER_ETC}/ejabberd.yml"; then
-		if [[ -f "${EROOT%/}${EJABBERD_CERT}" ]]; then
-			# default certificate is present in config and exists - not installing
-			return 1
-		else
-			# default certificate is present in config
-			# but doesn't exist - need to install one
-			return 0
-		fi
-	fi
-	# no default certificate in config - not installing
-	return 1
-}
-
-# Generate and install sample ejabberd certificate. It's installed into
-# EJABBERD_CERT path.
-ejabberd_cert_install() {
-	SSL_ORGANIZATION="${SSL_ORGANIZATION:-ejabberd XMPP Server}"
-	install_cert "${EJABBERD_CERT%.*}"
-	chown root:jabber "${EROOT%/}${EJABBERD_CERT}" || die
-	chmod 0440 "${EROOT%/}${EJABBERD_CERT}" || die
-}
-
 # Get path to ejabberd lib directory.
 #
 # This is the path ./configure script Base for this path is path set in
@@ -144,25 +101,11 @@ get_ejabberd_path() {
 make_ejabberd_service() {
 	sed -r \
 		-e 's!@ctlscriptpath@!/usr/sbin!g' \
-		-e 's!^(User|Group)=(.*)!\1=jabber!' \
+		-e 's!^(User|Group)=(.*)!\1=${PN}!' \
 		-e 's!^(After)=(.*)!\1=epmd.service network.target!' \
 		-e '/^After=/ a Requires=epmd.service' \
 		"${PN}.service.template" >"${PN}.service" \
 		|| die 'failed to make ejabberd.service'
-}
-
-# Set paths to defined by net-im/jabber-base.
-set_jabberbase_paths() {
-	sed -e "/^ETCDIR[[:space:]]*=/{s:@sysconfdir@/ejabberd:${JABBER_ETC}:}" \
-		-e "/^LOGDIR[[:space:]]*=/{s:@localstatedir@/log/ejabberd:${JABBER_LOG}:}" \
-		-e "/^SPOOLDIR[[:space:]]*=/{s:@localstatedir@/lib/ejabberd:${JABBER_SPOOL}:}" \
-		-i "${S}/Makefile.in" \
-		|| die 'failed to set paths in Makefile.in'
-	sed -e "s|\(ETC_DIR:=\"\){{sysconfdir}}[^\"]*|\1${JABBER_ETC}|" \
-		-e "s|\(LOGS_DIR:=\"\){{localstatedir}}[^\"]*|\1${JABBER_LOG}|" \
-		-e "s|\(SPOOL_DIR:=\"\){{localstatedir}}[^\"]*|\1${JABBER_SPOOL}|" \
-		-i "${S}/ejabberdctl.template" \
-		|| die 'failed to set paths ejabberdctl.template'
 }
 
 src_prepare() {
@@ -191,7 +134,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}/html" \
-		--enable-user=jabber \
+		--enable-user=${PN} \
 		$(use_enable debug) \
 		$(use_enable full-xml) \
 		$(use_enable mssql) \
@@ -218,8 +161,6 @@ src_install() {
 	default
 
 	keepdir /var/lib/lock/ejabberdctl
-	rm -rf "${ED%/}/var/log" || die
-	rm -rf "${ED%/}/var/spool" || die
 
 	if use pam; then
 		local epam_path="$(get_ejabberd_path)/priv/bin/epam"
@@ -249,6 +190,23 @@ pkg_preinst() {
 		# therefore we need to add jabber user to epam group.
 		usermod -a -G epam jabber || die
 	fi
+
+	local migrate_to_etc_ejabberd=false
+
+	# TODO iterate over REPLACING_VERSIONS and if there is any version <= 21.04-r1, then migrate
+	
+	if $migrate_to_etc_ejabberd then
+		# TODO: chown ejabberd user
+		# install --owner=${PN} --group=${PN}
+		cp -r "${EROOT}"/etc/jabber/* "${EROOT}"/etc/ejabberd || die
+		if ! use prefix; then
+			chown --recursive ejabberd:ejabberd "${EROOT}"/etc/ejabberd || die
+		fi
+		elog "Newer versions of the ejabberd gentoo package use /etc/ejabberd"
+		elog "(just as upstream) and *not* /etc/ejabber." 
+		elog "The files from /etc/jabber where moved to /etc/ejabberd"
+		elog "Please check your configuration"
+	fi
 }
 
 pkg_postinst() {
@@ -257,17 +215,5 @@ pkg_postinst() {
 		elog "For configuration instructions, please see"
 		elog "  https://docs.ejabberd.im/"
 		echo
-	fi
-	if [[ " ${REPLACING_VERSIONS} " =~ \ 17\. ]]; then
-		ewarn If you are updating from an older version like 17.x
-		ewarn you may need to add an access_rules section to your
-		ewarn ejabberd.yml config file.
-		ewarn Otherwise authentication will be broken and users
-		ewarn will not be able to log in.
-		echo
-	fi
-
-	if ejabberd_cert_missing; then
-		ejabberd_cert_install
 	fi
 }
