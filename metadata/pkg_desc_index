@@ -1,5 +1,7 @@
+acct-group/ejabberd 0: System group: ejabberd
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
+acct-user/ejabberd 0: System user: ejabberd
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/gitlab-runner 0: System user: gitlab-runner
 app-admin/mkosi 9 9999: A tool for generating OS images
@@ -70,7 +72,7 @@ media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 media-sound/hushboard 0.0_pre20210317 9999: Mutes your microphone while you’re typing
 net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Management Platform
-net-im/ejabberd 21.04: Robust, scalable and extensible XMPP server
+net-im/ejabberd 21.04-r1: Robust, scalable and extensible XMPP server
 net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
 net-im/swift 9999: Your friendly chat client
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
