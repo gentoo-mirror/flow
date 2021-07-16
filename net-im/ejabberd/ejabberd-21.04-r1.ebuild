@@ -57,7 +57,7 @@ DEPEND=">=dev-lang/erlang-19.3[odbc?,ssl]
 RDEPEND="${DEPEND}
 	acct-user/ejabberd
 	captcha? ( media-gfx/imagemagick[truetype,png] )
-	selinux? ( sec-policy/selinux-jabber )	
+	selinux? ( sec-policy/selinux-jabber )
 "
 
 DOCS=( CHANGELOG.md README.md )
@@ -194,8 +194,8 @@ pkg_preinst() {
 	local migrate_to_etc_ejabberd=false
 
 	# TODO iterate over REPLACING_VERSIONS and if there is any version <= 21.04-r1, then migrate
-	
-	if $migrate_to_etc_ejabberd then
+
+	if $migrate_to_etc_ejabberd; then
 		# TODO: chown ejabberd user
 		# install --owner=${PN} --group=${PN}
 		cp -r "${EROOT}"/etc/jabber/* "${EROOT}"/etc/ejabberd || die
@@ -203,7 +203,7 @@ pkg_preinst() {
 			chown --recursive ejabberd:ejabberd "${EROOT}"/etc/ejabberd || die
 		fi
 		elog "Newer versions of the ejabberd gentoo package use /etc/ejabberd"
-		elog "(just as upstream) and *not* /etc/ejabber." 
+		elog "(just as upstream) and *not* /etc/ejabber."
 		elog "The files from /etc/jabber where moved to /etc/ejabberd"
 		elog "Please check your configuration"
 	fi
