@@ -221,6 +221,20 @@ LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD BSL-1.1 ISC LGPL-2
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-libs/libbpf"
-RDEPEND="${DEPEND}"
-BDEPEND="dev-lang/rust[rustfmt]"
+BDEPEND="
+	dev-lang/rust[rustfmt]
+	virtual/pkgconfig
+"
+RDEPEND="virtual/libelf"
+DEPEND="
+	${RDEPEND}
+	dev-libs/libbpf
+	sys-libs/ncurses
+	sys-libs/zlib
+"
+
+QA_FLAGS_IGNORED="usr/bin/below"
+
+src_install() {
+	cargo_src_install --path resctl/below
+}
