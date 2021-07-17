@@ -91,7 +91,6 @@ sys-firmware/systemd-microcode-reload 0: Reload microcode on system boot via sys
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-fs/fscrypt 0.3.0: Tool for managing Linux filesystem encryption
 sys-libs/librseq 0.0_pre20190919 9999: Library for Restartable Sequences
-sys-process/below 0.2.0: An interactive tool to view and record historical system data
 virtual/flow-essential 0.1 0.2: Virtual for all the essential packages
 virtual/flow-gui-essential 0.2: Virtual for all the essential GUI packages
 virtual/flows-font-selection 0.2: A virtual package for selected fonts (by flow)
