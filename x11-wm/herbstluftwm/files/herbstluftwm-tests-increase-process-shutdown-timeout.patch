@@ -1,0 +1,237 @@
+From fee6c69f54dd6568eb3a3a6e94c02f3b47edd663 Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Thu, 24 Jun 2021 08:52:39 +0200
+Subject: [PATCH 1/5] tests: increase process shutdown timeout (#1341)
+
+This unifies the timeout in the test cases when waiting for a child
+process to terminate.
+---
+ tests/conftest.py             |  2 +-
+ tests/test_clients.py         |  7 ++++---
+ tests/test_ewmh.py            |  3 ++-
+ tests/test_global_commands.py |  4 +++-
+ tests/test_herbstclient.py    |  6 +++---
+ tests/test_herbstluftwm.py    |  6 +++---
+ tests/test_keybind.py         |  4 +++-
+ tests/test_tags.py            | 10 ++++++----
+ 8 files changed, 25 insertions(+), 17 deletions(-)
+
+diff --git a/tests/conftest.py b/tests/conftest.py
+index a65bea2b8af3..953528c63259 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -26,7 +26,7 @@ BINDIR = os.path.join(os.path.abspath(os.environ['PWD']))
+ COPY_ENV_WHITELIST = ['LSAN_OPTIONS']
+ 
+ # time in seconds to wait for a process to shut down
+-PROCESS_SHUTDOWN_TIME = 10
++PROCESS_SHUTDOWN_TIME = 30
+ 
+ 
+ def extend_env_with_whitelist(environment):
+diff --git a/tests/test_clients.py b/tests/test_clients.py
+index f45502a0ca35..015536d895b4 100644
+--- a/tests/test_clients.py
++++ b/tests/test_clients.py
+@@ -1,5 +1,6 @@
+ import pytest
+ import random
++from conftest import PROCESS_SHUTDOWN_TIME
+ from herbstluftwm.types import Rectangle
+ 
+ 
+@@ -58,7 +59,7 @@ def test_close_focused_client(hlwm, running_clients, running_clients_num):
+ 
+     hlwm.call('close')
+ 
+-    proc.wait(20)  # wait for the client to shut down
++    proc.wait(PROCESS_SHUTDOWN_TIME)  # wait for the client to shut down
+     hlwm.call('true')  # sync with hlwm
+     clients = hlwm.list_children('clients')
+     # all other clients still run:
+@@ -75,7 +76,7 @@ def test_close_unfocused_client(hlwm):
+ 
+     hlwm.call(['close', unfocused])
+ 
+-    proc.wait(10)  # wait
++    proc.wait(PROCESS_SHUTDOWN_TIME)  # wait
+     # the other client is still running:
+     assert hlwm.attr.clients.focus.winid() == focused
+ 
+@@ -89,7 +90,7 @@ def test_close_unmanaged_client(hlwm):
+ 
+     hlwm.call(['close', winid])
+ 
+-    proc.wait(10)  # wait for the client to shut down
++    proc.wait(PROCESS_SHUTDOWN_TIME)  # wait for the client to shut down
+ 
+ 
+ def test_close_completion(hlwm):
+diff --git a/tests/test_ewmh.py b/tests/test_ewmh.py
+index 84bf6efe282c..2700947c5a1c 100644
+--- a/tests/test_ewmh.py
++++ b/tests/test_ewmh.py
+@@ -1,6 +1,7 @@
+ import conftest
+ import os
+ import pytest
++from conftest import PROCESS_SHUTDOWN_TIME
+ from herbstluftwm.types import Point
+ from Xlib import X
+ import Xlib
+@@ -457,7 +458,7 @@ def test_close_window(hlwm, x11):
+     x11.sync_with_hlwm()
+ 
+     # wait for client to shut down
+-    proc.wait(10)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+     assert winid not in hlwm.list_children('clients')
+ 
+ 
+diff --git a/tests/test_global_commands.py b/tests/test_global_commands.py
+index 8af607709380..26588480c795 100644
+--- a/tests/test_global_commands.py
++++ b/tests/test_global_commands.py
+@@ -1,5 +1,7 @@
+ import pytest
+ 
++from conftest import PROCESS_SHUTDOWN_TIME
++
+ 
+ def test_tag_status_invalid_monitor(hlwm):
+     hlwm.call_xfail('tag_status foobar') \
+@@ -75,7 +77,7 @@ def test_jumpto_bring_completion(hlwm):
+         assert 'urgent' in res
+ 
+         proc.kill()
+-        proc.wait(10)
++        proc.wait(PROCESS_SHUTDOWN_TIME)
+ 
+         res = hlwm.complete([cmd])
+         assert winid not in res
+diff --git a/tests/test_herbstclient.py b/tests/test_herbstclient.py
+index 4b5085e1dcc0..de68fa31b72b 100644
+--- a/tests/test_herbstclient.py
++++ b/tests/test_herbstclient.py
+@@ -5,7 +5,7 @@ import re
+ import pytest
+ import sys
+ import contextlib
+-from conftest import HcIdle
++from conftest import PROCESS_SHUTDOWN_TIME, HcIdle
+ from Xlib import X, Xatom
+ 
+ HC_PATH = os.path.join(os.path.abspath(os.environ['PWD']), 'herbstclient')
+@@ -109,7 +109,7 @@ def test_herbstclient_wait(hlwm, num_hooks_sent, num_hooks_recv, repeat):
+     assert proc.stderr.read() == ''
+     assert proc.stdout.read().splitlines() == \
+         num_hooks_recv * ['matcher\tsomearg']
+-    proc.wait(20)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+     assert proc.returncode == 0
+ 
+ 
+@@ -143,7 +143,7 @@ def test_lastarg_only(hlwm, repeat):
+     # first read output entirely to avoid blocking on the side
+     # of herbstclient
+     assert proc.stdout.read().splitlines() == expected_lines
+-    proc.wait(20)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+     assert proc.returncode == 0
+ 
+ 
+diff --git a/tests/test_herbstluftwm.py b/tests/test_herbstluftwm.py
+index 995657652ace..7c2132558ec2 100644
+--- a/tests/test_herbstluftwm.py
++++ b/tests/test_herbstluftwm.py
+@@ -97,7 +97,7 @@ def test_herbstluftwm_quit(hlwm_spawner, xvfb):
+ 
+     hlwm.call('quit')
+ 
+-    hlwm_proc.proc.wait(10)
++    hlwm_proc.proc.wait(30)
+ 
+ 
+ def test_herbstluftwm_replace(hlwm_spawner, xvfb):
+@@ -108,7 +108,7 @@ def test_herbstluftwm_replace(hlwm_spawner, xvfb):
+     hlwm_proc_new = hlwm_spawner(display=xvfb.display, args=['--replace'])
+ 
+     # --replace should make the old hlwm process shut down:
+-    hlwm_proc_old.proc.wait(10)
++    hlwm_proc_old.proc.wait(30)
+ 
+     # connect to new process
+     hlwm_new = conftest.HlwmBridge(xvfb.display, hlwm_proc_new)
+diff --git a/tests/test_keybind.py b/tests/test_keybind.py
+index 6e66d54e8208..13142b7172b1 100644
+--- a/tests/test_keybind.py
++++ b/tests/test_keybind.py
+@@ -1,6 +1,8 @@
+ import pytest
+ import subprocess
+ 
++from conftest import PROCESS_SHUTDOWN_TIME
++
+ 
+ @pytest.mark.parametrize('sep', ['-', '+'])
+ def test_list_keybinds(hlwm, sep):
+@@ -106,7 +108,7 @@ def test_keys_inactive(hlwm, keyboard, maskmethod, whenbind, refocus):
+     # instead, the client must quit because of received keypress:
+     try:
+         print(f"waiting for client proc {client_proc.pid}")
+-        client_proc.wait(5)
++        client_proc.wait(PROCESS_SHUTDOWN_TIME)
+     except subprocess.TimeoutExpired:
+         assert False, "Expected client to quit, but it is still running"
+ 
+diff --git a/tests/test_tags.py b/tests/test_tags.py
+index 937a747d690a..aefc97c29fa3 100644
+--- a/tests/test_tags.py
++++ b/tests/test_tags.py
+@@ -1,5 +1,7 @@
+ import pytest
+ 
++from conftest import PROCESS_SHUTDOWN_TIME
++
+ 
+ def test_default_tag_exists_and_has_name(hlwm):
+     assert hlwm.get_attr('tags.count') == '1'
+@@ -252,7 +254,7 @@ def test_close_and_or_remove_floating(hlwm, command):
+     # in any case no frame may have been removed
+     assert int(hlwm.get_attr('tags.focus.frame_count')) == 2
+     # and the client is closed:
+-    proc.wait(10)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+ 
+ 
+ def test_close_and_remove_with_one_client(hlwm):
+@@ -265,7 +267,7 @@ def test_close_and_remove_with_one_client(hlwm):
+ 
+     # this closes the client and removes the frame
+     assert int(hlwm.get_attr('tags.focus.frame_count')) == 1
+-    proc.wait(10)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+ 
+ 
+ def test_close_and_remove_with_two_clients(hlwm):
+@@ -280,7 +282,7 @@ def test_close_and_remove_with_two_clients(hlwm):
+     # this closes the client, but does not remove the frame
+     # since there is a client left
+     assert int(hlwm.get_attr('tags.focus.frame_count')) == 2
+-    proc.wait(10)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+ 
+ 
+ def test_close_and_remove_without_clients(hlwm):
+@@ -303,7 +305,7 @@ def test_close_or_remove_client(hlwm):
+     # On the first invocation:
+     hlwm.call('close_or_remove')
+     # only close the client
+-    proc.wait(10)
++    proc.wait(PROCESS_SHUTDOWN_TIME)
+     assert int(hlwm.get_attr('tags.focus.frame_count')) == 2
+ 
+     # On the second invocation:
+-- 
+2.31.1
+
