@@ -1,0 +1,86 @@
+From 3a9e9a4f711c137804d1eace1027eb86450389a5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Thorsten=20Wi=C3=9Fmann?= <edu@thorsten-wissmann.de>
+Date: Tue, 13 Jul 2021 17:04:34 +0200
+Subject: tests: Close stdout/stderr after subprocess.Popen (#1343)
+
+When using subprocess.Popen() and piping stdout or stderr, the pipe
+needs to be closed on shutdown.
+
+For the present change, I've grep'ed for all uses of subprocess.Popen()
+and added the necessary close() invocations. In one occasion, I could
+simply replace subprocess.Popen() / communicate() with subprocess.run()
+which already takes care of this.
+
+Unclosed file descriptors and similar issues are reported by passing
+`-Wdefault` to pytest.
+
+Reported-by: Florian Schmaus <flo@geekplace.eu>
+---
+ tests/conftest.py          | 4 ++++
+ tests/test_autostart.py    | 8 ++++----
+ tests/test_herbstclient.py | 6 ++++++
+ 3 files changed, 14 insertions(+), 4 deletions(-)
+
+diff --git a/tests/conftest.py b/tests/conftest.py
+index 953528c63259..6d67c9fafcf5 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -267,6 +267,7 @@ class HlwmBridge(herbstluftwm.Herbstluftwm):
+         for client_proc in self.client_procs:
+             client_proc.wait(PROCESS_SHUTDOWN_TIME)
+         self.hc_idle.wait(PROCESS_SHUTDOWN_TIME)
++        self.hc_idle.stdout.close()
+ 
+     def bool(self, python_bool_var):
+         """convert a boolean variable into hlwm's string representation"""
+@@ -448,6 +449,8 @@ class HlwmProcess:
+ 
+         # Make sure to read and echo all remaining output (esp. ASAN messages):
+         self.read_and_echo_output(until_eof=True)
++        self.proc.stdout.close()
++        self.proc.stderr.close()
+ 
+         if self.proc.returncode is None:
+             # only wait the process if it hasn't been cleaned up
+@@ -524,6 +527,7 @@ class HcIdle:
+         except subprocess.TimeoutExpired:
+             self.proc.kill()
+             self.proc.wait(PROCESS_SHUTDOWN_TIME)
++        self.proc.stdout.close()
+ 
+ 
+ @pytest.fixture()
+diff --git a/tests/test_herbstclient.py b/tests/test_herbstclient.py
+index de68fa31b72b..11a25b9f6a3b 100644
+--- a/tests/test_herbstclient.py
++++ b/tests/test_herbstclient.py
+@@ -111,6 +111,8 @@ def test_herbstclient_wait(hlwm, num_hooks_sent, num_hooks_recv, repeat):
+         num_hooks_recv * ['matcher\tsomearg']
+     proc.wait(PROCESS_SHUTDOWN_TIME)
+     assert proc.returncode == 0
++    proc.stdout.close()
++    proc.stderr.close()
+ 
+ 
+ @pytest.mark.parametrize('repeat', range(0, 3))  # use more repetitions to test the race-condtion
+@@ -145,6 +147,8 @@ def test_lastarg_only(hlwm, repeat):
+     assert proc.stdout.read().splitlines() == expected_lines
+     proc.wait(PROCESS_SHUTDOWN_TIME)
+     assert proc.returncode == 0
++    proc.stdout.close()
++    proc.stderr.close()
+ 
+ 
+ @pytest.mark.parametrize('zero_separated', [True, False])
+@@ -342,6 +346,8 @@ def hc_context(args=['echo', 'ping']):
+     args_str = ' '.join(args)
+     print(f'"hc {args_str}" exited with status {reply.returncode} and output: {reply.stdout}')
+     print(f'"hc {args_str}" has the error output: {reply.stderr}', file=sys.stderr)
++    proc.stdout.close()
++    proc.stderr.close()
+ 
+ 
+ @pytest.mark.parametrize('repeat', range(0, 10))  # number of repetitions to detect race-conditions
+-- 
+2.31.1
+
