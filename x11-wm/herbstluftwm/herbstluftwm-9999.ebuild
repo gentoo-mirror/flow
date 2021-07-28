@@ -44,16 +44,6 @@ DEPEND="
 		x11-terms/xterm
 	)
 "
-DEPEND="
-	${COMMON_DEPEND}
-	test? (
-		dev-python/ewmh
-		dev-python/python-xlib
-		x11-apps/xsetroot
-		x11-base/xorg-server[xephyr,xvfb]
-		x11-misc/xdotool
-	)
-"
 RDEPEND="
 	${COMMON_DEPEND}
 	app-shells/bash
