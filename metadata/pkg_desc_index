@@ -64,7 +64,6 @@ dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-tex/rubber 1.6.0 9999: A LaTeX wrapper for automatically building documents
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
 dev-util/gitlab-runner 13.12.0: GitLab Runner
-dev-util/include-what-you-use 0.15_pre20201026 0.15: Find unused include directives in C/C++ programs
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
 games-fps/etlegacy 2.77.1: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-util/springlobby 0.271: The official lobby client for SpringRTS community games
