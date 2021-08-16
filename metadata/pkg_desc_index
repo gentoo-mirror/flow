@@ -58,6 +58,7 @@ dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard libra
 dev-python/dict2xml 1.7.0: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.4.0: Google's i18n address metadata repository
 dev-python/kitchen 1.2.6: A cornucopia of useful code
+dev-python/pdoc3 0.10.0: Auto-generate API documentation for Python projects
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/kramdown-rfc2629 1.4.6: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
