@@ -183,7 +183,10 @@ LICENSE="AGPL-3+ Apache-2.0 BSD-2 ISC MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="sys-apps/ripgrep"
+RDEPEND="
+	app-arch/xz-utils
+	sys-apps/ripgrep
+"
 DEPEND="${RDEPEND}"
 
 QA_FLAGS_IGNORED="
