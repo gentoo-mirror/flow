@@ -90,7 +90,6 @@ sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-ori
 sys-firmware/broadcom-bt-firmware 12.0.1.1105_p2 9999: Broadcom Bluetooth firmware
 sys-firmware/systemd-microcode-reload 0: Reload microcode on system boot via systemd tmpfiles
 sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
-sys-fs/fscrypt 0.3.0: Tool for managing Linux filesystem encryption
 sys-libs/librseq 0.0_pre20190919 9999: Library for Restartable Sequences
 sys-process/below 0.3.0: An interactive tool to view and record historical system data
 virtual/flow-essential 0.1 0.2: Virtual for all the essential packages
