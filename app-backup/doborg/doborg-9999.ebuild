@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit git-r3
+inherit git-r3 systemd
 
 DESCRIPTION="Tools to aid administering Gentoo systems, like silent automatic updates"
 HOMEPAGE="https://gitlab.com/Flow/doborg"
@@ -23,4 +23,10 @@ RDEPEND="
 
 src_compile() {
 	:
+}
+
+src_install() {
+	default
+
+	systemd_dounit "${PN}".{service,timer}
 }
