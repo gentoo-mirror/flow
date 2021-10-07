@@ -5,7 +5,7 @@ EAPI=8
 
 inherit git-r3 systemd
 
-DESCRIPTION="Tools to aid administering Gentoo systems, like silent automatic updates"
+DESCRIPTION="Full-system backup tool based on borg backup"
 HOMEPAGE="https://gitlab.com/Flow/doborg"
 EGIT_REPO_URI="https://gitlab.com/Flow/doborg.git"
 LICENSE="GPL-3+"
