@@ -24,6 +24,7 @@ app-text/idnits 2.15.01 2.16.0: A tool to check internet-drafts for submission n
 app-text/mmark 1.3.5: A markdown processor geared towards writing IETF documents
 app-text/pdfgrep 2.1.2 9999: A tool similar to grep which searches text in PDFs
 app-text/xml2rfc 3.5.0: generates RFCs and IETF drafts from document source in XML
+dev-cpp/json11 1.0.0: A tiny JSON library for C++11
 dev-erlang/cache_tab 1.0.28: In-memory cache Erlang and Elixir library
 dev-erlang/eimp 1.0.20: Erlang Image Manipulation Process
 dev-erlang/epam 1.0.10: epam for ejabberd to help with PAM authentication support
