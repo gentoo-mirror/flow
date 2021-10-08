@@ -19,6 +19,7 @@ IUSE=""
 RDEPEND="
 	app-admin/pwgen
 	app-backup/borgbackup
+	sys-apps/util-linux[caps]
 "
 
 src_compile() {
