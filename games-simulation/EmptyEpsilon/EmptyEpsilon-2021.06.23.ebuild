@@ -20,6 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=dev-libs/json11-1.0.0
 	media-libs/libglvnd
 	media-libs/libsfml
 	>=media-libs/glm-0.9.9.8
@@ -28,11 +29,17 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/EmptyEpsilon-EE-${PV}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-Make-CMake-call-find_package-glm.patch"
-)
+# TODO: ensure that gcc-major-version is 11 or higher
 
-# gcc-major-version should be 11 or higher
+src_prepare() {
+	eapply "${FILESDIR}/${PN}-Make-CMake-call-find_package-glm.patch"
+	eapply --directory="${WORKDIR}/SeriousProton-EE-${PV}" \
+		   "${FILESDIR}/SeriousProton-Unbundle-json11.patch"
+
+	eapply_user
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local version=( $(ver_rs 1- ' ') )
