@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake toolchain-funcs
 
 DESCRIPTION="A spaceship bridge simulator game."
 HOMEPAGE="https://daid.github.io/EmptyEpsilon/"
@@ -30,6 +30,20 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/EmptyEpsilon-EE-${PV}"
 
 # TODO: ensure that gcc-major-version is 11 or higher
+
+pkg_pretend() {
+	if [[ ${MERGE_TYPE} == "binary" ]]; then
+		return
+	fi
+
+	if tc-is-gcc; then
+		if [[ $(gcc-major-version) -lt 11 ]]; then
+			# ld: /usr/lib64/libsfml-audio.so: undefined reference to `std::__throw_bad_array_new_length()@GLIBCXX_3.a4.29'
+			eerror "${PN} requires GCC >= 11. Run gcc-config to switch your default compiler."
+			die "Need at least GCC >= 11"
+		fi
+	fi
+}
 
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-Make-CMake-call-find_package-glm.patch"
