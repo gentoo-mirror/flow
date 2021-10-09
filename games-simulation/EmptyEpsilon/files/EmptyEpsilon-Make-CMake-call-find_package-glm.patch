@@ -1,5 +1,5 @@
 From 7efb73d1a964f04646dba692323c1affcb25d16e Mon Sep 17 00:00:00 2001
-From: Florian Schmaus <flo@geekplace.eu>
+From: Florian Schmaus <flow@gentoo.org>
 Date: Fri, 8 Oct 2021 11:07:20 +0200
 Subject: [PATCH] Make CMake call find_package(glm)
 
