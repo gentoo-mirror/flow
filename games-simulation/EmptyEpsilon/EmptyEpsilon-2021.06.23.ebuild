@@ -17,10 +17,10 @@ SRC_URI="https://github.com/daid/EmptyEpsilon/archive/EE-${PV}.tar.gz -> EmptyEp
 # use Creative Commons and the bundled SeriousProton is MIT-licensed.
 LICENSE="GPL-2 CC-BY-SA-3.0 MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-libs/json11-1.0.0
+	>=dev-cpp/json11-1.0.0
 	media-libs/libglvnd
 	media-libs/libsfml
 	>=media-libs/glm-0.9.9.8
@@ -28,8 +28,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/EmptyEpsilon-EE-${PV}"
-
-# TODO: ensure that gcc-major-version is 11 or higher
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} == "binary" ]]; then
