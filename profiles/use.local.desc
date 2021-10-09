@@ -193,3 +193,5 @@ net-p2p/bitcoind:upnp - Enable Universal Plug and Play
 net-p2p/bitcoind:wallet - Enable wallet support
 net-p2p/bitcoind:zeromq - Report blocks and transactions via zeromq
 sys-fs/e2fsprogs:e4crypt - Enable e4crypt
+x11-misc/rofi:drun - Enable desktop file run dialog
+x11-misc/rofi:windowmode - Enable normal window mode
