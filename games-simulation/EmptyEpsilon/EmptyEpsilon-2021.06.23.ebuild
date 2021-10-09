@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake toolchain-funcs
 
 DESCRIPTION="A spaceship bridge simulator game."
 HOMEPAGE="https://daid.github.io/EmptyEpsilon/"
@@ -17,10 +17,10 @@ SRC_URI="https://github.com/daid/EmptyEpsilon/archive/EE-${PV}.tar.gz -> EmptyEp
 # use Creative Commons and the bundled SeriousProton is MIT-licensed.
 LICENSE="GPL-2 CC-BY-SA-3.0 MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-libs/json11-1.0.0
+	>=dev-cpp/json11-1.0.0
 	media-libs/libglvnd
 	media-libs/libsfml
 	>=media-libs/glm-0.9.9.8
@@ -29,7 +29,19 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/EmptyEpsilon-EE-${PV}"
 
-# TODO: ensure that gcc-major-version is 11 or higher
+pkg_pretend() {
+	if [[ ${MERGE_TYPE} == "binary" ]]; then
+		return
+	fi
+
+	if tc-is-gcc; then
+		if [[ $(gcc-major-version) -lt 11 ]]; then
+			# ld: /usr/lib64/libsfml-audio.so: undefined reference to `std::__throw_bad_array_new_length()@GLIBCXX_3.a4.29'
+			eerror "${PN} requires GCC >= 11. Run gcc-config to switch your default compiler."
+			die "Need at least GCC >= 11"
+		fi
+	fi
+}
 
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-Make-CMake-call-find_package-glm.patch"
