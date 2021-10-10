@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	acct-user/doborg
 	app-admin/pwgen
 	app-backup/borgbackup
 	sys-apps/util-linux[caps]
