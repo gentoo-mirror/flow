@@ -1,6 +1,8 @@
+acct-group/doborg 0: System group: doborg
 acct-group/ejabberd 0: System group: ejabberd
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
+acct-user/doborg 0: System user: doborg
 acct-user/ejabberd 0: System user: ejabberd
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/gitlab-runner 0: System user: gitlab-runner
