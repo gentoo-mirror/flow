@@ -186,10 +186,4 @@ net-im/ejabberd:sip - Enable SIP support
 net-im/ejabberd:sqlite - Enable SQLite database support
 net-im/ejabberd:stun - Enable STUN/TURN support
 net-im/ejabberd:zlib - Enable Stream Compression (XEP-0138) using zlib
-net-p2p/bitcoind:asm - Enable assembly for optimization
-net-p2p/bitcoind:bitcoin_policy_rbf - Replace By Fee policy: Your node will preferentially mine and relay transactions paying the highest fee, regardless of receive order
-net-p2p/bitcoind:knots - Build enhanced Bitcoin Knots version, rather than Bitcoin Core
-net-p2p/bitcoind:upnp - Enable Universal Plug and Play
-net-p2p/bitcoind:wallet - Enable wallet support
-net-p2p/bitcoind:zeromq - Report blocks and transactions via zeromq
 sys-fs/e2fsprogs:e4crypt - Enable e4crypt
