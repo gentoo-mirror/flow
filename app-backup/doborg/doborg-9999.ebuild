@@ -28,7 +28,8 @@ src_compile() {
 }
 
 src_install() {
-	default
-
-	systemd_dounit "${PN}".{service,timer}
+	emake \
+		DESTDIR="${D}" \
+		SYSTEMD_SYSTEM_UNIT_DIR="$(systemd_get_systemunitdir)" \
+		install
 }
