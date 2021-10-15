@@ -64,7 +64,6 @@ dev-python/google-i18n-address 2.4.0: Google's i18n address metadata repository
 dev-python/kitchen 1.2.6: A cornucopia of useful code
 dev-python/pdoc3 0.10.0: Auto-generate API documentation for Python projects
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
-dev-ruby/kramdown-rfc2629 1.4.6: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-tex/rubber 1.6.0 9999: A LaTeX wrapper for automatically building documents
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
