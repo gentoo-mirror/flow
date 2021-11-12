@@ -24,10 +24,6 @@ RDEPEND="
 	!net-im/sendxmpp
 "
 
-src_compile() {
-	:
-}
-
 src_install() {
 	dobin sendxmpp
 }
