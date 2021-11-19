@@ -2,10 +2,12 @@ acct-group/doborg 0: System group: doborg
 acct-group/ejabberd 0: System group: ejabberd
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
+acct-group/zabbix-proxy 0: System group: zabbix-proxy
 acct-user/doborg 0: System user: doborg
 acct-user/ejabberd 0: System user: ejabberd
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/gitlab-runner 0: System user: gitlab-runner
+acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/mkosi 9 9999: A tool for generating OS images
 app-backup/doborg 9999: Full-system backup tool based on borg backup
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
@@ -80,7 +82,7 @@ net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-misc/electrumx 1.17.0 9999: A server for the Electrum wallet
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
-sys-apps/hp-ams 2.10.0: HPE Agentless Management Service (Gen9 and earlier)
+sys-apps/hp-ams 2.10.0 2.10.4: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.91.1878.11 10.92.5.5: HPE System Health Application and Command line Utilities (Gen9 and earlier)
 sys-apps/ripgrep-all 0.9.6-r1: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/ucg 0.2.2 9999: A extremely fast grep-like tool specialized for searching source code
