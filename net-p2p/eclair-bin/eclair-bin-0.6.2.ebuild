@@ -39,5 +39,5 @@ src_install() {
 	dosym "${eclair_dir}/bin/eclair-cli" "/usr/bin/eclair-cli"
 	dosym "${eclair_dir}/bin/eclair-node.sh" "/usr/bin/eclair-node"
 
-	systemd_dounit "${FILESDIR}/eclair_at.service" "eclair@.service"
+	systemd_newunit "${FILESDIR}/eclair_at.service" "eclair@.service"
 }
