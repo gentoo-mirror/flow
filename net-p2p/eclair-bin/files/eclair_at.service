@@ -1,0 +1,10 @@
+[Unit]
+Description=Eclair lightning network node
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/eclair-node
+
+Type=forking
+
+User=eclair-%i
