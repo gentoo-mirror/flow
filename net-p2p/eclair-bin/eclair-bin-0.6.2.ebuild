@@ -20,7 +20,7 @@ IUSE=""
 S="${WORKDIR}/eclair-node-${ECLAIR_RELEASE_ID}"
 
 BDEPEND="app-arch/unzip"
-RDEPEND=">=virtual/jre-1.8"
+RDEPEND=">=virtual/jre-1.8:*"
 
 src_prepare() {
 	default
@@ -39,5 +39,5 @@ src_install() {
 	dosym "${eclair_dir}/bin/eclair-cli" "/usr/bin/eclair-cli"
 	dosym "${eclair_dir}/bin/eclair-node.sh" "/usr/bin/eclair-node"
 
-	systemd_dounit "${FILESDIR}/eclair_at.service" "eclair@.service"
+	systemd_newunit "${FILESDIR}/eclair_at.service" "eclair@.service"
 }
