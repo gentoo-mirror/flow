@@ -20,7 +20,10 @@ IUSE=""
 S="${WORKDIR}/eclair-node-${ECLAIR_RELEASE_ID}"
 
 BDEPEND="app-arch/unzip"
-RDEPEND=">=virtual/jre-1.8:*"
+RDEPEND="
+	app-misc/jq
+	>=virtual/jre-1.8:*
+"
 
 src_prepare() {
 	default
