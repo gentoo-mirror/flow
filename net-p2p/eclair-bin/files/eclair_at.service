@@ -1,6 +1,8 @@
 [Unit]
 Description=Eclair lightning network node
 After=network.target
+After=bitcoin@%i.service
+Requires=bitcoin@%i.service
 
 [Service]
 ExecStart=/usr/bin/eclair-node \
