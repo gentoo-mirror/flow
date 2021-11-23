@@ -4,7 +4,9 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/eclair-node \
-			-Declair.datadir=/var/lib/eclair-%i
+			-Declair.datadir=/var/lib/eclair-%i \
+			-Declair.printToConsole
+
 User=eclair-%i
 
 [Install]
