@@ -35,6 +35,7 @@ src_install() {
 
 	insinto "${eclair_dir}"
 	doins -r bin/ lib/
+	fperms -R 755 "${eclair_dir}/bin"
 
 	dosym "${eclair_dir}/bin/eclair-cli" "/usr/bin/eclair-cli"
 	dosym "${eclair_dir}/bin/eclair-node.sh" "/usr/bin/eclair-node"
