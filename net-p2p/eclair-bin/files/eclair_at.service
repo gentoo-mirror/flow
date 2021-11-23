@@ -3,5 +3,6 @@ Description=Eclair lightning network node
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/eclair-node
+ExecStart=/usr/bin/eclair-node \
+			-Declair.datadir=/var/lib/eclair-%i
 User=eclair-%i
