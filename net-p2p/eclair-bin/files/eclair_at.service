@@ -6,3 +6,6 @@ After=network.target
 ExecStart=/usr/bin/eclair-node \
 			-Declair.datadir=/var/lib/eclair-%i
 User=eclair-%i
+
+[Install]
+WantedBy=multi-user.target
