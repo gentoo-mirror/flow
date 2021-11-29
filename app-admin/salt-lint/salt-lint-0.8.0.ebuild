@@ -20,4 +20,9 @@ else
 	KEYWORDS="~amd64"
 fi
 
+RDEPEND="
+	dev-python/pathspec
+	dev-python/pyyaml
+"
+
 distutils_enable_tests pytest
