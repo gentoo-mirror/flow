@@ -12,7 +12,7 @@ SRC_URI="https://static.process-one.net/${PN}/downloads/${PV}/${P}.tgz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ia64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~ia64 ~sparc ~x86"
 REQUIRED_USE="mssql? ( odbc )"
 # TODO: Add 'tools' flag.
 IUSE="captcha debug full-xml ldap mssql mysql odbc pam postgres redis
@@ -113,9 +113,7 @@ src_prepare() {
 
 	rebar_remove_deps
 	correct_ejabberd_paths
-	set_jabberbase_paths
 	make_ejabberd_service
-	adjust_config
 	customize_epam_wrapper "${FILESDIR}/epam-wrapper"
 
 	rebar_fix_include_path fast_xml
@@ -190,30 +188,42 @@ pkg_preinst() {
 		# therefore we need to add jabber user to epam group.
 		usermod -a -G epam jabber || die
 	fi
-
-	local migrate_to_etc_ejabberd=false
-
-	# TODO iterate over REPLACING_VERSIONS and if there is any version <= 21.04-r1, then migrate
-
-	if $migrate_to_etc_ejabberd; then
-		# TODO: chown ejabberd user
-		# install --owner=${PN} --group=${PN}
-		cp -r "${EROOT}"/etc/jabber/* "${EROOT}"/etc/ejabberd || die
-		if ! use prefix; then
-			chown --recursive ejabberd:ejabberd "${EROOT}"/etc/ejabberd || die
-		fi
-		elog "Newer versions of the ejabberd gentoo package use /etc/ejabberd"
-		elog "(just as upstream) and *not* /etc/ejabber."
-		elog "The files from /etc/jabber where moved to /etc/ejabberd"
-		elog "Please check your configuration"
-	fi
 }
 
 pkg_postinst() {
+	# Sarting with >=21.04-r1, the ejabberd configuration is now in
+	# /etc/ejabberd and no longer in /etc/jabber. See if we need to
+	# migrate the configuration. Furthermore, ejabberd no longer runs
+	# under the, shared via net-im/jabber-base, 'jabber' use, but under
+	# its own user. This increase isolation and hence robustness and
+	# security.
+	local migrate_to_etc_ejabberd=false
+
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		echo
 		elog "For configuration instructions, please see"
 		elog "  https://docs.ejabberd.im/"
 		echo
+	else
+		for v in ${REPLACING_VERSIONS}; do
+			if ver_test "${v}" -lt 21.04-r1; then
+				migrate_to_etc_ejabberd=true
+				break
+			fi
+		done
+	fi
+
+	if $migrate_to_etc_ejabberd; then
+		cp -r "${EROOT}"/etc/jabber/. "${EROOT}"/etc/ejabberd || die
+		if [[ -f "${EROOT}"/etc/ejabberd/.keep_net-im_jabber-base-0 ]]; then
+			rm "${EROOT}"/etc/ejabberd/.keep_net-im_jabber-base-0 || die
+		fi
+		if ! use prefix; then
+			chown --recursive ejabberd:ejabberd "${EROOT}"/etc/ejabberd || die
+		fi
+		elog "Newer versions of the ejabberd gentoo package use /etc/ejabberd"
+		elog "(just as upstream) and *not* /etc/ejabber."
+		elog "The files from /etc/jabber where copied to /etc/ejabberd."
+		elog "Please check your configuration and delete the file in /etc/jabber."
 	fi
 }
