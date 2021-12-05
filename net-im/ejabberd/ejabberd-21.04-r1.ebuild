@@ -191,12 +191,6 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	# Sarting with >=21.04-r1, the ejabberd configuration is now in
-	# /etc/ejabberd and no longer in /etc/jabber. See if we need to
-	# migrate the configuration. Furthermore, ejabberd no longer runs
-	# under the, shared via net-im/jabber-base, 'jabber' use, but under
-	# its own user. This increase isolation and hence robustness and
-	# security.
 	local migrate_to_etc_ejabberd=false
 
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
@@ -213,6 +207,12 @@ pkg_postinst() {
 		done
 	fi
 
+	# Sarting with >=21.04-r1, the ejabberd configuration is now in
+	# /etc/ejabberd and no longer in /etc/jabber. See if we need to
+	# migrate the configuration. Furthermore, ejabberd no longer runs
+	# under the, shared via net-im/jabber-base, 'jabber' use, but under
+	# its own user. This increase isolation and hence robustness and
+	# security.
 	if $migrate_to_etc_ejabberd; then
 		cp -r "${EROOT}"/etc/jabber/. "${EROOT}"/etc/ejabberd || die
 		if [[ -f "${EROOT}"/etc/ejabberd/.keep_net-im_jabber-base-0 ]]; then
