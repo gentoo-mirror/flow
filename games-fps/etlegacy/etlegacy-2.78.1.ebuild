@@ -32,10 +32,11 @@ RESTRICT="mirror"
 if [[ ${PV} == "9999" ]]; then
 	LUADEPEND="lua? ( dev-lang/lua:5.2 )"
 else
-	LUADEPEND="lua? ( >=dev-lang/lua-5.1 )"
+	LUADEPEND="lua? ( >=dev-lang/lua-5.1:* )"
 fi
 
-UIDEPEND=">=media-libs/glew-1.10.0
+UIDEPEND="
+	media-libs/glew:*
 	media-libs/libsdl2[sound,video,X]
 	virtual/jpeg:0
 	virtual/opengl
@@ -49,7 +50,8 @@ UIDEPEND=">=media-libs/glew-1.10.0
 	ssl? ( dev-libs/openssl:0= )
 	theora? ( media-libs/libtheora )
 	vorbis? ( media-libs/libvorbis )
-	${LUADEPEND}"
+	${LUADEPEND}
+"
 
 DEPEND="
 	opengl? ( ${UIDEPEND} )
@@ -62,6 +64,10 @@ BDEPEND="$(unpacker_src_uri_depends)"
 #QA_TEXTRELS="usr/share/games/etlegacy/legacy/omni-bot/omnibot_et.so"
 
 S="${WORKDIR}/${P/_rc/rc}"
+
+PATCHES=(
+	"${FILESDIR}/cmake-add-DOCDIR-variable.patch"
+)
 
 src_unpack() {
 	if [[ "${PV}" = 9999 ]] ; then
@@ -93,6 +99,7 @@ src_configure() {
 		-DINSTALL_DEFAULT_MODDIR="/usr/share/${PN}"
 		-DCMAKE_LIBRARY_PATH="/usr/$(get_libdir)"
 		-DCMAKE_INCLUDE_PATH="/usr/include"
+		-DDOCDIR="${EPREFIX}/usr/share/doc/${PF}"
 		-DCROSS_COMPILE32="0"
 		# what to build
 		-DBUILD_CLIENT="$(usex opengl)"
