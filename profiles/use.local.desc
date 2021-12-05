@@ -169,10 +169,6 @@ dev-java/openjdk:systemtap - Enable SystemTAP/DTrace tracing
 dev-java/openjdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-bin:source - Install JVM sources
-dev-java/oracle-jdk-bin:derby - Install bundled Derby (Java database)
-dev-java/oracle-jdk-bin:jce - Install Java Cryptographic Extension Unlimited Strength Jurisdiction Policy Files
-dev-java/oracle-jdk-bin:pax_kernel - PAX Kernel
-dev-java/oracle-jdk-bin:source - Install JVM (and optionally JavaFX) sources
 dev-util/gitlab-runner:docker - Add support for docker executors
 net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158) on registration
 net-im/ejabberd:full-xml - Use XML features in XMPP stream (ex: CDATA), requires XML compliant clients
