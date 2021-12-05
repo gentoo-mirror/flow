@@ -1,0 +1,15 @@
+[Unit]
+Description=Starts hp asrd (HP ...)
+After=syslog.target network.target hp-health.service
+PartOf=hp-health.service
+
+[Service]
+Type=forking
+LimitCORE=infinity
+ExecStart=/usr/libexec/hp-asrd start
+ExecStop=/usr/libexec/hp-asrd stop
+RemainAfterExit=yes
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
