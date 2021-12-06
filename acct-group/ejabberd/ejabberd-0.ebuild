@@ -5,4 +5,6 @@ EAPI=7
 
 inherit acct-group
 
+DESCRIPTION="Group for net-im/ejabberd"
+
 ACCT_GROUP_ID=114
