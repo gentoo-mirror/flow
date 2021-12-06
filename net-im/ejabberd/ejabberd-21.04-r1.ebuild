@@ -171,7 +171,7 @@ src_install() {
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	systemd_dounit "${PN}.service"
-	newtmpfiles "${FILESDIR}/${PN}.tmpfiles.conf-r1" "${PN}.tmpfiles.conf"
+	newtmpfiles "${FILESDIR}/${PN}.tmpfiles.conf-r1" "${PN}.conf"
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}.logrotate" "${PN}"
@@ -229,5 +229,5 @@ pkg_postinst() {
 		elog "Please check your configuration and delete the file in /etc/jabber."
 	fi
 
-	tmpfiles_process ejabberd.tmpfiles.conf
+	tmpfiles_process "${PN}.conf"
 }

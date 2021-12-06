@@ -1,2 +1,1 @@
-d /run/lock/ejabberdctl 0750 ejabberd ejabberd
 d /run/ejabberd 0750 ejabberd ejabberd
