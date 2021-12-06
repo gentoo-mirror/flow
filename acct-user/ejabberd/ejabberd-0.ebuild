@@ -5,6 +5,8 @@ EAPI=7
 
 inherit acct-user
 
+DESCRIPTION="User for net-im/ejabberd"
+
 ACCT_USER_ID=114
 ACCT_USER_GROUPS=( ${PN} )
 
