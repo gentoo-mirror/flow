@@ -171,7 +171,7 @@ src_install() {
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	systemd_dounit "${PN}.service"
-	dotmpfiles "${FILESDIR}/${PN}.tmpfiles.conf"
+	newtmpfiles "${FILESDIR}/${PN}.tmpfiles.conf-r1" "${PN}.tmpfiles.conf"
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}.logrotate" "${PN}"
