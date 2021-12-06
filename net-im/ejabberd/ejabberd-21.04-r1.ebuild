@@ -171,10 +171,12 @@ src_install() {
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	systemd_dounit "${PN}.service"
-	dotmpfiles "${FILESDIR}/${PN}.tmpfiles.conf"
+	newtmpfiles "${FILESDIR}/${PN}.tmpfiles.conf-r1" "${PN}.conf"
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}.logrotate" "${PN}"
+
+	keepdir /var/{lib,log}/ejabberd /var/lock/ejabberdctl
 }
 
 pkg_preinst() {
@@ -226,4 +228,6 @@ pkg_postinst() {
 		elog "The files from /etc/jabber where copied to /etc/ejabberd."
 		elog "Please check your configuration and delete the file in /etc/jabber."
 	fi
+
+	tmpfiles_process "${PN}.conf"
 }
