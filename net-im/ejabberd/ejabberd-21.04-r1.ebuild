@@ -131,6 +131,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}/html" \
+		--localstatedir="${EPREFIX}/var" \
 		--enable-user=${PN} \
 		$(use_enable debug) \
 		$(use_enable full-xml) \
