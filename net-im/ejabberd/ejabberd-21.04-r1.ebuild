@@ -186,14 +186,14 @@ src_install() {
 
 pkg_preinst() {
 	if use pam; then
-		einfo "Adding jabber user to epam group to allow ejabberd to use PAM" \
+		einfo "Adding ejabberd user to epam group to allow ejabberd to use PAM" \
 			"authentication"
 		# See
 		# <https://docs.ejabberd.im/admin/configuration/#pam-authentication>.
 		# epam binary is installed by dev-erlang/epam package, therefore SUID
 		# is set by that package. Instead of jabber group it uses epam group,
 		# therefore we need to add jabber user to epam group.
-		usermod -a -G epam jabber || die
+		usermod -a -G epam ejabberd || die
 	fi
 }
 
