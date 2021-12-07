@@ -176,7 +176,12 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}.logrotate" "${PN}"
 
-	keepdir /var/{lib,log}/ejabberd /var/lock/ejabberdctl
+	# /var/lock/ejabberdctl is unused, see
+	# https://github.com/processone/ejabberd/pull/3724
+	rmdir "${ED}/var/lock/ejabberdctl" || die
+	rmdir "${ED}/var/lock" || die
+
+	keepdir /var/{lib,log}/ejabberd
 }
 
 pkg_preinst() {
@@ -223,7 +228,7 @@ pkg_postinst() {
 		if ! use prefix; then
 			chown --recursive ejabberd:ejabberd "${EROOT}"/etc/ejabberd || die
 		fi
-		elog "Newer versions of the ejabberd gentoo package use /etc/ejabberd"
+		elog "Newer versions of the ejabberd Gentoo package use /etc/ejabberd"
 		elog "(just as upstream) and *not* /etc/ejabber."
 		elog "The files from /etc/jabber where copied to /etc/ejabberd."
 		elog "Please check your configuration and delete the file in /etc/jabber."
