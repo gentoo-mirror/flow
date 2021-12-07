@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit pam rebar systemd tmpfiles
+inherit pam rebar systemd
 
 DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
@@ -230,6 +230,4 @@ pkg_postinst() {
 		elog "The files from /etc/jabber where copied to /etc/ejabberd."
 		elog "Please check your configuration and delete the file in /etc/jabber."
 	fi
-
-	tmpfiles_process "${PN}.conf"
 }
