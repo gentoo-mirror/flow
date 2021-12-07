@@ -158,8 +158,6 @@ src_compile() {
 src_install() {
 	default
 
-	keepdir /var/lib/lock/ejabberdctl
-
 	if use pam; then
 		local epam_path="$(get_ejabberd_path)/priv/bin/epam"
 
