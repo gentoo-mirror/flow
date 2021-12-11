@@ -29,7 +29,6 @@ src_install() {
 	dosbin "${ssacli_bindir}"/rmstr
 
 	dodoc "${ssacli_bindir}/ssacli-${MY_PV}.x86_64.txt"
-	dodoc "${ssacli_bindir}/ssacli.license"
 
 	gunzip usr/man/man8/ssacli.8.gz
 	doman usr/man/man8/ssacli.8
