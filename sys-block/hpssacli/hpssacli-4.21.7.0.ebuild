@@ -30,6 +30,6 @@ src_install() {
 
 	dodoc "${ssacli_bindir}/ssacli-${MY_PV}.x86_64.txt"
 
-	gunzip usr/man/man8/ssacli.8.gz
+	gunzip usr/man/man8/ssacli.8.gz || die
 	doman usr/man/man8/ssacli.8
 }
