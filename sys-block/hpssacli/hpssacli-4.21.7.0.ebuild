@@ -11,7 +11,7 @@ DESCRIPTION="HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly H
 HOMEPAGE="https://support.hpe.com/hpesc/public/swd/detail?swItemId=MTX_8484363847dd4e5ca2970188b7"
 SRC_URI="https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1857046646/v183344/ssacli-${MY_PV}.x86_64.rpm"
 
-LICENSE="hpe"
+LICENSE="hp-proliant-essentials"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
