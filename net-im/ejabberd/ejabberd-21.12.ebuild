@@ -208,7 +208,7 @@ pkg_postinst() {
 			[/var/spool/jabber]=/var/lib/ejabberd
 		)
 
-		for src_dir in "${dirs_to_migrate[@]}"; do
+		for src_dir in "${!dirs_to_migrate[@]}"; do
 			local eroot_src_dir="${EROOT}${src_dir}"
 			local eroot_dst_dir="${EROOT}${dirs_to_migrate[${src_dir}]}"
 
