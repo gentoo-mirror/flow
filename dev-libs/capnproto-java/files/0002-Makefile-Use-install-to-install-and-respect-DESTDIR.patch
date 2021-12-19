@@ -1,0 +1,29 @@
+From b9e309087b3dcba237ce52feedd2ee9c593477c4 Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Sun, 19 Dec 2021 18:13:15 +0100
+Subject: [PATCH 2/3] Makefile: Use 'install' to install and respect DESTDIR
+
+---
+ Makefile | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index af4c909cdc7f..009a3b6ebbc8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -26,10 +26,8 @@ capnpc-java : $(CAPNPC_JAVA_SOURCES)
+ 	$(CXX) $(CAPNPC_JAVA_SOURCES) $(CXX_FLAGS) $(CFLAGS) $(LDFLAGS) -o capnpc-java
+ 
+ install:
+-	mkdir -p ${PREFIX}/bin
+-	mkdir -p ${PREFIX}/include/capnp/
+-	cp capnpc-java ${PREFIX}/bin
+-	cp compiler/src/main/schema/capnp/java.capnp ${PREFIX}/include/capnp/
++	install -D capnpc-java "${DESTDIR}/${PREFIX}"/bin/capnpc-java
++	install -D compiler/src/main/schema/capnp/java.capnp "${DESTDIR}/${PREFIX}"/include/capnp/java.capnp
+ 
+ MINGW_LIBS=~/src/capnproto/c++/build-mingw/.libs/libcapnp.a ~/src/capnproto/c++/build-mingw/.libs/libkj.a
+ MINGW_CXX=i686-w64-mingw32-g++
+-- 
+2.32.0
+

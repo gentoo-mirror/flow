@@ -1,0 +1,25 @@
+From a525899b77cf092034c54eabc464396d5e3198e1 Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Sun, 19 Dec 2021 18:19:04 +0100
+Subject: [PATCH 3/3] Makefile: Use non-local prefix per default
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 009a3b6ebbc8..4f6abd27b328 100644
+--- a/Makefile
++++ b/Makefile
+@@ -8,7 +8,7 @@ CAPNP_PREFIX=$(shell dirname $(shell which capnp))/..
+ CAPNP_CXX_FLAGS=-I $(CAPNP_PREFIX)/include -L $(CAPNP_PREFIX)/lib -lkj -lcapnp
+ endif
+ 
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ 
+ CXX ?= g++
+ CXX_FLAGS=-std=c++14 $(CAPNP_CXX_FLAGS)
+-- 
+2.32.0
+
