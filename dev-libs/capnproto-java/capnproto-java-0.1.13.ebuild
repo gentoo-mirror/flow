@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Java library/compiler for the Cap'n Proto serialization/RPC protocol"
-HOMEPAGE="https://github.com/opensourcerouting/java-capnproto"
+HOMEPAGE="https://github.com/capnproto/java-capnproto"
 SRC_URI="https://github.com/capnproto/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
