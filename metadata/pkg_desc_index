@@ -10,7 +10,6 @@ app-admin/mkosi 9 9999: A tool for generating OS images
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
 app-backup/doborg 9999: Full-system backup tool based on borg backup
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
-app-crypt/sequoia-sq 0.25.0: CLI of the Sequoia OpenPGP implementation
 app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and practice of monadic programming in Haskell
 app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
