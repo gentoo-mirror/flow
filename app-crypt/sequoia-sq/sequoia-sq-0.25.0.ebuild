@@ -258,7 +258,7 @@ CRATES="
 
 inherit bash-completion-r1 cargo
 
-DESCRIPTION="CLI for Sequoia OpenPGP implementation"
+DESCRIPTION="CLI of the Sequoia OpenPGP implementation"
 HOMEPAGE="https://gitlab.com/sequoia-pgp/sequoia"
 
 SRC_URI="
@@ -285,7 +285,14 @@ RDEPEND="${COMMON_DEPEND}"
 
 src_compile() {
 	cd sq || die
-	cargo_src_compile
+	# Setting CARGO_TARGET_DIR is required to have the build system
+	# create the bash and zsh completion files.
+	CARGO_TARGET_DIR="${S}/target" cargo_src_compile
+}
+
+src_test() {
+	cd sq || die
+	cargo_src_test
 }
 
 src_install() {
@@ -293,14 +300,11 @@ src_install() {
 
 	doman sq/man-sq-net-autocrypt/*
 
-	# TODO: bash and zsh completions.
-	# newbashcomp sq.bash sq
+	newbashcomp target/sq.bash sq
 
-	# insinto /usr/share/zsh/site-functions
-	# doins _sq
-}
+	insinto /usr/share/zsh/site-functions
+	doins target/_sq
 
-src_test() {
-	cd sq || die
-	cargo_src_test
+	insinto /usr/share/fish/vendor_completions.d
+	doins target/sq.fish
 }
