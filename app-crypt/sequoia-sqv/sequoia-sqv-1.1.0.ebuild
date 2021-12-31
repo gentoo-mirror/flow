@@ -180,8 +180,10 @@ DEPEND="
 	${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
-BDEPEND="virtual/pkgconfig"
-IDEPEND="sys-apps/help2man"
+BDEPEND="
+	sys-apps/help2man
+	virtual/pkgconfig
+"
 
 src_compile() {
 	# Setting CARGO_TARGET_DIR is required to have the build system
@@ -194,14 +196,6 @@ src_install() {
 
 	newbashcomp target/sqv.bash sqv
 
-	insinto /usr/share/zsh/site-functions
-	doins target/_sqv
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins target/sqv.fish
-}
-
-pkg_preinst() {
 	local -r manpage="${T}"/sqv.1
 	help2man \
 		--no-info \
@@ -210,4 +204,10 @@ pkg_preinst() {
 		--output="${manpage}" \
 		"${ED}"/usr/bin/sqv || die "Failed to create manpage"
 	doman "${manpage}"
+
+	insinto /usr/share/zsh/site-functions
+	doins target/_sqv
+
+	insinto /usr/share/fish/vendor_completions.d
+	doins target/sqv.fish
 }
