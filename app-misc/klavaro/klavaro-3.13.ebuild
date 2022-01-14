@@ -28,7 +28,9 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
+	# https://sourceforge.net/p/klavaro/patches/16/
 	"${FILESDIR}"/${PN}-3.13-datadir.patch
+	# https://sourceforge.net/p/klavaro/patches/17/
 	"${FILESDIR}"/${PN}-3.13-desktop-keywords.patch
 )
 
