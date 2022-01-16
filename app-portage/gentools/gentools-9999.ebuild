@@ -7,15 +7,10 @@ inherit git-r3 systemd
 
 DESCRIPTION="Tools to aid administering Gentoo systems, like silent automatic updates"
 HOMEPAGE="https://github.com/Flowdalic/gentools"
-SRC_URI=""
 EGIT_REPO_URI="https://github.com/Flowdalic/gentools.git"
 LICENSE="GPL-3"
 
 SLOT="0"
-
-KEYWORDS=""
-
-IUSE=""
 
 RDEPEND="
 	app-admin/eclean-kernel
