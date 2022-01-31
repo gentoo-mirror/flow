@@ -170,10 +170,6 @@ dev-java/openjdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (pack
 dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-bin:source - Install JVM sources
 dev-util/gitlab-runner:docker - Add support for docker executors
-media-sound/mumble:g15 - Enable support for the Logitech G15 LCD (and compatible devices).
-media-sound/mumble:pipewire - Enable pipewire support for audio output.
-media-sound/mumble:rnnoise - Enable alternative noise suppression option based on RNNoise.
-media-sound/mumble:speech - Enable text-to-speech support in Mumble.
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158) on registration
