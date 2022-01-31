@@ -137,7 +137,7 @@ src_configure() {
 		-DFEATURE_ANTICHEAT="1"
 		-DFEATURE_AUTOUPDATE="$(usex autoupdate)"
 		# renderers
-		-DFEATURE_RENDERER2="$(usex renderer2)"
+		-DFEATURE_RENDERER2="$(usex renderer2 ON OFF)"
 		-DFEATURE_RENDERER_GLES="$(usex renderer-gles)"
 
 		-DFEATURE_OMNIBOT="$(usex omnibot)"
