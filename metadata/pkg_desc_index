@@ -20,7 +20,6 @@ app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one s
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
 app-misc/cmatrix 2.0: An ncurses based app to show a scrolling screen from the Matrix
 app-misc/klavaro 3.0.1-r1 3.13: Another free touch typing tutor program
-app-misc/openhab 9999: The open Home Automation Bus (openHAB)
 app-portage/gentools 9999: Tools to aid administering Gentoo systems, like silent automatic updates
 app-text/aha 0.5: Converts ANSI escape sequences of a unix terminal to HTML
 app-text/explain 9999: Explain commands using ASCII art
