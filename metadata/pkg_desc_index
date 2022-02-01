@@ -1,9 +1,7 @@
-acct-group/biboumi 0: System group: biboumi
 acct-group/doborg 0: System group: doborg
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/gitlab 0: System group: gitlab
 acct-group/zabbix-proxy 0: System group: zabbix-proxy
-acct-user/biboumi 0: User for net-im/biboumi
 acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/gitlab-runner 0: System user: gitlab-runner
@@ -78,7 +76,6 @@ games-fps/etlegacy 2.78.1 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible 
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Management Platform
-net-im/biboumi 9.0-r2: XMPP gateway to IRC
 net-im/ejabberd 21.04-r1 21.12: Robust, scalable and extensible XMPP server
 net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
 net-im/swift 9999: Your friendly chat client
