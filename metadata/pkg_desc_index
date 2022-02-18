@@ -67,6 +67,7 @@ dev-python/kitchen 1.2.6: A cornucopia of useful code
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-tex/rubber 1.6.0 9999: A LaTeX wrapper for automatically building documents
+dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
 dev-util/ebuild-commander 0.1.0 9999: Test ebuilds with fine-grained control in stage3 Docker containers
 dev-util/gitlab-runner 13.12.0: GitLab Runner
