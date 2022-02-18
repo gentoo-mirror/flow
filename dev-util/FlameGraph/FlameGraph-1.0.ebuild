@@ -12,7 +12,6 @@ if [[ ${PV} == "9999" ]]; then
 else
 	SRC_URI="https://github.com/brendangregg/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/FlameGraph-${PV}"
 fi
 
 LICENSE="CDDL"
@@ -28,6 +27,6 @@ src_test() {
 }
 
 src_install() {
-	default
 	dobin *.pl *.awk
+	dodoc README.md
 }
