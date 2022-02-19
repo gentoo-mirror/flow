@@ -32,6 +32,20 @@ dev-java/openjdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (pack
 dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-bin:source - Install JVM sources
 dev-util/gitlab-runner:docker - Add support for docker executors
+net-analyzer/zabbix:agent - Enable zabbix agent (for to-be-monitored machines)
+net-analyzer/zabbix:agent2 - Enable go-based zabbix agent 2 (for to-be-monitored machines)
+net-analyzer/zabbix:frontend - Enable zabbix web frontend
+net-analyzer/zabbix:ipv6 - Turn on support of IPv6
+net-analyzer/zabbix:java - Enable Zabbix Java JMX Management Gateway
+net-analyzer/zabbix:libxml2 - Use libxml2 client library
+net-analyzer/zabbix:mbedtls - Use net-libs/mbedtls as TLS backend
+net-analyzer/zabbix:odbc - Enable Database Monitor and use UnixODBC Library by default
+net-analyzer/zabbix:openipmi - Enable openipmi things
+net-analyzer/zabbix:openssl - Use dev-libs/openssl as TLS backend
+net-analyzer/zabbix:proxy - Enable proxy support
+net-analyzer/zabbix:server - Enable zabbix server
+net-analyzer/zabbix:ssh - SSH v2 based checks
+net-analyzer/zabbix:static - Build statically linked binaries
 net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158) on registration
 net-im/ejabberd:full-xml - Use XML features in XMPP stream (ex: CDATA), requires XML compliant clients
 net-im/ejabberd:mssql - Enable Microsoft SQL Server support (via ODBC) for data storage
