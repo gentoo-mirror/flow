@@ -3,17 +3,14 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools git-r3
 
 GITHUB_COORDINATES="compudj/librseq"
 
-if [[ ${PV} == "9999" ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${GITHUB_COORDINATES}.git"
-else
-	SRC_URI="https://github.com/${GITHUB_COORDINATES}/archive/v${PV}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+EGIT_REPO_URI="https://github.com/${GITHUB_COORDINATES}.git"
+EGIT_COMMIT="170f840b498e1aff068b90188727a656111bfc2f"
+
+KEYWORDS="~amd64 ~x86"
 
 DESCRIPTION="Library for Restartable Sequences"
 HOMEPAGE="https://github.com/${GITHUB_COORDINATES}"
