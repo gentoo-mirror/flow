@@ -1,0 +1,14 @@
+BDEPEND=app-misc/jq app-text/pandoc
+DEFINED_PHASES=compile install prepare test
+DEPEND=test? ( dev-util/schroot )
+DESCRIPTION=Small ACME client written with process isolation and minimal privileges in mind
+EAPI=8
+HOMEPAGE=https://git.guilhem.org/lacme/
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=acct-user/lacme dev-lang/perl dev-libs/openssl dev-perl/Config-Tiny dev-perl/JSON dev-perl/Net-SSLeay dev-perl/TimeDate dev-perl/libwww-perl
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~flow/distfiles/lacme/lacme-0.8.0.tar.gz
+_md5_=b0778b8231992a512fb87064dacc56d3
