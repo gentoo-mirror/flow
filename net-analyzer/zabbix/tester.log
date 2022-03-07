@@ -1,0 +1,384 @@
+2022-03-07 09:11:43,097 - creating container
+2022-03-07 09:11:43,097 - creating docker container with: docker create --tty --cap-add CAP_SYS_ADMIN --cap-add CAP_MKNOD --cap-add CAP_NET_ADMIN --security-opt apparmor:unconfined --device /dev/fuse --workdir /root --volume /home/flo/repos/gentoo/gentoo:/var/db/repos/gentoo --volume /home/flo/repos/gentoo/gentoo/distfiles:/var/cache/distfiles --volume /home/flo/repos/gentoo/gentoo/packages:/var/cache/binpkgs --volume=/home/flo/repos/gentoo/flow:/var/lib/overlays/flow gentoo/stage3
+2022-03-07 09:11:45,436 - container id b99d3d4aef5dcce4843b001bdee7fbe9175cc1f5d5bb77eb0a07607ea1d08ac0
+2022-03-07 09:11:47,449 - setting Gentoo profile to default/linux/amd64/17.1
+2022-03-07 09:11:47,449 - b99d3d eselect profile set default/linux/amd64/17.1
+2022-03-07 09:11:50,217 - no global USE flags given, skipping
+2022-03-07 09:11:50,217 - tweaking portage settings
+2022-03-07 09:11:50,217 - b99d3d echo FEATURES=\"-sandbox -usersandbox\" >> /etc/portage/make.conf
+2022-03-07 09:11:50,384 - b99d3d echo MAKEOPTS=\"-j12\" >> /etc/portage/make.conf
+2022-03-07 09:11:50,515 - b99d3d echo ACCEPT_KEYWORDS=\"~amd64\" >> /etc/portage/make.conf
+2022-03-07 09:11:50,697 - b99d3d mkdir -p /etc/portage/repos.conf && echo -e "[flow]\nlocation = /var/lib/overlays/flow\nmaster = gentoo" >> /etc/portage/repos.conf/overlays.conf
+2022-03-07 09:11:50,864 - enabling test feature for [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 09:11:50,865 - b99d3d mkdir -p /etc/portage/env
+2022-03-07 09:11:51,004 - b99d3d echo "=net-analyzer/zabbix-6.0.0 tester.conf" >> /etc/portage/package.env
+2022-03-07 09:11:51,143 - b99d3d echo "FEATURES=\"test splitdebug\"" > /etc/portage/env/tester.conf
+2022-03-07 09:11:51,287 - unmasking [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 09:11:51,287 - b99d3d mkdir -p /etc/portage/package.accept_keywords
+2022-03-07 09:11:51,439 - b99d3d echo "=net-analyzer/zabbix-6.0.0" ~amd64 >> /etc/portage/package.accept_keywords/testbuild
+2022-03-07 09:11:51,585 - unmasking additional atoms
+2022-03-07 09:11:51,585 - skipping update
+2022-03-07 09:11:51,585 - skipping basic packages
+2022-03-07 09:11:51,585 - setting gcc
+2022-03-07 09:11:51,586 - summary
+2022-03-07 09:11:51,586 - b99d3d if [[ -d /etc/portage/package.accept_keywords ]]; then cat /etc/portage/package.accept_keywords/*; fi
+2022-03-07 09:11:51,746 - b99d3d (stdout): =net-analyzer/zabbix-6.0.0 ~amd64
+2022-03-07 09:11:51,782 - b99d3d if [[ -f /etc/portage/package.use/testbuild ]]; then cat /etc/portage/package.use/testbuild; fi
+2022-03-07 09:11:51,929 - b99d3d emerge --info
+2022-03-07 09:11:54,195 - b99d3d (stdout): Portage 3.0.28 (python 3.9.9-final-0, default/linux/amd64/17.1, gcc-11.2.0, glibc-2.33-r7, 5.15.25-gentoo-dist x86_64)
+2022-03-07 09:11:54,195 - b99d3d (stdout): =================================================================
+2022-03-07 09:11:54,251 - b99d3d (stdout): System uname: Linux-5.15.25-gentoo-dist-x86_64-Intel-R-_Core-TM-_i7-8700_CPU_@_3.20GHz-with-glibc2.33
+2022-03-07 09:11:54,251 - b99d3d (stdout): KiB Mem:    32551588 total,   4754124 free
+2022-03-07 09:11:54,251 - b99d3d (stdout): KiB Swap:   20963316 total,  20944628 free
+2022-03-07 09:11:54,252 - b99d3d (stdout): sh bash 5.1_p8
+2022-03-07 09:11:54,252 - b99d3d (stdout): ld GNU ld (Gentoo 2.37_p1 p0) 2.37
+2022-03-07 09:11:54,252 - b99d3d (stdout): app-misc/pax-utils:        1.3.3::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): app-shells/bash:           5.1_p8::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): dev-lang/perl:             5.34.0-r6::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): dev-lang/python:           3.9.9-r1::gentoo, 3.10.0_p1-r1::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): dev-util/meson:            0.59.4::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): sys-apps/baselayout:       2.7-r3::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): sys-apps/openrc:           0.44.10::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): sys-apps/sandbox:          2.25::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): sys-devel/autoconf:        2.71-r1::gentoo
+2022-03-07 09:11:54,252 - b99d3d (stdout): sys-devel/automake:        1.16.4::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-devel/binutils:        2.37_p1::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-devel/binutils-config: 5.4::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-devel/gcc:             11.2.0::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-devel/gcc-config:      2.5-r1::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-devel/libtool:         2.4.6-r6::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-devel/make:            4.3::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-kernel/linux-headers:  5.15-r3::gentoo (virtual/os-headers)
+2022-03-07 09:11:54,253 - b99d3d (stdout): sys-libs/glibc:            2.33-r7::gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout): Repositories:
+2022-03-07 09:11:54,253 - b99d3d (stdout): 
+2022-03-07 09:11:54,253 - b99d3d (stdout): gentoo
+2022-03-07 09:11:54,253 - b99d3d (stdout):     location: /var/db/repos/gentoo
+2022-03-07 09:11:54,254 - b99d3d (stdout):     sync-type: rsync
+2022-03-07 09:11:54,254 - b99d3d (stdout):     sync-uri: rsync://rsync.gentoo.org/gentoo-portage
+2022-03-07 09:11:54,254 - b99d3d (stdout):     priority: -1000
+2022-03-07 09:11:54,254 - b99d3d (stdout):     sync-rsync-verify-max-age: 24
+2022-03-07 09:11:54,254 - b99d3d (stdout):     sync-rsync-extra-opts:
+2022-03-07 09:11:54,254 - b99d3d (stdout):     sync-rsync-verify-jobs: 1
+2022-03-07 09:11:54,254 - b99d3d (stdout):     sync-rsync-verify-metamanifest: yes
+2022-03-07 09:11:54,254 - b99d3d (stdout): 
+2022-03-07 09:11:54,254 - b99d3d (stdout): flow
+2022-03-07 09:11:54,254 - b99d3d (stdout):     location: /var/lib/overlays/flow
+2022-03-07 09:11:54,254 - b99d3d (stdout):     masters: gentoo
+2022-03-07 09:11:54,254 - b99d3d (stdout): 
+2022-03-07 09:11:54,255 - b99d3d (stdout): ACCEPT_KEYWORDS="amd64 ~amd64"
+2022-03-07 09:11:54,255 - b99d3d (stdout): ACCEPT_LICENSE="@FREE"
+2022-03-07 09:11:54,255 - b99d3d (stdout): CBUILD="x86_64-pc-linux-gnu"
+2022-03-07 09:11:54,255 - b99d3d (stdout): CFLAGS="-O2 -pipe"
+2022-03-07 09:11:54,255 - b99d3d (stdout): CHOST="x86_64-pc-linux-gnu"
+2022-03-07 09:11:54,255 - b99d3d (stdout): CONFIG_PROTECT="/etc /usr/share/gnupg/qualified.txt"
+2022-03-07 09:11:54,255 - b99d3d (stdout): CONFIG_PROTECT_MASK="/etc/ca-certificates.conf /etc/env.d /etc/gconf /etc/gentoo-release /etc/sandbox.d /etc/terminfo"
+2022-03-07 09:11:54,255 - b99d3d (stdout): CXXFLAGS="-O2 -pipe"
+2022-03-07 09:11:54,255 - b99d3d (stdout): DISTDIR="/var/cache/distfiles"
+2022-03-07 09:11:54,255 - b99d3d (stdout): ENV_UNSET="CARGO_HOME DBUS_SESSION_BUS_ADDRESS DISPLAY GOBIN GOPATH PERL5LIB PERL5OPT PERLPREFIX PERL_CORE PERL_MB_OPT PERL_MM_OPT XAUTHORITY XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_RUNTIME_DIR"
+2022-03-07 09:11:54,255 - b99d3d (stdout): FCFLAGS="-O2 -pipe"
+2022-03-07 09:11:54,255 - b99d3d (stdout): FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs config-protect-if-modified distlocks ebuild-locks fixlafiles ipc-sandbox merge-sync multilib-strict network-sandbox news parallel-fetch pid-sandbox preserve-libs protect-owned qa-unresolved-soname-deps sfperms strict unknown-features-warn unmerge-logs unmerge-orphans userfetch userpriv usersync xattr"
+2022-03-07 09:11:54,256 - b99d3d (stdout): FFLAGS="-O2 -pipe"
+2022-03-07 09:11:54,256 - b99d3d (stdout): GENTOO_MIRRORS="http://distfiles.gentoo.org"
+2022-03-07 09:11:54,256 - b99d3d (stdout): LANG="C.UTF8"
+2022-03-07 09:11:54,256 - b99d3d (stdout): LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+2022-03-07 09:11:54,256 - b99d3d (stdout): MAKEOPTS="-j12"
+2022-03-07 09:11:54,256 - b99d3d (stdout): PKGDIR="/var/cache/binpkgs"
+2022-03-07 09:11:54,256 - b99d3d (stdout): PORTAGE_CONFIGROOT="/"
+2022-03-07 09:11:54,256 - b99d3d (stdout): PORTAGE_RSYNC_OPTS="--recursive --links --safe-links --perms --times --omit-dir-times --compress --force --whole-file --delete --stats --human-readable --timeout=180 --exclude=/distfiles --exclude=/local --exclude=/packages --exclude=/.git"
+2022-03-07 09:11:54,256 - b99d3d (stdout): PORTAGE_TMPDIR="/var/tmp"
+2022-03-07 09:11:54,256 - b99d3d (stdout): USE="acl amd64 bzip2 cli crypt dri fortran gdbm iconv ipv6 libglvnd libtirpc multilib ncurses nls nptl openmp pam pcre readline seccomp split-usr ssl unicode xattr zlib" ABI_X86="64" ADA_TARGET="gnat_2020" APACHE2_MODULES="authn_core authz_core socache_shmcb unixd actions alias auth_basic authn_alias authn_anon authn_dbm authn_default authn_file authz_dbm authz_default authz_groupfile authz_host authz_owner authz_user autoindex cache cgi cgid dav dav_fs dav_lock deflate dir disk_cache env expires ext_filter file_cache filter headers include info log_config logio mem_cache mime mime_magic negotiation rewrite setenvif speling status unique_id userdir usertrack vhost_alias" CALLIGRA_FEATURES="karbon sheets words" COLLECTD_PLUGINS="df interface irq load memory rrdtool swap syslog" CPU_FLAGS_X86="mmx mmxext sse sse2" ELIBC="glibc" GPSD_PROTOCOLS="ashtech aivdm earthmate evermore fv18 garmin garmintxt gpsclock greis isync itrax mtk3301 nmea ntrip navcom oceanserver oldstyle oncore rtcm104v2 rtcm104v3 sirf skytraq superstar2 timing tsip tripmate tnt ublox ubx" INPUT_DEVICES="libinput" KERNEL="linux" LCD_DEVICES="bayrad cfontz cfontz633 glk hd44780 lb216 lcdm001 mtxorb ncurses text" LIBREOFFICE_EXTENSIONS="presenter-console presenter-minimizer" LUA_SINGLE_TARGET="lua5-1" LUA_TARGETS="lua5-1" OFFICE_IMPLEMENTATION="libreoffice" PHP_TARGETS="php7-4 php8-0" POSTGRES_TARGETS="postgres12 postgres13" PYTHON_SINGLE_TARGET="python3_9" PYTHON_TARGETS="python3_9" RUBY_TARGETS="ruby26 ruby27" USERLAND="GNU" VIDEO_CARDS="amdgpu fbdev intel nouveau radeon radeonsi vesa dummy v4l" XTABLES_ADDONS="quota2 psd pknock lscan length2 ipv4options ipset ipp2p iface geoip fuzzy condition tee tarpit sysrq proto steal rawnat logmark ipmark dhcpmac delude chaos account"
+2022-03-07 09:11:54,256 - b99d3d (stdout): Unset:  ADDR2LINE, AR, ARFLAGS, AS, ASFLAGS, CC, CCLD, CONFIG_SHELL, CPP, CPPFLAGS, CTARGET, CXX, CXXFILT, ELFEDIT, EMERGE_DEFAULT_OPTS, EXTRA_ECONF, F77FLAGS, FC, GCOV, GPROF, INSTALL_MASK, LC_ALL, LD, LEX, LFLAGS, LIBTOOL, LINGUAS, MAKE, MAKEFLAGS, NM, OBJCOPY, OBJDUMP, PORTAGE_BINHOST, PORTAGE_BUNZIP2_COMMAND, PORTAGE_COMPRESS, PORTAGE_COMPRESS_FLAGS, PORTAGE_RSYNC_EXTRA_OPTS, RANLIB, READELF, RUSTFLAGS, SHELL, SIZE, STRINGS, STRIP, YACC, YFLAGS
+2022-03-07 09:11:54,257 - b99d3d (stdout): 
+2022-03-07 09:11:54,318 - b99d3d qlop
+2022-03-07 09:11:54,516 - b99d3d (stderr): qlop: Could not open logfile '/var/log/emerge.log': No such file or directory
+2022-03-07 09:11:54,549 - created container b99d3d4aef5dcce4843b001bdee7fbe9175cc1f5d5bb77eb0a07607ea1d08ac0
+2022-03-07 09:11:54,549 - running interactive shell in container
+2022-03-07 10:06:30,757 - creating container
+2022-03-07 10:06:30,757 - creating docker container with: docker create --tty --cap-add CAP_SYS_ADMIN --cap-add CAP_MKNOD --cap-add CAP_NET_ADMIN --security-opt apparmor:unconfined --device /dev/fuse --workdir /root --volume /home/flo/repos/gentoo/gentoo:/var/db/repos/gentoo --volume /home/flo/repos/gentoo/gentoo/distfiles:/var/cache/distfiles --volume /home/flo/repos/gentoo/gentoo/packages:/var/cache/binpkgs --volume=/home/flo/repos/gentoo/flow:/var/lib/overlays/flow gentoo/stage3
+2022-03-07 10:06:32,335 - container id c1516e809dad6f425a8febc2b0a26a872f71fc8e299197a1768416bd750244a6
+2022-03-07 10:06:33,750 - setting Gentoo profile to default/linux/amd64/17.1
+2022-03-07 10:06:33,750 - c1516e eselect profile set default/linux/amd64/17.1
+2022-03-07 10:06:35,776 - no global USE flags given, skipping
+2022-03-07 10:06:35,776 - tweaking portage settings
+2022-03-07 10:06:35,776 - c1516e echo FEATURES=\"-sandbox -usersandbox\" >> /etc/portage/make.conf
+2022-03-07 10:06:35,889 - c1516e echo MAKEOPTS=\"-j12\" >> /etc/portage/make.conf
+2022-03-07 10:06:36,006 - c1516e echo ACCEPT_KEYWORDS=\"~amd64\" >> /etc/portage/make.conf
+2022-03-07 10:06:36,133 - c1516e mkdir -p /etc/portage/repos.conf && echo -e "[flow]\nlocation = /var/lib/overlays/flow\nmaster = gentoo" >> /etc/portage/repos.conf/overlays.conf
+2022-03-07 10:06:36,251 - enabling test feature for [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 10:06:36,252 - c1516e mkdir -p /etc/portage/env
+2022-03-07 10:06:36,365 - c1516e echo "=net-analyzer/zabbix-6.0.0 tester.conf" >> /etc/portage/package.env
+2022-03-07 10:06:36,473 - c1516e echo "FEATURES=\"test splitdebug\"" > /etc/portage/env/tester.conf
+2022-03-07 10:06:36,586 - unmasking [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 10:06:36,586 - c1516e mkdir -p /etc/portage/package.accept_keywords
+2022-03-07 10:06:36,685 - c1516e echo "=net-analyzer/zabbix-6.0.0" ~amd64 >> /etc/portage/package.accept_keywords/testbuild
+2022-03-07 10:06:36,745 - unmasking additional atoms
+2022-03-07 10:06:36,745 - skipping update
+2022-03-07 10:06:36,745 - skipping basic packages
+2022-03-07 10:06:36,745 - setting gcc
+2022-03-07 10:06:36,746 - summary
+2022-03-07 10:06:36,746 - c1516e if [[ -d /etc/portage/package.accept_keywords ]]; then cat /etc/portage/package.accept_keywords/*; fi
+2022-03-07 10:06:36,854 - c1516e (stdout): =net-analyzer/zabbix-6.0.0 ~amd64
+2022-03-07 10:06:36,872 - c1516e if [[ -f /etc/portage/package.use/testbuild ]]; then cat /etc/portage/package.use/testbuild; fi
+2022-03-07 10:06:36,970 - c1516e emerge --info
+2022-03-07 10:06:38,755 - c1516e (stdout): Portage 3.0.28 (python 3.9.9-final-0, default/linux/amd64/17.1, gcc-11.2.0, glibc-2.33-r7, 5.15.25-gentoo-dist x86_64)
+2022-03-07 10:06:38,756 - c1516e (stdout): =================================================================
+2022-03-07 10:06:38,756 - c1516e (stdout): System uname: Linux-5.15.25-gentoo-dist-x86_64-Intel-R-_Core-TM-_i7-8700_CPU_@_3.20GHz-with-glibc2.33
+2022-03-07 10:06:38,756 - c1516e (stdout): KiB Mem:    32551588 total,   2101248 free
+2022-03-07 10:06:38,756 - c1516e (stdout): KiB Swap:   20963316 total,  19485428 free
+2022-03-07 10:06:38,756 - c1516e (stdout): sh bash 5.1_p8
+2022-03-07 10:06:38,756 - c1516e (stdout): ld GNU ld (Gentoo 2.37_p1 p0) 2.37
+2022-03-07 10:06:38,756 - c1516e (stdout): app-misc/pax-utils:        1.3.3::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): app-shells/bash:           5.1_p8::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): dev-lang/perl:             5.34.0-r6::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): dev-lang/python:           3.9.9-r1::gentoo, 3.10.0_p1-r1::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): dev-util/meson:            0.59.4::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-apps/baselayout:       2.7-r3::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-apps/openrc:           0.44.10::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-apps/sandbox:          2.25::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/autoconf:        2.71-r1::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/automake:        1.16.4::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/binutils:        2.37_p1::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/binutils-config: 5.4::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/gcc:             11.2.0::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/gcc-config:      2.5-r1::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/libtool:         2.4.6-r6::gentoo
+2022-03-07 10:06:38,756 - c1516e (stdout): sys-devel/make:            4.3::gentoo
+2022-03-07 10:06:38,757 - c1516e (stdout): sys-kernel/linux-headers:  5.15-r3::gentoo (virtual/os-headers)
+2022-03-07 10:06:38,757 - c1516e (stdout): sys-libs/glibc:            2.33-r7::gentoo
+2022-03-07 10:06:38,757 - c1516e (stdout): Repositories:
+2022-03-07 10:06:38,757 - c1516e (stdout): 
+2022-03-07 10:06:38,757 - c1516e (stdout): gentoo
+2022-03-07 10:06:38,757 - c1516e (stdout):     location: /var/db/repos/gentoo
+2022-03-07 10:06:38,757 - c1516e (stdout):     sync-type: rsync
+2022-03-07 10:06:38,757 - c1516e (stdout):     sync-uri: rsync://rsync.gentoo.org/gentoo-portage
+2022-03-07 10:06:38,757 - c1516e (stdout):     priority: -1000
+2022-03-07 10:06:38,757 - c1516e (stdout):     sync-rsync-verify-max-age: 24
+2022-03-07 10:06:38,757 - c1516e (stdout):     sync-rsync-verify-metamanifest: yes
+2022-03-07 10:06:38,757 - c1516e (stdout):     sync-rsync-extra-opts:
+2022-03-07 10:06:38,757 - c1516e (stdout):     sync-rsync-verify-jobs: 1
+2022-03-07 10:06:38,757 - c1516e (stdout): 
+2022-03-07 10:06:38,757 - c1516e (stdout): flow
+2022-03-07 10:06:38,757 - c1516e (stdout):     location: /var/lib/overlays/flow
+2022-03-07 10:06:38,757 - c1516e (stdout):     masters: gentoo
+2022-03-07 10:06:38,757 - c1516e (stdout): 
+2022-03-07 10:06:38,757 - c1516e (stdout): ACCEPT_KEYWORDS="amd64 ~amd64"
+2022-03-07 10:06:38,757 - c1516e (stdout): ACCEPT_LICENSE="@FREE"
+2022-03-07 10:06:38,757 - c1516e (stdout): CBUILD="x86_64-pc-linux-gnu"
+2022-03-07 10:06:38,757 - c1516e (stdout): CFLAGS="-O2 -pipe"
+2022-03-07 10:06:38,757 - c1516e (stdout): CHOST="x86_64-pc-linux-gnu"
+2022-03-07 10:06:38,757 - c1516e (stdout): CONFIG_PROTECT="/etc /usr/share/gnupg/qualified.txt"
+2022-03-07 10:06:38,758 - c1516e (stdout): CONFIG_PROTECT_MASK="/etc/ca-certificates.conf /etc/env.d /etc/gconf /etc/gentoo-release /etc/sandbox.d /etc/terminfo"
+2022-03-07 10:06:38,758 - c1516e (stdout): CXXFLAGS="-O2 -pipe"
+2022-03-07 10:06:38,758 - c1516e (stdout): DISTDIR="/var/cache/distfiles"
+2022-03-07 10:06:38,758 - c1516e (stdout): ENV_UNSET="CARGO_HOME DBUS_SESSION_BUS_ADDRESS DISPLAY GOBIN GOPATH PERL5LIB PERL5OPT PERLPREFIX PERL_CORE PERL_MB_OPT PERL_MM_OPT XAUTHORITY XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_RUNTIME_DIR"
+2022-03-07 10:06:38,758 - c1516e (stdout): FCFLAGS="-O2 -pipe"
+2022-03-07 10:06:38,758 - c1516e (stdout): FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs config-protect-if-modified distlocks ebuild-locks fixlafiles ipc-sandbox merge-sync multilib-strict network-sandbox news parallel-fetch pid-sandbox preserve-libs protect-owned qa-unresolved-soname-deps sfperms strict unknown-features-warn unmerge-logs unmerge-orphans userfetch userpriv usersync xattr"
+2022-03-07 10:06:38,758 - c1516e (stdout): FFLAGS="-O2 -pipe"
+2022-03-07 10:06:38,758 - c1516e (stdout): GENTOO_MIRRORS="http://distfiles.gentoo.org"
+2022-03-07 10:06:38,758 - c1516e (stdout): LANG="C.UTF8"
+2022-03-07 10:06:38,758 - c1516e (stdout): LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+2022-03-07 10:06:38,758 - c1516e (stdout): MAKEOPTS="-j12"
+2022-03-07 10:06:38,758 - c1516e (stdout): PKGDIR="/var/cache/binpkgs"
+2022-03-07 10:06:38,758 - c1516e (stdout): PORTAGE_CONFIGROOT="/"
+2022-03-07 10:06:38,758 - c1516e (stdout): PORTAGE_RSYNC_OPTS="--recursive --links --safe-links --perms --times --omit-dir-times --compress --force --whole-file --delete --stats --human-readable --timeout=180 --exclude=/distfiles --exclude=/local --exclude=/packages --exclude=/.git"
+2022-03-07 10:06:38,758 - c1516e (stdout): PORTAGE_TMPDIR="/var/tmp"
+2022-03-07 10:06:38,758 - c1516e (stdout): USE="acl amd64 bzip2 cli crypt dri fortran gdbm iconv ipv6 libglvnd libtirpc multilib ncurses nls nptl openmp pam pcre readline seccomp split-usr ssl unicode xattr zlib" ABI_X86="64" ADA_TARGET="gnat_2020" APACHE2_MODULES="authn_core authz_core socache_shmcb unixd actions alias auth_basic authn_alias authn_anon authn_dbm authn_default authn_file authz_dbm authz_default authz_groupfile authz_host authz_owner authz_user autoindex cache cgi cgid dav dav_fs dav_lock deflate dir disk_cache env expires ext_filter file_cache filter headers include info log_config logio mem_cache mime mime_magic negotiation rewrite setenvif speling status unique_id userdir usertrack vhost_alias" CALLIGRA_FEATURES="karbon sheets words" COLLECTD_PLUGINS="df interface irq load memory rrdtool swap syslog" CPU_FLAGS_X86="mmx mmxext sse sse2" ELIBC="glibc" GPSD_PROTOCOLS="ashtech aivdm earthmate evermore fv18 garmin garmintxt gpsclock greis isync itrax mtk3301 nmea ntrip navcom oceanserver oldstyle oncore rtcm104v2 rtcm104v3 sirf skytraq superstar2 timing tsip tripmate tnt ublox ubx" INPUT_DEVICES="libinput" KERNEL="linux" LCD_DEVICES="bayrad cfontz cfontz633 glk hd44780 lb216 lcdm001 mtxorb ncurses text" LIBREOFFICE_EXTENSIONS="presenter-console presenter-minimizer" LUA_SINGLE_TARGET="lua5-1" LUA_TARGETS="lua5-1" OFFICE_IMPLEMENTATION="libreoffice" PHP_TARGETS="php7-4 php8-0" POSTGRES_TARGETS="postgres12 postgres13" PYTHON_SINGLE_TARGET="python3_9" PYTHON_TARGETS="python3_9" RUBY_TARGETS="ruby26 ruby27" USERLAND="GNU" VIDEO_CARDS="amdgpu fbdev intel nouveau radeon radeonsi vesa dummy v4l" XTABLES_ADDONS="quota2 psd pknock lscan length2 ipv4options ipset ipp2p iface geoip fuzzy condition tee tarpit sysrq proto steal rawnat logmark ipmark dhcpmac delude chaos account"
+2022-03-07 10:06:38,758 - c1516e (stdout): Unset:  ADDR2LINE, AR, ARFLAGS, AS, ASFLAGS, CC, CCLD, CONFIG_SHELL, CPP, CPPFLAGS, CTARGET, CXX, CXXFILT, ELFEDIT, EMERGE_DEFAULT_OPTS, EXTRA_ECONF, F77FLAGS, FC, GCOV, GPROF, INSTALL_MASK, LC_ALL, LD, LEX, LFLAGS, LIBTOOL, LINGUAS, MAKE, MAKEFLAGS, NM, OBJCOPY, OBJDUMP, PORTAGE_BINHOST, PORTAGE_BUNZIP2_COMMAND, PORTAGE_COMPRESS, PORTAGE_COMPRESS_FLAGS, PORTAGE_RSYNC_EXTRA_OPTS, RANLIB, READELF, RUSTFLAGS, SHELL, SIZE, STRINGS, STRIP, YACC, YFLAGS
+2022-03-07 10:06:38,758 - c1516e (stdout): 
+2022-03-07 10:06:38,815 - c1516e qlop
+2022-03-07 10:06:38,944 - c1516e (stderr): qlop: Could not open logfile '/var/log/emerge.log': No such file or directory
+2022-03-07 10:06:38,962 - created container c1516e809dad6f425a8febc2b0a26a872f71fc8e299197a1768416bd750244a6
+2022-03-07 10:06:38,962 - running interactive shell in container
+2022-03-07 11:15:13,479 - creating container
+2022-03-07 11:15:13,480 - creating docker container with: docker create --tty --cap-add CAP_SYS_ADMIN --cap-add CAP_MKNOD --cap-add CAP_NET_ADMIN --security-opt apparmor:unconfined --device /dev/fuse --workdir /root --volume /home/flo/repos/gentoo/gentoo:/var/db/repos/gentoo --volume /home/flo/repos/gentoo/gentoo/distfiles:/var/cache/distfiles --volume /home/flo/repos/gentoo/gentoo/packages:/var/cache/binpkgs --volume=/home/flo/repos/gentoo/flow:/var/lib/overlays/flow gentoo/stage3
+2022-03-07 11:15:14,641 - container id 12b1cf639416a7a30e339c87558d453bc0931eaa81fb0bf4d24a670413bfadfb
+2022-03-07 11:15:17,457 - setting Gentoo profile to default/linux/amd64/17.1
+2022-03-07 11:15:17,457 - 12b1cf eselect profile set default/linux/amd64/17.1
+2022-03-07 11:15:20,633 - no global USE flags given, skipping
+2022-03-07 11:15:20,633 - tweaking portage settings
+2022-03-07 11:15:20,633 - 12b1cf echo FEATURES=\"-sandbox -usersandbox\" >> /etc/portage/make.conf
+2022-03-07 11:15:21,155 - 12b1cf echo MAKEOPTS=\"-j12\" >> /etc/portage/make.conf
+2022-03-07 11:15:21,808 - 12b1cf echo ACCEPT_KEYWORDS=\"~amd64\" >> /etc/portage/make.conf
+2022-03-07 11:15:22,403 - 12b1cf mkdir -p /etc/portage/repos.conf && echo -e "[flow]\nlocation = /var/lib/overlays/flow\nmaster = gentoo" >> /etc/portage/repos.conf/overlays.conf
+2022-03-07 11:15:22,938 - enabling test feature for [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 11:15:22,939 - 12b1cf mkdir -p /etc/portage/env
+2022-03-07 11:15:23,424 - 12b1cf echo "=net-analyzer/zabbix-6.0.0 tester.conf" >> /etc/portage/package.env
+2022-03-07 11:15:23,798 - 12b1cf echo "FEATURES=\"test splitdebug\"" > /etc/portage/env/tester.conf
+2022-03-07 11:15:24,274 - unmasking [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 11:15:24,274 - 12b1cf mkdir -p /etc/portage/package.accept_keywords
+2022-03-07 11:15:24,779 - 12b1cf echo "=net-analyzer/zabbix-6.0.0" ~amd64 >> /etc/portage/package.accept_keywords/testbuild
+2022-03-07 11:15:25,392 - unmasking additional atoms
+2022-03-07 11:15:25,392 - skipping update
+2022-03-07 11:15:25,393 - skipping basic packages
+2022-03-07 11:15:25,393 - setting gcc
+2022-03-07 11:15:25,393 - summary
+2022-03-07 11:15:25,393 - 12b1cf if [[ -d /etc/portage/package.accept_keywords ]]; then cat /etc/portage/package.accept_keywords/*; fi
+2022-03-07 11:15:25,816 - 12b1cf (stdout): =net-analyzer/zabbix-6.0.0 ~amd64
+2022-03-07 11:15:25,880 - 12b1cf if [[ -f /etc/portage/package.use/testbuild ]]; then cat /etc/portage/package.use/testbuild; fi
+2022-03-07 11:15:26,300 - 12b1cf emerge --info
+2022-03-07 11:15:29,154 - 12b1cf (stdout): Portage 3.0.28 (python 3.9.9-final-0, default/linux/amd64/17.1, gcc-11.2.0, glibc-2.33-r7, 5.15.25-gentoo-dist x86_64)
+2022-03-07 11:15:29,154 - 12b1cf (stdout): =================================================================
+2022-03-07 11:15:29,155 - 12b1cf (stdout): System uname: Linux-5.15.25-gentoo-dist-x86_64-Intel-R-_Core-TM-_i7-8700_CPU_@_3.20GHz-with-glibc2.33
+2022-03-07 11:15:29,155 - 12b1cf (stdout): KiB Mem:    32551588 total,   9293656 free
+2022-03-07 11:15:29,155 - 12b1cf (stdout): KiB Swap:   20963316 total,  12905984 free
+2022-03-07 11:15:29,155 - 12b1cf (stdout): sh bash 5.1_p8
+2022-03-07 11:15:29,155 - 12b1cf (stdout): ld GNU ld (Gentoo 2.37_p1 p0) 2.37
+2022-03-07 11:15:29,155 - 12b1cf (stdout): app-misc/pax-utils:        1.3.3::gentoo
+2022-03-07 11:15:29,155 - 12b1cf (stdout): app-shells/bash:           5.1_p8::gentoo
+2022-03-07 11:15:29,155 - 12b1cf (stdout): dev-lang/perl:             5.34.0-r6::gentoo
+2022-03-07 11:15:29,155 - 12b1cf (stdout): dev-lang/python:           3.9.9-r1::gentoo, 3.10.0_p1-r1::gentoo
+2022-03-07 11:15:29,155 - 12b1cf (stdout): dev-util/meson:            0.59.4::gentoo
+2022-03-07 11:15:29,155 - 12b1cf (stdout): sys-apps/baselayout:       2.7-r3::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-apps/openrc:           0.44.10::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-apps/sandbox:          2.25::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/autoconf:        2.71-r1::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/automake:        1.16.4::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/binutils:        2.37_p1::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/binutils-config: 5.4::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/gcc:             11.2.0::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/gcc-config:      2.5-r1::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/libtool:         2.4.6-r6::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-devel/make:            4.3::gentoo
+2022-03-07 11:15:29,156 - 12b1cf (stdout): sys-kernel/linux-headers:  5.15-r3::gentoo (virtual/os-headers)
+2022-03-07 11:15:29,157 - 12b1cf (stdout): sys-libs/glibc:            2.33-r7::gentoo
+2022-03-07 11:15:29,157 - 12b1cf (stdout): Repositories:
+2022-03-07 11:15:29,157 - 12b1cf (stdout): 
+2022-03-07 11:15:29,157 - 12b1cf (stdout): gentoo
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     location: /var/db/repos/gentoo
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     sync-type: rsync
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     sync-uri: rsync://rsync.gentoo.org/gentoo-portage
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     priority: -1000
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     sync-rsync-verify-jobs: 1
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     sync-rsync-extra-opts:
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     sync-rsync-verify-metamanifest: yes
+2022-03-07 11:15:29,157 - 12b1cf (stdout):     sync-rsync-verify-max-age: 24
+2022-03-07 11:15:29,158 - 12b1cf (stdout): 
+2022-03-07 11:15:29,158 - 12b1cf (stdout): flow
+2022-03-07 11:15:29,158 - 12b1cf (stdout):     location: /var/lib/overlays/flow
+2022-03-07 11:15:29,158 - 12b1cf (stdout):     masters: gentoo
+2022-03-07 11:15:29,158 - 12b1cf (stdout): 
+2022-03-07 11:15:29,158 - 12b1cf (stdout): ACCEPT_KEYWORDS="amd64 ~amd64"
+2022-03-07 11:15:29,158 - 12b1cf (stdout): ACCEPT_LICENSE="@FREE"
+2022-03-07 11:15:29,158 - 12b1cf (stdout): CBUILD="x86_64-pc-linux-gnu"
+2022-03-07 11:15:29,158 - 12b1cf (stdout): CFLAGS="-O2 -pipe"
+2022-03-07 11:15:29,158 - 12b1cf (stdout): CHOST="x86_64-pc-linux-gnu"
+2022-03-07 11:15:29,158 - 12b1cf (stdout): CONFIG_PROTECT="/etc /usr/share/gnupg/qualified.txt"
+2022-03-07 11:15:29,158 - 12b1cf (stdout): CONFIG_PROTECT_MASK="/etc/ca-certificates.conf /etc/env.d /etc/gconf /etc/gentoo-release /etc/sandbox.d /etc/terminfo"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): CXXFLAGS="-O2 -pipe"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): DISTDIR="/var/cache/distfiles"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): ENV_UNSET="CARGO_HOME DBUS_SESSION_BUS_ADDRESS DISPLAY GOBIN GOPATH PERL5LIB PERL5OPT PERLPREFIX PERL_CORE PERL_MB_OPT PERL_MM_OPT XAUTHORITY XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_RUNTIME_DIR"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): FCFLAGS="-O2 -pipe"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs config-protect-if-modified distlocks ebuild-locks fixlafiles ipc-sandbox merge-sync multilib-strict network-sandbox news parallel-fetch pid-sandbox preserve-libs protect-owned qa-unresolved-soname-deps sfperms strict unknown-features-warn unmerge-logs unmerge-orphans userfetch userpriv usersync xattr"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): FFLAGS="-O2 -pipe"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): GENTOO_MIRRORS="http://distfiles.gentoo.org"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): LANG="C.UTF8"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): MAKEOPTS="-j12"
+2022-03-07 11:15:29,159 - 12b1cf (stdout): PKGDIR="/var/cache/binpkgs"
+2022-03-07 11:15:29,160 - 12b1cf (stdout): PORTAGE_CONFIGROOT="/"
+2022-03-07 11:15:29,160 - 12b1cf (stdout): PORTAGE_RSYNC_OPTS="--recursive --links --safe-links --perms --times --omit-dir-times --compress --force --whole-file --delete --stats --human-readable --timeout=180 --exclude=/distfiles --exclude=/local --exclude=/packages --exclude=/.git"
+2022-03-07 11:15:29,160 - 12b1cf (stdout): PORTAGE_TMPDIR="/var/tmp"
+2022-03-07 11:15:29,160 - 12b1cf (stdout): USE="acl amd64 bzip2 cli crypt dri fortran gdbm iconv ipv6 libglvnd libtirpc multilib ncurses nls nptl openmp pam pcre readline seccomp split-usr ssl unicode xattr zlib" ABI_X86="64" ADA_TARGET="gnat_2020" APACHE2_MODULES="authn_core authz_core socache_shmcb unixd actions alias auth_basic authn_alias authn_anon authn_dbm authn_default authn_file authz_dbm authz_default authz_groupfile authz_host authz_owner authz_user autoindex cache cgi cgid dav dav_fs dav_lock deflate dir disk_cache env expires ext_filter file_cache filter headers include info log_config logio mem_cache mime mime_magic negotiation rewrite setenvif speling status unique_id userdir usertrack vhost_alias" CALLIGRA_FEATURES="karbon sheets words" COLLECTD_PLUGINS="df interface irq load memory rrdtool swap syslog" CPU_FLAGS_X86="mmx mmxext sse sse2" ELIBC="glibc" GPSD_PROTOCOLS="ashtech aivdm earthmate evermore fv18 garmin garmintxt gpsclock greis isync itrax mtk3301 nmea ntrip navcom oceanserver oldstyle oncore rtcm104v2 rtcm104v3 sirf skytraq superstar2 timing tsip tripmate tnt ublox ubx" INPUT_DEVICES="libinput" KERNEL="linux" LCD_DEVICES="bayrad cfontz cfontz633 glk hd44780 lb216 lcdm001 mtxorb ncurses text" LIBREOFFICE_EXTENSIONS="presenter-console presenter-minimizer" LUA_SINGLE_TARGET="lua5-1" LUA_TARGETS="lua5-1" OFFICE_IMPLEMENTATION="libreoffice" PHP_TARGETS="php7-4 php8-0" POSTGRES_TARGETS="postgres12 postgres13" PYTHON_SINGLE_TARGET="python3_9" PYTHON_TARGETS="python3_9" RUBY_TARGETS="ruby26 ruby27" USERLAND="GNU" VIDEO_CARDS="amdgpu fbdev intel nouveau radeon radeonsi vesa dummy v4l" XTABLES_ADDONS="quota2 psd pknock lscan length2 ipv4options ipset ipp2p iface geoip fuzzy condition tee tarpit sysrq proto steal rawnat logmark ipmark dhcpmac delude chaos account"
+2022-03-07 11:15:29,160 - 12b1cf (stdout): Unset:  ADDR2LINE, AR, ARFLAGS, AS, ASFLAGS, CC, CCLD, CONFIG_SHELL, CPP, CPPFLAGS, CTARGET, CXX, CXXFILT, ELFEDIT, EMERGE_DEFAULT_OPTS, EXTRA_ECONF, F77FLAGS, FC, GCOV, GPROF, INSTALL_MASK, LC_ALL, LD, LEX, LFLAGS, LIBTOOL, LINGUAS, MAKE, MAKEFLAGS, NM, OBJCOPY, OBJDUMP, PORTAGE_BINHOST, PORTAGE_BUNZIP2_COMMAND, PORTAGE_COMPRESS, PORTAGE_COMPRESS_FLAGS, PORTAGE_RSYNC_EXTRA_OPTS, RANLIB, READELF, RUSTFLAGS, SHELL, SIZE, STRINGS, STRIP, YACC, YFLAGS
+2022-03-07 11:15:29,160 - 12b1cf (stdout): 
+2022-03-07 11:15:29,339 - 12b1cf qlop
+2022-03-07 11:15:29,904 - 12b1cf (stderr): qlop: Could not open logfile '/var/log/emerge.log': No such file or directory
+2022-03-07 11:15:29,967 - created container 12b1cf639416a7a30e339c87558d453bc0931eaa81fb0bf4d24a670413bfadfb
+2022-03-07 11:15:29,967 - running interactive shell in container
+2022-03-07 13:00:45,003 - creating container
+2022-03-07 13:00:45,017 - creating docker container with: docker create --tty --cap-add CAP_SYS_ADMIN --cap-add CAP_MKNOD --cap-add CAP_NET_ADMIN --security-opt apparmor:unconfined --device /dev/fuse --workdir /root --volume /home/flo/repos/gentoo/gentoo:/var/db/repos/gentoo --volume /home/flo/repos/gentoo/gentoo/distfiles:/var/cache/distfiles --volume /home/flo/repos/gentoo/gentoo/packages:/var/cache/binpkgs --volume=/home/flo/repos/gentoo/flow:/var/lib/overlays/flow gentoo/stage3
+2022-03-07 13:00:47,369 - container id b4d2133242f9c098d9031afa9fb8b42ca76c79c11ccc4761ae70b8e28b3471b0
+2022-03-07 13:00:53,059 - setting Gentoo profile to default/linux/amd64/17.1
+2022-03-07 13:00:53,060 - b4d213 eselect profile set default/linux/amd64/17.1
+2022-03-07 13:00:55,932 - no global USE flags given, skipping
+2022-03-07 13:00:55,932 - tweaking portage settings
+2022-03-07 13:00:55,932 - b4d213 echo FEATURES=\"-sandbox -usersandbox\" >> /etc/portage/make.conf
+2022-03-07 13:00:56,251 - b4d213 echo MAKEOPTS=\"-j12\" >> /etc/portage/make.conf
+2022-03-07 13:00:56,767 - b4d213 echo ACCEPT_KEYWORDS=\"~amd64\" >> /etc/portage/make.conf
+2022-03-07 13:00:57,093 - b4d213 mkdir -p /etc/portage/repos.conf && echo -e "[flow]\nlocation = /var/lib/overlays/flow\nmaster = gentoo" >> /etc/portage/repos.conf/overlays.conf
+2022-03-07 13:00:57,446 - enabling test feature for [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 13:00:57,446 - b4d213 mkdir -p /etc/portage/env
+2022-03-07 13:00:57,705 - b4d213 echo "=net-analyzer/zabbix-6.0.0 tester.conf" >> /etc/portage/package.env
+2022-03-07 13:00:57,810 - b4d213 echo "FEATURES=\"test splitdebug\"" > /etc/portage/env/tester.conf
+2022-03-07 13:00:57,991 - unmasking [Atom("=net-analyzer/zabbix-6.0.0")]
+2022-03-07 13:00:57,991 - b4d213 mkdir -p /etc/portage/package.accept_keywords
+2022-03-07 13:00:58,233 - b4d213 echo "=net-analyzer/zabbix-6.0.0" ~amd64 >> /etc/portage/package.accept_keywords/testbuild
+2022-03-07 13:00:58,568 - unmasking additional atoms
+2022-03-07 13:00:58,568 - skipping update
+2022-03-07 13:00:58,568 - skipping basic packages
+2022-03-07 13:00:58,568 - setting gcc
+2022-03-07 13:00:58,569 - summary
+2022-03-07 13:00:58,569 - b4d213 if [[ -d /etc/portage/package.accept_keywords ]]; then cat /etc/portage/package.accept_keywords/*; fi
+2022-03-07 13:00:58,763 - b4d213 (stdout): =net-analyzer/zabbix-6.0.0 ~amd64
+2022-03-07 13:00:58,815 - b4d213 if [[ -f /etc/portage/package.use/testbuild ]]; then cat /etc/portage/package.use/testbuild; fi
+2022-03-07 13:00:59,215 - b4d213 emerge --info
+2022-03-07 13:01:01,622 - b4d213 (stdout): Portage 3.0.28 (python 3.9.9-final-0, default/linux/amd64/17.1, gcc-11.2.0, glibc-2.33-r7, 5.15.25-gentoo-dist x86_64)
+2022-03-07 13:01:01,622 - b4d213 (stdout): =================================================================
+2022-03-07 13:01:01,622 - b4d213 (stdout): System uname: Linux-5.15.25-gentoo-dist-x86_64-Intel-R-_Core-TM-_i7-8700_CPU_@_3.20GHz-with-glibc2.33
+2022-03-07 13:01:01,622 - b4d213 (stdout): KiB Mem:    32551588 total,    503416 free
+2022-03-07 13:01:01,622 - b4d213 (stdout): KiB Swap:   20963316 total,  18210592 free
+2022-03-07 13:01:01,622 - b4d213 (stdout): sh bash 5.1_p8
+2022-03-07 13:01:01,622 - b4d213 (stdout): ld GNU ld (Gentoo 2.37_p1 p0) 2.37
+2022-03-07 13:01:01,623 - b4d213 (stdout): app-misc/pax-utils:        1.3.3::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): app-shells/bash:           5.1_p8::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): dev-lang/perl:             5.34.0-r6::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): dev-lang/python:           3.9.9-r1::gentoo, 3.10.0_p1-r1::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): dev-util/meson:            0.59.4::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-apps/baselayout:       2.7-r3::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-apps/openrc:           0.44.10::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-apps/sandbox:          2.25::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/autoconf:        2.71-r1::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/automake:        1.16.4::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/binutils:        2.37_p1::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/binutils-config: 5.4::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/gcc:             11.2.0::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/gcc-config:      2.5-r1::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/libtool:         2.4.6-r6::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-devel/make:            4.3::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-kernel/linux-headers:  5.15-r3::gentoo (virtual/os-headers)
+2022-03-07 13:01:01,623 - b4d213 (stdout): sys-libs/glibc:            2.33-r7::gentoo
+2022-03-07 13:01:01,623 - b4d213 (stdout): Repositories:
+2022-03-07 13:01:01,623 - b4d213 (stdout): 
+2022-03-07 13:01:01,624 - b4d213 (stdout): gentoo
+2022-03-07 13:01:01,624 - b4d213 (stdout):     location: /var/db/repos/gentoo
+2022-03-07 13:01:01,624 - b4d213 (stdout):     sync-type: rsync
+2022-03-07 13:01:01,624 - b4d213 (stdout):     sync-uri: rsync://rsync.gentoo.org/gentoo-portage
+2022-03-07 13:01:01,624 - b4d213 (stdout):     priority: -1000
+2022-03-07 13:01:01,624 - b4d213 (stdout):     sync-rsync-extra-opts:
+2022-03-07 13:01:01,624 - b4d213 (stdout):     sync-rsync-verify-metamanifest: yes
+2022-03-07 13:01:01,624 - b4d213 (stdout):     sync-rsync-verify-max-age: 24
+2022-03-07 13:01:01,624 - b4d213 (stdout):     sync-rsync-verify-jobs: 1
+2022-03-07 13:01:01,624 - b4d213 (stdout): 
+2022-03-07 13:01:01,624 - b4d213 (stdout): flow
+2022-03-07 13:01:01,624 - b4d213 (stdout):     location: /var/lib/overlays/flow
+2022-03-07 13:01:01,624 - b4d213 (stdout):     masters: gentoo
+2022-03-07 13:01:01,624 - b4d213 (stdout): 
+2022-03-07 13:01:01,624 - b4d213 (stdout): ACCEPT_KEYWORDS="amd64 ~amd64"
+2022-03-07 13:01:01,624 - b4d213 (stdout): ACCEPT_LICENSE="@FREE"
+2022-03-07 13:01:01,624 - b4d213 (stdout): CBUILD="x86_64-pc-linux-gnu"
+2022-03-07 13:01:01,624 - b4d213 (stdout): CFLAGS="-O2 -pipe"
+2022-03-07 13:01:01,624 - b4d213 (stdout): CHOST="x86_64-pc-linux-gnu"
+2022-03-07 13:01:01,624 - b4d213 (stdout): CONFIG_PROTECT="/etc /usr/share/gnupg/qualified.txt"
+2022-03-07 13:01:01,624 - b4d213 (stdout): CONFIG_PROTECT_MASK="/etc/ca-certificates.conf /etc/env.d /etc/gconf /etc/gentoo-release /etc/sandbox.d /etc/terminfo"
+2022-03-07 13:01:01,625 - b4d213 (stdout): CXXFLAGS="-O2 -pipe"
+2022-03-07 13:01:01,625 - b4d213 (stdout): DISTDIR="/var/cache/distfiles"
+2022-03-07 13:01:01,625 - b4d213 (stdout): ENV_UNSET="CARGO_HOME DBUS_SESSION_BUS_ADDRESS DISPLAY GOBIN GOPATH PERL5LIB PERL5OPT PERLPREFIX PERL_CORE PERL_MB_OPT PERL_MM_OPT XAUTHORITY XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_RUNTIME_DIR"
+2022-03-07 13:01:01,625 - b4d213 (stdout): FCFLAGS="-O2 -pipe"
+2022-03-07 13:01:01,625 - b4d213 (stdout): FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs config-protect-if-modified distlocks ebuild-locks fixlafiles ipc-sandbox merge-sync multilib-strict network-sandbox news parallel-fetch pid-sandbox preserve-libs protect-owned qa-unresolved-soname-deps sfperms strict unknown-features-warn unmerge-logs unmerge-orphans userfetch userpriv usersync xattr"
+2022-03-07 13:01:01,625 - b4d213 (stdout): FFLAGS="-O2 -pipe"
+2022-03-07 13:01:01,625 - b4d213 (stdout): GENTOO_MIRRORS="http://distfiles.gentoo.org"
+2022-03-07 13:01:01,625 - b4d213 (stdout): LANG="C.UTF8"
+2022-03-07 13:01:01,625 - b4d213 (stdout): LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+2022-03-07 13:01:01,625 - b4d213 (stdout): MAKEOPTS="-j12"
+2022-03-07 13:01:01,625 - b4d213 (stdout): PKGDIR="/var/cache/binpkgs"
+2022-03-07 13:01:01,625 - b4d213 (stdout): PORTAGE_CONFIGROOT="/"
+2022-03-07 13:01:01,625 - b4d213 (stdout): PORTAGE_RSYNC_OPTS="--recursive --links --safe-links --perms --times --omit-dir-times --compress --force --whole-file --delete --stats --human-readable --timeout=180 --exclude=/distfiles --exclude=/local --exclude=/packages --exclude=/.git"
+2022-03-07 13:01:01,625 - b4d213 (stdout): PORTAGE_TMPDIR="/var/tmp"
+2022-03-07 13:01:01,625 - b4d213 (stdout): USE="acl amd64 bzip2 cli crypt dri fortran gdbm iconv ipv6 libglvnd libtirpc multilib ncurses nls nptl openmp pam pcre readline seccomp split-usr ssl unicode xattr zlib" ABI_X86="64" ADA_TARGET="gnat_2020" APACHE2_MODULES="authn_core authz_core socache_shmcb unixd actions alias auth_basic authn_alias authn_anon authn_dbm authn_default authn_file authz_dbm authz_default authz_groupfile authz_host authz_owner authz_user autoindex cache cgi cgid dav dav_fs dav_lock deflate dir disk_cache env expires ext_filter file_cache filter headers include info log_config logio mem_cache mime mime_magic negotiation rewrite setenvif speling status unique_id userdir usertrack vhost_alias" CALLIGRA_FEATURES="karbon sheets words" COLLECTD_PLUGINS="df interface irq load memory rrdtool swap syslog" CPU_FLAGS_X86="mmx mmxext sse sse2" ELIBC="glibc" GPSD_PROTOCOLS="ashtech aivdm earthmate evermore fv18 garmin garmintxt gpsclock greis isync itrax mtk3301 nmea ntrip navcom oceanserver oldstyle oncore rtcm104v2 rtcm104v3 sirf skytraq superstar2 timing tsip tripmate tnt ublox ubx" INPUT_DEVICES="libinput" KERNEL="linux" LCD_DEVICES="bayrad cfontz cfontz633 glk hd44780 lb216 lcdm001 mtxorb ncurses text" LIBREOFFICE_EXTENSIONS="presenter-console presenter-minimizer" LUA_SINGLE_TARGET="lua5-1" LUA_TARGETS="lua5-1" OFFICE_IMPLEMENTATION="libreoffice" PHP_TARGETS="php7-4 php8-0" POSTGRES_TARGETS="postgres12 postgres13" PYTHON_SINGLE_TARGET="python3_9" PYTHON_TARGETS="python3_9" RUBY_TARGETS="ruby26 ruby27" USERLAND="GNU" VIDEO_CARDS="amdgpu fbdev intel nouveau radeon radeonsi vesa dummy v4l" XTABLES_ADDONS="quota2 psd pknock lscan length2 ipv4options ipset ipp2p iface geoip fuzzy condition tee tarpit sysrq proto steal rawnat logmark ipmark dhcpmac delude chaos account"
+2022-03-07 13:01:01,625 - b4d213 (stdout): Unset:  ADDR2LINE, AR, ARFLAGS, AS, ASFLAGS, CC, CCLD, CONFIG_SHELL, CPP, CPPFLAGS, CTARGET, CXX, CXXFILT, ELFEDIT, EMERGE_DEFAULT_OPTS, EXTRA_ECONF, F77FLAGS, FC, GCOV, GPROF, INSTALL_MASK, LC_ALL, LD, LEX, LFLAGS, LIBTOOL, LINGUAS, MAKE, MAKEFLAGS, NM, OBJCOPY, OBJDUMP, PORTAGE_BINHOST, PORTAGE_BUNZIP2_COMMAND, PORTAGE_COMPRESS, PORTAGE_COMPRESS_FLAGS, PORTAGE_RSYNC_EXTRA_OPTS, RANLIB, READELF, RUSTFLAGS, SHELL, SIZE, STRINGS, STRIP, YACC, YFLAGS
+2022-03-07 13:01:01,625 - b4d213 (stdout): 
+2022-03-07 13:01:01,662 - b4d213 qlop
+2022-03-07 13:01:01,994 - b4d213 (stderr): qlop: Could not open logfile '/var/log/emerge.log': No such file or directory
+2022-03-07 13:01:02,044 - created container b4d2133242f9c098d9031afa9fb8b42ca76c79c11ccc4761ae70b8e28b3471b0
+2022-03-07 13:01:02,045 - running interactive shell in container
