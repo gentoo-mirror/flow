@@ -604,7 +604,7 @@ pkg_postinst() {
 		elog
 
 		if ! use pcre2; then
-			ewarn "You are using zabbix with the deprecated dev-libs/libpcre!"
+			ewarn "You are using zabbix with dev-libs/libpcre which is deprecated."
 			ewarn "Consider switching to dev-libs/libpcre2 (USE=pcre2) as soon as possible."
 			ewarn "See https://www.zabbix.com/documentation/6.0/en/manual/installation/upgrade_notes_600#pcre2-support"
 		fi
