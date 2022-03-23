@@ -1,18 +1,20 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit pam rebar systemd
+inherit pam rebar systemd verify-sig
 
 DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
 SRC_URI="https://static.process-one.net/${PN}/downloads/${PV}/${P}.tgz
-	-> ${P}.tar.gz"
+	-> ${P}.tar.gz
+	verify-sig? ( https://static.process-one.net/${PN}/downloads/${PV}/${P}.tgz.asc -> ${P}.tar.gz.asc )"
+VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/process-one.net.asc
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ia64 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~ia64 ~sparc ~x86"
 REQUIRED_USE="mssql? ( odbc )"
 # TODO: Add 'tools' flag.
 IUSE="captcha debug full-xml ldap mssql mysql odbc pam postgres redis
@@ -25,44 +27,46 @@ RESTRICT="test"
 # TODO:		>=dev-erlang/luerl-0.3
 # TODO: )
 DEPEND=">=dev-lang/erlang-19.3[odbc?,ssl]
-	>=dev-erlang/cache_tab-1.0.28
-	>=dev-erlang/eimp-1.0.20
-	>=dev-erlang/fast_tls-1.1.12
-	>=dev-erlang/fast_xml-1.1.46
-	>=dev-erlang/fast_yaml-1.0.31
-	>=dev-erlang/yconf-1.0.11
+	>=dev-erlang/cache_tab-1.0.29
+	>=dev-erlang/eimp-1.0.21
+	>=dev-erlang/fast_tls-1.1.13
+	>=dev-erlang/fast_xml-1.1.48
+	>=dev-erlang/fast_yaml-1.0.32
+	>=dev-erlang/yconf-1.0.12
 	>=dev-erlang/jiffy-1.0.5
-	>=dev-erlang/jose-1.9.0
-	>=dev-erlang/lager-3.6.10
-	>=dev-erlang/p1_oauth2-0.6.9
-	>=dev-erlang/p1_utils-1.0.22
-	>=dev-erlang/stringprep-1.0.25
-	>=dev-erlang/xmpp-1.5.3
-	>=dev-erlang/pkix-1.0.7
-	>=dev-erlang/mqtree-1.0.13
+	>=dev-erlang/jose-1.11.2
+	>=dev-erlang/lager-3.9.1
+	>=dev-erlang/p1_oauth2-0.6.10
+	>=dev-erlang/p1_utils-1.0.23
+	>=dev-erlang/stringprep-1.0.27
+	>=dev-erlang/xmpp-1.5.6
+	>=dev-erlang/pkix-1.0.8
+	>=dev-erlang/mqtree-1.0.14
 	>=dev-erlang/idna-6.0.0-r1
-	>=dev-erlang/p1_acme-1.0.12
+	>=dev-erlang/p1_acme-1.0.16
 	>=dev-erlang/base64url-1.0.1
-	>=net-im/jabber-base-0.01
 	ldap? ( =net-nds/openldap-2* )
-	mysql? ( >=dev-erlang/p1_mysql-1.0.18 )
+	mysql? ( >=dev-erlang/p1_mysql-1.0.19 )
 	odbc? ( dev-db/unixODBC )
-	pam? ( >=dev-erlang/epam-1.0.10 )
-	postgres? ( >=dev-erlang/p1_pgsql-1.1.11 )
-	redis? ( >=dev-erlang/eredis-1.0.8 )
-	sip? ( >=dev-erlang/esip-1.0.42 )
-	sqlite? ( >=dev-erlang/sqlite3-1.1.12 )
-	stun? ( >=dev-erlang/stun-1.0.43 )
-	zlib? ( >=dev-erlang/ezlib-1.0.9 )"
+	pam? ( >=dev-erlang/epam-1.0.12 )
+	postgres? ( >=dev-erlang/p1_pgsql-1.1.16 )
+	redis? ( >=dev-erlang/eredis-1.2.0 )
+	sip? ( >=dev-erlang/esip-1.0.45 )
+	sqlite? ( >=dev-erlang/sqlite3-1.1.13 )
+	stun? ( >=dev-erlang/stun-1.0.47 )
+	zlib? ( >=dev-erlang/ezlib-1.0.10 )"
 RDEPEND="${DEPEND}
 	acct-user/ejabberd
 	captcha? ( media-gfx/imagemagick[truetype,png] )
 	selinux? ( sec-policy/selinux-jabber )
 "
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-processone )"
 
 DOCS=( CHANGELOG.md README.md )
-PATCHES=( "${FILESDIR}/${PN}-19.08-ejabberdctl.patch"
-	"${FILESDIR}/${PN}-17.04-0002-Dont-overwrite-service-file.patch")
+PATCHES=(
+	"${FILESDIR}/${PN}-19.08-ejabberdctl.patch"
+	"${FILESDIR}/adjust-ejabberd.service.template-to-Gentoo.patch"
+)
 
 # Set paths to ejabberd lib directory consistently to point always to directory
 # suffixed with version.
@@ -97,22 +101,11 @@ get_ejabberd_path() {
 	echo "/usr/$(get_libdir)/${P}"
 }
 
-# Make ejabberd.service for systemd from upstream provided template.
-make_ejabberd_service() {
-	sed -r \
-		-e 's!@ctlscriptpath@!/usr/sbin!g' \
-		-e 's!^(After)=(.*)!\1=epmd.service network.target!' \
-		-e '/^After=/ a Requires=epmd.service' \
-		"${PN}.service.template" >"${PN}.service" \
-		|| die 'failed to make ejabberd.service'
-}
-
 src_prepare() {
 	default
 
 	rebar_remove_deps
 	correct_ejabberd_paths
-	make_ejabberd_service
 	customize_epam_wrapper "${FILESDIR}/epam-wrapper"
 
 	rebar_fix_include_path fast_xml
@@ -173,11 +166,6 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}.logrotate" "${PN}"
 
-	# /var/lock/ejabberdctl is unused, see
-	# https://github.com/processone/ejabberd/pull/3724
-	rmdir "${ED}/var/lock/ejabberdctl" || die
-	rmdir "${ED}/var/lock" || die
-
 	keepdir /var/{lib,log}/ejabberd
 }
 
@@ -195,7 +183,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	local migrate_to_etc_ejabberd=false
+	local migrate_to_ejabberd_user=false
 
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		echo
@@ -205,7 +193,7 @@ pkg_postinst() {
 	else
 		for v in ${REPLACING_VERSIONS}; do
 			if ver_test "${v}" -lt 21.04-r1; then
-				migrate_to_etc_ejabberd=true
+				migrate_to_ejabberd_user=true
 				break
 			fi
 		done
@@ -217,17 +205,31 @@ pkg_postinst() {
 	# under the, shared via net-im/jabber-base, 'jabber' use, but under
 	# its own user. This increase isolation and hence robustness and
 	# security.
-	if $migrate_to_etc_ejabberd; then
-		cp -r "${EROOT}"/etc/jabber/. "${EROOT}"/etc/ejabberd || die
-		if [[ -f "${EROOT}"/etc/ejabberd/.keep_net-im_jabber-base-0 ]]; then
-			rm "${EROOT}"/etc/ejabberd/.keep_net-im_jabber-base-0 || die
-		fi
-		if ! use prefix; then
-			chown --recursive ejabberd:ejabberd "${EROOT}"/etc/ejabberd || die
-		fi
-		elog "Newer versions of the ejabberd Gentoo package use /etc/ejabberd"
-		elog "(just as upstream) and *not* /etc/ejabber."
-		elog "The files from /etc/jabber where copied to /etc/ejabberd."
-		elog "Please check your configuration and delete the file in /etc/jabber."
+	if $migrate_to_ejabberd_user; then
+		ewarn "Newer versions of the ejabberd Gentoo package use /etc/ejabberd"
+		ewarn "(just as upstream) and *not* /etc/jabber."
+		ewarn "The files from /etc/jabber will now be copied to /etc/ejabberd."
+		ewarn "Also ejabberd's spool directory became /var/lib/ejabberd (was /var/spool/jabber)."
+		ewarn "Please check your configuration, and finish the migration by stopping ejabberd"
+		ewarn "followed by rsync'ing /var/spool/jabber to /var/lib/ejabberd."
+
+		local -A dirs_to_migrate=(
+			[/etc/jabber]=/etc/ejabberd
+			[/var/spool/jabber]=/var/lib/ejabberd
+		)
+
+		for src_dir in "${!dirs_to_migrate[@]}"; do
+			local eroot_src_dir="${EROOT}${src_dir}"
+			local eroot_dst_dir="${EROOT}${dirs_to_migrate[${src_dir}]}"
+
+			cp -r "${eroot_src_dir}"/. "${eroot_dst_dir}" || die "Could not copy ${eroot_src_dir} to ${eroot_dst_dir}"
+
+			if [[ -f "${eroot_dst_dir}"/.keep_net-im_jabber-base-0 ]]; then
+				rm "${eroot_dst_dir}"/.keep_net-im_jabber-base-0 || die
+			fi
+			if ! use prefix; then
+				chown --recursive ejabberd:ejabberd "${eroot_dst_dir}" || die
+			fi
+		done
 	fi
 }
