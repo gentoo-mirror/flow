@@ -10,5 +10,5 @@ LICENSE=LPPL-1.3c
 PROPERTIES=live
 RDEPEND=virtual/latex-base
 SLOT=0
-_eclasses_=latex-package	e5f296c98696dd02059bc6a5a03282e2	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=latex-package	223c086dd062dba43b89726880f9f0c2	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=3ed9f2ba8394fab06fcb0f905f71b1b4

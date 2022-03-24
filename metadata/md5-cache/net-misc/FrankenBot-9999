@@ -9,5 +9,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=acct-user/frankenbot app-eselect/eselect-FrankenBot >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
 SLOT=9999
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd
 _md5_=be7945fd11d50ebf6c2a38e7d8070db9
