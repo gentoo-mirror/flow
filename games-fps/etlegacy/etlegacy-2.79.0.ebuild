@@ -60,7 +60,7 @@ UIDEPEND="
 "
 
 DEPEND="
-	 dev-db/sqlite:3
+	dev-db/sqlite:3
 	opengl? ( ${UIDEPEND} )
 "
 
