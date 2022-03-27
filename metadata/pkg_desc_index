@@ -75,7 +75,7 @@ dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
 dev-util/ebuild-commander 0.1.0 9999: Test ebuilds with fine-grained control in stage3 Docker containers
 dev-util/gitlab-runner 13.12.0: GitLab Runner
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
-games-fps/etlegacy 2.78.1 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
+games-fps/etlegacy 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Management Platform
