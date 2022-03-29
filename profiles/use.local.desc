@@ -31,7 +31,6 @@ dev-java/openjdk:systemtap - Enable SystemTAP/DTrace tracing
 dev-java/openjdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-bin:source - Install JVM sources
-dev-util/gitlab-runner:docker - Add support for docker executors
 net-analyzer/zabbix:agent - Enable zabbix agent (for to-be-monitored machines)
 net-analyzer/zabbix:agent2 - Enable go-based zabbix agent 2 (for to-be-monitored machines)
 net-analyzer/zabbix:frontend - Enable zabbix web frontend
