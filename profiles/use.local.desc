@@ -57,9 +57,6 @@ net-im/ejabberd:sip - Enable SIP support
 net-im/ejabberd:sqlite - Enable SQLite database support
 net-im/ejabberd:stun - Enable STUN/TURN support
 net-im/ejabberd:zlib - Enable Stream Compression (XEP-0138) using zlib
-net-misc/nextcloud-client:dolphin - Install the kde-apps/dolphin extension
-net-misc/nextcloud-client:nautilus - Install the gnome-base/nautilus extension
-net-misc/nextcloud-client:webengine - Enable old Flow1 login using dev-qt/qtwebengine
 net-wireless/bluez:btpclient - Enable BTP client
 net-wireless/bluez:deprecated - Build deprecated plugins
 net-wireless/bluez:experimental - Build experimental plugins
