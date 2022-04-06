@@ -1,0 +1,71 @@
+From 7d6e842523657f5470650fa2498ad8ab94edffed Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Wed, 6 Apr 2022 11:09:05 +0200
+Subject: [PATCH] Add --without-man configure switch
+
+---
+ configure | 11 +++++++++++
+ install   |  4 ++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/configure b/configure
+index 24a77534043a..31d166e3cd90 100755
+--- a/configure
++++ b/configure
+@@ -43,6 +43,7 @@ Optional features:
+   --without-readline            Don't compile with readline, even if it's available.
+                                 The shell won't have any interactive features.
+   --readline=DIR                An alternative readline installation to link against
++  --without-man                 Don't install man page.
+ EOF
+ }
+ 
+@@ -62,6 +63,7 @@ FLAG_datarootdir=''  # default initialized after processing flags
+ FLAG_with_readline=''  # Fail if it's not available.
+ FLAG_without_readline=''  # Don't even check if it's available
+ FLAG_readline=''
++FLAG_without_man='' # Don't install man page
+ 
+ while true; do
+   case "$1" in
+@@ -93,6 +95,9 @@ while true; do
+       FLAG_readline=$1
+       ;;
+ 
++    --without-man)
++      FLAG_without_man=1
++      ;;
+     # TODO: Maybe prefix only needs to be part of the install step?  I'm not
+     # sure if we need it for building anything.
+     --prefix=*)
+@@ -229,6 +234,12 @@ detect_and_echo_vars() {
+   else
+     detect_readline
+   fi
++  if test  "$FLAG_without_man" = 1; then
++      echo 'INSTALL_MAN=false'
++  else
++      echo 'INSTALL_MAN=true'
++  fi
++
+   echo "PREFIX=$FLAG_prefix"
+   echo "DATAROOTDIR=$FLAG_datarootdir"
+ }
+diff --git a/install b/install
+index 37dbe60b42c6..3b77fd97c5b6 100755
+--- a/install
++++ b/install
+@@ -68,6 +68,10 @@ main() {
+   # https://unix.stackexchange.com/questions/90759/where-should-i-install-manual-pages-in-user-directory
+   # https://www.freebsd.org/cgi/man.cgi?query=install
+ 
++  if ! $INSTALL_MAN; then
++    return
++  fi
++
+   cd "$working_dir"
+ 
+   # e.g. /usr/local/share/man/man1
+-- 
+2.35.1
+
