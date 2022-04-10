@@ -79,6 +79,7 @@ net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Managemen
 net-analyzer/zabbix 5.4.10 6.0.1: ZABBIX is software for monitoring of your applications, network and servers
 net-im/ejabberd 21.12-r1: Robust, scalable and extensible XMPP server
 net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
+net-im/poezio 0.14 9999: Console XMPP client that looks like most famous IRC clients
 net-im/swift 9999: Your friendly chat client
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-misc/electrumx 1.17.0 9999: A server for the Electrum wallet
