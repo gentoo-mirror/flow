@@ -51,6 +51,14 @@ src_compile() {
 	fi
 }
 
+# Poezio provides its own Python C extension 'poopt', which needs to be
+# correctly discovered to run the tests. See
+# https://projects.gentoo.org/python/guide/test.html#importerrors-for-c-extensions
+python_test() {
+	cd "${T}" || die
+	epytest "${S}"/test
+}
+
 src_install() {
 	distutils-r1_src_install
 
