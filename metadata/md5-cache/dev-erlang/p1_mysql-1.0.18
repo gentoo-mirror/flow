@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare test
-DEPEND=>=dev-lang/erlang-17.1 dev-lang/erlang:= dev-util/rebar >=sys-apps/gawk-4.1
+DEPEND=>=dev-lang/erlang-17.1 dev-lang/erlang:= dev-util/rebar:0 >=sys-apps/gawk-4.1
 DESCRIPTION=Pure Erlang MySQL driver
 EAPI=6
 HOMEPAGE=https://github.com/processone/p1_mysql
@@ -9,5 +9,5 @@ LICENSE=BSD
 RDEPEND=>=dev-lang/erlang-17.1 dev-lang/erlang:=
 SLOT=0
 SRC_URI=https://github.com/processone/p1_mysql/archive/1.0.18.tar.gz -> p1_mysql-1.0.18.tar.gz
-_eclasses_=rebar	9efb776e4b779efc1acbe62dc79366a2
+_eclasses_=rebar	e04a9d90bccd71576da0b8031f1faa58
 _md5_=ae58c6fd8cc9e4bcce006d18d9dede89
