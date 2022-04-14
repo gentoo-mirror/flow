@@ -16,6 +16,7 @@ app-doc/all-about-monads 1.1.0-r1: A comprehensive guide to the theory and pract
 app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
 app-editors/emacs 26.3-r2: The extensible, customizable, self-documenting real-time display editor
 app-emacs/emacs-systemd-user-service 0.2: Support for Emacs daemon using a systemd user service
+app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
 app-emulation/halvm 9999: The Haskell Lightweight Virtual Machine (HaLVM)
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
