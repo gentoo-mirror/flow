@@ -10,7 +10,7 @@ HOMEPAGE="https://get-coursier.io/"
 SRC_URI="https://github.com/coursier/coursier/releases/download/v${ORIG_PV}/cs-x86_64-pc-linux.gz -> ${P}.gz"
 
 KEYWORDS="~amd64"
-LICENSE="MIT"
+LICENSE="Apache-2.0"
 SLOT="0"
 
 S="${WORKDIR}"
