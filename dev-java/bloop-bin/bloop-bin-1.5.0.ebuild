@@ -22,6 +22,7 @@ S="${WORKDIR}"
 
 RDEPEND="sys-libs/zlib"
 
+QA_FLAGS_IGNORED="usr/bin/bloop"
 QA_TEXTRELS="usr/bin/bloop"
 
 src_unpack() {
