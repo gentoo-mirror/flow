@@ -22,6 +22,7 @@ S="${WORKDIR}"
 
 RDEPEND="sys-libs/zlib"
 
+QA_FLAGS_IGNORED="usr/bin/bloop"
 QA_TEXTRELS="usr/bin/bloop"
 
 src_unpack() {
@@ -33,7 +34,7 @@ src_install() {
 
 	systemd_douserunit "${FILESDIR}"/bloop.service
 
-	dobashcomp "${DISTDIR}"/${P}-bash-completions
+	newbashcomp "${DISTDIR}"/${P}-bash-completions bloop
 
 	insinto /usr/share/fish/vendor_completions.d
 	newins "${DISTDIR}"/${P}-fish-completions bloop.fish

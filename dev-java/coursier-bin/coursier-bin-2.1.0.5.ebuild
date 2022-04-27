@@ -17,6 +17,7 @@ S="${WORKDIR}"
 
 RDEPEND="sys-libs/zlib"
 
+QA_FLAGS_IGNORED="usr/bin/cs"
 QA_TEXTRELS="usr/bin/cs"
 
 src_install() {
