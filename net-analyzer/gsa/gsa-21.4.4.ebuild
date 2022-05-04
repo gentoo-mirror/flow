@@ -22,7 +22,7 @@ BDEPEND="
 	>=sys-apps/yarn-1.15.2
 "
 
-MY_NODE_DIR="${S}/${MY_MY_NODE_N}/"
+MY_NODE_DIR="${S}/${MY_NODE_N}/"
 
 src_prepare() {
 	default
@@ -32,10 +32,10 @@ src_prepare() {
 
 src_compile() {
 	# setting correct PATH for finding react-js
-	NODE_ENV=production PATH="$PATH:${MY_NODE_DIR}/.bin/" yarn --offline build
+	NODE_ENV=production PATH="${PATH}:${MY_NODE_DIR}/.bin/" yarn --offline build || die
 }
 
 src_install() {
-	dodir /usr/share/gvm/gsad/web
-	cp -r "${S}"/build/* "${ED}/usr/share/gvm/gsad/web" || die
+	insinto "usr/share/gvm/gsad/web"
+	doins -r build/*
 }
