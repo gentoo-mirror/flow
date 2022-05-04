@@ -59,6 +59,9 @@ src_prepare() {
 		   done
 		fi
 	fi
+
+	# Do not install the empty /run/gsad run dir.
+	sed -i "/^install.*GSAD_RUN_DIR/d" CMakeLists.txt || die
 }
 
 src_configure() {
@@ -66,8 +69,7 @@ src_configure() {
 		"-DLOCALSTATEDIR=${EPREFIX}/var"
 		"-DSYSCONFDIR=${EPREFIX}/etc"
 		"-DSBINDIR=${EPREFIX}/usr/bin"
-		"-DGSAD_PID_DIR=${EPREFIX}/run/"
-		"-DDEFAULT_CONFIG_DIR=${EPREFIX}/etc/default"
+		"-DSYSTEMD_SERVICE_DIR=$(systemd_get_systemunitdir)"
 		"-DLOGROTATE_DIR=${EPREFIX}/etc/logrotate.d"
 	)
 	cmake_src_configure
@@ -94,9 +96,4 @@ src_install() {
 
 	newinitd "${FILESDIR}/${PN}.init" "${PN}"
 	newconfd "${FILESDIR}/${PN}-daemon.conf" "${PN}"
-
-	insinto /etc/logrotate.d
-	newins "${FILESDIR}/${PN}.logrotate" "${PN}"
-
-	systemd_dounit "${FILESDIR}/${PN}.service"
 }
