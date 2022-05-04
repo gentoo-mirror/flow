@@ -3,11 +3,10 @@
 
 EAPI=8
 
-CMAKE_MAKEFILE_GENERATOR="emake"
 inherit cmake systemd toolchain-funcs
 
 DESCRIPTION="Greenbone Security Assistant"
-HOMEPAGE="https://www.greenbone.net/en/ https://github.com/greenbone/gsad"
+HOMEPAGE="https://www.greenbone.net https://github.com/greenbone/gsad"
 SRC_URI="https://github.com/greenbone/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
@@ -69,6 +68,7 @@ src_configure() {
 		"-DLOCALSTATEDIR=${EPREFIX}/var"
 		"-DSYSCONFDIR=${EPREFIX}/etc"
 		"-DSBINDIR=${EPREFIX}/usr/bin"
+		"-DGSAD_PID_DIR=/run/gsad"
 		"-DSYSTEMD_SERVICE_DIR=$(systemd_get_systemunitdir)"
 		"-DLOGROTATE_DIR=${EPREFIX}/etc/logrotate.d"
 	)
