@@ -15,7 +15,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 DEPEND="
-	acct-group/gvm
 	acct-user/gvm
 	dev-libs/glib:2
 	dev-libs/libgcrypt:0=
@@ -59,8 +58,11 @@ src_prepare() {
 		fi
 	fi
 
-	# Do not install the empty /run/gsad run dir.
+	# Do not install the empty /run/gsad run dir. https://github.com/greenbone/gsad/pull/54
 	sed -i "/^install.*GSAD_RUN_DIR/d" CMakeLists.txt || die
+
+	# Drop Group= directive. https://github.com/greenbone/gsad/pull/55
+	sed -i "/^Group=/d" config/gsad.service.in || die
 }
 
 src_configure() {
