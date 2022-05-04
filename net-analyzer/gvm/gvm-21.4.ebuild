@@ -6,7 +6,7 @@ EAPI=8
 inherit optfeature
 
 DESCRIPTION="Greenbone Vulnerability Management, previously named OpenVAS"
-HOMEPAGE="https://www.greenbone.net/en/"
+HOMEPAGE="https://www.greenbone.net"
 
 SLOT="0"
 LICENSE="GPL-2"
