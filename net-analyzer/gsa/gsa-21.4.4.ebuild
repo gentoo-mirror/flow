@@ -32,7 +32,8 @@ src_prepare() {
 
 src_compile() {
 	# setting correct PATH for finding react-js
-	NODE_ENV=production PATH="${PATH}:${MY_NODE_DIR}/.bin/" yarn --offline build || die
+	NODE_ENV=production PATH="${PATH}:${MY_NODE_DIR}/.bin/" \
+			yarn --offline build || die
 }
 
 src_install() {
