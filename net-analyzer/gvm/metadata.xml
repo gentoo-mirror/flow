@@ -11,7 +11,6 @@
 	</maintainer>
 	<use>
 		<flag name="cli">Command Line Interface for OpenVAS Scanner</flag>
-		<flag name="cron">A cron job to update GVM's vulnerability feeds daily</flag>
 		<flag name="gsa">Greenbone Security Assistant (WebUI)</flag>
 		<flag name="ospd">Enable support for scanner wrappers</flag>
 	</use>
