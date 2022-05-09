@@ -10,7 +10,7 @@ HOMEPAGE="https://www.greenbone.net https://github.com/greenbone/gsad"
 SRC_URI="https://github.com/greenbone/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
-LICENSE="GPL-2+"
+LICENSE="AGPL-3+"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
