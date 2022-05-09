@@ -9,14 +9,14 @@ DESCRIPTION="Greenbone Vulnerability Management, previously named OpenVAS"
 HOMEPAGE="https://www.greenbone.net"
 
 SLOT="0"
-LICENSE="GPL-2"
+LICENSE="AGPL-3+"
 KEYWORDS="~amd64 ~x86"
-IUSE="cli +cron doc +gsa ldap ospd radius"
+IUSE="cli doc +gsa ldap ospd radius"
 
 RDEPEND="
 	>=net-analyzer/gvm-libs-${PV}[doc?,ldap?,radius?]
 	>=net-analyzer/gvmd-${PV}[doc?]
-	>=net-analyzer/openvas-scanner-${PV}[cron?,doc?]
+	>=net-analyzer/openvas-scanner-${PV}[doc?]
 	cli? ( >=net-analyzer/gvm-tools-21.10.0 )
 	gsa? ( >=net-analyzer/gsad-${PV}[doc?] )
 	ospd? ( >=net-analyzer/ospd-openvas-${PV}[doc?] )
