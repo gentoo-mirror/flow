@@ -34,7 +34,6 @@ dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed 
 dev-java/openjdk-bin:source - Install JVM sources
 net-analyzer/gsad:extras - Pdf results, extra fonts, html docs support
 net-analyzer/gvm:cli - Command Line Interface for OpenVAS Scanner
-net-analyzer/gvm:cron - A cron job to update GVM's vulnerability feeds daily
 net-analyzer/gvm:gsa - Greenbone Security Assistant (WebUI)
 net-analyzer/gvm:ospd - Enable support for scanner wrappers
 net-analyzer/zabbix:agent - Enable zabbix agent (for to-be-monitored machines)
