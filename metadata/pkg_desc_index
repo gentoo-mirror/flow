@@ -57,7 +57,7 @@ dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe C
 dev-java/coursier-bin 2.1.0.5: Java/Scala artifact fetching, bundling and deploying
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
-dev-java/openjdk-bin 11.0.10_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK
+dev-java/openjdk-loom 19_pre20220512: Open source implementation of the Java programming language
 dev-java/spec-alpha-bin 0.2.194: A Clojure library to describe the structure of data and functions
 dev-lang/ammonite-repl-bin 2.3.8: Scala language-based scripting and REPL
 dev-lang/cilk 5.4.6-r3: Language for multithreaded parallel programming based on ANSI C
