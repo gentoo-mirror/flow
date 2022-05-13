@@ -8,15 +8,15 @@ inherit check-reqs eapi8-dosym flag-o-matic git-r3 java-pkg-2 java-vm-2 multipro
 MY_PV="${PV//_p/+}"
 SLOT="$(ver_cut 1)"
 
-DESCRIPTION="Open source implementation of the Java programming language"
+DESCRIPTION="Experimental OpenJDK with Project Loom (Fibers / Virtual Threads)"
 HOMEPAGE="https://openjdk.java.net"
 EGIT_REPO_URI="https://github.com/openjdk/loom.git"
-EGIT_COMMIT="a58ea10a92ee8647b501217e2d01d2dbb14d371b"
+EGIT_COMMIT="6520b71a62baf64d214ff94c9291bfc513dfbe51"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
-IUSE="alsa big-endian cups debug doc examples gentoo-vm headless-awt javafx +jbootstrap selinux source system-bootstrap systemtap"
+IUSE="alsa big-endian cups debug doc examples gentoo-vm headless-awt javafx jbootstrap selinux source +system-bootstrap systemtap"
 
 REQUIRED_USE="
 	javafx? ( alsa !headless-awt )
@@ -101,6 +101,8 @@ pkg_setup() {
 	openjdk_check_requirements
 	java-vm-2_pkg_setup
 
+	[[ ${MERGE_TYPE} == "binary" ]] && return
+
 	JAVA_PKG_WANT_BUILD_VM="openjdk-18 openjdk-bin-18 openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
@@ -127,13 +129,11 @@ pkg_setup() {
 		local xpakvar="${ARCH^^}_XPAK"
 		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
 	else
-		if [[ ${MERGE_TYPE} != "binary" ]]; then
-			JDK_HOME=$(best_version dev-java/openjdk-bin:${SLOT})
-			[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
-			JDK_HOME=${JDK_HOME#*/}
-			JDK_HOME=${EPREFIX}/opt/${JDK_HOME%-r*}
-			export JDK_HOME
-		fi
+		JDK_HOME=$(best_version dev-java/openjdk-bin:${SLOT})
+		[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
+		JDK_HOME=${JDK_HOME#*/}
+		JDK_HOME=${EPREFIX}/opt/${JDK_HOME%-r*}
+		export JDK_HOME
 	fi
 }
 
@@ -181,7 +181,7 @@ src_configure() {
 		--with-vendor-version-string="${PVR}"
 		--with-version-pre=""
 		--with-version-string="${PV%_p*}"
-		--with-version-build="${version_build}"
+		--with-version-pre="${PV#*_pre}"
 		--with-zlib="${XPAK_BOOTSTRAP:-system}"
 		--enable-dtrace=$(usex systemtap yes no)
 		--enable-headless-only=$(usex headless-awt yes no)

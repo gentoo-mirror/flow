@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>gyakovlev@gentoo.org</email>
-		<name>Georgy Yakovlev</name>
+		<email>flow@gentoo.org</email>
+		<name>Florian Schmaus</name>
 	</maintainer>
 	<maintainer type="project">
 		<email>java@gentoo.org</email>
