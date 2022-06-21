@@ -26,17 +26,12 @@ MY_POSTFIX="${PN}-v${PV}"
 S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"
 CMAKE_USE_DIR="${S}/llvm"
 
-MYCMAKEARGS="
-	-DLLVM_ENABLE_PROJECTS=clang;compiler-rt
-	-DDLLVM_ENABLE_RUNTIMES=cheetah;cilktools
-"
-
 src_prepare() {
 	default
 
 	local -A symlinks
-	symlinks["${S}/cheetah"]="${WORKDIR}/${PN}-cheetah-${MY_POSTFIX}"
-	symlinks["${S}/cilktools"]="${WORKDIR}/${PN}-productivity-tools-${MY_POSTFIX}"
+	symlinks["${S}/cheetah"]="${WORKDIR}/cheetah-${MY_POSTFIX}"
+	symlinks["${S}/cilktools"]="${WORKDIR}/productivity-tools-${MY_POSTFIX}"
 
 	local link target
 	for link in "${!symlinks[@]}"; do
@@ -45,4 +40,13 @@ src_prepare() {
 	done
 
 	cmake_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		"-DLLVM_ENABLE_PROJECTS=clang;compiler-rt"
+		"-DLLVM_ENABLE_RUNTIMES=cheetah;cilktools"
+		-DLLVM_TARGETS_TO_BUILD=host
+	)
+	cmake_src_configure
 }
