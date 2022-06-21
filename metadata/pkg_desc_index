@@ -62,6 +62,7 @@ dev-lang/ammonite-repl-bin 2.3.8: Scala language-based scripting and REPL
 dev-lang/cilk 5.4.6-r3: Language for multithreaded parallel programming based on ANSI C
 dev-lang/clojure 1.10.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/isis 1.6.2.47: ISIS language for interpretation and analysis of high resolution X-ray spectra.
+dev-lang/opencilk 1.1: The OpenCilk concurrency platform for parallel programming
 dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/rnp 9999: A high performance C++ OpenPGP library
 dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.
