@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
@@ -22,13 +22,14 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 MY_POSTFIX="${PN}-v${PV}"
-
 S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"
 CMAKE_USE_DIR="${S}/llvm"
 
-src_prepare() {
-	default
+PATCHES=(
+	"${FILESDIR}"/llvm-libsanitizer-Remove-cyclades-inclusion-in-sanitizer.patch
+)
 
+src_prepare() {
 	local -A symlinks
 	symlinks["${S}/cheetah"]="${WORKDIR}/cheetah-${MY_POSTFIX}"
 	symlinks["${S}/cilktools"]="${WORKDIR}/productivity-tools-${MY_POSTFIX}"
@@ -43,10 +44,12 @@ src_prepare() {
 }
 
 src_configure() {
+	append-ldflags $(no-as-needed)
 	local mycmakeargs=(
 		"-DLLVM_ENABLE_PROJECTS=clang;compiler-rt"
 		"-DLLVM_ENABLE_RUNTIMES=cheetah;cilktools"
 		-DLLVM_TARGETS_TO_BUILD=host
+		-DLLVM_ENABLE_ASSERTIONS=ON
 	)
 	cmake_src_configure
 }
