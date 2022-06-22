@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic
+inherit cmake
 
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
@@ -44,12 +44,12 @@ src_prepare() {
 }
 
 src_configure() {
-	append-ldflags $(no-as-needed)
 	local mycmakeargs=(
 		"-DLLVM_ENABLE_PROJECTS=clang;compiler-rt"
 		"-DLLVM_ENABLE_RUNTIMES=cheetah;cilktools"
 		-DLLVM_TARGETS_TO_BUILD=host
 		-DLLVM_ENABLE_ASSERTIONS=ON
+		-DBUILD_SHARED_LIBS=OFF
 	)
 	cmake_src_configure
 }
