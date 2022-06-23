@@ -14,16 +14,26 @@ SRC_URI="
 	https://github.com/OpenCilk/productivity-tools/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-productivity-tools-${PV}.tar.gz
 "
 
-# TODO: Since opencilk-project is a fork of LLVM, there probably should
-# be a bunch more licenses here, namely the LLVM ones. OpenCilk only
-# states MIT license. Thiys needs more investigation.
-LICENSE="MIT"
+# Since opencilk-project is a fork of LLVM 12, this lists the licenses
+# of LLVM 12, while opencilk-project states that it us under "MIT with
+# the OpenCilk Addendum", which basically states that you can
+# distributed it under the LLVM licences. I am also not sure if OpenCilk
+# is able to change the license of LLVM (which source code they use),
+# hence this needs more investigation and we only list t he LLVM 12
+# licenses, because those definetly are correct.
+LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="0"
 KEYWORDS="~amd64"
 
 MY_POSTFIX="${PN}-v${PV}"
 S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"
 CMAKE_USE_DIR="${S}/llvm"
+
+RDEPEND="
+	dev-libs/libxml2
+	sys-libs/ncurses:=
+	sys-libs/zlib
+"
 
 PATCHES=(
 	"${FILESDIR}"/llvm-libsanitizer-Remove-cyclades-inclusion-in-sanitizer.patch
@@ -50,6 +60,7 @@ src_configure() {
 		-DLLVM_TARGETS_TO_BUILD=host
 		-DLLVM_ENABLE_ASSERTIONS=ON
 		-DBUILD_SHARED_LIBS=OFF
+		-DCMAKE_INSTALL_PREFIX:PATH="opt/${P}"
 	)
 	cmake_src_configure
 }
