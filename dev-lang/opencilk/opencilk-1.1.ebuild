@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake multilib
 
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
@@ -24,6 +24,7 @@ SRC_URI="
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="debug"
 
 MY_POSTFIX="${PN}-v${PV}"
 S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"
@@ -54,13 +55,16 @@ src_prepare() {
 }
 
 src_configure() {
+	local libdir=$(get_libdir)
 	local mycmakeargs=(
 		"-DLLVM_ENABLE_PROJECTS=clang;compiler-rt"
 		"-DLLVM_ENABLE_RUNTIMES=cheetah;cilktools"
 		-DLLVM_TARGETS_TO_BUILD=host
-		-DLLVM_ENABLE_ASSERTIONS=ON
+		-DLLVM_ENABLE_ASSERTIONS=$(usex debug)
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/opt/${P}"
+		-DLLVM_LIBDIR_SUFFIX=${libdir#lib}
 		-DBUILD_SHARED_LIBS=OFF
-		-DCMAKE_INSTALL_PREFIX:PATH="opt/${P}"
+		-DLLVM_HOST_TRIPLE="${CHOST}"
 	)
 	cmake_src_configure
 }
