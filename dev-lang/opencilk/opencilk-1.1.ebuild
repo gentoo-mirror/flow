@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake multilib
+inherit cmake
 
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
