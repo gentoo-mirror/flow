@@ -87,7 +87,6 @@ net-analyzer/zabbix 5.4.10 6.0.1: ZABBIX is software for monitoring of your appl
 net-im/ejabberd 21.12-r1: Robust, scalable and extensible XMPP server
 net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
 net-im/poezio 0.14 9999: Console XMPP client that looks like most famous IRC clients
-net-im/swift 9999: Your friendly chat client
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-misc/electrumx 1.17.0 9999: A server for the Electrum wallet
 net-p2p/eclair-bin 0.6.2: Scala implemention of the Lightning Network
@@ -97,13 +96,10 @@ net-wireless/bluez 9999: Bluetooth Tools and System Daemons for Linux
 sys-apps/hp-ams 2.10.0 2.10.4: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.9.3: HPE System Health Application and Command line Utilities (Gen9 and earlier)
 sys-apps/ripgrep-all 0.9.6-r1: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
-sys-apps/ucg 0.2.2 9999: A extremely fast grep-like tool specialized for searching source code
 sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
-sys-devel/aspectc++ 1.1 2.1: A set of C++ language extensions to facilitate aspect-oriented programming with C/C++
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-firmware/broadcom-bt-firmware 12.0.1.1105_p3 9999: Broadcom Bluetooth firmware
 sys-firmware/systemd-microcode-reload 0: Reload microcode on system boot via systemd tmpfiles
-sys-fs/e2fsprogs 1.42.13_p20160111: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-process/below 0.3.0: An interactive tool to view and record historical system data
 virtual/flow-essential 0.1 0.2: Virtual for all the essential packages
