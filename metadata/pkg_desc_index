@@ -76,6 +76,7 @@ dev-tex/rubber 1.6.0 9999: A LaTeX wrapper for automatically building documents
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
 dev-util/ebuild-commander 0.1.0 9999: Test ebuilds with fine-grained control in stage3 Docker containers
+dev-util/gitlab-ci-local-bin 4.33.1: Run gitlab pipelines locally as shell executor or docker executor
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
