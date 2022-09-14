@@ -13,6 +13,8 @@ KEYWORDS="~amd64"
 
 S="${WORKDIR}"
 
+QA_PREBUILT="usr/bin/gitlab-ci-local"
+
 src_compile() {
 	:
 }
