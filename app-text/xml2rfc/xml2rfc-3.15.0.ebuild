@@ -8,8 +8,8 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-DESCRIPTION="generates RFCs and IETF drafts from document source in XML"
-HOMEPAGE="https://pypi.python.org/pypi/xml2rfc"
+DESCRIPTION="Generates RFCs and IETF drafts from document source in XML"
+HOMEPAGE="https://pypi.org/project/xml2rfc/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 # Tests are disabled because xml2rfc's test suite perform network
@@ -29,7 +29,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-Remove-broken-test.patch"
+#	"${FILESDIR}/${PN}-Remove-broken-test.patch"
 )
 
 BDEPEND="
@@ -44,14 +44,14 @@ BDEPEND="
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
-	dev-python/configargparse[${PYTHON_USEDEP}]
+	dev-python/ConfigArgParse[${PYTHON_USEDEP}]
 	dev-python/intervaltree[${PYTHON_USEDEP}]
 	dev-python/google-i18n-address[${PYTHON_USEDEP}]
 	>=dev-python/html5lib-1.0.1[${PYTHON_USEDEP}]
-	dev-python/jinja[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.1.2[${PYTHON_USEDEP}]
 	~dev-python/kitchen-1.2.6[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/markupsafe[${PYTHON_USEDEP}]
+	>=dev-python/markupsafe-2.1.1[${PYTHON_USEDEP}]
 	dev-python/pycountry[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.3.1[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
