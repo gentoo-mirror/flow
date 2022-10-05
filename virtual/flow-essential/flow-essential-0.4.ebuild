@@ -16,7 +16,6 @@ RDEPEND="
 	app-portage/cpuid2cpuflags
 	app-portage/gentoolkit
 	app-portage/mirrorselect
-	app-portage/repoman
 	app-shells/gentoo-zsh-completions
 	app-shells/zsh
 	dev-util/strace
