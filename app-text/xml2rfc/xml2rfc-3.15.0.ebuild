@@ -9,20 +9,10 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Generates RFCs and IETF drafts from document source in XML"
-HOMEPAGE="https://pypi.org/project/xml2rfc/"
+HOMEPAGE="https://ietf-tools.github.io/xml2rfc/ https://github.com/ietf-tools/xml2rfc"
+#SRC_URI="https://github.com/ietf-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-# Tests are disabled because xml2rfc's test suite perform network
-# operations: It tries to download resources from ietf.org. For
-# example:
-# Error: Failure fetching URL
-# https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml
-# (HTTPSConnectionPool(host='xml2rfc.ietf.org', port=443): Max retries
-# exceeded with url: /public/rfc/bibxml/reference.RFC.2119.xml (Caused
-# by NewConnectionError('<urllib3.connection.HTTPSConnection object at
-# 0x7f1911443150>: Failed to establish a new connection: [Errno -3]
-# Temporary failure in name resolution')))
-# See also https://trac.tools.ietf.org/tools/xml2rfc/trac/ticket/561
 RESTRICT="!test? ( test )"
 LICENSE="BSD"
 SLOT="0"
@@ -59,3 +49,8 @@ RDEPEND="
 "
 
 distutils_enable_tests setup.py
+
+#src_test() {
+	# https://github.com/ietf-tools/xml2rfc/issues/561
+#	emake tests-no-network
+#}
