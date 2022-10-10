@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="A tool to check internet-drafts for submission nits"
-HOMEPAGE="https://tools.ietf.org/tools/idnits/"
+HOMEPAGE="https://www.ietf.org/tools/idnits/"
 SRC_URI="https://github.com/ietf-tools/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2+"
 
