@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type='person'>
-		<email>flo@geekplace.eu</email>
-		<description>Maintainer, CC him on bugs</description>
+	<maintainer type="person">
+		<name>Florian Schmaus</name>
+		<email>flow@gentoo.org</email>
 	</maintainer>
+	<maintainer type="project">
+		<email>python@gentoo.org</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">google-i18n-address</remote-id>
+	</upstream>
 </pkgmetadata>
