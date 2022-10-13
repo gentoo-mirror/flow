@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit git-r3 systemd
+inherit git-r3 systemd tmpfiles
 
 DESCRIPTION="Tools to aid administering Gentoo systems, like silent automatic updates"
 HOMEPAGE="https://github.com/Flowdalic/gentools"
@@ -23,4 +23,9 @@ src_install() {
 	dosbin update-system
 
 	systemd_dounit update-system.{service,timer}
+	newtmpfiles update-system.tmpfiles.conf update-system.conf
+}
+
+pkg_postinst() {
+	tmpfiles_process update-system.conf
 }
