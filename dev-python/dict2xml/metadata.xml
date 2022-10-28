@@ -9,6 +9,8 @@
 		<email>python@gentoo.org</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="pypi">kitchen</remote-id>
+		<remote-id type="pypi">dict2xml</remote-id>
+		<remote-id type="github">delfick/python-dict2xml</remote-id>
 	</upstream>
+	<stabilize-allarches/>
 </pkgmetadata>
