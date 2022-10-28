@@ -10,5 +10,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="pypi">google-i18n-address</remote-id>
+		<remote-id type="github">mirumee/google-i18n-address</remote-id>
 	</upstream>
+	<stabilize-allarches/>
 </pkgmetadata>

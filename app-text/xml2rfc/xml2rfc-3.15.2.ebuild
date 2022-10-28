@@ -10,17 +10,12 @@ inherit distutils-r1
 
 DESCRIPTION="Generates RFCs and IETF drafts from document source in XML"
 HOMEPAGE="https://ietf-tools.github.io/xml2rfc/ https://github.com/ietf-tools/xml2rfc"
-#SRC_URI="https://github.com/ietf-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/ietf-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 RESTRICT="!test? ( test )"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-
-PATCHES=(
-#	"${FILESDIR}/${PN}-Remove-broken-test.patch"
-)
 
 BDEPEND="
 	test? (
@@ -39,7 +34,6 @@ RDEPEND="
 	dev-python/google-i18n-address[${PYTHON_USEDEP}]
 	>=dev-python/html5lib-1.0.1[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.1.2[${PYTHON_USEDEP}]
-	~dev-python/kitchen-1.2.6[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	>=dev-python/markupsafe-2.1.1[${PYTHON_USEDEP}]
 	dev-python/pycountry[${PYTHON_USEDEP}]
