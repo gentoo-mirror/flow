@@ -42,6 +42,10 @@ RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 "
 
+PATCHES=(
+	"${FILESDIR}/xml2rfc-Remove-broken-test.patch"
+)
+
 distutils_enable_tests setup.py
 
 #src_test() {
