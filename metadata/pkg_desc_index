@@ -32,7 +32,7 @@ app-text/htmldiff 1.0.6_pre20200606: A command-line script to create a diff of t
 app-text/idnits 2.17.1: A tool to check internet-drafts for submission nits
 app-text/mmark 1.3.5: A markdown processor geared towards writing IETF documents
 app-text/pdfgrep 2.1.2 9999: A tool similar to grep which searches text in PDFs
-app-text/xml2rfc 3.15.0: Generates RFCs and IETF drafts from document source in XML
+app-text/xml2rfc 3.15.2: Generates RFCs and IETF drafts from document source in XML
 dev-erlang/cache_tab 1.0.28: In-memory cache Erlang and Elixir library
 dev-erlang/eimp 1.0.20: Erlang Image Manipulation Process
 dev-erlang/epam 1.0.10: epam for ejabberd to help with PAM authentication support
@@ -66,15 +66,14 @@ dev-lang/clojure 1.10.3: General-purpose programming language with an emphasis o
 dev-lang/isis 1.6.2.47: ISIS language for interpretation and analysis of high resolution X-ray spectra.
 dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.
-dev-python/dict2xml 1.7.0 1.7.1: Small utility to convert a python dictionary into an XML string
-dev-python/google-i18n-address 2.4.0 2.5.2: Google's i18n address metadata repository
-dev-python/kitchen 1.2.6: A cornucopia of useful code
+dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an XML string
+dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-tex/rubber 1.6.0 9999: A LaTeX wrapper for automatically building documents
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
-dev-util/gitlab-ci-local-bin 4.33.1: Run gitlab pipelines locally as shell executor or docker executor
+dev-util/gitlab-ci-local-bin 4.33.1 4.34.0: Run gitlab pipelines locally as shell executor or docker executor
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
