@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Google's i18n address metadata repository"
 HOMEPAGE="https://pypi.org/project/google-i18n-address/"
 # Using the github release, as it contains the tests (unlike the pypi artifact).
-SRC_URI="https://github.com/mirumee/google-i18n-address/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/mirumee/google-i18n-address/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
