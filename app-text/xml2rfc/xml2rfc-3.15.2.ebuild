@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Generates RFCs and IETF drafts from document source in XML"
 HOMEPAGE="https://ietf-tools.github.io/xml2rfc/ https://github.com/ietf-tools/xml2rfc"
-SRC_URI="https://github.com/ietf-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ietf-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 RESTRICT="!test? ( test )"
 LICENSE="BSD"
