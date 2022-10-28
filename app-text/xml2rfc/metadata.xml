@@ -9,5 +9,4 @@
 		<remote-id type="pypi">xml2rfc</remote-id>
 		<remote-id type="github">ietf-tools/xml2rfc</remote-id>
 	</upstream>
-	<stabilize-allarches/>
 </pkgmetadata>
