@@ -22,9 +22,9 @@ S="${WORKDIR}"
 
 RDEPEND=">=virtual/jre-8"
 
-QA_FLAGS_IGNORED="usr/bin/cs"
-QA_TEXTRELS="usr/bin/cs"
+QA_FLAGS_IGNORED="usr/bin/coursier"
+QA_TEXTRELS="usr/bin/coursier"
 
 src_install() {
-	newbin "${P}" cs
+	newbin "${P}" coursier
 }
