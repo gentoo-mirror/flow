@@ -3,11 +3,16 @@
 
 EAPI=8
 
-ORIG_PV=$(ver_rs 3 -M)
+get_orig_coursier_pv() {
+	local orig_pv=$(ver_rs 3 -)
+	orig_pv=${orig_pv/rc/RC}
+	orig_pv=${orig_pv/pre/M}
+	echo "${orig_pv}"
+}
 
 DESCRIPTION="Java/Scala artifact fetching, bundling and deploying"
 HOMEPAGE="https://get-coursier.io/"
-SRC_URI="https://github.com/coursier/coursier/releases/download/v${ORIG_PV}/cs-x86_64-pc-linux.gz -> ${P}.gz"
+SRC_URI="https://github.com/coursier/coursier/releases/download/v$(get_orig_coursier_pv)/cs-x86_64-pc-linux.gz -> ${P}.gz"
 
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
@@ -15,7 +20,7 @@ SLOT="0"
 
 S="${WORKDIR}"
 
-RDEPEND="sys-libs/zlib"
+RDEPEND=">=virtual/jre-8"
 
 QA_FLAGS_IGNORED="usr/bin/cs"
 QA_TEXTRELS="usr/bin/cs"
