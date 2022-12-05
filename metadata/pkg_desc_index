@@ -54,7 +54,7 @@ dev-erlang/xmpp 1.5.3: XMPP parsing and serialization library on top of Fast XML
 dev-erlang/yconf 1.0.11: YAML configuration processor
 dev-java/bloop-bin 1.5.0: A Scala build server and CLI
 dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
-dev-java/coursier-bin 2.1.0.5: Java/Scala artifact fetching, bundling and deploying
+dev-java/coursier-bin 2.1.0_rc2: Java/Scala artifact fetching, bundling and deploying
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
 dev-java/spec-alpha-bin 0.2.194: A Clojure library to describe the structure of data and functions
