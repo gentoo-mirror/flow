@@ -83,7 +83,6 @@ net-analyzer/zabbix 5.4.10 6.0.1: ZABBIX is software for monitoring of your appl
 net-im/ejabberd 21.12-r1: Robust, scalable and extensible XMPP server
 net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
-net-misc/electrumx 1.17.0 9999: A server for the Electrum wallet
 net-p2p/eclair-bin 0.6.2: Scala implemention of the Lightning Network
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
