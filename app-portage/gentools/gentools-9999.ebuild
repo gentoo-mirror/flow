@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,6 +24,9 @@ src_install() {
 
 	systemd_dounit update-system.{service,timer}
 	newtmpfiles update-system.tmpfiles.conf update-system.conf
+
+	exeinto /usr/libexec
+	doexe dispatch-conf-ediff
 }
 
 pkg_postinst() {
