@@ -2,7 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type='person'>
-		<email>flo@geekplace.eu</email>
-		<description>Maintainer, CC him on bugs</description>
+		<name>Florian Schmaus</name>
+		<email>flow@gentoo.org</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">Flowdalic/gentools</remote-id>
+	</upstream>
 </pkgmetadata>
