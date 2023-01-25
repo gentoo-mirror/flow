@@ -27,6 +27,7 @@ src_install() {
 
 	exeinto /usr/libexec
 	doexe dispatch-conf-ediff
+	doexe sendxmpp-elog
 }
 
 pkg_postinst() {
