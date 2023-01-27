@@ -3,18 +3,22 @@
 
 EAPI=8
 
+GRAAL_JAVA_MAJOR_VER=19
+
 DESCRIPTION="A high-performance Java Development Kit (JDK) distribution"
 HOMEPAGE="https://www.graalvm.org/"
-SRC_URI="https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${PV}/graalvm-ce-java19-linux-amd64-${PV}.tar.gz"
+SRC_URI="https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${PV}/graalvm-ce-java${GRAAL_JAVA_MAJOR_VER}-linux-amd64-${PV}.tar.gz"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT="0"
 KEYWORDS="~amd64"
 
 MY_PN=${PN%%-bin}
-S="${WORKDIR}/${MY_P}"
+MY_P="${MY_PN}-${PV}"
+S="${WORKDIR}/${MY_PN}-java${GRAAL_JAVA_MAJOR_VER}-${PV}"
 
 QA_TEXTRELS="*"
+QA_FLAGS_IGNORED="*"
 
 RDEPEND="
 	media-libs/alsa-lib
@@ -32,6 +36,8 @@ src_compile() {
 }
 
 src_install() {
-	insinto opt/${P}
+	local destdir=opt/${MY_P}
+	insinto ${destdir}
 	doins -r .
+	fperms -R 755 /${destdir}/bin /${destdir}/lib/polyglot/bin /${destdir}/lib/installer/bin
 }
