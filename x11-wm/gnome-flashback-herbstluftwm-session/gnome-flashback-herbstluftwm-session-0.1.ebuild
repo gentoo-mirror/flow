@@ -10,7 +10,6 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="x11-wm/herbstluftwm"
 RDEPEND="
 	gnome-base/gnome-flashback
 	x11-wm/herbstluftwm
@@ -19,9 +18,6 @@ RDEPEND="
 S="${WORKDIR}"
 
 src_install() {
-	insinto /usr/share/applications
-	doins "${EROOT}/usr/share/xsessions/herbstluftwm.desktop"
-
 	# https://wiki.archlinux.org/title/GNOME/Tips_and_tricks#Custom_GNOME_sessiosn
 	insinto /usr/share/gnome-session/sessions
 	newins - gnome-flashback-herbstluftwm.session <<-EOF
