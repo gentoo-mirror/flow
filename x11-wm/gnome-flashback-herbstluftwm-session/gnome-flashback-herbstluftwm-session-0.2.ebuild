@@ -23,7 +23,8 @@ src_install() {
 
 	# Create the gnome-flashback-herbstluftwm session configuration by
 	# simply replacing Metacity with Herbstluftwm from
-	# gnome-flashback-metacity.session.
+	# gnome-flashback-metacity.session. Note that one should not do
+	# something like that in an offical package.
 	insinto /usr/share/gnome-session/sessions
 	sed \
 		-e 's/Metacity/Herbstluftwm/' \
