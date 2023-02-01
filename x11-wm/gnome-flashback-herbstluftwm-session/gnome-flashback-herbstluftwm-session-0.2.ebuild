@@ -30,6 +30,7 @@ src_install() {
 		-e 's/metacity/herbstluftwm/' \
 		"${EROOT}"/usr/share/gnome-session/sessions/gnome-flashback-metacity.session |\
 		newins - gnome-flashback-herbstluftwm.session
+	assert
 
 	insinto /usr/share/xsessions
 	newins - gnome-flashback-herbstluftwm.desktop <<-EOF
