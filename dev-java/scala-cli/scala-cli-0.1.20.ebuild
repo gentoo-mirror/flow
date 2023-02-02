@@ -33,7 +33,9 @@ src_compile() {
 		./scala-cli install-completions \
 					--home "${T}" \
 					--shell ${shell} \
-					--rc-file ${shell}-completion || die
+					--env \
+					--output "${S}" \
+					> ${shell}-completion || die
 	done
 }
 
@@ -43,5 +45,5 @@ src_install() {
 	newbashcomp bash-completion ${PN}
 
 	insinto /usr/share/zsh/site-functions
-	newins zsh-completion ${PN}
+	doins zsh/_scala-cli
 }
