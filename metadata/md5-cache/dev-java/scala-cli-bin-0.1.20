@@ -9,4 +9,4 @@ RDEPEND=sys-libs/zlib
 SLOT=0
 SRC_URI=amd64? ( https://github.com/VirtusLab/scala-cli/releases/download/v0.1.20/scala-cli-x86_64-pc-linux.gz -> scala-cli-amd64-0.1.20.gz )
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=a2af25197592e1d72eb7fa4090b2b40f
+_md5_=dd477b49e8e4ee88f9d5e5e866e4ab4a
