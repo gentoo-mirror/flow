@@ -8,7 +8,7 @@ inherit bash-completion-r1
 DESCRIPTION="CLI to interact with Scala"
 HOMEPAGE="https://scala-cli.virtuslab.org/"
 SRC_URI="
-	amd64? ( https://github.com/VirtusLab/${PN}/releases/download/v${PV}/${PN}-x86_64-pc-linux.gz -> ${PN}-amd64-${PV}.gz )
+	amd64? ( https://github.com/VirtusLab/scala-cli/releases/download/v${PV}/scala-cli-x86_64-pc-linux.gz -> scala-cli-amd64-${PV}.gz )
 "
 
 KEYWORDS="~amd64 -*"
@@ -33,15 +33,17 @@ src_compile() {
 		./scala-cli install-completions \
 					--home "${T}" \
 					--shell ${shell} \
-					--rc-file ${shell}-completion || die
+					--env \
+					--output "${S}" \
+					> ${shell}-completion || die
 	done
 }
 
 src_install() {
 	dobin scala-cli
 
-	newbashcomp bash-completion ${PN}
+	newbashcomp bash-completion scala-cli
 
 	insinto /usr/share/zsh/site-functions
-	newins zsh-completion ${PN}
+	doins zsh/_scala-cli
 }
