@@ -13,7 +13,7 @@ KEYWORDS="~amd64"
 DEPEND="gnome-base/gnome-flashback"
 RDEPEND="
 	${DEPEND}
-	x11-wm/herbstluftwm
+	>=x11-wm/herbstluftwm-0.9.5-r1
 "
 
 S="${WORKDIR}"
