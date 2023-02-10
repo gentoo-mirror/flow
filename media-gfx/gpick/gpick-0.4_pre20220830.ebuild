@@ -36,6 +36,7 @@ BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 PATCHES=(
+	# https://github.com/thezbyg/gpick/pull/213
 	"${FILESDIR}"/gpick-0.4_pre20220830-add-missing-include.patch
 )
 

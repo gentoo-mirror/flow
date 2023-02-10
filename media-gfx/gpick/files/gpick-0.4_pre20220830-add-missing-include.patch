@@ -3,12 +3,6 @@ From: Florian Schmaus <flo@geekplace.eu>
 Date: Fri, 10 Feb 2023 16:16:21 +0100
 Subject: [PATCH] Add missing <list> include
 
----
- source/uiApp.cpp | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/source/uiApp.cpp b/source/uiApp.cpp
-index 0fa788dc8099..bd1b27479aa6 100644
 --- a/source/uiApp.cpp
 +++ b/source/uiApp.cpp
 @@ -66,6 +66,7 @@
