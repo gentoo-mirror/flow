@@ -9,5 +9,5 @@ LICENSE=LPPL-1.3c
 PROPERTIES=live
 RDEPEND=virtual/latex-base
 SLOT=0
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	latex-package	c20e442c3953c765f636630631c96194	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=eapi8-dosym	741bfa77afb2a9321261501aca58c208	latex-package	c20e442c3953c765f636630631c96194	git-r3	c57c50c922e121043788de0b40ada60a
 _md5_=3ed9f2ba8394fab06fcb0f905f71b1b4
