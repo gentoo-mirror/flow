@@ -14,4 +14,7 @@
 		<name>Florian Schmaus</name>
 		<email>flow@gentoo.org</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">vincentdephily/emlop</remote-id>
+	</upstream>
 </pkgmetadata>
