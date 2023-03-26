@@ -9,5 +9,5 @@ LICENSE=BSD
 RDEPEND=>=dev-erlang/fast_tls-1.1.12 >=dev-erlang/p1_utils-1.0.22 dev-lang/erlang:=
 SLOT=0
 SRC_URI=https://github.com/processone/stun/archive/1.0.43.tar.gz -> stun-1.0.43.tar.gz
-_eclasses_=rebar	2914a5b863e914d99ddc9a6b6222a76f
+_eclasses_=rebar	ee6e83452f154c8ce7b91144005c5faf
 _md5_=15d212943ee2295333a0aa7945b042a0
