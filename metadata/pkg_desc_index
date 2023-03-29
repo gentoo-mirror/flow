@@ -65,7 +65,6 @@ dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serial
 dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.
 dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
-dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/dex2jar 0.0.9.15: Tools to work with android .dex and java .class files
