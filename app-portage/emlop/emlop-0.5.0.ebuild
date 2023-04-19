@@ -70,7 +70,7 @@ inherit cargo bash-completion-r1
 
 DESCRIPTION="A fast, accurate, ergonomic emerge.log parser"
 HOMEPAGE="https://github.com/vincentdephily/emlop"
-SRC_URI="$(cargo_crate_uris ${CRATES})"
+SRC_URI="$(cargo_crate_uris)"
 
 LICENSE="Apache-2.0 GPL-3 MIT Unicode-DFS-2016"
 SLOT="0"
@@ -80,9 +80,10 @@ DEPEND=">=virtual/rust-1.58.1"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
+DOCS=( README.md CHANGELOG.md )
+
 src_install() {
 	cargo_src_install
-	dodoc README.md CHANGELOG.md
 
 	./target/release/emlop complete bash > emlop || die
 	dobashcomp emlop
