@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=An experiment about archives being able to override files
+EAPI=8
+HOMEPAGE=https://github.com/Flowdalic/
+KEYWORDS=amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~flow/archives-override-content-experiment/archives-override-content-experiment-benign-1.0.tar https://dev.gentoo.org/~flow/archives-override-content-experiment/archives-override-content-experiment-malicious-1.0.tar
+_md5_=76c49d34dfe1bce1ad3d2875b98a46cf
