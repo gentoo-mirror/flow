@@ -6,7 +6,6 @@ acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/lacme 0: System user: lacme
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
-app-admin/mkosi 9 9999: A tool for generating OS images
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
 app-backup/doborg 9999: Full-system backup tool based on borg backup
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
@@ -62,7 +61,6 @@ dev-lang/cilk 5.4.6-r3: Language for multithreaded parallel programming based on
 dev-lang/clojure 1.10.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/isis 1.6.2.47: ISIS language for interpretation and analysis of high resolution X-ray spectra.
 dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serialization/RPC protocol
-dev-python/boltons 20.2.1: Pure-Python utilities missing from the standard library.
 dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
@@ -78,7 +76,6 @@ net-analyzer/gvm 21.4: Greenbone Vulnerability Management, previously named Open
 net-analyzer/opennms 20.0.1 9999: Enterprise-Grade Open-Source Network Management Platform
 net-analyzer/zabbix 5.4.10 6.0.1: ZABBIX is software for monitoring of your applications, network and servers
 net-im/ejabberd 21.12-r1: Robust, scalable and extensible XMPP server
-net-im/gajim-omemo 2.7.13 9999: Gajim plugin for OMEMO XMPP end-to-end encryption
 net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-p2p/eclair-bin 0.8.0: Scala implemention of the Lightning Network
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
