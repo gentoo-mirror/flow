@@ -2,7 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-admin/mkosi:debian - Create Debian-based OS images
 app-emulation/grub-xen-host:pvh - Build an additional grub bin for pvh.
 app-emulation/xen:boot-symlinks - Symlink xen.gz variants in /boot, disable on fat filesystems
 app-emulation/xen:efi - Adds efi boot support, requires LDFLAG -melf_x86_64 for amd64
