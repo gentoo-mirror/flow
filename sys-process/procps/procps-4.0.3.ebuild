@@ -10,7 +10,7 @@ HOMEPAGE="http://procps-ng.sourceforge.net/ https://gitlab.com/procps-ng/procps"
 SRC_URI="mirror://sourceforge/${PN}-ng/${PN}-ng-${PV}.tar.xz"
 
 LICENSE="GPL-2"
-SLOT="0/8" # libprocps.so
+SLOT="0" # libproc2.so
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="elogind +kill modern-top +ncurses nls selinux static-libs systemd test unicode"
 RESTRICT="!test? ( test )"
@@ -32,6 +32,7 @@ RDEPEND="${DEPEND}
 		!sys-apps/coreutils[kill]
 		!sys-apps/util-linux[kill]
 	)
+	!<sys-process/procps-4
 	!<app-i18n/man-pages-l10n-4.2.0-r1
 	!<app-i18n/man-pages-de-2.12-r1
 	!<app-i18n/man-pages-pl-0.7-r1
