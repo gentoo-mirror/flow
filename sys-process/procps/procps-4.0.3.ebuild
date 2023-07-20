@@ -13,6 +13,7 @@ LICENSE="GPL-2"
 SLOT="ng/0" # libproc2.so
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="elogind +kill modern-top +ncurses nls selinux static-libs systemd test unicode"
+REQUIRED_USE="!ncurses? ( !unicode )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
