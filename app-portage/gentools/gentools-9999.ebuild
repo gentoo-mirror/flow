@@ -19,15 +19,16 @@ RDEPEND="
 	sys-devel/bc
 "
 
+src_compile() {
+	:
+}
+
 src_install() {
-	dosbin update-system
-
-	systemd_dounit update-system.{service,timer}
-	newtmpfiles update-system.tmpfiles.conf update-system.conf
-
-	exeinto /usr/libexec
-	doexe dispatch-conf-ediff
-	doexe sendxmpp-elog
+	emake \
+		DESTDIR="${D}" \
+		PREFIX="${EPREFIX}" \
+		SYSTEMD_SYSTEM_UNIT_DIR=$(systemd_get_systemunitdir) \
+		install
 }
 
 pkg_postinst() {
