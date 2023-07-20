@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst unpack
 DESCRIPTION=Tools to aid administering Gentoo systems, like silent automatic updates
 EAPI=8
 HOMEPAGE=https://github.com/Flowdalic/gentools
-INHERIT=git-r3 systemd tmpfiles
+INHERIT=systemd tmpfiles git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=app-admin/eclean-kernel app-portage/eix app-portage/gentoolkit sys-devel/bc virtual/tmpfiles
 SLOT=0
-_eclasses_=git-r3	97f7f638070d17e4c2b6542589bb4575	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=62c21b86b7d3c175dc4485839dce9422
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	97f7f638070d17e4c2b6542589bb4575
+_md5_=e8a2f2a4c593ce0f91bb01f2f245c42b
