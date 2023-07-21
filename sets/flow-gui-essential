@@ -1,0 +1,17 @@
+app-emacs/pdf-tools
+app-i18n/translate-shell
+app-text/pdfgrep
+app-text/pdfpc
+app-text/pdfarranger
+app-text/texlive[extra,luatex,tex4ht]
+dev-tex/biber
+media-sound/pavucontrol
+net-fs/sshfs
+virtual/flows-font-selection
+www-client/firefox
+x11-apps/setxkbmap
+x11-apps/xinput
+x11-apps/xkbprint
+x11-apps/xsetroot
+x11-misc/nitrogen
+x11-wm/herbstluftwm

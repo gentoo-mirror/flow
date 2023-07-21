@@ -1,0 +1,8 @@
+app-emacs/ebuild-mode
+app-portage/iwdevtools
+app-portage/mgorny-dev-scripts
+app-portage/nattka
+app-portage/pram
+dev-perl/Gentoo-PerlMod-Version
+dev-util/pkgdev
+sys-apps/pkgcraft-tools
