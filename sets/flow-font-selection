@@ -1,0 +1,11 @@
+# nice font
+media-fonts/dejavu
+# nice font for code
+media-fonts/fira-mono
+media-fonts/fira-sans
+media-fonts/inconsolata
+media-fonts/noto
+# for emojis
+media-fonts/noto-emoji
+# quivira: for all glyphs
+media-fonts/quivira
