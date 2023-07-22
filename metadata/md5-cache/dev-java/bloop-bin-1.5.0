@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RDEPEND=sys-libs/zlib
 SLOT=0
 SRC_URI=https://github.com/scalacenter/bloop/releases/download/v1.5.0/bloop-x86_64-pc-linux -> bloop-bin-1.5.0 https://github.com/scalacenter/bloop/releases/download/v1.5.0/bash-completions -> bloop-bin-1.5.0-bash-completions https://github.com/scalacenter/bloop/releases/download/v1.5.0/fish-completions -> bloop-bin-1.5.0-fish-completions https://github.com/scalacenter/bloop/releases/download/v1.5.0/zsh-completions -> bloop-bin-1.5.0-zsh-completions
-_eclasses_=toolchain-funcs	fc2af1957597c539ae6e48f82bd43125	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=bd7fcd99b3443ad22f6fd3553c1d1570
