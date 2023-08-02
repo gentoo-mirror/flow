@@ -67,7 +67,7 @@ dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an 
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
-dev-util/gitlab-ci-local-bin 4.33.1 4.34.0: Run gitlab pipelines locally as shell executor or docker executor
+dev-util/gitlab-ci-local-bin 4.42.0: Run gitlab pipelines locally as shell executor or docker executor
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
 media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
 media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
