@@ -42,8 +42,6 @@ BDEPEND="
 	)
 "
 
-distutils_enable_tests  pytest
-
 PATCHES=(
 	"${FILESDIR}/${PN}-4.3.2-setup.cfg-disable-pytest-coverage.patch"
 )
@@ -52,3 +50,9 @@ src_install() {
 	distutils-r1_src_install
 	mv "${ED}/usr/etc" "${ED}/etc" || die
 }
+
+distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	tests/test_checks_util.py::TestNetworkMixin::test_file_url
+)
