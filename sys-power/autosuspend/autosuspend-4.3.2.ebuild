@@ -31,6 +31,7 @@ BDEPEND="
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/icalendar[${PYTHON_USEDEP}]
+		dev-python/jsonpath-ng[${PYTHON_USEDEP}]
 		dev-python/pygobject[${PYTHON_USEDEP}]
 		dev-python/pytest-datadir[${PYTHON_USEDEP}]
 		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
