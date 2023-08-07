@@ -28,6 +28,12 @@ RDEPEND="
 "
 
 BDEPEND="
+	doc? (
+		dev-python/furo[${PYTHON_USEDEP}]
+		dev-python/recommonmark[${PYTHON_USEDEP}]
+		dev-python/sphinx-autodoc-typehints[${PYTHON_USEDEP}]
+		dev-python/sphinx-issues[${PYTHON_USEDEP}]
+	)
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/icalendar[${PYTHON_USEDEP}]
@@ -47,13 +53,14 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.2-setup.cfg-disable-pytest-coverage.patch"
 )
 
+EPYTEST_DESELECT=(
+	tests/test_checks_util.py::TestNetworkMixin::test_file_url
+)
+
+distutils_enable_tests pytest
+distutils_enable_sphinx doc/source
+
 src_install() {
 	distutils-r1_src_install
 	mv "${ED}/usr/etc" "${ED}/etc" || die
 }
-
-distutils_enable_tests pytest
-
-EPYTEST_DESELECT=(
-	tests/test_checks_util.py::TestNetworkMixin::test_file_url
-)
