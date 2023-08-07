@@ -1,11 +1,12 @@
-app-arch/plzip
 app-admin/eclean-kernel
 app-admin/pwgen
+app-arch/plzip
 app-editors/emacs
 app-misc/tmux
 app-portage/cpuid2cpuflags
 app-portage/gentoolkit
 app-portage/mirrorselect
+app-portage/portpeek
 app-shells/gentoo-zsh-completions
 app-shells/zsh
 dev-util/strace
@@ -20,5 +21,5 @@ sys-apps/ripgrep
 sys-apps/the_silver_searcher
 sys-fs/lvm2
 sys-fs/ncdu
-sys-process/lsof
 sys-process/htop
+sys-process/lsof
