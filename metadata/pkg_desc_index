@@ -65,6 +65,8 @@ dev-lang/isis 1.6.2.47: ISIS language for interpretation and analysis of high re
 dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
+dev-python/jsonpath-ng 1.5.3: Python JSONPath Next-Generation
+dev-python/portalocker 2.7.0: A library for Python file locking
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
@@ -89,6 +91,7 @@ sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) 
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-firmware/systemd-microcode-reload 0: Reload microcode on system boot via systemd tmpfiles
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
+sys-power/autosuspend 4.3.2: A daemon to automatically suspend and wake up a system
 sys-process/procps 4.0.3: Standard informational utilities and process-handling tools
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
