@@ -67,6 +67,7 @@ dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an 
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
 dev-python/jsonpath-ng 1.5.3: Python JSONPath Next-Generation
 dev-python/portalocker 2.7.0: A library for Python file locking
+dev-python/sphinxcontrib-plantuml 0.25: Sphinx extensions for PlantUML
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
