@@ -22,7 +22,6 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/${P#sphinxcontrib-}"
 
 RDEPEND="
-	media-gfx/plantuml
 	test? (
 		  app-text/texlive
 		  dev-python/sphinxcontrib-applehelp[${PYTHON_USEDEP}]
@@ -33,14 +32,11 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
-distutils_enable_sphinx doc
-
-python_compile() {
-	distutils-r1_python_compile
-#	find "${BUILD_DIR}" -name '*.pth' -delete || die
-}
 
 python_test() {
-	distutils_write_namespace sphinxcontrib
+	# Fix for sphinx.errors.ExtensionError: Could not import extension sphinxcontrib.applehelp
+	# Thanks to mgorny.
+	rm -rf sphinxcontrib || die
+
 	epytest
 }
