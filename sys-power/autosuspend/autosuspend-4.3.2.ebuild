@@ -25,11 +25,6 @@ KEYWORDS="~amd64"
 IUSE="mpd test"
 RESTRICT="!test? ( test )"
 
-PATCHES=(
-	# https://github.com/languitar/autosuspend/pull/403
-	"${DISTDIR}/${PN}-4.3.2-ensure-we-iterate-over-timers.patch"
-)
-
 RDEPEND="
 	dev-python/portalocker
 	dev-python/psutil
@@ -60,6 +55,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.3.2-setup.cfg-disable-pytest-coverage.patch"
+	# https://github.com/languitar/autosuspend/pull/403
+	"${DISTDIR}/${PN}-4.3.2-ensure-we-iterate-over-timers.patch"
 )
 
 EPYTEST_DESELECT=(
