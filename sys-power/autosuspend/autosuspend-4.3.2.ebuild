@@ -15,16 +15,25 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/languitar/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
+	https://github.com/languitar/autosuspend/commit/562a5f9233c3c0f38b7d0f201d1737647c685133.patch
+		-> ${PN}-4.3.2-ensure-we-iterate-over-timers.patch
 "
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="mpd test"
 RESTRICT="!test? ( test )"
+
+PATCHES=(
+	# https://github.com/languitar/autosuspend/pull/403
+	"${DISTDIR}/${PN}-4.3.2-ensure-we-iterate-over-timers.patch"
+)
 
 RDEPEND="
 	dev-python/portalocker
 	dev-python/psutil
+	mpd? ( dev-python/python-mpd2 )
 "
 
 BDEPEND="
