@@ -15,8 +15,6 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/languitar/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
-	https://github.com/languitar/autosuspend/commit/562a5f9233c3c0f38b7d0f201d1737647c685133.patch
-		-> ${PN}-4.3.2-ensure-we-iterate-over-timers.patch
 "
 
 LICENSE="GPL-2+"
@@ -37,6 +35,7 @@ BDEPEND="
 		dev-python/recommonmark[${PYTHON_USEDEP}]
 		dev-python/sphinx-autodoc-typehints[${PYTHON_USEDEP}]
 		dev-python/sphinx-issues[${PYTHON_USEDEP}]
+		dev-python/sphinxcontrib-plantuml[${PYTHON_USEDEP}]
 	)
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
@@ -55,8 +54,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.3.2-setup.cfg-disable-pytest-coverage.patch"
-	# https://github.com/languitar/autosuspend/pull/403
-	"${DISTDIR}/${PN}-4.3.2-ensure-we-iterate-over-timers.patch"
 )
 
 EPYTEST_DESELECT=(
