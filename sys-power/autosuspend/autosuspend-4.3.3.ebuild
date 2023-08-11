@@ -30,13 +30,6 @@ RDEPEND="
 "
 
 BDEPEND="
-	doc? (
-		dev-python/furo[${PYTHON_USEDEP}]
-		dev-python/recommonmark[${PYTHON_USEDEP}]
-		dev-python/sphinx-autodoc-typehints[${PYTHON_USEDEP}]
-		dev-python/sphinx-issues[${PYTHON_USEDEP}]
-		dev-python/sphinxcontrib-plantuml[${PYTHON_USEDEP}]
-	)
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/icalendar[${PYTHON_USEDEP}]
@@ -61,7 +54,12 @@ EPYTEST_DESELECT=(
 )
 
 distutils_enable_tests pytest
-distutils_enable_sphinx doc/source
+distutils_enable_sphinx doc/source \
+						dev-python/furo \
+						dev-python/recommonmark
+						dev-python/sphinx-autodoc-typehints \
+						dev-python/sphinx-issues \
+						dev-python/sphinxcontrib-plantum \
 
 src_install() {
 	distutils-r1_src_install
