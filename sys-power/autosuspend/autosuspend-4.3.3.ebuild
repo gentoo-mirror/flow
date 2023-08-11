@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_11 )
+
 inherit distutils-r1
 
 DESCRIPTION="A daemon to automatically suspend and wake up a system"
