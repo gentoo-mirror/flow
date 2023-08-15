@@ -10,13 +10,14 @@ PYTHON_COMPAT=( python3_11 )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python JSONPath Next-Generation"
-HOMEPAGE="https://github.com/h2non/jsonpath-ng"
+HOMEPAGE="
+	https://github.com/h2non/jsonpath-ng
+	https://pypi.org/project/jsonpath-ng/
+"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/decorator[${PYTHON_USEDEP}]
