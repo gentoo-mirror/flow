@@ -47,10 +47,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-4.3.2-setup.cfg-disable-pytest-coverage.patch"
-)
-
 EPYTEST_DESELECT=(
 	tests/test_checks_util.py::TestNetworkMixin::test_file_url
 )
@@ -58,10 +54,15 @@ EPYTEST_DESELECT=(
 distutils_enable_tests pytest
 distutils_enable_sphinx doc/source \
 						dev-python/furo \
-						dev-python/recommonmark
+						dev-python/recommonmark \
 						dev-python/sphinx-autodoc-typehints \
 						dev-python/sphinx-issues \
-						dev-python/sphinxcontrib-plantum \
+						dev-python/sphinxcontrib-plantuml
+
+python_test() {
+	# Disable code coverage in tests by setting addopts to the empty value.
+	epytest -o addopts=
+}
 
 src_install() {
 	distutils-r1_src_install
