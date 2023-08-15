@@ -33,6 +33,5 @@ BDEPEND="
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
-	# 'NoneType' object is not iterable
 	tests/test_jsonpath_rw_ext.py::Testjsonpath_ng_ext::test_fields_value
 )
