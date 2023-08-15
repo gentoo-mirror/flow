@@ -21,13 +21,14 @@ SRC_URI="
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="mpd test"
+IUSE="dbus mpd test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-python/portalocker
-	dev-python/psutil
-	mpd? ( dev-python/python-mpd2 )
+	dev-python/portalocker[${PYTHON_USEDEP}]
+	dev-python/psutil[${PYTHON_USEDEP}]
+	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
+	mpd? ( dev-python/python-mpd2[${PYTHON_USEDEP}] )
 "
 
 BDEPEND="
