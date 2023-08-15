@@ -11,6 +11,7 @@ DESCRIPTION="A library for Python file locking"
 HOMEPAGE="
 	https://github.com/WoLpH/portalocker
 	https://portalocker.readthedocs.io
+	https://pypi.org/project/portalocker/
 "
 SRC_URI="
 	https://github.com/WoLpH/${PN}/archive/v${PV}.tar.gz
@@ -20,19 +21,19 @@ SRC_URI="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 BDEPEND="
 	test? (
-		>=dev-python/pytest-5.4.1[${PYTHON_USEDEP}]
 		>=dev-python/pytest-timeout-2.1.0[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-6.0.0[${PYTHON_USEDEP}]
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.7.0-pytest-disable-coverage.patch"
-)
-
 distutils_enable_tests pytest
+
+src_prepare() {
+	default
+
+	# Disable code coverage in tests.
+	sed -i '/^ *--cov.*$/d' pytest.ini || die
+}
