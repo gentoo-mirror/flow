@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 
 S="${WORKDIR}/${P#sphinxcontrib-}"
 
-RDEPEND="
+BDEPEND="
 	test? (
 		  app-text/texlive
 		  dev-python/sphinxcontrib-applehelp[${PYTHON_USEDEP}]
