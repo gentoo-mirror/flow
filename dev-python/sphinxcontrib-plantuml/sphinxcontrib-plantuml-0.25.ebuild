@@ -35,7 +35,7 @@ distutils_enable_tests pytest
 
 python_test() {
 	# Fix for sphinx.errors.ExtensionError: Could not import extension sphinxcontrib.applehelp
-	# Thanks to mgorny.
+	# See https://projects.gentoo.org/python/guide/test.html#importerrors-for-c-extensions, thanks to mgorny.
 	rm -rf sphinxcontrib || die
 
 	epytest
