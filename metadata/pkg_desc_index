@@ -2,11 +2,13 @@ acct-group/atuin 0: System group: atuin
 acct-group/doborg 0: System group: doborg
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/lacme 0: System group: lacme
+acct-group/sandmann 0: System group: sandmann
 acct-group/zabbix-proxy 0: System group: zabbix-proxy
 acct-user/atuin 0: System user: atuin
 acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/lacme 0: System user: lacme
+acct-user/sandmann 0: System user: sandmann
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
 app-backup/doborg 9999: Full-system backup tool based on borg backup
