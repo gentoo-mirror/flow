@@ -1,21 +1,18 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit autotools eutils
+EAPI=8
 
 MY_PV=$(ver_rs 3 -)
 MY_P="${PN}-${MY_PV}"
 
-DESCRIPTION="ISIS language for interpretation and analysis of high resolution X-ray spectra."
+DESCRIPTION="ISIS language for interpretation and analysis of high resolution X-ray spectra"
 HOMEPAGE="http://space.mit.edu/CXC/ISIS/index.html"
 SRC_URI="ftp://space.mit.edu/pub/cxc/isis/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	sci-libs/pgplot
