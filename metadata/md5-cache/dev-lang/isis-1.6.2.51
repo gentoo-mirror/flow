@@ -1,0 +1,11 @@
+DEFINED_PHASES=configure install
+DEPEND=sci-libs/pgplot sci-libs/cfitsio
+DESCRIPTION=ISIS language for interpretation and analysis of high resolution X-ray spectra
+EAPI=8
+HOMEPAGE=http://space.mit.edu/CXC/ISIS/index.html
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sci-libs/pgplot sci-libs/cfitsio sys-libs/slang
+SLOT=0
+SRC_URI=ftp://space.mit.edu/pub/cxc/isis/isis-1.6.2-51.tar.gz
+_md5_=989bed36980a26deb0eba4322a84d618
