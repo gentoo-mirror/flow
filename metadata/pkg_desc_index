@@ -94,7 +94,6 @@ sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-ori
 sys-firmware/systemd-microcode-reload 0: Reload microcode on system boot via systemd tmpfiles
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-power/autosuspend 5.0.0: A daemon to automatically suspend and wake up a system
-sys-process/procps 4.0.3: Standard informational utilities and process-handling tools
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-libs/gtkdatabox 1.0.0: Gtk+ Widgets for live display of large amounts of fluctuating numerical data

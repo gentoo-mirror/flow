@@ -65,8 +65,4 @@ net-wireless/bluez:midi - Enable MIDI support
 net-wireless/bluez:obex - Enable OBEX transfer support
 net-wireless/bluez:test-programs - Install tools for testing of various Bluetooth functions
 sys-power/autosuspend:mpd - Enable support for the Music Player Daemon
-sys-process/procps:elogind - Use sys-auth/elogind for session tracking.
-sys-process/procps:kill - Build the kill program
-sys-process/procps:modern-top - Enables new startup defaults of top. Keeps old defaults if disabled
-sys-process/procps:ncurses - Build programs that use ncurses: top, slabtop, watch
 x11-libs/gtkdatabox:glade - Build with libglade and glade-3 supports, which includes a glade's module for GtkDataBox widget
