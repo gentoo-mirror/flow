@@ -6,6 +6,7 @@ app-misc/tmux
 app-portage/cpuid2cpuflags
 app-portage/gentoolkit
 app-portage/mirrorselect
+app-portage/pfl
 app-portage/portpeek
 app-shells/gentoo-zsh-completions
 app-shells/zsh
