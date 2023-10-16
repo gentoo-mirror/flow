@@ -18,8 +18,6 @@ app-crypt/sequoia-sqv 1.1.0: A simple OpenPGP signature verification program
 app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
 app-emacs/emacs-systemd-user-service 0.2: Support for Emacs daemon using a systemd user service
 app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
-app-emulation/xen 4.15.3 4.16.1 4.16.2_pre1: The Xen virtual machine monitor
-app-emulation/xen-tools 4.15.3 4.16.1 4.16.2_pre1: Xen tools including QEMU and xl
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
 app-misc/archives-override-content-experiment 1.0: An experiment about archives being able to override files
