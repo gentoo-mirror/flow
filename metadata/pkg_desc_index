@@ -12,7 +12,7 @@ acct-user/git-mirror 0: System user: git-mirror
 acct-user/lacme 0: System user: lacme
 acct-user/sandmann 0: System user: sandmann
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
-app-admin/git-mirror 0.2 9999: Automatic mirroring of git repositories
+app-admin/git-mirror 0.3 9999: Automatic mirroring of git repositories
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
 app-backup/doborg 9999: Full-system backup tool based on borg backup
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
