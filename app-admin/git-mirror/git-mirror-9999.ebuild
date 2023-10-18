@@ -21,6 +21,7 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
+	acct-user/git-mirror
 	dev-vcs/git
 "
 
