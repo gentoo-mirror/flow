@@ -1,0 +1,12 @@
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Automatic mirroring of git repositories
+EAPI=8
+HOMEPAGE=https://gitlab.gentoo.org/flow/git-mirror
+INHERIT=systemd git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=dev-vcs/git
+SLOT=0
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=7dac73cb903a543a52cb3cbf27702f97
