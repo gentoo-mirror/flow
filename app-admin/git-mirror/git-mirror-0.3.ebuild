@@ -35,4 +35,6 @@ src_install() {
 		PREFIX="${EPREFIX}" \
 		SYSTEMD_SYSTEM_UNIT_DIR=$(systemd_get_systemunitdir) \
 		install
+
+	dodoc README.md
 }
