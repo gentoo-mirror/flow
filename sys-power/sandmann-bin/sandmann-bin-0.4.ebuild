@@ -41,6 +41,30 @@ else
 "
 fi
 
+# TODO:
+# - COURSIER_CACHE https://get-coursier.io/docs/cache
+# - __.prepareOffline https://github.com/com-lihaoyi/mill/pull/951
+# We need
+# 1. COURSIER_CACHE=cachedir mill __.prepareOffline, then shove cachedir/ into a tarball
+# 2. mill --offline support, ideally accompanied via a
+# 3. MILL_ARGS env variable, where we can MILL_ARGS="--offline" for the phases that run in the network sandbox
+# 4. as bonus, a MILL_HOME environment variable, so we don't need to JDK_JAVA_OPTIONS="-Duser.home=\"${T}\"" (which triggers NOTE message)
+src_unpack() {
+
+	if [[ -v EGIT_REPO_URI ]]; then
+		git-r3_src_unpack
+
+		local -x XDG_CACHE_HOME="${T}/cache"
+		local -x JDK_JAVA_OPTIONS="-Duser.home=\"${T}\""
+
+		pushd "${S}" > /dev/null || die
+		./millw --no-server __.prepareOffline --all || die
+		popd > /dev/null || die
+	else
+		default
+	fi
+}
+
 src_prepare() {
 	default
 	sed -i \
@@ -51,7 +75,7 @@ src_prepare() {
 src_compile() {
 	if [[ -v EGIT_REPO_URI ]]; then
 		local -x XDG_CACHE_HOME="${T}/cache"
-		local -x HOME="${T}"
+		local -x JDK_JAVA_OPTIONS="-Duser.home=\"${T}\""
 		emake compile
 	fi
 }
@@ -72,6 +96,8 @@ src_install() {
 
 	java-pkg_newjar out/main/assembly.dest/out.jar sandmann.jar
 	java-pkg_dolauncher sandmann
+
+	dodoc README.md
 }
 
 pkg_postinst() {
