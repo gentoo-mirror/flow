@@ -48,7 +48,8 @@ fi
 # 1. COURSIER_CACHE=cachedir mill __.prepareOffline, then shove cachedir/ into a tarball
 # 2. mill --offline support, ideally accompanied via a
 # 3. MILL_ARGS env variable, where we can MILL_ARGS="--offline" for the phases that run in the network sandbox
-# 4. as bonus, a MILL_HOME environment variable, so we don't need to JDK_JAVA_OPTIONS="-Duser.home=\"${T}\"" (which triggers NOTE message)
+# 4. as bonus, a MILL_HOME environment variable, so we don't need to
+#    JDK_JAVA_OPTIONS="-Duser.home=\"${T}\"" (which triggers NOTE message)
 src_unpack() {
 
 	if [[ -v EGIT_REPO_URI ]]; then
