@@ -40,7 +40,8 @@ src_configure() {
 
 my_src_configure() {
 	local emesonargs=(
-		-Dpython-only=${python_only}
+		-Darch="${ARCH}"
+		-Dpython-only="${python_only}"
 		-Deprefix="${EPREFIX}"
 	)
 
