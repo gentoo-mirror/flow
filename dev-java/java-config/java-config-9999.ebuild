@@ -3,12 +3,11 @@
 
 EAPI=8
 
-# jython depends on java-config, so don't add it or things will break
 PYTHON_COMPAT=( python3_{10..12} )
 
 inherit meson python-r1
 
-if [[ ${PV} = *9999 ]]; then
+if [[ ${PV} = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/java-config.git"
 else
@@ -23,11 +22,13 @@ LICENSE="GPL-2"
 SLOT="2"
 IUSE="test"
 RESTRICT="!test? ( test )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="test? ( sys-apps/portage[${PYTHON_USEDEP}] )"
 
 # baselayout-java is added as a dep till it can be added to eclass.
 RDEPEND="
+	${PYTHON_DEPS}
 	sys-apps/baselayout-java
 	sys-apps/portage[${PYTHON_USEDEP}]
 "
@@ -64,11 +65,10 @@ src_install() {
 }
 
 my_src_install() {
+	meson_src_install
+
 	local pydirs=(
 		"${D}$(python_get_sitedir)"
 	)
-
-	meson_src_install
 	python_optimize "${pydirs[@]}"
-	#python_fix_shebang "${pydirs[@]}"
 }
