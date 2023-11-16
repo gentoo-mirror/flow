@@ -22,7 +22,9 @@ fi
 LICENSE="GPL-3+ LGPL-3"
 SLOT="0"
 
+# >=java-config-2.3.2 to get the libdir fix.
 RDEPEND="
+	>=dev-java/java-config-2.3.2
 	sys-apps/systemd
 	sys-auth/polkit
 	|| (
