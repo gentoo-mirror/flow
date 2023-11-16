@@ -58,6 +58,7 @@ dev-erlang/yconf 1.0.11: YAML configuration processor
 dev-java/bloop-bin 1.5.0: A Scala build server and CLI
 dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
 dev-java/graalvm-ce-bin 22.3.1: A high-performance Java Development Kit (JDK) distribution
+dev-java/java-config 9999: Java environment configuration query tool
 dev-java/jicmp 2.0.4: A library to allow the use of raw ICMP packets in Java
 dev-java/openjdk 11.0.9_p11-r1 11.0.10_p9: Open source implementation of the Java programming language
 dev-java/spec-alpha-bin 0.2.194: A Clojure library to describe the structure of data and functions
@@ -93,6 +94,7 @@ sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) 
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-power/autosuspend 5.0.0: A daemon to automatically suspend and wake up a system
+sys-power/sandmann-bin 0.4 9999: An autosuspend and wakeup daemon
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-libs/gtkdatabox 1.0.0: Gtk+ Widgets for live display of large amounts of fluctuating numerical data
