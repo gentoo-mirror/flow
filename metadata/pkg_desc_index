@@ -3,14 +3,12 @@ acct-group/doborg 0: System group: doborg
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/git-mirror 0: System group: git-mirror
 acct-group/lacme 0: System group: lacme
-acct-group/sandmann 0: System group: sandmann
 acct-group/zabbix-proxy 0: System group: zabbix-proxy
 acct-user/atuin 0: System user: atuin
 acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/git-mirror 0: System user: git-mirror
 acct-user/lacme 0: System user: lacme
-acct-user/sandmann 0: System user: sandmann
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/git-mirror 0.3 9999: Automatic mirroring of git repositories
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
@@ -94,7 +92,7 @@ sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) 
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-power/autosuspend 5.0.0: A daemon to automatically suspend and wake up a system
-sys-power/sandmann-bin 0.4 9999: An autosuspend and wakeup daemon
+sys-power/sandmann-bin 0.9-r1 9999: An autosuspend and wakeup daemon
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-libs/gtkdatabox 1.0.0: Gtk+ Widgets for live display of large amounts of fluctuating numerical data
