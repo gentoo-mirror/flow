@@ -41,5 +41,6 @@ net-im/ejabberd:sip - Enable SIP support
 net-im/ejabberd:sqlite - Enable SQLite database support
 net-im/ejabberd:stun - Enable STUN/TURN support
 net-im/ejabberd:zlib - Enable Stream Compression (XEP-0138) using zlib
+sys-kernel/system-config:ioscheduler - Install IO scehduler rules (BFQ for HDD/SSD, None for NVMe)
 sys-power/autosuspend:mpd - Enable support for the Music Player Daemon
 x11-libs/gtkdatabox:glade - Build with libglade and glade-3 supports, which includes a glade's module for GtkDataBox widget

@@ -90,6 +90,7 @@ sys-apps/hp-health 10.9.3: HPE System Health Application and Command line Utilit
 sys-apps/ripgrep-all 0.9.6-r1: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
+sys-kernel/system-config 2023.11.30: Linux kernel system configuration
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-power/autosuspend 5.0.0: A daemon to automatically suspend and wake up a system
 sys-power/sandmann-bin 0.9-r1 9999: An autosuspend and wakeup daemon
