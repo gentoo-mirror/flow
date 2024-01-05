@@ -10,15 +10,44 @@
 # @BLURB: install a doc file, that will be conditionally shown via elog messages
 # @DESCRIPTION:
 # An eclass for installing a README.gentoo doc file recording tips
-# shown via elog messages. With this eclass, those elog messages will only be
-# shown at first package installation and a file for later reviewing will be
-# installed under /usr/share/doc/${PF}
+# shown via elog messages.  With this eclass, those elog messages will only be
+# shown at first package installation or if the contents of the file have changed.
+# Furthermore, a file for later reviewing will be installed under
+# /usr/share/doc/${PF}
+#
+# This eclass is similar to readme.gentoo-r1.eclass.  The main
+# differences are as follows.  First, it also displays the doc file
+# contents if they have changed.  Secondly, it provides a convenient API to
+# install the doc file via stdin.
+#
+# @CODE
+# inherit greadme
+#
+# src_install() {
+#   …
+#   greadme_stdin <<- EOF
+#   This is the content of the created readme doc file.
+# EOF
+#   if use foo; then
+#     greadme_stdin --apend <<-EOF
+#     This is conditional readme content, based on USE=foo.
+# EOF
+#   fi
+# }
+# @CODE
+#
+# You must call greadme_pkg_preinst and greadme_pkg_postinst explicitly, if
+# you override the default pkg_preinst or respectively pkg_postinst.
 #
 # TODO:
 # - Should this be named README.Distribution instead of README.Gentoo?
 #   Would that make things easier for Gentoo derivates?
 #   Similary, (g → d)readme, (G → D)README?
-# -
+# - Incooperate changes into readme.gentoo-r1.elcass?
+# - Compressing the readme doc file is probably fragile, as it is not
+#   guaranteed that the required binaries for decompression are installed
+#   in pkg_preinst/pkg_postinst. Note that it is even possible that two
+#   different compression algorithms are used, in case of binpkgs.
 
 if [[ -z ${_README_GENTOO_ECLASS} ]]; then
 _README_GENTOO_ECLASS=1
@@ -36,9 +65,11 @@ _GREADME_FILENAME="README.gentoo"
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
 _GREADME_REL_PATH="usr/share/doc/${PF}/${_GREADME_FILENAME}"
 
-# @FUNCTION: greadme_stdin [--append]
+# @FUNCTION: greadme_stdin
+# @USAGE: [--append]
 # @DESCRIPTION:
-# TODO: Describe me
+# Create the readme doc via stdin.  You can use --append to append to an
+# existing readme doc.
 greadme_stdin() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -69,9 +100,10 @@ greadme_stdin() {
 	_greadme_install_doc
 }
 
-# @FUNCTION: greadme_file <FILE>
+# @FUNCTION: greadme_file
+# @USAGE: <file>
 # @DESCRIPTION:
-# TODO: describe me
+# Installs the provided file as readme doc.
 greadme_file() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -90,8 +122,9 @@ greadme_file() {
 }
 
 # @FUNCTION: _greadme_install_doc
+# @INTERNAL
 # @DESCRIPTION:
-# TODO: describe me
+# Installs the readme file from the temp directory into the image.
 _greadme_install_doc() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -110,6 +143,10 @@ _greadme_install_doc() {
 
 }
 
+# @FUNCTION: greadme_pkg_preinst
+# @DESCRIPTION:
+# Performs checks like comparing the readme doc from the image with a
+# potentially existing one in the live system.
 greadme_pkg_preinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		_GREADME_SHOW="fresh-install"
@@ -190,6 +227,9 @@ greadme_pkg_preinst() {
 	fi
 }
 
+# @FUNCTION: greadme_pkg_postinst
+# @DESCRIPTION:
+# Conditionally shows the readme doc contents via elog.
 greadme_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "${@}"
 
