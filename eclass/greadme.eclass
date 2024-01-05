@@ -28,7 +28,9 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
-inherit unpacker
+if [[ ${_GREADME_COMPRESS} ]]; then
+	inherit unpacker
+fi
 
 _GREADME_FILENAME="README.gentoo"
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
