@@ -14,8 +14,6 @@
 # shown at first package installation and a file for later reviewing will be
 # installed under /usr/share/doc/${PF}
 #
-# You need to call readme.gentoo_create_doc in src_install phase and
-# readme.gentoo_print_elog in pkg_postinst
 # TODO:
 # - Should this be named README.Distribution instead of README.Gentoo?
 #   Would that make things easier for Gentoo derivates?
@@ -30,7 +28,9 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
-inherit unpacker
+if [[ ${_GREADME_COMPRESS} ]]; then
+	inherit unpacker
+fi
 
 _GREADME_FILENAME="README.gentoo"
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
