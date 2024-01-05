@@ -1,4 +1,4 @@
-DEFINED_PHASES=install postinst preinst unpack
+DEFINED_PHASES=install postinst preinst
 DESCRIPTION=Test ebuild for the greadme.eclass
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
@@ -6,5 +6,5 @@ INHERIT=greadme
 KEYWORDS=amd64
 LICENSE=GPL-3
 SLOT=0
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	unpacker	aa6a4e924009232d8b78b31e932c30b5	greadme	a27c355a57804b3d98a86acee91bdfe2
+_eclasses_=greadme	8eab986102ff2ec35f41eeff78f41967
 _md5_=221dd9b735fab4f3ea7db07504c3604e
