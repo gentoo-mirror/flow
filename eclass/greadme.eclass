@@ -248,7 +248,7 @@ greadme_pkg_preinst() {
 
 # @FUNCTION: greadme_pkg_postinst
 # @DESCRIPTION:
-# Conditionally shows the readme doc contents via elog.
+# Conditionally shows the contents of the readme doc via elog.
 greadme_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "${@}"
 
