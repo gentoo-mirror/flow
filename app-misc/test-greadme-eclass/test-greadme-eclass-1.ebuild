@@ -17,10 +17,10 @@ S="${WORKDIR}"
 
 src_install() {
 	greadme_stdin <<-EOF
-This is an example content of the readme file.
-EOF
+	This is an example content of the readme file.
+	EOF
 
 	greadme_stdin --append <<-EOF
-This content was appended to the readme file.
-EOF
+	This content was appended to the readme file.
+	EOF
 }

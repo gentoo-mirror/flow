@@ -153,78 +153,96 @@ greadme_pkg_preinst() {
 		return
 	fi
 
-	local live_doc_file="${EROOT}/${_GREADME_REL_PATH}"
-	local image_doc_file="${ED}/${_GREADME_REL_PATH}"
+	check_live_doc_file() {
+		local cur_pvr=$1
+		local live_doc_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_FILENAME}"
 
-	if [[ ${_GREADME_COMPRESS} ]]; then
-		local live_doc_files=( $(ls -1 ${live_doc_file}*) )
-		case ${#live_doc_files[@]} in
-			0)
+		if [[ ${_GREADME_COMPRESS} ]]; then
+			local live_doc_files=( $(ls -1 ${live_doc_file}*) )
+			case ${#live_doc_files[@]} in
+				0)
+					_GREADME_SHOW="no-current-greadme"
+					return
+					;;
+				1)
+					live_doc_file="${live_doc_files[0]}"
+					;;
+				*)
+					die "unpexpected number of Gentoo README files found"
+					;;
+			esac
+
+			local image_doc_files=( $(ls -1 {image_doc_file}*) )
+			case ${#image_doc_files[@]} in
+				0)
+					die "No Gentoo README found in image"
+					;;
+				1)
+					image_doc_file="${image_doc_files[0]}"
+					;;
+				*)
+					die "unpexpected number of Gentoo README files found"
+					;;
+			esac
+
+			mkdir "${T}/greadme"
+
+			mkdir "${T}/greadme/live"
+			pushd "${T}/greadme/live" > /dev/null
+			local live_doc_file_basename="$(basename "${live_doc_file}")"
+			if [[ "${live_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
+				cp "${live_doc_file}" .
+			else
+				unpacker "${live_doc_file}"
+			fi
+			popd > /dev/null
+
+			mkdir "${T}/greadme/image"
+			pushd "${T}/greadme/image" > /dev/null
+			local image_doc_file_basename="$(basename "${image_doc_file}")"
+			if [[ "${image_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
+				cp "${image_doc_file}" .
+			else
+				unpacker "${image_doc_file}"
+			fi
+			popd > /dev/null
+
+			live_doc_file="${T}/greadme/live/${_GREADME_FILENAME}"
+			image_doc_file="${T}/greadme/image${_GREADME_FILENAME}"
+			# Store the unpacked greadme in a global variable so that it can
+			# be used in greadme_pkg_postinst.
+			_GREADME_UNPACKED="${T}/greadme/image${_GREADME_FILENAME}"
+		else
+			if [[ ! -f ${live_doc_file} ]]; then
 				_GREADME_SHOW="no-current-greadme"
 				return
-				;;
-			1)
-				live_doc_file="${live_doc_files[0]}"
-				;;
-			*)
-				die "unpexpected number of Gentoo README files found"
-				;;
-		esac
+			fi
+		fi
 
-		local image_doc_files=( $(ls -1 {image_doc_file}*) )
-		case ${#image_doc_files[@]} in
+		cmp -s "${live_doc_file}" "${image_doc_file}"
+		local ret=$?
+		case ${ret} in
 			0)
-				die "No Gentoo README found in image"
+				_GREADME_SHOW=""
 				;;
 			1)
-				image_doc_file="${image_doc_files[0]}"
+				_GREADME_SHOW="content-differs"
 				;;
 			*)
-				die "unpexpected number of Gentoo README files found"
+				die "cmp failed with ${ret}"
 				;;
 		esac
+	}
 
-		mkdir "${T}/greadme"
+	local image_doc_file="${ED}/${_GREADME_REL_PATH}"
 
-		mkdir "${T}/greadme/live"
-		pushd "${T}/greadme/live" > /dev/null
-		local live_doc_file_basename="$(basename "${live_doc_file}")"
-		if [[ "${live_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
-			cp "${live_doc_file}" .
-		else
-			unpacker "${live_doc_file}"
+	local replaced_version
+	for replaced_version in ${REPLACING_VERSIONS}; do
+		check_live_doc_file ${replaced_version}
+		if [[ -n ${_GREADME_SHOW} ]]; then
+			break
 		fi
-		popd > /dev/null
-
-		mkdir "${T}/greadme/image"
-		pushd "${T}/greadme/image" > /dev/null
-		local image_doc_file_basename="$(basename "${image_doc_file}")"
-		if [[ "${image_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
-			cp "${image_doc_file}" .
-		else
-			unpacker "${image_doc_file}"
-		fi
-		popd > /dev/null
-
-		live_doc_file="${T}/greadme/live/${_GREADME_FILENAME}"
-		image_doc_file="${T}/greadme/image${_GREADME_FILENAME}"
-		# Store the unpacked greadme in a global variable so that it can
-		# be used in greadme_pkg_postinst.
-		_GREADME_UNPACKED="${T}/greadme/image${_GREADME_FILENAME}"
-	else
-		if [[ ! -f ${live_doc_file} ]]; then
-			_GREADME_SHOW="no-current-greadme"
-			return
-		fi
-	fi
-
-	if cmp -s \
-		   "${live_doc_file}" \
-		   "${image_doc_file}"; then
-		_GREADME_SHOW=""
-	else
-		_GREADME_SHOW="content-differs"
-	fi
+	done
 }
 
 # @FUNCTION: greadme_pkg_postinst
