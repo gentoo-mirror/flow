@@ -16,7 +16,7 @@
 # /usr/share/doc/${PF}
 #
 # This eclass is similar to readme.gentoo-r1.eclass.  The main
-# differences are as follows.  First, it also displays the doc file
+# differences are as follows.  Firstly, it also displays the doc file
 # contents if they have changed.  Secondly, it provides a convenient API to
 # install the doc file via stdin.
 #
@@ -27,11 +27,12 @@
 #   …
 #   greadme_stdin <<- EOF
 #   This is the content of the created readme doc file.
-# EOF
+#   EOF
+#   …
 #   if use foo; then
 #     greadme_stdin --apend <<-EOF
 #     This is conditional readme content, based on USE=foo.
-# EOF
+#     EOF
 #   fi
 # }
 # @CODE
@@ -172,7 +173,7 @@ greadme_pkg_preinst() {
 					;;
 			esac
 
-			local image_doc_files=( $(ls -1 {image_doc_file}*) )
+			local image_doc_files=( $(ls -1 ${image_doc_file}*) )
 			case ${#image_doc_files[@]} in
 				0)
 					die "No Gentoo README found in image"
@@ -208,10 +209,10 @@ greadme_pkg_preinst() {
 			popd > /dev/null
 
 			live_doc_file="${T}/greadme/live/${_GREADME_FILENAME}"
-			image_doc_file="${T}/greadme/image${_GREADME_FILENAME}"
+			image_doc_file="${T}/greadme/image/${_GREADME_FILENAME}"
 			# Store the unpacked greadme in a global variable so that it can
 			# be used in greadme_pkg_postinst.
-			_GREADME_UNPACKED="${T}/greadme/image${_GREADME_FILENAME}"
+			_GREADME_UNPACKED="${image_doc_file}"
 		else
 			if [[ ! -f ${live_doc_file} ]]; then
 				_GREADME_SHOW="no-current-greadme"
