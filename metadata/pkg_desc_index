@@ -21,7 +21,7 @@ app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one syste
 app-misc/archives-override-content-experiment 1.0: An experiment about archives being able to override files
 app-misc/cmatrix 2.0: An ncurses based app to show a scrolling screen from the Matrix
 app-misc/klavaro 3.0.1-r1 3.13: Another free touch typing tutor program
-app-misc/test-greadme-eclass 1 2: Test ebuild for the greadme.eclass
+app-misc/test-greadme-eclass 1 2 3: Test ebuild for the greadme.eclass
 app-portage/emlop 0.5.0: A fast, accurate, ergonomic emerge.log parser
 app-portage/gentools 1.0.0 9999: Tools to aid administering Gentoo systems, like silent automatic updates
 app-shells/oil 0.9.9: A new Unix shell
