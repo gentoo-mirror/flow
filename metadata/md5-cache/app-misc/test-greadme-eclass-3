@@ -6,5 +6,5 @@ INHERIT=greadme
 KEYWORDS=amd64
 LICENSE=GPL-3
 SLOT=0
-_eclasses_=greadme	a73e10f973174755db4cb19a28f5ef92
+_eclasses_=greadme	9456d5c990f768c94c2080ff13f00746
 _md5_=bb34cd3c40dc2c25ec59a54db8b2ecb2
