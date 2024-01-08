@@ -154,41 +154,37 @@ greadme_pkg_preinst() {
 	if [[ ${_GREADME_COMPRESS} ]]; then
 		local greadme_tmpdir="${T}/greadme"
 
-		mkdir "${greadme_tmpdir}" || die
+		mkdir -p "${greadme_tmpdir}/image" || die
 
-		if [[ ! -d "${greadme_tmpdir}/image" ]]; then
-			mkdir "${T}/greadme/image" || die
+		local image_doc_files=( $(ls -1 ${image_doc_file}*) )
+		case ${#image_doc_files[@]} in
+			0)
+				die "No Gentoo README found in image"
+				;;
+			1)
+				image_doc_file="${image_doc_files[0]}"
+				;;
+			*)
+				die "unpexpected number of Gentoo README files found"
+				;;
+		esac
 
-			local image_doc_files=( $(ls -1 ${image_doc_file}*) )
-			case ${#image_doc_files[@]} in
-				0)
-					die "No Gentoo README found in image"
-					;;
-				1)
-					image_doc_file="${image_doc_files[0]}"
-					;;
-				*)
-					die "unpexpected number of Gentoo README files found"
-					;;
-			esac
-
-			pushd "${T}/greadme/image" > /dev/null
-			local image_doc_file_basename="$(basename "${image_doc_file}")"
-			if [[ "${image_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
-				cp "${image_doc_file}" . || die
-			else
-				nonfatal unpacker "${image_doc_file}"
-				if [[ $? -gt 0 ]]; then
-					# We failed to unpack the readme doc from the
-					# image, therefore, we can't show it (unless we
-					# would save it's content in a env variable like
-					# gentoo.readme-r1 does).
-					_GREADME_SHOW=""
-					return
-				fi
+		pushd "${T}/greadme/image" > /dev/null
+		local image_doc_file_basename="$(basename "${image_doc_file}")"
+		if [[ "${image_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
+			cp "${image_doc_file}" . || die
+		else
+			nonfatal unpacker "${image_doc_file}"
+			if [[ $? -gt 0 ]]; then
+				# We failed to unpack the readme doc from the
+				# image, therefore, we can't show it (unless we
+				# would save it's content in a env variable like
+				# gentoo.readme-r1 does).
+				_GREADME_SHOW=""
+				return
 			fi
-			popd > /dev/null
 		fi
+		popd > /dev/null
 	fi
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
