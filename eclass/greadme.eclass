@@ -149,6 +149,48 @@ _greadme_install_doc() {
 # Performs checks like comparing the readme doc from the image with a
 # potentially existing one in the live system.
 greadme_pkg_preinst() {
+	local image_doc_file="${ED}/${_GREADME_REL_PATH}"
+
+	if [[ ${_GREADME_COMPRESS} ]]; then
+		local greadme_tmpdir="${T}/greadme"
+
+		mkdir "${greadme_tmpdir}" || die
+
+		if [[ ! -d "${greadme_tmpdir}/image" ]]; then
+			mkdir "${T}/greadme/image" || die
+
+			local image_doc_files=( $(ls -1 ${image_doc_file}*) )
+			case ${#image_doc_files[@]} in
+				0)
+					die "No Gentoo README found in image"
+					;;
+				1)
+					image_doc_file="${image_doc_files[0]}"
+					;;
+				*)
+					die "unpexpected number of Gentoo README files found"
+					;;
+			esac
+
+			pushd "${T}/greadme/image" > /dev/null
+			local image_doc_file_basename="$(basename "${image_doc_file}")"
+			if [[ "${image_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
+				cp "${image_doc_file}" . || die
+			else
+				nonfatal unpacker "${image_doc_file}"
+				if [[ $? -gt 0 ]]; then
+					# We failed to unpack the readme doc from the
+					# image, therefore, we can't show it (unless we
+					# would save it's content in a env variable like
+					# gentoo.readme-r1 does).
+					_GREADME_SHOW=""
+					return
+				fi
+			fi
+			popd > /dev/null
+		fi
+	fi
+
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		_GREADME_SHOW="fresh-install"
 		return
@@ -173,38 +215,24 @@ greadme_pkg_preinst() {
 					;;
 			esac
 
-			local image_doc_files=( $(ls -1 ${image_doc_file}*) )
-			case ${#image_doc_files[@]} in
-				0)
-					die "No Gentoo README found in image"
-					;;
-				1)
-					image_doc_file="${image_doc_files[0]}"
-					;;
-				*)
-					die "unpexpected number of Gentoo README files found"
-					;;
-			esac
+			if [[ -d "${greadme_tmpdir}/live" ]]; then
+				rm -rf "${greadme_tmpdir}"/live/* || die
+			else
+				mkdir "${T}/greadme/live"
+			fi
 
-			mkdir "${T}/greadme"
-
-			mkdir "${T}/greadme/live"
 			pushd "${T}/greadme/live" > /dev/null
 			local live_doc_file_basename="$(basename "${live_doc_file}")"
 			if [[ "${live_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
 				cp "${live_doc_file}" .
 			else
-				unpacker "${live_doc_file}"
-			fi
-			popd > /dev/null
-
-			mkdir "${T}/greadme/image"
-			pushd "${T}/greadme/image" > /dev/null
-			local image_doc_file_basename="$(basename "${image_doc_file}")"
-			if [[ "${image_doc_file_basename}" == "${_GREADME_FILENAME}" ]]; then
-				cp "${image_doc_file}" .
-			else
-				unpacker "${image_doc_file}"
+				nonfatal unpacker "${live_doc_file}"
+				if [[ $? -gt 0 ]]; then
+					# We failed to unpack the live readme doc, fallback
+					# to show the new readme contents.
+					_GREADME_SHOW="failed-to-unpack-live-readme-doc"
+					return
+				fi
 			fi
 			popd > /dev/null
 
@@ -235,8 +263,6 @@ greadme_pkg_preinst() {
 		esac
 	}
 
-	local image_doc_file="${ED}/${_GREADME_REL_PATH}"
-
 	local replaced_version
 	for replaced_version in ${REPLACING_VERSIONS}; do
 		check_live_doc_file ${replaced_version}
@@ -263,6 +289,10 @@ greadme_pkg_postinst() {
 
 	local greadme_path
 	if [[ ${_GREADME_COMPRESS} ]]; then
+		if [[ -z ${_GREADME_UNPACKED} ]]; then
+			# We failed to decompress the readme doc from the image.
+			return
+		fi
 		greadme_path="${_GREADME_UNPACKED}"
 	else
 		greadme_path="${EROOT}/${_GREADME_REL_PATH}"
