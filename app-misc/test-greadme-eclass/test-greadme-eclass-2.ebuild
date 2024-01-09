@@ -3,6 +3,8 @@
 
 EAPI=8
 
+_GREADME_COMPRESS=true
+
 inherit greadme
 
 DESCRIPTION="Test ebuild for the greadme.eclass"
@@ -19,5 +21,7 @@ src_install() {
 	greadme_stdin <<-EOF
 	Now the content of the readme file has changed
 	and will be shown again.
+
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere odio at auctor iaculis. In ornare et risus sed aliquet. Maecenas vitae nunc sed ligula hendrerit placerat quis vitae diam. Ut vel ligula aliquam, suscipit neque vitae, accumsan sem. Duis placerat porttitor blandit. Etiam sit amet erat et est imperdiet dictum. In id velit eu orci gravida rutrum sit amet in justo.
 	EOF
 }

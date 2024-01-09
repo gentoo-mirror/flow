@@ -25,7 +25,7 @@
 #
 # src_install() {
 #   …
-#   greadme_stdin <<- EOF
+#   greadme_stdin <<-EOF
 #   This is the content of the created readme doc file.
 #   EOF
 #   …
@@ -92,7 +92,7 @@ greadme_stdin() {
 		cat >> "${_GREADME_TMP_FILE}" || die
 	else
 		if [[ -f "${_GREADME_TMP_FILE}" ]]; then
-			die "Gentoo README already exists"
+			die "Gentoo README already exists while trying to create it"
 		fi
 
 		cat > "${_GREADME_TMP_FILE}" || die
@@ -294,14 +294,14 @@ greadme_pkg_postinst() {
 		greadme_path="${EROOT}/${_GREADME_REL_PATH}"
 	fi
 
-	local greadme_line
-	while read -r greadme_line; do elog "${greadme_line}"; done < "${EROOT}/${_GREADME_REL_PATH}"
+	local line
+	while read -r line; do elog "${line}"; done < "${greadme_path}"
 	elog ""
 	elog "(Note: Above message is only printed the first time package is"
 	elog "installed or if the the message changed. Please look at"
 	elog "${EPREFIX}/${_GREADME_REL_PATH} for future reference)"
 }
 
-EXPORT_FUNCTIONS pkg_preinst pkg_postinst
-
 fi
+
+EXPORT_FUNCTIONS pkg_preinst pkg_postinst
