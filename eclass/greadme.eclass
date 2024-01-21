@@ -49,8 +49,13 @@ case ${EAPI} in
 esac
 
 _GREADME_FILENAME="README.gentoo"
+_GREADME_HASH_FILENAME=".${_GREADME_FILENAME}.hash"
+
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
-_GREADME_REL_PATH="usr/share/doc/${PF}/${_GREADME_FILENAME}"
+
+_GREADME_DOC_DIR="usr/share/doc/${PF}"
+_GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
+_GREADME_HASH_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_HASH_FILENAME}"
 
 # @FUNCTION: greadme_stdin
 # @USAGE: [--append]
@@ -119,13 +124,20 @@ _greadme_install_doc() {
 		die "Gentoo README does not exist"
 	fi
 
-	docompress -x "${_GREADME_REL_PATH}"
+	# subshell to avoid pollution of calling environment
+	(
+		insinto "${_GREADME_DOC_DIR}"
 
-	( # subshell to avoid pollution of calling environment
-		docinto .
-		dodoc "${_GREADME_TMP_FILE}"
+		doins "${_GREADME_TMP_FILE}"
+		cksum --raw "${_GREADME_TMP_FILE}" | newins - "${_GREADME_HASH_FILENAME}"
+		assert
 	) || die
 
+	# Save the readme contents in an variable, so that it can be shown ins pkg_postinst().
+	_GREADME_CONTENTS=$(< "${_GREADME_TMP_FILE}")
+
+	# Exclude the 4-byte hash file from compression.
+	docompress -x "${_GREADME_HASH_REL_PATH}"
 }
 
 # @FUNCTION: greadme_pkg_preinst
@@ -140,18 +152,18 @@ greadme_pkg_preinst() {
 		return
 	fi
 
-	local image_doc_file="${ED}/${_GREADME_REL_PATH}"
+	local image_hash_file="${ED}/${_GREADME_HASH_REL_PATH}"
 
 	check_live_doc_file() {
 		local cur_pvr=$1
-		local live_doc_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_FILENAME}"
+		local live_hash_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_HASH_FILENAME}"
 
-		if [[ ! -f ${live_doc_file} ]]; then
+		if [[ ! -f ${live_hash_file} ]]; then
 			_GREADME_SHOW="no-current-greadme"
 			return
 		fi
 
-		cmp -s "${live_doc_file}" "${image_doc_file}"
+		cmp -s "${live_hash_file}" "${image_hash_file}"
 		local ret=$?
 		case ${ret} in
 			0)
@@ -169,6 +181,9 @@ greadme_pkg_preinst() {
 	local replaced_version
 	for replaced_version in ${REPLACING_VERSIONS}; do
 		check_live_doc_file ${replaced_version}
+
+		# Once _GREADME_SHOW is non empty, we found a reason to show the
+		# readme and we can abort the loop.
 		if [[ -n ${_GREADME_SHOW} ]]; then
 			break
 		fi
@@ -191,7 +206,7 @@ greadme_pkg_postinst() {
 	fi
 
 	local line
-	while read -r line; do elog "${line}"; done < "${EROOT}/${_GREADME_REL_PATH}"
+	echo -e "${_GREADME_CONTENTS}" | while read -r line; do elog "${line}"; done
 	elog ""
 	elog "(Note: Above message is only printed the first time package is"
 	elog "installed or if the the message changed. Please look at"
