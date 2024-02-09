@@ -51,8 +51,15 @@ src_install() {
 	domove userdata /var/lib/openhab
 	fowners -R openhab:openhab /var/lib/openhab
 
-	keepdir /var/log/openhab
-	fowners openhab:openhab /var/log/openhab
+	local dirs=(
+		/usr/share/openhab/addons
+		/var/log/openhab
+	)
+	local d
+	for d in "${dirs[@]}"; do
+		keepdir "${d}"
+		fowners openhab:openhab "${d}"
+	done
 
 	systemd_dounit "${FILESDIR}"/openhab.service
 
