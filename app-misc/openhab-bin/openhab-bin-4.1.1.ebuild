@@ -73,7 +73,7 @@ else
 		exit 1
 	fi
 
-	eval ${JAVA_HOME_ASSIGNMENT}
+	eval \${JAVA_HOME_ASSIGNMENT}
 fi
 
 export JAVA_HOME
