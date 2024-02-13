@@ -11,7 +11,7 @@ MY_P=${MY_PN}-${PV}
 DESCRIPTION="An open-source automation software for your home"
 HOMEPAGE="https://www.openhab.org/"
 SRC_URI="https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.zip"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 LICENSE="EPL-2.0"
 SLOT="0"
