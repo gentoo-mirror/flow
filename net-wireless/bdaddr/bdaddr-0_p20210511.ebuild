@@ -28,7 +28,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 
 COMMON_DEPEND="
-	net-wireless/bluez
+	net-wireless/bluez:=
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -46,11 +46,11 @@ PATCHES=(
 src_compile() {
 	emake
 
-	go-md2man -in README.md -out ${PN}.1.man || die
+	go-md2man -in README.md -out ${PN}.1 || die
 }
 
 src_install() {
 	dobin ${PN}
-	doman ${PN}.1.man
-	dosym usr/share/hwdata/oui.txt usr/share/misc/out.txt
+	doman ${PN}.1
+	dosym ../hwdata/oui.txt usr/share/misc/oui.txt
 }
