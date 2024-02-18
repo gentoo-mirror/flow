@@ -27,19 +27,17 @@ SRC_URI+="
 LICENSE="GPL-2+"
 SLOT="0"
 
-BDEPEND="dev-go/go-md2man"
-
 COMMON_DEPEND="
 	net-wireless/bluez
-"
-
-DEPEND="
-	${COMMON_DEPEND}
 "
 RDEPEND="
 	${COMMON_DEPEND}
 	sys-apps/hwdata
 "
+DEPEND="
+	${COMMON_DEPEND}
+"
+BDEPEND="dev-go/go-md2man"
 
 PATCHES=(
 	"${DISTDIR}"/${PN}-0_p20210511-idiomatic-makefile.patch
