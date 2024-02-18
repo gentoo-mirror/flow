@@ -85,6 +85,7 @@ net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-p2p/eclair-bin 0.8.0 0.9.0: Scala implemention of the Lightning Network
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
+net-wireless/bdaddr 0_p20210511: Utility for changing the Bluetooth device address
 sys-apps/hp-ams 2.10.0 2.10.4: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.9.3: HPE System Health Application and Command line Utilities (Gen9 and earlier)
 sys-apps/ripgrep-all 0.9.6-r1: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
