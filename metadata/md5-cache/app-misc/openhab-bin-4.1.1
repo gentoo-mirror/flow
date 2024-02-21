@@ -1,13 +1,13 @@
 BDEPEND=app-arch/unzip virtual/pkgconfig
-DEFINED_PHASES=compile install
+DEFINED_PHASES=compile install postinst
 DESCRIPTION=An open-source automation software for your home
 EAPI=8
 HOMEPAGE=https://www.openhab.org/
-INHERIT=systemd
+INHERIT=systemd tmpfiles
 KEYWORDS=~amd64 ~arm64
 LICENSE=EPL-2.0
-RDEPEND=>=virtual/jre-17 acct-user/openhab dev-java/java-config
+RDEPEND=>=virtual/jre-17 acct-user/openhab dev-java/java-config virtual/tmpfiles
 SLOT=0
 SRC_URI=https://github.com/openhab/openhab-distro/releases/download/4.1.1/openhab-4.1.1.zip
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=c8bbc3bb51924b33fd7efa1c03241864
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=f54c117e250269a6c153f2ad81eb10b4
