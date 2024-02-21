@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit systemd
+inherit systemd tmpfiles
 
 MY_PN=${PN%-bin}
 MY_P=${MY_PN}-${PV}
@@ -62,6 +62,7 @@ src_install() {
 	done
 
 	systemd_dounit "${FILESDIR}"/openhab.service
+	newtmpfiles "${FILESDIR}"/openhab.tmpfiles openhab.conf
 
 	newbin - openhab <<EOF
 #!/usr/bin/env bash
@@ -86,4 +87,8 @@ fi
 export JAVA_HOME
 exec /usr/share/openhab/runtime/bin/karaf "\$@"
 EOF
+}
+
+pkg_postinst() {
+	tmpfiles_process openhab.conf
 }
