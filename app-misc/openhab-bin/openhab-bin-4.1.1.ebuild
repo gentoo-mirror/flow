@@ -61,6 +61,8 @@ src_install() {
 		fowners openhab:openhab "${d}"
 	done
 
+	newenvd "${FILESDIR}"/openhab.env openhab
+
 	systemd_dounit "${FILESDIR}"/openhab.service
 	newtmpfiles "${FILESDIR}"/openhab.tmpfiles openhab.conf
 
