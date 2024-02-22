@@ -10,7 +10,11 @@ MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="An open-source automation software for your home"
 HOMEPAGE="https://www.openhab.org/"
-SRC_URI="https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.zip"
+SRC_URI="
+	https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.zip
+	https://raw.githubusercontent.com/openhab/openhab-linuxpkg/10061acd36524afb12a033fea6dcf142b399bf56/resources/usr/bin/openhab-cli
+		 -> openhab-cli-2024-01-14
+"
 KEYWORDS="~amd64 ~arm64"
 
 LICENSE="EPL-2.0"
@@ -91,6 +95,7 @@ fi
 export JAVA_HOME
 exec /usr/share/openhab/runtime/bin/karaf "\$@"
 EOF
+	newbin "${DISTDIR}"/openhab-cli-2024-01-14 openhab-cli
 }
 
 pkg_postinst() {
