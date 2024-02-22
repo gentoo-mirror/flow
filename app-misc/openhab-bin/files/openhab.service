@@ -12,11 +12,11 @@ EnvironmentFile=-/etc/default/openhab
 User=openhab
 
 WorkingDirectory=/usr/share/openhab
-ExecStart=openhab ${OPENHAB_STARTMODE}
+ExecStart=openhab daemon
 ExecStop=openhab stop
 
 SuccessExitStatus=0 143
-RestartSec=5
+RestartSec=15
 Restart=on-failure
 TimeoutStopSec=120
 
