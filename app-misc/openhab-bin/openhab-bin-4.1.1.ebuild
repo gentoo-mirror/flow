@@ -18,9 +18,11 @@ SLOT="0"
 
 MY_JAVA_DEPEND=">=virtual/jre-17"
 
+# app-arch/zip: openhab-cli backup
 RDEPEND="
 	${MY_JAVA_DEPEND}
 	acct-user/openhab
+	app-arch/zip
 	dev-java/java-config
 "
 
