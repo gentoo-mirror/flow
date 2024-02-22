@@ -6,7 +6,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-EnvironmentFile=/etc/env.d/openhab
+EnvironmentFile=/etc/env.d/50openhab
 EnvironmentFile=-/etc/default/openhab
 
 User=openhab
