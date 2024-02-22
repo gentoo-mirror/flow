@@ -6,12 +6,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-Environment=OPENHAB_HOME=/usr/share/openhab
-Environment=OPENHAB_CONF=/etc/openhab
-Environment=OPENHAB_RUNTIME=/usr/share/openhab/runtime
-Environment=OPENHAB_USERDATA=/var/lib/openhab
-Environment=OPENHAB_LOGDIR=/var/log/openhab
-Environment=OPENHAB_STARTMODE=daemon
+EnvironmentFile=/etc/env.d/openhab
 EnvironmentFile=-/etc/default/openhab
 
 User=openhab
