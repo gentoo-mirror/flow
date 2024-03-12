@@ -5,7 +5,7 @@ EAPI=8
 
 inherit elisp
 
-MY_COMMIT="88f9ad9d8800515f47609829df9b2a15dc475eff"
+MY_COMMIT="0a34b23b3b71be1e0ce307df873434c08408fc57"
 DESCRIPTION="Scala Tree-Sitter Mode"
 HOMEPAGE="https://github.com/KaranAhlawat/scala-ts-mode"
 SRC_URI="
@@ -23,3 +23,8 @@ RDEPEND="dev-libs/tree-sitter-scala"
 DOCS="README.org"
 
 SITEFILE="50${PN}-gentoo.el"
+
+src_compile() {
+	elisp_src_compile
+	elisp-make-autoload-file
+}
