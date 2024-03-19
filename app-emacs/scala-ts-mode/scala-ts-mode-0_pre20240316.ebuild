@@ -6,7 +6,7 @@ EAPI=8
 inherit elisp
 
 MY_COMMIT="11a01d726ac4fafb8a6688459ac79b41333bd6c8"
-DESCRIPTION="Scala Tree-Sitter Mode"
+DESCRIPTION="Emacs Scala Mode via Tree-Sitter"
 HOMEPAGE="https://github.com/KaranAhlawat/scala-ts-mode"
 SRC_URI="
 	https://codeload.github.com/KaranAhlawat/scala-ts-mode/tar.gz/${MY_COMMIT}
