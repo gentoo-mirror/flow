@@ -5,7 +5,7 @@ EAPI=8
 
 inherit elisp
 
-MY_COMMIT="0a34b23b3b71be1e0ce307df873434c08408fc57"
+MY_COMMIT="11a01d726ac4fafb8a6688459ac79b41333bd6c8"
 DESCRIPTION="Scala Tree-Sitter Mode"
 HOMEPAGE="https://github.com/KaranAhlawat/scala-ts-mode"
 SRC_URI="
