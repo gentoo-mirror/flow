@@ -15,7 +15,7 @@ app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image
 app-crypt/lacme 0.8.0: Small ACME client written with process isolation and minimal privileges in mind
 app-crypt/sequoia-sqv 1.1.0: A simple OpenPGP signature verification program
 app-doc/autotools-mythbuster 9999: A no-nonsense guide to Autotools
-app-emacs/scala-ts-mode 0_pre20240316: Emacs Scala Mode via Tree-Sitter
+app-emacs/scala-ts-mode 1.0.0_p20240316: Emacs Scala Mode via Tree-Sitter
 app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
 app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one system
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
