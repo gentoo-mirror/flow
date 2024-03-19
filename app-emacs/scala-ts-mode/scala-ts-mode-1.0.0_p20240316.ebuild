@@ -18,7 +18,10 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64"
 
-RDEPEND="dev-libs/tree-sitter-scala"
+RDEPEND="
+	>=app-editors/emacs-29[tree-sitter]
+	dev-libs/tree-sitter-scala
+"
 
 DOCS="README.org"
 
