@@ -1016,6 +1016,8 @@ src_prepare() {
 
 	sed 's|/usr/local/bin|/usr/bin|' -i config/crowdsec.service
 	sed 's|reload crowdsec|reload -q crowdsec|' -i config/crowdsec.cron.daily
+
+	rm config/*_win.yaml || die
 }
 
 src_compile() {
@@ -1036,7 +1038,7 @@ src_install() {
 	fi
 
 	insinto /etc/crowdsec
-	doins config/{config,console,context,detect,local_api_credentials,profiles,simulation}.yaml
+	doins config/*.yaml
 	if use server; then
 		keepdir /etc/crowdsec/acquis.d
 		systemd_dounit config/crowdsec.service
@@ -1047,5 +1049,27 @@ src_install() {
 	if use cron; then
 		exeinto /etc/cron.daily
 		doexe config/crowdsec.cron.daily
+	fi
+
+	keepdir /var/lib/crowdsec/data
+}
+
+pkg_postinst() {
+	local clientSecrets="${EROOT}/etc/crowdsec/local_api_credentials.yaml"
+	if [[ ! -f "${clientSecrets}" ]]; then
+		local machineId
+		if [[ -f /etc/machine-id ]]; then
+			machineId="$(cat /etc/machine-id)"
+		else
+			die "Currently requires /etc/machine-id"
+		fi
+
+		cscli machines add --force  "${machineId}" -a -f "${clientSecrets}" || die
+		chmod 640 "${clientSecrets}" || die
+	fi
+
+	if [[ ! -f "${EROOT}/etc/crowdsec/hub/.index.json" ]]; then
+		# TODO: warn if failed.
+		cscli hub update
 	fi
 }
