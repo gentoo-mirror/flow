@@ -60,6 +60,7 @@ dev-java/spec-alpha-bin 0.2.194: A Clojure library to describe the structure of 
 dev-lang/cilk 5.4.6-r3: Language for multithreaded parallel programming based on ANSI C
 dev-lang/clojure 1.10.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/isis 1.6.2.51: ISIS language for interpretation and analysis of high resolution X-ray spectra
+dev-lang/opencilk-bin 2.1: The OpenCilk concurrency platform for parallel programming
 dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
