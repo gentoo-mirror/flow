@@ -5,7 +5,7 @@ EAPI=8
 
 inherit autotools systemd
 
-DESCRIPTION="Connect like there is no firewall. Securely."
+DESCRIPTION="Allow firewalled/NATed host to establish a secure connection"
 HOMEPAGE="https://www.gsocket.io/"
 
 if [[ ${PV} == 9999 ]]; then
