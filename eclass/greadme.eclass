@@ -131,7 +131,7 @@ _greadme_install_doc() {
 		doins "${_GREADME_TMP_FILE}"
 		cksum --raw "${_GREADME_TMP_FILE}" | newins - "${_GREADME_HASH_FILENAME}"
 		assert
-	) || die
+	)
 
 	# Save the readme contents in an variable, so that it can be shown ins pkg_postinst().
 	_GREADME_CONTENTS=$(< "${_GREADME_TMP_FILE}")
