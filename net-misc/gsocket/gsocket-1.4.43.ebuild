@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools systemd
 
 DESCRIPTION="Connect like there is no firewall. Securely."
 HOMEPAGE="https://www.gsocket.io/"
@@ -22,7 +22,24 @@ SLOT="0"
 DEPEND="dev-libs/openssl:="
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	# https://github.com/hackerschoice/gsocket/pull/104
+	"${FILESDIR}"/gsocket-1.4.43-gs-init-secret.patch
+)
+
 src_prepare() {
 	default
+
+	# Patch in the correct libdir
+	sed -i \
+		"s;arrayContains \"/usr/lib\".*;DL+=(\"${EPREFIX}/usr/$(get_libdir)\");" \
+		tools/gs_funcs || die "Failed to patch libdir in gs_funcs"
+
 	eautoreconf
+}
+
+src_install() {
+	default
+
+	systemd_dounit examples/systemd-root-shell/gs-root-shell.service
 }
