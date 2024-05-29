@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools pam rebar systemd
+inherit autotools pam rebar3 systemd
 
 DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
