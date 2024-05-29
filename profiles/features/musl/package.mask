@@ -1,0 +1,6 @@
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Florian Schmaus <flow@gentoo.org> (2023-11-14)
+# Requires systemd which is not available on musl.
+sys-power/sandmann-bin

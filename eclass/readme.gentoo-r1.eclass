@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: readme.gentoo-r1.eclass
@@ -14,8 +14,27 @@
 # shown at first package installation and a file for later reviewing will be
 # installed under /usr/share/doc/${PF}
 #
-# You need to call readme.gentoo_create_doc in src_install phase and
-# readme.gentoo_print_elog in pkg_postinst
+# @CODE
+# inherit readme.gentoo-r1
+#
+# src_install() {
+#   …
+#   readme.gentoo_stdin <<-EOF
+#   This is the content of the created readme doc file.
+#   EOF
+#   …
+#   if use foo; then
+#     readme.gentoo_stdin --apend <<-EOF
+#     This is conditional readme content, based on USE=foo.
+#     EOF
+#   fi
+# }
+# @CODE
+#
+# You need to call readme.gentoo_create_doc in src_install phase if you
+# use DOC_CONTENTS or obtain the readme from FILESIDR.
+#
+# Note that this eclass exports pkg_preinst and pkg_postinst functions.
 
 if [[ -z ${_README_GENTOO_ECLASS} ]]; then
 _README_GENTOO_ECLASS=1
@@ -47,6 +66,71 @@ esac
 # If you want to specify a suffix for README.gentoo file please export it.
 : "${README_GENTOO_SUFFIX:=""}"
 
+_GREADME_FILENAME="README.gentoo"
+_GREADME_HASH_FILENAME=".${_GREADME_FILENAME}.hash"
+
+_GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
+
+_GREADME_DOC_DIR="usr/share/doc/${PF}"
+_GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
+_GREADME_HASH_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_HASH_FILENAME}"
+
+# @FUNCTION: readme.gentoo_stdin
+# @USAGE: [--append]
+# @DESCRIPTION:
+# Create the readme doc via stdin.  You can use --append to append to an
+# existing readme doc.
+readme.gentoo_stdin() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local append=false
+	while [[ -n ${1} ]] && [[ ${1} =~ --* ]]; do
+		case ${1} in
+			--append)
+				append=true
+				shift
+				;;
+		esac
+	done
+
+	if $append; then
+		if [[ ! -f "${_GREADME_TMP_FILE}" ]]; then
+			die "Gentoo README does not exist when trying to append to it"
+		fi
+
+		cat >> "${_GREADME_TMP_FILE}" || die
+	else
+		if [[ -f "${_GREADME_TMP_FILE}" ]]; then
+			die "Gentoo README already exists while trying to create it"
+		fi
+
+		cat > "${_GREADME_TMP_FILE}" || die
+	fi
+
+	readme.gentoo_create_doc
+}
+
+# @FUNCTION: readme.gentoo_file
+# @USAGE: <file>
+# @DESCRIPTION:
+# Installs the provided file as readme doc.
+readme.gentoo_file() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local input_doc_file="${1}"
+	if [[ -z "${input_doc_file}" ]]; then
+		die "No file specified"
+	fi
+
+	if [[ -f "${_GREADME_TMP_FILE}" ]]; then
+		die "Gentoo README already exists"
+	fi
+
+	cp "${input_doc_file}" "${_GREADME_TMP_FILE}" || die "Failed to copy ${input_doc_file}"
+
+	readme.gentoo_create_doc
+}
+
 # @FUNCTION: readme.gentoo_create_doc
 # @DESCRIPTION:
 # Create doc file with ${DOC_CONTENTS} variable (preferred) and, if not set,
@@ -71,15 +155,24 @@ readme.gentoo_create_doc() {
 		cp "${FILESDIR}/README.gentoo-${SLOT%/*}" "${T}"/README.gentoo || die
 	elif [[ -f "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" ]]; then
 		cp "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" "${T}"/README.gentoo || die
-	else
+	elif [[ ! -f "${_GREADME_TMP_FILE}" ]]; then
 		die "You are not specifying README.gentoo contents!"
 	fi
 
-	( # subshell to avoid pollution of calling environment
-		docinto .
-		dodoc "${T}"/README.gentoo
-	) || die
-	README_GENTOO_DOC_VALUE=$(< "${T}/README.gentoo")
+	# subshell to avoid pollution of calling environment
+	(
+		insinto "${_GREADME_DOC_DIR}"
+
+		doins "${_GREADME_TMP_FILE}"
+		cksum --raw "${_GREADME_TMP_FILE}" | newins - "${_GREADME_HASH_FILENAME}"
+		assert
+	)
+
+	# Save the readme contents in an variable, so that it can be shown ins pkg_postinst().
+	_GREADME_CONTENTS=$(< "${_GREADME_TMP_FILE}")
+
+	# Exclude the 4-byte hash file from compression.
+	docompress -x "${_GREADME_HASH_REL_PATH}"
 }
 
 # @FUNCTION: readme.gentoo_print_elog
@@ -96,15 +189,93 @@ readme.gentoo_create_doc() {
 readme.gentoo_print_elog() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	if [[ -z "${README_GENTOO_DOC_VALUE}" ]]; then
-		die "readme.gentoo_print_elog invoked without matching readme.gentoo_create_doc call!"
-	elif ! [[ -n "${REPLACING_VERSIONS}" ]] || [[ -n "${FORCE_PRINT_ELOG}" ]]; then
-		echo -e "${README_GENTOO_DOC_VALUE}" | while read -r ELINE; do elog "${ELINE}"; done
-		elog ""
-		elog "(Note: Above message is only printed the first time package is"
-		elog "installed. Please look at ${EPREFIX}/usr/share/doc/${PF}/README.gentoo*"
-		elog "for future reference)"
+	_GREADME_SHOW="force"
+	readme.gentoo-r1_pkg_postinst
+}
+
+# TODO:
+# This phase function could be the reason why we can not "simply" add
+# the greadme logic into readme.gentoo-r1.eclass: The greadme logic
+# requires as pkg_*pre*inst function to be called. Because it needs to
+# compare the, potentially existing, hash value found in the live
+# filesystem with the one in the image.
+# readme.gentoo-r1 did not export any phase functions so far. If it now does, there is no gurante
+
+# @FUNCTION: readme.gentoo_pkg_preinst
+# @DESCRIPTION:
+# Performs checks like comparing the readme doc from the image with a
+# potentially existing one in the live system.
+readme.gentoo-r1_pkg_preinst() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
+		_GREADME_SHOW="fresh-install"
+		return
 	fi
+
+	local image_hash_file="${ED}/${_GREADME_HASH_REL_PATH}"
+
+	check_live_doc_file() {
+		local cur_pvr=$1
+		local live_hash_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_HASH_FILENAME}"
+
+		if [[ ! -f ${live_hash_file} ]]; then
+			_GREADME_SHOW="no-current-greadme"
+			return
+		fi
+
+		cmp -s "${live_hash_file}" "${image_hash_file}"
+		local ret=$?
+		case ${ret} in
+			0)
+				_GREADME_SHOW=""
+				;;
+			1)
+				_GREADME_SHOW="content-differs"
+				;;
+			*)
+				die "cmp failed with ${ret}"
+				;;
+		esac
+	}
+
+	local replaced_version
+	for replaced_version in ${REPLACING_VERSIONS}; do
+		check_live_doc_file ${replaced_version}
+
+		# Once _GREADME_SHOW is non empty, we found a reason to show the
+		# readme and we can abort the loop.
+		if [[ -n ${_GREADME_SHOW} ]]; then
+			break
+		fi
+	done
+}
+
+# @FUNCTION: readme.gentoo_pkg_postinst
+# @DESCRIPTION:
+# Conditionally shows the contents of the readme doc via elog.
+readme.gentoo-r1_pkg_postinst() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if [[ ! -v _GREADME_SHOW ]]; then
+		# TODO: This was a die in greadme.eclass
+		ewarn "_GREADME_SHOW not set. Did you call greadme_pkg_preinst?"
+		return
+	fi
+
+	if [[ -z "${_GREADME_SHOW}" ]]; then
+		# If _GREADME_SHOW is empty, then there is no reason to show the contents.
+		return
+	fi
+
+	local line
+	echo -e "${_GREADME_CONTENTS}" | while read -r line; do elog "${line}"; done
+	elog ""
+	elog "(Note: Above message is only printed the first time package is"
+	elog "installed or if the the message changed. Please look at"
+	elog "${EPREFIX}/${_GREADME_REL_PATH} for future reference)"
 }
 
 fi
+
+EXPORT_FUNCTIONS pkg_preinst pkg_postinst
