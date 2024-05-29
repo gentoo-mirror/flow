@@ -23,6 +23,7 @@ app-misc/cmatrix 2.0: An ncurses based app to show a scrolling screen from the M
 app-misc/klavaro 3.0.1-r1 3.13: Another free touch typing tutor program
 app-misc/openhab-bin 4.1.2: An open-source automation software for your home
 app-misc/test-greadme-eclass 1 2 3: Test ebuild for the greadme.eclass
+app-misc/test-readme-gentoo-eclass 1 2 3: Test ebuild for the readme.gentoo-r1.eclass
 app-portage/gentools 1.0.0 1.1.0 9999: Tools to aid administering Gentoo systems, like silent automatic updates
 app-shells/oil 0.9.9: A new Unix shell
 app-text/aha 0.5: Converts ANSI escape sequences of a unix terminal to HTML

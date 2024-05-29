@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst preinst
+DESCRIPTION=Test ebuild for the readme.gentoo-r1.eclass
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=readme.gentoo-r1
+KEYWORDS=amd64
+LICENSE=GPL-3
+SLOT=0
+_eclasses_=readme.gentoo-r1	52327e9ee82f763fcd4da32311105856
+_md5_=ff985c68d9dd609e99b4031d58fee94b
