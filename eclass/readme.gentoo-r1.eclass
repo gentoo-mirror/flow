@@ -142,19 +142,19 @@ readme.gentoo_create_doc() {
 
 	if [[ -n "${DOC_CONTENTS}" ]]; then
 		if [[ -n "${DISABLE_AUTOFORMATTING}" ]]; then
-			echo "${DOC_CONTENTS}" > "${T}"/README.gentoo || die
+			echo "${DOC_CONTENTS}" > "${_GREADME_TMP_FILE}" || die
 		else
 			local saved_flags=$-
 			set -f				# disable filename expansion in echo arguments
 			echo -e ${DOC_CONTENTS} | fold -s -w 70 \
-				| sed 's/[[:space:]]*$//' > "${T}"/README.gentoo
+				| sed 's/[[:space:]]*$//' > "${_GREADME_TMP_FILE}"
 			assert
 			set +f -${saved_flags}
 		fi
 	elif [[ -f "${FILESDIR}/README.gentoo-${SLOT%/*}" ]]; then
-		cp "${FILESDIR}/README.gentoo-${SLOT%/*}" "${T}"/README.gentoo || die
+		cp "${FILESDIR}/README.gentoo-${SLOT%/*}" "${_GREADME_TMP_FILE}" || die
 	elif [[ -f "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" ]]; then
-		cp "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" "${T}"/README.gentoo || die
+		cp "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" "${_GREADME_TMP_FILE}" || die
 	elif [[ ! -f "${_GREADME_TMP_FILE}" ]]; then
 		die "You are not specifying README.gentoo contents!"
 	fi
@@ -189,17 +189,11 @@ readme.gentoo_create_doc() {
 readme.gentoo_print_elog() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	_GREADME_SHOW="force"
-	readme.gentoo-r1_pkg_postinst
+	if ! [[ -n "${REPLACING_VERSIONS}" ]] || [[ -n "${FORCE_PRINT_ELOG}" ]]; then
+		_GREADME_SHOW="force"
+		readme.gentoo-r1_pkg_postinst
+	fi
 }
-
-# TODO:
-# This phase function could be the reason why we can not "simply" add
-# the greadme logic into readme.gentoo-r1.eclass: The greadme logic
-# requires as pkg_*pre*inst function to be called. Because it needs to
-# compare the, potentially existing, hash value found in the live
-# filesystem with the one in the image.
-# readme.gentoo-r1 did not export any phase functions so far. If it now does, there is no gurante
 
 # @FUNCTION: readme.gentoo_pkg_preinst
 # @DESCRIPTION:
@@ -258,8 +252,7 @@ readme.gentoo-r1_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ ! -v _GREADME_SHOW ]]; then
-		# TODO: This was a die in greadme.eclass
-		ewarn "_GREADME_SHOW not set. Did you call greadme_pkg_preinst?"
+		ewarn "_GREADME_SHOW not set. Missing call of greadme_pkg_preinst?"
 		return
 	fi
 
