@@ -6,5 +6,5 @@ INHERIT=readme.gentoo-r1
 KEYWORDS=amd64
 LICENSE=GPL-3
 SLOT=0
-_eclasses_=readme.gentoo-r1	52327e9ee82f763fcd4da32311105856
+_eclasses_=readme.gentoo-r1	c99744d867a7bfde6e851a4fe4991714
 _md5_=ff985c68d9dd609e99b4031d58fee94b
