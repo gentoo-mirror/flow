@@ -92,7 +92,6 @@ sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) 
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-kernel/system-config 2023.11.30: Linux kernel system configuration
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
-sys-power/autosuspend 5.0.0: A daemon to automatically suspend and wake up a system
 sys-power/sandmann-bin 0.9-r1 9999: An autosuspend and wakeup daemon
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
