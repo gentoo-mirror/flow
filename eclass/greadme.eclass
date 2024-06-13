@@ -225,7 +225,7 @@ greadme_pkg_postinst() {
 
 	if [[ ! -f ${greadme} ]]; then
 		# In case of FEATURES=nodoc, there will be no readme.
-		return 0
+		return
 	fi
 
 	local line
