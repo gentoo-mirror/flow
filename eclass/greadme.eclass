@@ -223,7 +223,7 @@ greadme_pkg_postinst() {
 	local greadme="${EROOT}${_GREADME_REL_PATH}"
 
 	if [[ ! -f ${greadme} ]]; then
-		# In case of FEATURES=nodoc, there will be no readme.
+		ewarn "Unable to show ${_GREADME_FILENAME}, file not installed (FEATURES=nodoc enabled?)."
 		return
 	fi
 
