@@ -52,8 +52,7 @@ esac
 
 _GREADME_FILENAME="README.gentoo"
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
-_GREADME_DOC_DIR="/usr/share/doc/${PF}"
-_GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
+_GREADME_REL_PATH="/usr/share/doc/${PF}/${_GREADME_FILENAME}"
 
 # @ECLASS_VARIABLE: GREADME_SHOW
 # @DEFAULT_UNSET
@@ -127,8 +126,8 @@ _greadme_install_doc() {
 
 	# Subshell to avoid pollution of calling environment.
 	(
-		insinto "${_GREADME_DOC_DIR}"
-		doins "${_GREADME_TMP_FILE}"
+		docinto .
+		dodoc "${_GREADME_TMP_FILE}"
 	)
 
 	# Exclude the readme file from compression, so that its contents can
