@@ -17,7 +17,7 @@
 #
 # This eclass was inspired by readme.gentoo-r1.eclass.  The main
 # differences are as follows.  Firstly, it only displays the doc file
-# contents if they have changed (unless GREADME_FORCE_SHOW is set).
+# contents if they have changed (unless GREADME_SHOW is set).
 # Secondly, it provides a convenient API to install the doc file via
 # stdin.
 #
@@ -25,13 +25,13 @@
 # inherit greadme
 #
 # src_install() {
-#   …
+#   ...
 #   greadme_stdin <<-EOF
 #   This is the content of the created readme doc file.
 #   EOF
-#   …
+#   ...
 #   if use foo; then
-#     greadme_stdin --apend <<-EOF
+#     greadme_stdin --append <<-EOF
 #     This is conditional readme content, based on USE=foo.
 #     EOF
 #   fi
@@ -70,24 +70,24 @@ _GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
 greadme_stdin() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local append=false
-	while [[ -n ${1} ]] && [[ ${1} =~ --* ]]; do
+	local append
+	while [[ -n ${1} ]] && [[ ${1} == --* ]]; do
 		case ${1} in
 			--append)
-				append=true
+				append=1
 				shift
 				;;
 		esac
 	done
 
-	if $append; then
-		if [[ ! -f "${_GREADME_TMP_FILE}" ]]; then
+	if [[ -n ${append} ]]; then
+		if [[ ! -f ${_GREADME_TMP_FILE} ]]; then
 			die "Gentoo README does not exist when trying to append to it"
 		fi
 
 		cat >> "${_GREADME_TMP_FILE}" || die
 	else
-		if [[ -f "${_GREADME_TMP_FILE}" ]]; then
+		if [[ -f ${_GREADME_TMP_FILE} ]]; then
 			die "Gentoo README already exists while trying to create it"
 		fi
 
@@ -105,11 +105,11 @@ greadme_file() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local input_doc_file="${1}"
-	if [[ -z "${input_doc_file}" ]]; then
+	if [[ -z ${input_doc_file} ]]; then
 		die "No file specified"
 	fi
 
-	if [[ -f "${_GREADME_TMP_FILE}" ]]; then
+	if [[ -f ${_GREADME_TMP_FILE} ]]; then
 		die "Gentoo README already exists"
 	fi
 
@@ -164,7 +164,7 @@ greadme_pkg_preinst() {
 	fi
 
 	local image_greadme_file="${ED}/${_GREADME_REL_PATH}"
-	if [[ ! -f "${image_greadme_file}" ]]; then
+	if [[ ! -f ${image_greadme_file} ]]; then
 		# No README file was created by the ebuild.
 		_GREADME_SHOW=""
 		return
@@ -216,16 +216,23 @@ greadme_pkg_postinst() {
 		die "_GREADME_SHOW not set. Did you call greadme_pkg_preinst?"
 	fi
 
-	if [[ -z "${_GREADME_SHOW}" ]]; then
+	if [[ -z ${_GREADME_SHOW} ]]; then
 		# If _GREADME_SHOW is empty, then there is no reason to show the contents.
 		return
 	fi
 
+	local greadme="${EROOT}/${_GREADME_REL_PATH}"
+
+	if [[ ! -f ${greadme} ]]; then
+		# In case of FEATURES=nodoc, there will be no readme.
+		return
+	fi
+
 	local line
-	while read -r line; do elog "${line}"; done < "${EROOT}/${_GREADME_REL_PATH}"
+	while read -r line; do elog "${line}"; done < "${greadme}"
 	elog ""
 	elog "(Note: Above message is only printed the first time package is"
-	elog "installed or if the the message changed. Please look at"
+	elog "installed or if the message changes on update. Please look at"
 	elog "${EPREFIX}/${_GREADME_REL_PATH} for future reference)"
 }
 
