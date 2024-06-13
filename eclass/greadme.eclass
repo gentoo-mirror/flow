@@ -6,7 +6,7 @@
 # Florian Schmaus <flow@gentoo.org>
 # @AUTHOR:
 # Author: Florian Schmaus <flow@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 8
 # @BLURB: install a doc file, that will be conditionally shown via elog messages
 # @DESCRIPTION:
 # An eclass for installing a README.gentoo doc file with important
@@ -46,7 +46,7 @@ if [[ -z ${_GREADME_ECLASS} ]]; then
 _GREADME_ECLASS=1
 
 case ${EAPI} in
-	6|7|8) ;;
+	8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -55,11 +55,12 @@ _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
 _GREADME_DOC_DIR="usr/share/doc/${PF}"
 _GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
 
-# @ECLASS_VARIABLE: GREADME_FORCE
+# @ECLASS_VARIABLE: GREADME_SHOW
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# If set, then uncondiionally show the contents of the readme file in
-# pkg_postinst via elog.
+# If set to "yes" then unconditionally show the contents of the readme
+# file in pkg_postinst via elog. If set to "no", then do not show the
+# contents of the readme file, even if they have changed.
 
 # @FUNCTION: greadme_stdin
 # @USAGE: [--append]
@@ -147,8 +148,18 @@ greadme_pkg_preinst() {
 		return
 	fi
 
-	if [[ -v GREADME_FORCE_SHOW ]]; then
-		_GREADME_SHOW="forced"
+	if [[ -v GREADME_SHOW ]]; then
+		case ${GREADME_SHOW} in
+			yes)
+				_GREADME_SHOW="forced"
+				;;
+			no)
+				_GREADME_SHOW=""
+				;;
+			*)
+				die "Invalid argument of GREADME_SHOW: ${GREADME_SHOW}"
+				;;
+		esac
 		return
 	fi
 
