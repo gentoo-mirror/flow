@@ -6,7 +6,7 @@
 # Florian Schmaus <flow@gentoo.org>
 # @AUTHOR:
 # Author: Florian Schmaus <flow@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 8
 # @BLURB: install a doc file, that will be conditionally shown via elog messages
 # @DESCRIPTION:
 # An eclass for installing a README.gentoo doc file with important
@@ -46,7 +46,7 @@ if [[ -z ${_GREADME_ECLASS} ]]; then
 _GREADME_ECLASS=1
 
 case ${EAPI} in
-	6|7|8) ;;
+	8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
