@@ -52,7 +52,7 @@ esac
 
 _GREADME_FILENAME="README.gentoo"
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
-_GREADME_DOC_DIR="usr/share/doc/${PF}"
+_GREADME_DOC_DIR="/usr/share/doc/${PF}"
 _GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
 
 # @ECLASS_VARIABLE: GREADME_SHOW
@@ -163,7 +163,7 @@ greadme_pkg_preinst() {
 		return
 	fi
 
-	local image_greadme_file="${ED}/${_GREADME_REL_PATH}"
+	local image_greadme_file="${ED}${_GREADME_REL_PATH}"
 	if [[ ! -f ${image_greadme_file} ]]; then
 		# No README file was created by the ebuild.
 		_GREADME_SHOW=""
@@ -221,7 +221,7 @@ greadme_pkg_postinst() {
 		return
 	fi
 
-	local greadme="${EROOT}/${_GREADME_REL_PATH}"
+	local greadme="${EROOT}${_GREADME_REL_PATH}"
 
 	if [[ ! -f ${greadme} ]]; then
 		# In case of FEATURES=nodoc, there will be no readme.
@@ -233,7 +233,7 @@ greadme_pkg_postinst() {
 	elog ""
 	elog "(Note: Above message is only printed the first time package is"
 	elog "installed or if the message changes on update. Please look at"
-	elog "${EPREFIX}/${_GREADME_REL_PATH} for future reference)"
+	elog "${EPREFIX}${_GREADME_REL_PATH} for future reference)"
 }
 
 fi
