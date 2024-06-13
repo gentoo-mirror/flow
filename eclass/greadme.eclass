@@ -9,16 +9,17 @@
 # @SUPPORTED_EAPIS: 6 7 8
 # @BLURB: install a doc file, that will be conditionally shown via elog messages
 # @DESCRIPTION:
-# An eclass for installing a README.gentoo doc file recording tips
-# shown via elog messages.  With this eclass, those elog messages will only be
-# shown at first package installation or if the contents of the file have changed.
-# Furthermore, a file for later reviewing will be installed under
-# /usr/share/doc/${PF}
+# An eclass for installing a README.gentoo doc file with important
+# information for the user.  The content of README.gentoo will shown be
+# via elog messages either on fresh installations or if the contents of
+# the file have changed.  Furthermore, the README.gentoo file will be
+# installed under /usr/share/doc/${PF} for later consultation.
 #
-# This eclass is similar to readme.gentoo-r1.eclass.  The main
-# differences are as follows.  Firstly, it also displays the doc file
-# contents if they have changed.  Secondly, it provides a convenient API to
-# install the doc file via stdin.
+# This eclass was inspired by readme.gentoo-r1.eclass.  The main
+# differences are as follows.  Firstly, it only displays the doc file
+# contents if they have changed (unless GREADME_FORCE_SHOW is set).
+# Secondly, it provides a convenient API to install the doc file via
+# stdin.
 #
 # @CODE
 # inherit greadme
@@ -37,11 +38,12 @@
 # }
 # @CODE
 #
-# You must call greadme_pkg_preinst and greadme_pkg_postinst explicitly, if
-# you override the default pkg_preinst or respectively pkg_postinst.
+# If the ebuild overrides the default pkg_preinst or respectively
+# pkg_postinst, then it must call greadme_pkg_preinst and
+# greadme_pkg_postinst explicitly.
 
-if [[ -z ${_README_GENTOO_ECLASS} ]]; then
-_README_GENTOO_ECLASS=1
+if [[ -z ${_GREADME_ECLASS} ]]; then
+_GREADME_ECLASS=1
 
 case ${EAPI} in
 	6|7|8) ;;
@@ -49,13 +51,15 @@ case ${EAPI} in
 esac
 
 _GREADME_FILENAME="README.gentoo"
-_GREADME_HASH_FILENAME=".${_GREADME_FILENAME}.hash"
-
 _GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
-
 _GREADME_DOC_DIR="usr/share/doc/${PF}"
 _GREADME_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_FILENAME}"
-_GREADME_HASH_REL_PATH="${_GREADME_DOC_DIR}/${_GREADME_HASH_FILENAME}"
+
+# @ECLASS_VARIABLE: GREADME_FORCE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If set, then uncondiionally show the contents of the readme file in
+# pkg_postinst via elog.
 
 # @FUNCTION: greadme_stdin
 # @USAGE: [--append]
@@ -120,24 +124,15 @@ greadme_file() {
 _greadme_install_doc() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	if [[ ! -f "${_GREADME_TMP_FILE}" ]]; then
-		die "Gentoo README does not exist"
-	fi
-
-	# subshell to avoid pollution of calling environment
+	# Subshell to avoid pollution of calling environment.
 	(
 		insinto "${_GREADME_DOC_DIR}"
-
 		doins "${_GREADME_TMP_FILE}"
-		cksum --raw "${_GREADME_TMP_FILE}" | newins - "${_GREADME_HASH_FILENAME}"
-		assert
 	)
 
-	# Save the readme contents in an variable, so that it can be shown ins pkg_postinst().
-	_GREADME_CONTENTS=$(< "${_GREADME_TMP_FILE}")
-
-	# Exclude the 4-byte hash file from compression.
-	docompress -x "${_GREADME_HASH_REL_PATH}"
+	# Exclude the readme file from compression, so that its contents can
+	# be easily compared.
+	docompress -x "${_GREADME_REL_PATH}"
 }
 
 # @FUNCTION: greadme_pkg_preinst
@@ -152,18 +147,28 @@ greadme_pkg_preinst() {
 		return
 	fi
 
-	local image_hash_file="${ED}/${_GREADME_HASH_REL_PATH}"
+	if [[ -v GREADME_FORCE_SHOW ]]; then
+		_GREADME_SHOW="forced"
+		return
+	fi
+
+	local image_greadme_file="${ED}/${_GREADME_REL_PATH}"
+	if [[ ! -f "${image_greadme_file}" ]]; then
+		# No README file was created by the ebuild.
+		_GREADME_SHOW=""
+		return
+	fi
 
 	check_live_doc_file() {
 		local cur_pvr=$1
-		local live_hash_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_HASH_FILENAME}"
+		local live_greadme_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_FILENAME}"
 
-		if [[ ! -f ${live_hash_file} ]]; then
+		if [[ ! -f ${live_greadme_file} ]]; then
 			_GREADME_SHOW="no-current-greadme"
 			return
 		fi
 
-		cmp -s "${live_hash_file}" "${image_hash_file}"
+		cmp -s "${live_greadme_file}" "${image_greadme_file}"
 		local ret=$?
 		case ${ret} in
 			0)
@@ -206,7 +211,7 @@ greadme_pkg_postinst() {
 	fi
 
 	local line
-	echo -e "${_GREADME_CONTENTS}" | while read -r line; do elog "${line}"; done
+	while read -r line; do elog "${line}"; done < "${EROOT}/${_GREADME_REL_PATH}"
 	elog ""
 	elog "(Note: Above message is only printed the first time package is"
 	elog "installed or if the the message changed. Please look at"
