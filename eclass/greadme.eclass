@@ -61,6 +61,11 @@ _GREADME_REL_PATH="/usr/share/doc/${PF}/${_GREADME_FILENAME}"
 # file in pkg_postinst via elog. If set to "no", then do not show the
 # contents of the readme file, even if they have changed.
 
+# @ECLASS_VARIABLE: GREADME_AUTOFORMATTING_DISABLED
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If non-empty, the readme file will not be automatically formatted.
+
 # @FUNCTION: greadme_stdin
 # @USAGE: [--append]
 # @DESCRIPTION:
@@ -124,10 +129,21 @@ greadme_file() {
 _greadme_install_doc() {
 	debug-print-function ${FUNCNAME} "${@}"
 
+	local greadme="${_GREADME_TMP_FILE}"
+	if [[ ! "${GREADME_AUTOFORMATTING_DISABLED}" ]]; then
+		greadme="${_GREADME_TMP_FILE}".formatted
+
+		# Use fold, followed by a sed to strip trailing whitespace.
+		# https://bugs.gentoo.org/460050#c7
+		fold -s -w 70 "${_GREADME_TMP_FILE}" |
+			sed 's/[[:space:]]*$//' > "${greadme}"
+		assert "failed to autoformat ${_GREADME_FILENAME}"
+	fi
+
 	# Subshell to avoid pollution of calling environment.
 	(
 		docinto .
-		dodoc "${_GREADME_TMP_FILE}"
+		newdoc "${greadme}" "${_GREADME_FILENAME}"
 	)
 
 	# Exclude the readme file from compression, so that its contents can
