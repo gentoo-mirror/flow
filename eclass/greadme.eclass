@@ -149,6 +149,11 @@ _greadme_install_doc() {
 	# Exclude the readme file from compression, so that its contents can
 	# be easily compared.
 	docompress -x "${_GREADME_REL_PATH}"
+
+	# Save the contents of the of the readme. Unfortunately we have to
+	# do this in src_* phase, because FEATURES=nodoc is applied right
+	# after src_install and not after pkg_preinst.
+	_GREADME_CONTENT=$(< "${greadme}")
 }
 
 # @FUNCTION: greadme_pkg_preinst
@@ -180,8 +185,16 @@ greadme_pkg_preinst() {
 
 	local image_greadme_file="${ED}${_GREADME_REL_PATH}"
 	if [[ ! -f ${image_greadme_file} ]]; then
-		# No README file was created by the ebuild.
-		_GREADME_SHOW=""
+		if [[ -v _GREADME_CONTENT ]]; then
+			# There is no greadme in the image but the ebuild created
+			# one. This is likely because FEATURES=nodoc is active.
+			# Unconditionally show greadme's contents.
+			_GREADME_SHOW="nodoc-active"
+		else
+			# No README file was created by the ebuild.
+			_GREADME_SHOW=""
+		fi
+
 		return
 	fi
 
@@ -239,8 +252,10 @@ greadme_pkg_postinst() {
 	local greadme="${EROOT}${_GREADME_REL_PATH}"
 
 	if [[ ! -f ${greadme} ]]; then
-		ewarn "Unable to show ${_GREADME_FILENAME}, file not installed (FEATURES=nodoc enabled?)."
-		return
+		# The greadme was not installed, probably due to FEATURES=nodoc,
+		# restore its saved content from _GREADME_CONTENTS.
+		printf '%s\n' "${_GREADME_CONTENT}" > "${_GREADME_TMP_FILE}"
+		greadme="${_GREADME_TMP_FILE}"
 	fi
 
 	local line
