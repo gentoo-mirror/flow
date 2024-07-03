@@ -253,7 +253,7 @@ greadme_pkg_postinst() {
 
 	if [[ ! -f ${greadme} ]]; then
 		# The greadme was not installed, probably due to FEATURES=nodoc,
-		# restore its saved content from _GREADME_CONTENTS.
+		# restore its saved content from _GREADME_CONTENT.
 		printf '%s\n' "${_GREADME_CONTENT}" > "${_GREADME_TMP_FILE}"
 		greadme="${_GREADME_TMP_FILE}"
 	fi
