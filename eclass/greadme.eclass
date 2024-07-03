@@ -248,7 +248,7 @@ greadme_pkg_postinst() {
 	elog ""
 	elog "NOTE: Above message is only printed the first time package is"
 	elog "installed or if the message changed. Please look at"
-	elog "      ${EPREFIX}${_GREADME_REL_PATH}"
+	elog "${EPREFIX}${_GREADME_REL_PATH}"
 	elog "for future reference."
 }
 
