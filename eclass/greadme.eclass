@@ -261,9 +261,10 @@ greadme_pkg_postinst() {
 	local line
 	while read -r line; do elog "${line}"; done < "${greadme}"
 	elog ""
-	elog "(Note: Above message is only printed the first time package is"
-	elog "installed or if the message changes on update. Please look at"
-	elog "${EPREFIX}${_GREADME_REL_PATH} for future reference)"
+	elog "NOTE: Above message is only printed the first time package is"
+	elog "installed or if the message changed. Please look at"
+	elog "      ${EPREFIX}${_GREADME_REL_PATH}"
+	elog "for future reference."
 }
 
 fi
