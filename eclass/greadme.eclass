@@ -91,10 +91,6 @@ greadme_stdin() {
 
 		cat >> "${_GREADME_TMP_FILE}" || die
 	else
-		if [[ -f ${_GREADME_TMP_FILE} ]]; then
-			die "Gentoo README already exists while trying to create it"
-		fi
-
 		cat > "${_GREADME_TMP_FILE}" || die
 	fi
 
@@ -111,10 +107,6 @@ greadme_file() {
 	local input_doc_file="${1}"
 	if [[ -z ${input_doc_file} ]]; then
 		die "No file specified"
-	fi
-
-	if [[ -f ${_GREADME_TMP_FILE} ]]; then
-		die "Gentoo README already exists"
 	fi
 
 	cp "${input_doc_file}" "${_GREADME_TMP_FILE}" || die
@@ -249,21 +241,14 @@ greadme_pkg_postinst() {
 		return
 	fi
 
-	local greadme="${EROOT}${_GREADME_REL_PATH}"
-
-	if [[ ! -f ${greadme} ]]; then
-		# The greadme was not installed, probably due to FEATURES=nodoc,
-		# restore its saved content from _GREADME_CONTENT.
-		printf '%s\n' "${_GREADME_CONTENT}" > "${_GREADME_TMP_FILE}"
-		greadme="${_GREADME_TMP_FILE}"
-	fi
-
 	local line
-	while read -r line; do elog "${line}"; done < "${greadme}"
+	printf '%s\n' "${_GREADME_CONTENT}" | while read -r line; do
+		elog "${line}"
+	done
 	elog ""
 	elog "NOTE: Above message is only printed the first time package is"
 	elog "installed or if the message changed. Please look at"
-	elog "      ${EPREFIX}${_GREADME_REL_PATH}"
+	elog "${EPREFIX}${_GREADME_REL_PATH}"
 	elog "for future reference."
 }
 
