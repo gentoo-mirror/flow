@@ -1,11 +1,12 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: rebar3.eclass
 # @MAINTAINER:
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in>
+# Florian Schmaus <flow@gentoo.org>
 # @AUTHOR:
 # Amadeusz Żołnowski <aidecoe@gentoo.org>
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in>
 # @SUPPORTED_EAPIS: 8
 # @BLURB: Build Erlang/OTP projects using dev-util/rebar:3.
 # @DESCRIPTION:
@@ -66,7 +67,7 @@ _rebar_find_dep() {
 	local p
 	local result
 
-	pushd "${EPREFIX}/$(get_erl_libs)" >/dev/null || return 1
+	pushd "${EPREFIX}$(get_erl_libs)" >/dev/null || return 1
 	for p in ${pn} ${pn}-*; do
 		if [[ -d ${p} ]]; then
 			# Ensure there's at most one matching.
@@ -109,7 +110,7 @@ erebar3() {
 		eunit|ct)
 			local -x ERL_LIBS="." ;;
 		*)
-			local -x ERL_LIBS="${EPREFIX}/$(get_erl_libs)" ;;
+			local -x ERL_LIBS="${EPREFIX}$(get_erl_libs)" ;;
 	esac
 
 	edo rebar3 "$@"
@@ -130,7 +131,7 @@ rebar_fix_include_path() {
 
 	local pn="${1}"
 	local rebar_config="${2:-rebar.config}"
-	local erl_libs="${EPREFIX}/$(get_erl_libs)"
+	local erl_libs="${EPREFIX}$(get_erl_libs)"
 	local p
 
 	p="$(_rebar_find_dep "${pn}")" \
@@ -220,7 +221,7 @@ rebar3_src_prepare() {
 rebar3_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local -x ERL_LIBS="${EPREFIX}/$(get_erl_libs)"
+	local -x ERL_LIBS="${EPREFIX}$(get_erl_libs)"
 	default_src_configure
 }
 
@@ -252,12 +253,11 @@ rebar3_install_lib() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local dest="$(get_erl_libs)/${P}"
-	insinto "${dest}"
 
 	pushd "${1?}" >/dev/null || die
 	for dir in ebin include priv; do
 		if [[ -d ${dir} && ! -L ${dir} ]]; then
-			cp -pR ${dir} "${ED%/}/${dest}/" || die "failed to install ${dir}/"
+			cp -pR "${dir}" "${ED%/}${dest}/" || die "failed to install ${dir}/"
 		fi
 	done
 	popd >/dev/null || die
