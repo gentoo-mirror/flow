@@ -30,7 +30,7 @@ _REBAR_ECLASS=1
 
 inherit rebar-utils
 
-DEPEND="dev-lang/erlang:="
+RDEPEND="dev-lang/erlang:="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/rebar:0
