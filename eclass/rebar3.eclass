@@ -114,7 +114,11 @@ rebar3_src_prepare() {
 
 	default_src_prepare
 	rebar_set_vsn
-	rm -f rebar.lock
+
+	if [[ -f rebar.lock ]]; then
+		rm rebar.lock || die
+	fi
+
 	if [[ -f rebar.config ]]; then
 		rebar_disable_coverage
 		rebar_remove_deps
