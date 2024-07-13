@@ -37,19 +37,6 @@ BDEPEND="
 	>=sys-apps/gawk-4.1
 "
 
-# @ECLASS_VARIABLE: REBAR_APP_SRC
-# @DESCRIPTION:
-# Relative path to .app.src description file.
-REBAR_APP_SRC="${REBAR_APP_SRC-src/${PN}.app.src}"
-
-# @FUNCTION: get_erl_libs
-# @RETURN: the path to Erlang lib directory
-# @DESCRIPTION:
-# Get the full path without EPREFIX to Erlang lib directory.
-get_erl_libs() {
-	echo "/usr/$(get_libdir)/erlang/lib"
-}
-
 # @FUNCTION: _rebar_find_dep
 # @INTERNAL
 # @USAGE: <project_name>

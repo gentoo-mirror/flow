@@ -40,21 +40,9 @@ BDEPEND="
 
 # @ECLASS_VARIABLE: REBAR_PROFILE
 # @DESCRIPTION:
-# Rebar profile to use.
+# Rebar profile to use. Defaults to
+# 'default'.
 : "${REBAR_PROFILE:=default}"
-
-# @ECLASS_VARIABLE: REBAR_APP_SRC
-# @DESCRIPTION:
-# Relative path to .app.src description file.
-: "${REBAR_APP_SRC:=src/${PN}.app.src}"
-
-# @FUNCTION: get_erl_libs
-# @RETURN: the path to Erlang lib directory
-# @DESCRIPTION:
-# Get the full path without EPREFIX to Erlang lib directory.
-get_erl_libs() {
-	echo "/usr/$(get_libdir)/erlang/lib"
-}
 
 # @FUNCTION: _rebar_find_dep
 # @INTERNAL
@@ -90,7 +78,7 @@ _rebar_find_dep() {
 erebar3() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	(( $# > 0 )) || die "erebar: at least one target is required"
+	(( $# > 0 )) || die "${FUNCNAME}: at least one target is required"
 
 	case ${1} in
 		eunit|ct)
@@ -104,7 +92,7 @@ erebar3() {
 
 # @FUNCTION: rebar3_src_prepare
 # @DESCRIPTION:
-# Prevent rebar from fetching and compiling dependencies. Set version in
+# Prevent rebar3 from fetching and compiling dependencies. Set version in
 # project description file if it's not set.
 #
 # Existence of rebar.config is optional, but file description file must exist
@@ -112,7 +100,7 @@ erebar3() {
 rebar3_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	default_src_prepare
+	default
 	rebar_set_vsn
 
 	if [[ -f rebar.lock ]]; then
@@ -132,12 +120,12 @@ rebar3_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local -x ERL_LIBS="${EPREFIX}$(get_erl_libs)"
-	default_src_configure
+	default
 }
 
 # @FUNCTION: rebar3_src_compile
 # @DESCRIPTION:
-# Compile project with rebar.
+# Compile project with rebar3.
 rebar3_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 

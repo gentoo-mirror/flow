@@ -20,6 +20,12 @@ esac
 if [[ -z ${_REBAR_UTILS_ECLASS} ]]; then
 _REBAR_UTILS_ECLASS=1
 
+# @ECLASS_VARIABLE: REBAR_APP_SRC
+# @DESCRIPTION:
+# Relative path to .app.src description file. Defaults to
+# 'src/${PN}.app.src'.
+: "${REBAR_APP_SRC:=src/${PN}.app.src}"
+
 # @FUNCTION: get_erl_libs
 # @RETURN: the path to Erlang lib directory
 # @DESCRIPTION:
