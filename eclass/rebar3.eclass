@@ -87,6 +87,7 @@ erebar3() {
 			local -x ERL_LIBS="${EPREFIX}$(get_erl_libs)" ;;
 	esac
 
+	local -x HEX_OFFLINE=true
 	edo rebar3 "$@"
 }
 
@@ -151,11 +152,12 @@ rebar3_install_lib() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local dest="$(get_erl_libs)/${P}"
+	insinto "${dest}"
 
 	pushd "${1?}" >/dev/null || die
 	for dir in ebin include priv; do
 		if [[ -d ${dir} && ! -L ${dir} ]]; then
-			cp -pR "${dir}" "${ED%/}${dest}/" || die "failed to install ${dir}/"
+			doins -r "${dir}"
 		fi
 	done
 	popd >/dev/null || die
