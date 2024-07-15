@@ -101,20 +101,21 @@ EOF
 pkg_postinst() {
 	tmpfiles_process openhab.conf
 
-	[[ -z "${REPLACING_VERSIONS}" ]] && return
+	if [[ -z ${REPLACING_VERSIONS} && -z ${OPENHAB_POSTINST_UPDATE} ]]; then
+	   return
+	fi
 
 	if [[ -d "${EROOT}"/run/systemd/system ]]; then
 		if systemctl is-active --quiet openhab; then
 			local openhab_service_active=1
 			einfo "Restarting OpenHAB service due to version update"
-		fi
-
-		if [[ -v openhab_service_active ]]; then
+			edob systemctl daemon-reload
 			edob systemctl stop openhab
 		fi
 
-		edob -m "Cleaning OpenHAB cache" \
-			 openhab-cli clean-cache
+		echo y | edob -m "Cleaning OpenHAB cache" \
+					  openhab-cli clean-cache
+		assert "Failed to clean OpenHAB cache"
 
 		if [[ -v openhab_service_active ]]; then
 			edob systemctl start openhab
