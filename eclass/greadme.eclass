@@ -4,8 +4,6 @@
 # @ECLASS: greadme.eclass
 # @MAINTAINER:
 # Florian Schmaus <flow@gentoo.org>
-# @AUTHOR:
-# Author: Florian Schmaus <flow@gentoo.org>
 # @SUPPORTED_EAPIS: 8
 # @BLURB: install a doc file, that will be conditionally shown via elog messages
 # @DESCRIPTION:
@@ -50,9 +48,8 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
-_GREADME_FILENAME="README.gentoo"
-_GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
-_GREADME_REL_PATH="/usr/share/doc/${PF}/${_GREADME_FILENAME}"
+_GREADME_TMP_FILE="${T}/README.gentoo"
+_GREADME_REL_PATH="/usr/share/doc/${PF}/README.gentoo"
 
 # @ECLASS_VARIABLE: GREADME_SHOW
 # @DEFAULT_UNSET
@@ -61,7 +58,7 @@ _GREADME_REL_PATH="/usr/share/doc/${PF}/${_GREADME_FILENAME}"
 # file in pkg_postinst via elog. If set to "no", then do not show the
 # contents of the readme file, even if they have changed.
 
-# @ECLASS_VARIABLE: GREADME_AUTOFORMATTING_DISABLED
+# @ECLASS_VARIABLE: GREADME_DISABLE_AUTOFORMAT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If non-empty, the readme file will not be automatically formatted.
@@ -75,14 +72,12 @@ greadme_stdin() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local append
-	while [[ -n ${1} ]] && [[ ${1} == --* ]]; do
-		case ${1} in
-			--append)
-				append=1
-				shift
-				;;
-		esac
-	done
+	if [[ ${1} = --append ]]; then
+		append=1
+		shift
+	fi
+
+	[[ $# -eq 0 ]] || die "${FUNCNAME[0]}: Bad parameters: $*"
 
 	if [[ -n ${append} ]]; then
 		if [[ ! -f ${_GREADME_TMP_FILE} ]]; then
@@ -122,20 +117,20 @@ _greadme_install_doc() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local greadme="${_GREADME_TMP_FILE}"
-	if [[ ! "${GREADME_AUTOFORMATTING_DISABLED}" ]]; then
+	if [[ ! ${GREADME_DISABLE_AUTOFORMAT} ]]; then
 		greadme="${_GREADME_TMP_FILE}".formatted
 
 		# Use fold, followed by a sed to strip trailing whitespace.
 		# https://bugs.gentoo.org/460050#c7
 		fold -s -w 70 "${_GREADME_TMP_FILE}" |
 			sed 's/[[:space:]]*$//' > "${greadme}"
-		assert "failed to autoformat ${_GREADME_FILENAME}"
+		assert "failed to autoformat README.gentoo"
 	fi
 
 	# Subshell to avoid pollution of calling environment.
 	(
 		docinto .
-		newdoc "${greadme}" "${_GREADME_FILENAME}"
+		newdoc "${greadme}" "README.gentoo"
 	)
 
 	# Exclude the readme file from compression, so that its contents can
@@ -192,7 +187,7 @@ greadme_pkg_preinst() {
 
 	check_live_doc_file() {
 		local cur_pvr=$1
-		local live_greadme_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_FILENAME}"
+		local live_greadme_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/README.gentoo"
 
 		if [[ ! -f ${live_greadme_file} ]]; then
 			_GREADME_SHOW="no-current-greadme"
@@ -200,8 +195,7 @@ greadme_pkg_preinst() {
 		fi
 
 		cmp -s "${live_greadme_file}" "${image_greadme_file}"
-		local ret=$?
-		case ${ret} in
+		case $? in
 			0)
 				_GREADME_SHOW=""
 				;;
@@ -209,7 +203,7 @@ greadme_pkg_preinst() {
 				_GREADME_SHOW="content-differs"
 				;;
 			*)
-				die "cmp failed with ${ret}"
+				die "cmp failed with $?"
 				;;
 		esac
 	}
