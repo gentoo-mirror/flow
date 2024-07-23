@@ -48,9 +48,8 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
-_GREADME_FILENAME="README.gentoo"
-_GREADME_TMP_FILE="${T}/${_GREADME_FILENAME}"
-_GREADME_REL_PATH="/usr/share/doc/${PF}/${_GREADME_FILENAME}"
+_GREADME_TMP_FILE="${T}/README.gentoo"
+_GREADME_REL_PATH="/usr/share/doc/${PF}/README.gentoo"
 
 # @ECLASS_VARIABLE: GREADME_SHOW
 # @DEFAULT_UNSET
@@ -125,13 +124,13 @@ _greadme_install_doc() {
 		# https://bugs.gentoo.org/460050#c7
 		fold -s -w 70 "${_GREADME_TMP_FILE}" |
 			sed 's/[[:space:]]*$//' > "${greadme}"
-		assert "failed to autoformat ${_GREADME_FILENAME}"
+		assert "failed to autoformat README.gentoo"
 	fi
 
 	# Subshell to avoid pollution of calling environment.
 	(
 		docinto .
-		newdoc "${greadme}" "${_GREADME_FILENAME}"
+		newdoc "${greadme}" "README.gentoo"
 	)
 
 	# Exclude the readme file from compression, so that its contents can
@@ -188,7 +187,7 @@ greadme_pkg_preinst() {
 
 	check_live_doc_file() {
 		local cur_pvr=$1
-		local live_greadme_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/${_GREADME_FILENAME}"
+		local live_greadme_file="${EROOT}/usr/share/doc/${PN}-${cur_pvr}/README.gentoo"
 
 		if [[ ! -f ${live_greadme_file} ]]; then
 			_GREADME_SHOW="no-current-greadme"
