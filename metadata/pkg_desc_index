@@ -11,6 +11,7 @@ acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/git-mirror 0.3 9999: Automatic mirroring of git repositories
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
 app-backup/doborg 9999: Full-system backup tool based on borg backup
+app-backup/pgbackrest 2.53.1: Reliable PostgreSQL Backup & Restore
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
 app-crypt/lacme 0.8.0: Small ACME client written with process isolation and minimal privileges in mind
 app-crypt/sequoia-sqv 1.1.0: A simple OpenPGP signature verification program
