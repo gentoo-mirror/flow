@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Reliable PostgreSQL Backup & Restore"
-HOMEPAGE="https://pgbackrest.org https://github.com/pgbackrest/pgbackrest"
+HOMEPAGE="https://pgbackrest.org"
 SRC_URI="https://github.com/${PN}/${PN}/archive/release/${PV}.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/${PN}-release-${PV}/src"
