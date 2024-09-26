@@ -19,29 +19,28 @@ KEYWORDS="~amd64"
 RESTRICT="bindist mirror"
 
 DEPEND="acct-group/android"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	virtual/jre
+"
 BDEPEND="app-arch/unzip"
-
-QA_PREBUILT="*"
 
 src_install() {
 	local android_sdk_dir="/opt/android-sdk"
-	local android_sdk_latest_dir="${android_sdk_dir}/latest"
+	local target="${android_sdk_dir}/cmdline-tools/latest"
 
-	insinto "${android_sdk_latest_dir}"
+	insinto "${target}"
 	doins -r .
 
 	fowners -R root:android "${android_sdk_dir}"
 	fperms -R 0775 "${android_sdk_dir}"
 
 	newenvd - "80${PN}" <<-EOF
-	PATH="${EPREFIX}${android_sdk_latest_dir}/bin"
+	PATH="${EPREFIX}${target}/bin"
 	ANDROID_HOME="${EPREFIX}${android_sdk_dir}"
 EOF
 
-	# Rename from 80-android.rules to 80-android-device.rules to avoid
-	# collision with dev-util/android-sdk-update-manager.
-	udev_newrules "${FILESDIR}"/80-android.rules 80-android-device.rules
+	udev_dorules "${FILESDIR}"/80-android-device.rules
 
 	greadme_stdin <<-EOF
 	The Android SDK now uses its own manager for the development  environment.
