@@ -6,7 +6,7 @@ EAPI=8
 inherit greadme udev
 
 DESCRIPTION="Open Handset Alliance's Android SDK"
-HOMEPAGE="https://developer.android.com"
+HOMEPAGE="https://developer.android.com/tools"
 SRC_URI="
 https://dl.google.com/android/repository/commandlinetools-linux-$(ver_cut 3)_latest.zip"
 
