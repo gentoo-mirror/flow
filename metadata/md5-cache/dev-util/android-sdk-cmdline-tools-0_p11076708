@@ -12,4 +12,4 @@ RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
 _eclasses_=greadme	0d8804ed37a2bcbd1f7d1e0695c30662	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	udev	3b4170e9c327a8ed17097484a016c0c8
-_md5_=de0f3db27ab826f1cb72dcfc9dfcf0bf
+_md5_=cea2a2ef2c42095c727fb99962bc25f3
