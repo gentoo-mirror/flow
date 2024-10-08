@@ -36,7 +36,6 @@ dev-java/core-specs-alpha-bin 0.2.56: A Clojure library with specs to describe C
 dev-java/graalvm-ce-bin 22.3.1: A high-performance Java Development Kit (JDK) distribution
 dev-java/java-config 9999: Java environment configuration query tool
 dev-java/spec-alpha-bin 0.2.194: A Clojure library to describe the structure of data and functions
-dev-lang/cilk 5.4.6-r3: Language for multithreaded parallel programming based on ANSI C
 dev-lang/clojure 1.10.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/isis 1.6.2.51: ISIS language for interpretation and analysis of high resolution X-ray spectra
 dev-lang/opencilk 2.1: The OpenCilk concurrency platform for parallel programming
@@ -51,8 +50,6 @@ dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/android-sdk-cmdline-tools 0_p11076708: Open Handset Alliance's Android SDK
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
-media-gfx/brscan-skey 0.2.1.3: Brother scan key tool
-media-gfx/brscan3 0.2.11.4 0.2.11.5: Brother scanner driver for brscan3 models
 media-gfx/gpick 0.4_pre20220830: Advanced color picker written in C++ using GTK+ toolkit
 net-analyzer/crowdsec 1.6.0: An open-source and participative protection against malicious IPs
 net-analyzer/gsa 21.4.4: Greenbone Security Assistant
