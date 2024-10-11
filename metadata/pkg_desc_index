@@ -21,7 +21,7 @@ app-eselect/eselect-FrankenBot 0.1: Manage multiple FrankenBot versions on one s
 app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one system
 app-misc/archives-override-content-experiment 1.0: An experiment about archives being able to override files
 app-misc/klavaro 3.0.1-r1 3.13: Another free touch typing tutor program
-app-misc/openhab-bin 4.1.2 4.2.0: An open-source automation software for your home
+app-misc/openhab-bin 4.1.2 4.2.0 4.2.2: An open-source automation software for your home
 app-misc/test-greadme-eclass 1 2 3: Test ebuild for the greadme.eclass
 app-misc/test-readme-gentoo-eclass 1 2 3: Test ebuild for the readme.gentoo-r1.eclass
 app-portage/gentools 1.0.0 1.1.0 9999: Tools to aid administering Gentoo systems, like silent automatic updates
