@@ -13,7 +13,6 @@ DESCRIPTION="An open-source automation software for your home"
 HOMEPAGE="https://www.openhab.org/"
 SRC_URI="
 	https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.tar.gz
-	https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_PN}-addons-${PV}.kar
 	https://raw.githubusercontent.com/openhab/openhab-linuxpkg/10061acd36524afb12a033fea6dcf142b399bf56/resources/usr/bin/openhab-cli
 		 -> openhab-cli-${MY_CLI_VER}
 "
@@ -68,9 +67,6 @@ src_install() {
 		keepdir "${d}"
 		fowners openhab:openhab "${d}"
 	done
-
-	insinto /usr/share/openhab/addons
-	doins "${DISTDIR}"/${MY_PN}-addons-${PV}.kar
 
 	newenvd "${FILESDIR}"/openhab.env 50openhab
 
