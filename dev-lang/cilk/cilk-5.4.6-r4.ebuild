@@ -1,7 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 inherit autotools flag-o-matic
 
 DESCRIPTION="Language for multithreaded parallel programming based on ANSI C"
@@ -10,7 +11,7 @@ SRC_URI="https://www4.cs.fau.de/~flow/stuff/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc examples static-libs"
 
 PATCHES=(
