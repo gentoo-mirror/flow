@@ -48,7 +48,6 @@ dev-python/portalocker 2.7.0: A library for Python file locking
 dev-python/sphinxcontrib-plantuml 0.25: Sphinx extensions for PlantUML
 dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
-dev-util/android-sdk-cmdline-tools 0_p11076708: Open Handset Alliance's Android SDK
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
 media-gfx/gpick 0.4_pre20220830: Advanced color picker written in C++ using GTK+ toolkit
 net-analyzer/crowdsec 1.6.0: An open-source and participative protection against malicious IPs
