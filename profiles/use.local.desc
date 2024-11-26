@@ -37,5 +37,9 @@ net-im/ejabberd:sip - Enable SIP support
 net-im/ejabberd:sqlite - Enable SQLite database support
 net-im/ejabberd:stun - Enable STUN/TURN support
 net-im/ejabberd:zlib - Enable Stream Compression (XEP-0138) using zlib
+sys-apps/pcsc-lite:embedded - limit RAM and CPU ressources by disabling features
+sys-apps/pcsc-lite:libusb - Use dev-libs/libusb detection to hotplug new smartcard readers. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use udev.
+sys-apps/pcsc-lite:policykit - Uses sys-auth/polkit to restrict access to smartcard readers or smartcards to given users.
+sys-apps/pcsc-lite:udev - Use virtual/libudev rules to handle devices' permissions and hotplug support. Unless you know what you're doing do not disable this flag on Linux kernels. This is provided as an option for completeness.
 sys-kernel/system-config:ioscheduler - Install IO scehduler rules (BFQ for HDD/SSD, None for NVMe)
 x11-libs/gtkdatabox:glade - Build with libglade and glade-3 supports, which includes a glade's module for GtkDataBox widget

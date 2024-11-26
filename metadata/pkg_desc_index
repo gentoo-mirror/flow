@@ -62,6 +62,7 @@ net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
 sys-apps/hp-ams 2.10.0 2.10.4: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.9.3: HPE System Health Application and Command line Utilities (Gen9 and earlier)
+sys-apps/pcsc-lite 2.0.1-r1 2.3.0: PC/SC Architecture smartcard middleware library
 sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-kernel/system-config 2024.11.13: Linux kernel system configuration
