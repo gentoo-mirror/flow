@@ -19,7 +19,6 @@ sys-apps/fd
 sys-apps/hwloc
 sys-apps/lshw
 sys-apps/ripgrep
-sys-apps/the_silver_searcher
 sys-fs/lvm2
 sys-fs/ncdu
 sys-process/htop

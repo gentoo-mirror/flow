@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=4
+EAPI=8
 
 DESCRIPTION="Manage multiple FrankenBot versions on one system"
 HOMEPAGE="https://gitlab.com/Flow/FrankenBot"

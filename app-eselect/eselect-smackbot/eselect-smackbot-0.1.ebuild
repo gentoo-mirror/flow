@@ -1,8 +1,7 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI=4
+EAPI=8
 
 DESCRIPTION="Manage multiple SmackBot versions on one system"
 HOMEPAGE="https://gitlab.com/Flow/SmackBot"
