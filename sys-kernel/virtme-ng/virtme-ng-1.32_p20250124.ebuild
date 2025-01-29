@@ -18,7 +18,7 @@ CRATES="
 	uzers@0.12.1
 "
 
-inherit bash-completion-r1 cargo distutils-r1 optfeature
+inherit bash-completion-r1 cargo distutils-r1
 
 MY_COMMIT=aa57790b71a05490c773c873bccd66d96dbeea1c
 
@@ -44,7 +44,14 @@ DEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 # TODO: app-emulation/qemu
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	app-emulation/qemu
+	app-emulation/virtiofsd
+	net-misc/openssh
+	net-misc/socat
+	sys-apps/busybox[static]
+"
 BDEPEND="dev-python/argparse-manpage[${PYTHON_USEDEP}]"
 
 src_prepare() {
@@ -82,8 +89,4 @@ src_install() {
 
 	cd virtme_ng_init || die
 	cargo_src_install
-}
-
-pkg_postinst() {
-	optfeature "Improved filesystem performance inside the guests" app-emulation/virtiofsd
 }
