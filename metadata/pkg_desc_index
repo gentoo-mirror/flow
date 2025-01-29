@@ -62,6 +62,7 @@ sys-apps/pcsc-lite 2.0.1-r1 2.3.0: PC/SC Architecture smartcard middleware libra
 sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
 sys-kernel/system-config 2024.11.13: Linux kernel system configuration
+sys-kernel/virtme-ng 1.32_p20250124: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-power/sandmann-bin 0.9-r1 9999: An autosuspend and wakeup daemon
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
