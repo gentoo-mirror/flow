@@ -2,11 +2,13 @@ acct-group/doborg 0: System group: doborg
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/git-mirror 0: System group: git-mirror
 acct-group/lacme 0: System group: lacme
+acct-group/sandmann-ctrl 0: System group: sandmann-ctrl
 acct-group/zabbix-proxy 0: System group: zabbix-proxy
 acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/git-mirror 0: System user: git-mirror
 acct-user/lacme 0: System user: lacme
+acct-user/sandmann 1: System user: sandmann
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/git-mirror 0.3 9999: Automatic mirroring of git repositories
 app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
