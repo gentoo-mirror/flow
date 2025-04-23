@@ -8,5 +8,5 @@ KEYWORDS=-* ~amd64
 LICENSE=hp-proliant-essentials
 SLOT=0
 SRC_URI=https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1736097809/v193233/ssacli-5.20-8.0.x86_64.rpm
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7828cd38ff559545ca52f92064d0f8f4
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832
 _md5_=461c041382116c26f445cbb29d29254f
