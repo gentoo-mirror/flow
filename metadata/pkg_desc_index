@@ -11,7 +11,6 @@ acct-user/lacme 0: System user: lacme
 acct-user/sandmann 1: System user: sandmann
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/git-mirror 0.3 9999: Automatic mirroring of git repositories
-app-admin/salt-lint 0.8.0: CLI utiliy that checks for best practices in SaltStack
 app-backup/doborg 9999: Full-system backup tool based on borg backup
 app-backup/pgbackrest 2.53.1: Reliable PostgreSQL Backup & Restore
 app-cdr/isobar 1.03: Utility to extract the boot-image from a bootable iso-image (ported from shsucd)
@@ -72,4 +71,3 @@ virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-libs/gtkdatabox 1.0.0: Gtk+ Widgets for live display of large amounts of fluctuating numerical data
 x11-misc/xsnow 3.1.7: let it snow on your desktop and windows
 x11-wm/gnome-flashback-herbstluftwm-session 0.3: Gnome Herbstluftwm session (via Gnome Flashback)
-x11-wm/herbstluftwm 0.9.3 9999: A manual tiling window manager for X
