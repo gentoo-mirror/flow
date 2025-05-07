@@ -6,7 +6,6 @@ app-text/pdfarranger
 app-text/texlive[extra,luatex,tex4ht]
 media-sound/pavucontrol
 net-fs/sshfs
-virtual/flows-font-selection
 x11-apps/setxkbmap
 x11-apps/xinput
 x11-apps/xkbprint
