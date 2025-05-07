@@ -39,7 +39,6 @@ dev-lang/isis 1.6.2.51: ISIS language for interpretation and analysis of high re
 dev-lang/opencilk 2.1: The OpenCilk concurrency platform for parallel programming
 dev-lang/opencilk-bin 2.1: The OpenCilk concurrency platform for parallel programming
 dev-libs/capnproto-java 0.1.13: Java library/compiler for the Cap'n Proto serialization/RPC protocol
-dev-python/dict2xml 1.7.2: Small utility to convert a python dictionary into an XML string
 dev-python/google-i18n-address 2.5.2: Google's i18n address metadata repository
 dev-python/jsonpath-ng 1.5.3: Python JSONPath Next-Generation
 dev-python/portalocker 2.7.0: A library for Python file locking
