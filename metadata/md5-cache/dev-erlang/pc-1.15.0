@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=dev-lang/erlang:=
 SLOT=0
 SRC_URI=https://github.com/blt/port_compiler/archive/refs/tags/v1.15.0.tar.gz -> pc-1.15.0.tar.gz
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	rebar-utils	5d69bc399ac534d6180e20cd8c395517	rebar3	3ffb8b6fc45893746bb60ef0a555a631
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	rebar-utils	5d69bc399ac534d6180e20cd8c395517	rebar3	3ffb8b6fc45893746bb60ef0a555a631
 _md5_=a834533b19a8ed8c53917973779a5cfd
