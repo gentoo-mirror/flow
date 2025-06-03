@@ -10,6 +10,7 @@ app-portage/pfl
 app-portage/portpeek
 app-shells/gentoo-zsh-completions
 app-shells/zsh
+app-shells/zsh-completions
 dev-debug/strace
 dev-vcs/git
 net-dns/bind-tools
