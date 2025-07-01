@@ -62,6 +62,7 @@ sys-apps/hp-health 10.9.3: HPE System Health Application and Command line Utilit
 sys-apps/pcsc-lite 2.0.1-r1 2.3.0: PC/SC Architecture smartcard middleware library
 sys-block/hpssacli 4.21.7.0 5.20.8.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-devel/aspectc++-bin 2.1 2.2: A set of C++ language extensions for aspect-oriented programming with C/C++
+sys-kernel/ltp 20250530: The Linux Test Project (LTP)
 sys-kernel/system-config 2024.11.13: Linux kernel system configuration
 sys-libs/librseq 0.0_pre20190919 0.0_pre20220202 9999: Library for Restartable Sequences
 sys-power/sandmann-bin 0.9-r1 9999: An autosuspend and wakeup daemon

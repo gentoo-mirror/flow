@@ -1,0 +1,11 @@
+DEFINED_PHASES=configure
+DEPEND=dev-libs/libaio dev-libs/openssl:= net-libs/libmnl:= net-libs/libtirpc:= sys-apps/acl sys-apps/keyutils:= sys-libs/libcap sys-libs/liburing:= sys-process/numactl
+DESCRIPTION=The Linux Test Project (LTP)
+EAPI=8
+HOMEPAGE=https://github.com/linux-test-project/ltp
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-libs/libaio dev-libs/openssl:= net-libs/libmnl:= net-libs/libtirpc:= sys-apps/acl sys-apps/keyutils:= sys-libs/libcap sys-libs/liburing:= sys-process/numactl acct-user/nobody
+SLOT=0
+SRC_URI=https://github.com/linux-test-project/ltp/releases/download/20250530/ltp-full-20250530.tar.xz
+_md5_=f87131af0dbf18ba74958923746970ff
