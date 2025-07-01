@@ -13,6 +13,7 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
+# liburing?
 COMMON_DEPEND="
 	dev-libs/libaio
 	dev-libs/openssl:=
@@ -21,16 +22,18 @@ COMMON_DEPEND="
 	sys-apps/acl
 	sys-apps/keyutils:=
 	sys-libs/libcap
-	sys-libs/liburing:=
 	sys-process/numactl
 "
 RDEPEND="
 	${COMMON_DEPEND}
 	acct-user/nobody
+	>=dev-lang/python-3
 "
 DEPEND="${COMMON_DEPEND}"
 #BDEPEND="virtual/pkgconfig" XXX
 
+QA_FLAGS_IGNORED=/opt/ltp/testcases/data/ldd01/
+
 src_configure() {
-	econf --prefix="${EPREFIX}"/usr/ltp
+	econf --prefix="${EPREFIX}"/opt/ltp
 }
