@@ -9,5 +9,5 @@ LICENSE=GPL-3+ LGPL-3
 PROPERTIES=live
 RDEPEND=acct-user/sandmann >=dev-java/java-config-2.3.2 sys-apps/systemd sys-auth/polkit || ( virtual/jre:17 virtual/jre:21 ) virtual/tmpfiles
 SLOT=0
-_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=c1580311b18e86fe410f2446f9938d2a
