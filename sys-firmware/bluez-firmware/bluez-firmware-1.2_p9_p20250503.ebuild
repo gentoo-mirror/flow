@@ -5,7 +5,7 @@ EAPI=8
 
 COMMIT_ID="2bbfb8438e824f5f61dae3f6ebb367a6129a4d63"
 
-DESCRIPTION="Firmware for Broadcom BCM203x and STLC2300 Bluetooth chips"
+DESCRIPTION="Firmware for Broadcom BCM, STLC2300, and Synaptics SYN Bluetooth chips"
 HOMEPAGE="https://github.com/RPi-Distro/bluez-firmware"
 SRC_URI="
 	https://github.com/RPi-Distro/bluez-firmware/archive/${COMMIT_ID}.tar.gz
