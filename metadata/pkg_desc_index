@@ -57,6 +57,7 @@ net-misc/FrankenBot 9999: An bot written in Scala using Smack
 net-p2p/eclair-bin 0.8.0 0.9.0 0.11.0: Scala implemention of the Lightning Network
 net-print/brother-DCP-185C-cupswrapper 1.1.2.2: Brother DCP-185C CUPS wrapper
 net-print/brother-DCP-185C-lpr 1.1.2.2: Brother DCP-185C LPR print drivers
+net-wireless/rns 1.0.0: The Reticulum Network Statck
 sys-apps/hp-ams 2.10.0 2.10.4: HPE Agentless Management Service (Gen9 and earlier)
 sys-apps/hp-health 10.9.3: HPE System Health Application and Command line Utilities (Gen9 and earlier)
 sys-apps/pcsc-lite 2.0.1-r1 2.3.0: PC/SC Architecture smartcard middleware library
