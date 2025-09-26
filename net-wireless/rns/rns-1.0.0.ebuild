@@ -18,6 +18,10 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~arm64"
 
-RDEPEND="acct-user/rnsd"
+RDEPEND="
+	acct-user/rnsd
+	dev-python/cryptography[${PYTHON_USEDEP}]
+	>=dev-python/pyserial-3.5[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests unittest
