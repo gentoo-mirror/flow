@@ -18,4 +18,6 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~arm64"
 
+RDEPEND="acct-user/rnsd"
+
 distutils_enable_tests unittest
