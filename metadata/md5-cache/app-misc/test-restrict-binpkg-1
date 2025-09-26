@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst preinst
+DESCRIPTION=Test ebuild for the greadme.eclass
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=greadme
+KEYWORDS=amd64
+LICENSE=GPL-3
+RESTRICT=binpkg unknown
+SLOT=0
+_eclasses_=greadme	0d8804ed37a2bcbd1f7d1e0695c30662
+_md5_=3bcdf09f646c23e23f6f32cc221eae76

@@ -2,12 +2,14 @@ acct-group/doborg 0: System group: doborg
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/git-mirror 0: System group: git-mirror
 acct-group/lacme 0: System group: lacme
+acct-group/rnsd 0: System group: rnsd
 acct-group/sandmann-ctrl 0: System group: sandmann-ctrl
 acct-group/zabbix-proxy 0: System group: zabbix-proxy
 acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
 acct-user/git-mirror 0: System user: git-mirror
 acct-user/lacme 0: System user: lacme
+acct-user/rnsd 0: System user: rnsd
 acct-user/sandmann 1: System user: sandmann
 acct-user/zabbix-proxy 0: System user: zabbix-proxy
 app-admin/git-mirror 0.3 9999: Automatic mirroring of git repositories
@@ -23,7 +25,9 @@ app-eselect/eselect-smackbot 0.1: Manage multiple SmackBot versions on one syste
 app-misc/archives-override-content-experiment 1.0: An experiment about archives being able to override files
 app-misc/klavaro 3.0.1-r1 3.13: Another free touch typing tutor program
 app-misc/test-greadme-eclass 1 2 3: Test ebuild for the greadme.eclass
+app-misc/test-new-eapi 1: Test ebuild for new EAPI features
 app-misc/test-readme-gentoo-eclass 1 2 3: Test ebuild for the readme.gentoo-r1.eclass
+app-misc/test-restrict-binpkg 1: Test ebuild for the greadme.eclass
 app-portage/gentools 1.1.0 1.2.0 9999: Tools to aid administering Gentoo systems, like silent automatic updates
 app-shells/oil 0.9.9: A new Unix shell
 app-text/aha 0.5: Converts ANSI escape sequences of a unix terminal to HTML

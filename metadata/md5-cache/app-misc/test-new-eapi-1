@@ -1,0 +1,8 @@
+DEFINED_PHASES=install
+DESCRIPTION=Test ebuild for new EAPI features
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+KEYWORDS=amd64
+LICENSE=GPL-3
+SLOT=0
+_md5_=55dfcca7f7c99851ae8cb50ec4abe603
