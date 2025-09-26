@@ -13,7 +13,7 @@ HOMEPAGE="https://reticulum.network/"
 SRC_URI="https://github.com/markqvist/Reticulum/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/Reticulum-${PV}"
-LICENSE="MIT"
+LICENSE="Reticulum"
 SLOT="0"
 
 KEYWORDS="~amd64 ~arm64"
