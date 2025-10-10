@@ -3,7 +3,6 @@ acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/git-mirror 0: System group: git-mirror
 acct-group/lacme 0: System group: lacme
 acct-group/rnsd 0: System group: rnsd
-acct-group/sandmann-ctrl 0: System group: sandmann-ctrl
 acct-group/zabbix-proxy 0: System group: zabbix-proxy
 acct-user/doborg 0: System user: doborg
 acct-user/frankenbot 0: System user: frankenbot
