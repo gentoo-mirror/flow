@@ -74,5 +74,4 @@ sys-power/sandmann-bin 0.9-r1 9999: An autosuspend and wakeup daemon
 virtual/iman-deps 0.1: Virtual for the dependencies required by the InvasIC Manager (iman)
 virtual/octopos-build-deps 0.3: Virtual for the dependencies required by OctoPOS
 x11-libs/gtkdatabox 1.0.0: Gtk+ Widgets for live display of large amounts of fluctuating numerical data
-x11-misc/xsnow 3.1.7: let it snow on your desktop and windows
 x11-wm/gnome-flashback-herbstluftwm-session 0.3: Gnome Herbstluftwm session (via Gnome Flashback)
