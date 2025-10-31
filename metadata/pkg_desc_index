@@ -50,6 +50,7 @@ dev-tex/acmart 1.69 9999: ACM consolidated LaTeX styles
 dev-util/FlameGraph 1.0 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/rtags 2.40 9999: A client/server indexer for C/C++/ObjC[++] with integration for Emacs
 dev-util/trace-cmd 3.3.1-r1: User-space front-end for Ftrace
+games-action/supermariowar 2024: Fan-made multiplayer Super Mario Bros. style deathmatch game
 media-gfx/gpick 0.4_pre20220830: Advanced color picker written in C++ using GTK+ toolkit
 net-analyzer/crowdsec 1.6.0: An open-source and participative protection against malicious IPs
 net-analyzer/gsa 21.4.4: Greenbone Security Assistant
